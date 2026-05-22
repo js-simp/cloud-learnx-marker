@@ -1,0 +1,7 @@
+# Ignore the Python virtual environment
+venv/
+__pycache__/
+*.pyc
+
+# Ignore secret environment variable files
+.env
