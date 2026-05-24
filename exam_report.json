@@ -1,0 +1,339 @@
+{
+  "paper_title": "Pearson Edexcel International GCSE In Mathematics A (4MA1) Paper 1H",
+  "prompt_version": "v2.2",
+  "summary": {
+    "total_marks_awarded": 22,
+    "total_marks_possible": 30,
+    "percentage": 73.3,
+    "questions_flagged": 0
+  },
+  "questions": [
+    {
+      "eval_store_id": 10,
+      "question_pdf": "isolated_questions/question_2.pdf",
+      "transcription": {
+        "question_number": 2,
+        "raw_transcription": "0.20 + x + 2x + 0.26 = 1\n\n3x + 0.46 = 1\n3x = 1 - 0.46\n[CROSSED OUT: 3]x/[CROSSED OUT: 3] = 0.54/3\nx = 0.18\n\n\\therefore Car = 2x\n= 2 \\times 0.18 = 0.36\n\n\\therefore No of students travelling } = [CROSSED OUT: 0.4] 0.36 \\times 450\nby car\n= 162\n\n[FINAL ANSWER: 162]",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 0.95
+      },
+      "grading": {
+        "question_number": 2,
+        "total_score": 4,
+        "max_score": 4,
+        "topic_classification": "Probability",
+        "sub_parts": [
+          {
+            "part_identifier": "a",
+            "marks_awarded": 4,
+            "marks_possible": 4,
+            "method_marks_earned": 3,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student has shown excellent, clear, and structured working. They correctly set up the algebraic equation representing the sum of probabilities equal to 1, solved for x, calculated the probability of travelling by car (2x = 0.36), and multiplied this by the total number of students (450) to arrive at the correct final answer of 162. All three method marks and the accuracy mark are fully deserved.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Excellent work! Your algebraic setup was clear, logical, and easy to follow. You correctly identified that the sum of probabilities is 1, solved for x, found the probability for the car (2x), and then calculated the expected number of students. Keep up this high standard of showing your working step-by-step.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 11,
+      "question_pdf": "isolated_questions/question_3.pdf",
+      "transcription": {
+        "question_number": 3,
+        "raw_transcription": "Left ladder:\n2 | 72\n2 | 36\n2 | 18\n3 | 9\n3 | 3\n  | 1\n\nRight ladder:\n2 | 108\n2 | 54\n3 | 27\n3 | 9\n3 | 3\n  | 1\n\n72 = 2 x 2 x 2 x 3 x 3\n108 = 2 x 2 x 3 x 3 x 3\n[Note: Loops are drawn connecting the common prime factors: the first 2s, the second 2s, the first 3s, and the second 3s]\n\nHCF = 2^2 x 3^2\n    = 36\n\n[FINAL ANSWER: 36]",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 3,
+        "total_score": 2,
+        "max_score": 2,
+        "topic_classification": "Number (HCF and LCM)",
+        "sub_parts": [
+          {
+            "part_identifier": "a",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student has shown an excellent, clear, and fully correct method using division ladders to find the prime factorizations of 72 and 108. They correctly identified the prime factors as 2^3 * 3^2 and 2^2 * 3^3 respectively. By pairing the common prime factors (two 2s and two 3s), they correctly calculated the Highest Common Factor (HCF) as 2^2 * 3^2 = 36. Full marks awarded.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Excellent work! Your method of using division ladders to find the prime factors of both numbers is clear, systematic, and free of errors. Pairing the common prime factors to find the HCF was also executed perfectly. To build on this strength, you can practice finding the Least Common Multiple (LCM) using the same prime factorization or Venn diagram method.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 12,
+      "question_pdf": "isolated_questions/question_4.pdf",
+      "transcription": {
+        "question_number": 4,
+        "raw_transcription": "Top right:\n\\frac{100 - 15}{100}\n= 0.85\n\nDiagram:\n[DIAGRAM: A function machine diagram with two boxes. Left box is empty, labeled \"km driven in March\". Right box contains \"943\", labeled \"km driven in April\". An arrow pointing from right to left is labeled \"\u00f7 0.85\". An arrow pointing from left to right is labeled \"X 0.85\".]\n\nWorking:\n\u2234 No. of kilo m driven in March } = [CROSSED OUT: \\frac{943}{0.85}] 943 \u00d7 0.85\n= 801.5|5\n= 801.6\n\n[FINAL ANSWER: 801.6]",
+        "illegible_regions": [],
+        "contains_diagrams": true,
+        "transcription_confidence": 0.95
+      },
+      "grading": {
+        "question_number": 4,
+        "total_score": 0,
+        "max_score": 3,
+        "topic_classification": "Reverse Percentages",
+        "sub_parts": [
+          {
+            "part_identifier": "a",
+            "marks_awarded": 0,
+            "marks_possible": 3,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "Reverse percentage calculated by applying a percentage decrease to the new value rather than dividing by the multiplier for a percentage increase.",
+            "detailed_critique": "The student attempted to find the original value by subtracting 15% from 100% (getting 85% or 0.85) and then multiplying the new value (943) by 0.85. This is a classic reverse percentage error. To find the original value after a 15% increase, they should have divided by 1.15 (since 100% + 15% = 115% = 1.15). No marks can be awarded as the method is incorrect from the start.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "When a value has been increased by a percentage (e.g., 15% more), the new value represents 115% of the original value, not 100%. To find the original value, you must divide by the multiplier (1.15), rather than finding 85% of the new value. Remember: you cannot undo a percentage increase of 15% by simply decreasing the new number by 15%. Try writing out the equation: Original \u00d7 1.15 = 943, and then solve for the Original by dividing both sides by 1.15.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 13,
+      "question_pdf": "isolated_questions/question_5.pdf",
+      "transcription": {
+        "question_number": 5,
+        "raw_transcription": "Total Interior \u2220 = 180(n-2) = 180(5-2) = 540 \u2234 Individual interior \u2220 = 540/5 = 108 \u2234 AED = 108 96 + 108 + FED = 360 (\u2220s around a point) 204 + FED = 360 FED = 360 - [CROSSED OUT: 156] 204 = 156 [FINAL ANSWER: 156]",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 0.98
+      },
+      "grading": {
+        "question_number": 5,
+        "total_score": 4,
+        "max_score": 4,
+        "topic_classification": "Geometry - Angles in Polygons",
+        "sub_parts": [
+          {
+            "part_identifier": "a",
+            "marks_awarded": 4,
+            "marks_possible": 4,
+            "method_marks_earned": 3,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly calculated the sum of the interior angles of a pentagon (540 degrees) to earn the first method mark. They then correctly found the size of an individual interior angle (108 degrees) to earn the second method mark. A complete and correct method was shown to find the angle FED using angles around a point (360 - (96 + 108)), earning the third method mark. The final answer of 156 is correct, earning the accuracy mark.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Excellent work! You have shown all your working clearly, including the formulas used and the geometric reasons (angles around a point). Keep up this high standard of presenting your mathematical arguments.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 14,
+      "question_pdf": "isolated_questions/question_6.pdf",
+      "transcription": {
+        "question_number": 6,
+        "raw_transcription": "6 (a) Expand and simplify (m + 5)(m - 8)\n\nm(m - 8) + 5(m - 8)\nm^2 - 8m + 5m - 40\nm^2 - 3m - 40\n\n[FINAL ANSWER: m^2 - 3m - 40]\n\n(b) Solve 3n - 4 = (5n + 6) / 3\nShow clear algebraic working.\n\n3 * 3n - 4 = (5n + 6) / [CROSSED OUT: 3] * [CROSSED OUT: 3]\n\n5n + 6 = 3(3n - 4)\n[DIAGRAM: arrows showing expansion from 3 to 3n and from 3 to -4]\n5n + 6 = 9n - 12\n\n9n - 5n = 12 + 6\n\n[CROSSED OUT: 4]n / [CROSSED OUT: 4] = 18 / 4\n\nn = 4.5\n\n[FINAL ANSWER: n = 4.5]",
+        "illegible_regions": [],
+        "contains_diagrams": true,
+        "transcription_confidence": 0.95
+      },
+      "grading": {
+        "question_number": 6,
+        "total_score": 5,
+        "max_score": 5,
+        "topic_classification": "Algebraic Manipulation and Linear Equations",
+        "sub_parts": [
+          {
+            "part_identifier": "a",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly expanded the brackets to get four terms (m^2 - 8m + 5m - 40) earning the method mark (M1), and then simplified it correctly to m^2 - 3m - 40, earning the accuracy mark (A1).",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "b",
+            "marks_awarded": 3,
+            "marks_possible": 3,
+            "method_marks_earned": 2,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student successfully removed the fraction by multiplying both sides by 3, resulting in 5n + 6 = 9n - 12 (M1). They then correctly rearranged the terms to group like terms on opposite sides, 9n - 5n = 12 + 6 (M1). Finally, they solved for n to get 4.5, which is correct (A1).",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Excellent work! You have demonstrated a clear understanding of expanding quadratic brackets and solving linear equations with fractions. Your working is clear, logical, and easy to follow. Keep up this high standard of algebraic manipulation.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 15,
+      "question_pdf": "isolated_questions/question_7.pdf",
+      "transcription": {
+        "question_number": 7,
+        "raw_transcription": "7 \n& = {23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34}\nA = {even numbers}\nB = {23, 29, 31}\nC = {multiples of 3}\n\nA = {24, 26, 28, 30, 32, 34}\n[CROSSED OUT: B] C = {25, 30, 33}\n\n(a) List the members of the set\n(i) B \u2222 C\n[FINAL ANSWER: {23, 25, 29, 30, 31, 33}]\n\n(ii) A' \u2229 C\n[FINAL ANSWER: {25, 30, 33}]\n\n(b) Is it true that B \u2229 C = \u2205?\nTick (\u2713) one of the boxes below.\nYes [TICKED]\nNo [EMPTY]\n\nGive a reason for your answer.\nThis is because, there is no multiple of 3 in B.",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 0.95
+      },
+      "grading": {
+        "question_number": 7,
+        "total_score": 1,
+        "max_score": 5,
+        "topic_classification": "Sets and Venn Diagrams",
+        "sub_parts": [
+          {
+            "part_identifier": "a(i)",
+            "marks_awarded": 0,
+            "marks_possible": 1,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "Incorrect identification of set elements (multiples of 3)",
+            "detailed_critique": "The student incorrectly defined set C as {25, 30, 33} instead of {24, 27, 30, 33}. Consequently, their union B \u222a C was incorrect, resulting in {23, 25, 29, 30, 31, 33} instead of the correct set {23, 24, 27, 29, 30, 31, 33}.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "a(ii)",
+            "marks_awarded": 0,
+            "marks_possible": 1,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "Incorrect identification of set elements (multiples of 3)",
+            "detailed_critique": "Due to the incorrect definition of set C as {25, 30, 33}, the student's intersection A' \u2229 C was incorrect, resulting in {25, 30, 33} instead of the correct set {27, 33}.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "b",
+            "marks_awarded": 1,
+            "marks_possible": 1,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly ticked 'Yes' and provided a valid reason ('there is no multiple of 3 in B') which is explicitly accepted in the mark scheme.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "c",
+            "marks_awarded": 0,
+            "marks_possible": 2,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": null,
+            "detailed_critique": "This sub-part was not attempted by the student.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Focus on accurately listing elements of a set defined by a rule (such as 'multiples of 3' or 'even numbers') within a specified universal set before performing set operations like union (\u222a) and intersection (\u2229). Double-check basic arithmetic definitions (e.g., 25 is not a multiple of 3) to avoid carrying errors through the rest of the question.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 16,
+      "question_pdf": "isolated_questions/question_9.pdf",
+      "transcription": {
+        "question_number": 9,
+        "raw_transcription": "(a) [FINAL ANSWER: 35000000]\n\n(b)\nArgentina -> [CROSSED OUT: 820000]\n820,000\n\u2234 Japan = 6,780,000 + [CROSSED OUT: 8,200,000]\n= 7600000\n= 7.6 * 10^6\n\n[FINAL ANSWER: 7.6 * 10^6]",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 0.95
+      },
+      "grading": {
+        "question_number": 9,
+        "total_score": 3,
+        "max_score": 3,
+        "topic_classification": "Standard Form and Number Operations",
+        "sub_parts": [
+          {
+            "part_identifier": "a",
+            "marks_awarded": 1,
+            "marks_possible": 1,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly wrote the number 35 000 000, earning the B1 mark.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "b",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly converted 8.2 * 10^5 to 820,000 and added it to 6,780,000 to get 7,600,000, earning the M1 mark. They then correctly converted this to standard form (7.6 * 10^6), earning the A1 mark.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Excellent work! You have demonstrated a clear understanding of converting numbers to and from standard form and performing addition with large numbers. Keep up the precise working out, as showing intermediate steps like '7,600,000' ensures you get full method marks even if a minor calculation error occurs.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 17,
+      "question_pdf": "isolated_questions/question_11.pdf",
+      "transcription": {
+        "question_number": 11,
+        "raw_transcription": "[DIAGRAM: Annotations on the printed diagram: '3\\sqrt{5}' written next to MC, '6' with a bracket under AM, '6' with a bracket under MB]\n\nM [CROSSED OUT: a] bisects AB\nAM = MB = 12 / 2 = 6\n\nPythagoras theorem,\nCB^2 = CM^2 + MB^2\nCM = \\sqrt{9^2 - 6^2} = 3\\sqrt{5}\n\n\\therefore perimeter of wood = 12 + 9 + 3\\sqrt{5} + 9\n= 30 + 3\\sqrt{5} m\n\n\\therefore total cost = 21.50 \\times 30 + 3\\sqrt{5}\n= 789.22/6\n= \u2013789.23\n\n[FINAL ANSWER: 789.23]",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 0.95
+      },
+      "grading": {
+        "question_number": 11,
+        "total_score": 3,
+        "max_score": 4,
+        "topic_classification": "Geometry and Trigonometry",
+        "sub_parts": [
+          {
+            "part_identifier": "a",
+            "marks_awarded": 3,
+            "marks_possible": 4,
+            "method_marks_earned": 3,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": null,
+            "detailed_critique": "The student successfully calculated the length of CM using Pythagoras' theorem as 3\u22155 (approx 6.71), earning the first two method marks. They then correctly set up the perimeter calculation (30 + 3\u22155) and multiplied by 21.50 to find the total cost. However, because they used the exact value (6.71...) instead of the rounded value of '7' specified in the main mark scheme path (which leads to 795.50), they do not qualify for the standard A1 mark. Instead, they qualify for the Special Case 'SC B3' for obtaining an answer that is 'awrt 789' using the more accurate 6.7... value. Thus, 3 marks are awarded.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Your method was excellent and actually more accurate than the standard mark scheme path! You correctly used Pythagoras' theorem to find the height of the triangle and calculated the exact perimeter. However, the question's mark scheme expected the rounded value of '7' to be used for the height in the final calculation to get 795.50. Always pay close attention to intermediate rounding instructions if specified, but continue to maintain high accuracy in your calculations as you did here.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    }
+  ]
+}
