@@ -313,7 +313,7 @@ def submit_teacher_review(
 # SECTION 3 — RETRY HELPER  (replaces hard sleep)
 # ============================================================================
 
-def call_with_retry(fn, retries: int = 4, base_delay: float = 15.0):
+def call_with_retry(fn, retries: int = 6, base_delay: float = 30.0):
     """
     Exponential backoff retry wrapper.
     For 429s, honours the retryDelay suggested by the API if present.
@@ -323,7 +323,7 @@ def call_with_retry(fn, retries: int = 4, base_delay: float = 15.0):
             return fn()
         except Exception as e:
             err_str = str(e).lower()
-            is_rate_limit   = "429" in err_str or "quota" in err_str or "resource_exhausted" in err_str
+            is_rate_limit   = "429" in err_str or "quota" in err_str or "resource_exhausted" in err_str or "overloaded" in err_str
             is_server_error = "500" in err_str or "503" in err_str or "unavailable" in err_str
 
             if attempt == retries - 1:
@@ -382,13 +382,13 @@ def parse_marking_scheme(
 
         def _call():
             return client.models.generate_content(
-                model="gemini-3.5-flash",
+                model="gemini-2.5-flash",
                 contents=[scheme_blob, prompt],
                 config=types.GenerateContentConfig(
                     response_mime_type="application/json",
                     response_schema=ParsedMarkScheme,
                     temperature=0.0,
-                    max_output_tokens=65536,
+                    max_output_tokens=16384,
                 ),
             )
         return call_with_retry(_call)
@@ -411,13 +411,13 @@ def parse_marking_scheme(
 
     def _call_full():
         return client.models.generate_content(
-            model="gemini-3.5-flash",
+            model="gemini-2.5-flash",
             contents=[scheme_blob, prompt_full],
             config=types.GenerateContentConfig(
                 response_mime_type="application/json",
                 response_schema=ParsedMarkScheme,
                 temperature=0.0,
-                max_output_tokens=65536,
+                max_output_tokens=16384,
             ),
         )
 
@@ -533,18 +533,92 @@ def execute_ai_layout_segmentation(
 
     def _call():
         return client.models.generate_content(
-            model="gemini-3.5-flash",
+            model="gemini-2.5-flash",
             contents=[*uploaded, prompt],
             config=types.GenerateContentConfig(
                 response_mime_type="application/json",
                 response_schema=ExamPaperStructure,
                 temperature=0.1,
-                max_output_tokens=2048,
+                max_output_tokens=8192,
             ),
         )
 
-    response  = call_with_retry(_call)
-    blueprint = ExamPaperStructure.model_validate_json(response.text)
+    response = call_with_retry(_call)
+
+    finish_reason = (
+        getattr(response.candidates[0], "finish_reason", "unknown")
+        if response.candidates else "unknown"
+    )
+    truncated = finish_reason not in ("STOP", "stop", 1)
+
+    if not truncated:
+        try:
+            blueprint = ExamPaperStructure.model_validate_json(response.text)
+        except Exception as e:
+            print(f"  ⚠️  Layout JSON invalid ({e}) — trying chunked fallback...")
+            truncated = True
+
+    if truncated:
+        print(f"  ⚠️  Layout truncated — processing pages in chunks of 10...")
+        all_mappings = []
+        paper_title  = "Unknown Paper"
+        chunk_size   = 10
+
+        for chunk_start in range(0, len(uploaded), chunk_size):
+            chunk_end    = min(chunk_start + chunk_size, len(uploaded))
+            chunk_blobs  = uploaded[chunk_start:chunk_end]
+            page_offset  = chunk_start  # pages in this chunk are offset by this
+
+            print(f"    Processing pages {chunk_start+1}–{chunk_end}...")
+
+            chunk_prompt = f"""
+            Analyze these scanned exam booklet pages (they are pages {chunk_start+1} to {chunk_end} of the full booklet).
+            For every distinct main question number visible, record:
+            - The integer question number
+            - Every 1-based page number (relative to the FULL booklet, so add {chunk_start} to any local page numbers)
+            Rules:
+            - Ignore sub-parts (a, b, c) — only main question numbers.
+            - If a page has two questions, list it under both.
+            - Only pages with student handwriting, not printed question pages.
+            """
+
+            def _chunk_call(blobs=chunk_blobs, p=chunk_prompt):
+                return client.models.generate_content(
+                    model="gemini-2.5-flash",
+                    contents=[*blobs, p],
+                    config=types.GenerateContentConfig(
+                        response_mime_type="application/json",
+                        response_schema=ExamPaperStructure,
+                        temperature=0.1,
+                        max_output_tokens=4096,
+                    ),
+                )
+
+            try:
+                chunk_response = call_with_retry(_chunk_call)
+                chunk_structure = ExamPaperStructure.model_validate_json(chunk_response.text)
+                all_mappings.extend(chunk_structure.mappings)
+                paper_title = chunk_structure.paper_title or paper_title
+            except Exception as e:
+                print(f"    ⚠️  Chunk pages {chunk_start+1}–{chunk_end} failed: {e} — skipping.")
+
+        if not all_mappings:
+            raise RuntimeError("Layout segmentation failed completely — no question mappings found.")
+
+        # Merge duplicate question numbers (same Q appearing in multiple chunks)
+        merged = {}
+        for m in all_mappings:
+            if m.question_number in merged:
+                merged[m.question_number].pages = sorted(
+                    set(merged[m.question_number].pages + m.pages)
+                )
+            else:
+                merged[m.question_number] = m
+
+        blueprint = ExamPaperStructure(
+            paper_title=paper_title,
+            mappings=sorted(merged.values(), key=lambda x: x.question_number),
+        )
 
     # cleanup temp files
     for p in temp_files:
@@ -632,25 +706,23 @@ def transcribe_question(
 
     prompt = f"""
     You are a specialist in reading handwritten student mathematics exam scripts.
-    
-    Your ONLY task right now is TRANSCRIPTION — do NOT grade or evaluate.
+    Your task is TRANSCRIPTION. While you should not grade the script, you must use 
+    mathematical logic and context to resolve ambiguous handwriting.
+
+    Rules for Ambiguous Characters:
+    - If a character is poorly formed (e.g., looks like a '?' or a random symbol), do not 
+      just transcribe it literally if surrounding context makes its identity clear.
+    - Analyze the equation: If a student writes "2x + [unclear] = 7" and the next line is "2x = 4", 
+      deduce that the unclear character is a 3. 
+    - Act like a human examiner: cross-reference the final answer box and previous steps to resolve messy digits.
     
     Transcribe ALL handwritten content on these page(s) for Question {question_number}:
-    - Every line of working, even if crossed out (note it as "[CROSSED OUT: ...]")
-    - Every numerical calculation and algebraic step
-    - Any diagrams (describe them as "[DIAGRAM: ...]")
-    - The final answer, clearly marked as "[FINAL ANSWER: ...]"
-    - Any margin notes or annotations
-    
-    For regions you cannot read clearly, write "[ILLEGIBLE: description of region]"
-    and list those regions in illegible_regions.
-    
-    Be precise and literal. Your transcription will be used by another system to grade.
+    ...
     """
 
     def _call():
         return client.models.generate_content(
-            model="gemini-3.5-flash",
+            model="gemini-2.5-flash",
             contents=[student_blob, prompt],
             config=types.GenerateContentConfig(
                 response_mime_type="application/json",
@@ -662,12 +734,65 @@ def transcribe_question(
 
     response = call_with_retry(_call)
 
-    try:
-        client.files.delete(name=student_blob.name)
-    except Exception:
-        pass
+    # Check finish reason — truncated JSON fails Pydantic validation
+    finish_reason = (
+        getattr(response.candidates[0], "finish_reason", "unknown")
+        if response.candidates else "unknown"
+    )
+    truncated = finish_reason not in ("STOP", "stop", 1)
 
-    return TranscriptionResult.model_validate_json(response.text)
+    if not truncated:
+        try:
+            result = TranscriptionResult.model_validate_json(response.text)
+            try:
+                client.files.delete(name=student_blob.name)
+            except Exception:
+                pass
+            return result
+        except Exception as e:
+            print(f"      ⚠️  Structured transcription failed ({e}) — trying plain text fallback...")
+            truncated = True  # fall through to fallback
+
+    if truncated:
+        print(f"      ⚠️  Transcription truncated or invalid — using plain text fallback...")
+
+        fallback_prompt = f"""
+        Transcribe the handwritten mathematics working for Question {question_number}.
+        
+        Rules:
+        - Write each step on its own line
+        - Use plain text for maths, e.g. "x^2 + 3x - 2 = 0"
+        - Mark crossed out work as [CROSSED OUT: ...]
+        - Mark the final answer as FINAL ANSWER: ...
+        - If something is unreadable write [ILLEGIBLE]
+        - Be concise — do not explain or interpret, just transcribe
+        - Maximum 400 words
+        """
+
+        def _fallback():
+            return client.models.generate_content(
+                model="gemini-2.5-flash",
+                contents=[student_blob, fallback_prompt],
+                config=types.GenerateContentConfig(
+                    temperature=0.0,
+                    max_output_tokens=2048,
+                ),
+            )
+
+        fallback_response = call_with_retry(_fallback)
+
+        try:
+            client.files.delete(name=student_blob.name)
+        except Exception:
+            pass
+
+        return TranscriptionResult(
+            question_number=question_number,
+            raw_transcription=fallback_response.text.strip(),
+            illegible_regions=["⚠️ Fallback mode — structured transcription was truncated"],
+            contains_diagrams=False,
+            transcription_confidence=0.75,
+        )
 
 
 # ============================================================================
@@ -701,9 +826,11 @@ Correct grading: {json.dumps(ex['correction'] or ex['grading'], indent=2)}
 
     system_instruction = """
     You are a Chief Assistant Principal Examiner for International GCSE Mathematics.
-    You apply marking schemes with precision, fairness, and consistency.
-    You are objective and evidence-based — you only award marks for work that is
-    explicitly shown, never for correct answers with no working.
+    CRITICAL MANDATE: You must grade STRICTLY against the provided OFFICIAL MARK SCHEME. 
+    Do not invent your own criteria. If a student's final answer matches an acceptable alternative 
+    in the rubric and their working follows a logically valid path towards it, you MUST award the marks. 
+    Never penalize a student for using an alternative mathematical layout if it is mathematically correct 
+    and achieves a rubric-approved result.
     """
 
     rubric_text = json.dumps(question_rubric.model_dump(), indent=2)
@@ -734,21 +861,81 @@ Correct grading: {json.dumps(ex['correction'] or ex['grading'], indent=2)}
 
     def _call():
         return client.models.generate_content(
-            model="gemini-3.5-flash",
+            model="gemini-2.5-flash",
             contents=[prompt],
             config=types.GenerateContentConfig(
                 system_instruction=system_instruction,
                 response_mime_type="application/json",
                 response_schema=AcademicEvaluationMatrix,
                 temperature=0.0,
-                max_output_tokens=4096,
+                max_output_tokens=8192,
             ),
         )
 
     response = call_with_retry(_call)
-    grading  = AcademicEvaluationMatrix.model_validate_json(response.text)
 
-    # Auto-flag if confidence is below threshold regardless of model's own flag
+    finish_reason = (
+        getattr(response.candidates[0], "finish_reason", "unknown")
+        if response.candidates else "unknown"
+    )
+    truncated = finish_reason not in ("STOP", "stop", 1)
+
+    if not truncated:
+        try:
+            grading = AcademicEvaluationMatrix.model_validate_json(response.text)
+        except Exception as e:
+            print(f"      ⚠️  Grading JSON invalid ({e}) — trying simplified fallback...")
+            truncated = True
+
+    if truncated:
+        print(f"      ⚠️  Grading truncated or invalid — using simplified fallback...")
+
+        fallback_prompt = f"""
+        Grade Question {question_rubric.question_number} using this rubric:
+        {json.dumps(question_rubric.model_dump())}
+
+        Student's answer:
+        {transcription.raw_transcription[:1500]}
+        
+        Keep text fields extremely short (under 50 chars). 
+        Do not use special characters.
+        """
+
+        def _fallback():
+            return client.models.generate_content(
+                model="gemini-2.5-flash",
+                contents=[fallback_prompt],
+                config=types.GenerateContentConfig(
+                    system_instruction=system_instruction,
+                    response_mime_type="application/json",
+                    response_schema=AcademicEvaluationMatrix,
+                    temperature=0.0,
+                    max_output_tokens=6000,
+                ),
+            )
+
+        fallback_response = call_with_retry(_fallback)
+        
+        try:
+            grading = AcademicEvaluationMatrix.model_validate_json(fallback_response.text)
+            grading.flag_for_human_review = True
+            grading.review_reason = "⚠️ Fallback grading used — verify manually."
+        except Exception as e:
+            print(f"      🚨 Critical Fallback Failure ({e}) — injecting blank review matrix.")
+            # Hardcoded safety net prevents the entire script from crashing
+            grading = AcademicEvaluationMatrix(
+                question_number=question_rubric.question_number,
+                total_score=0,
+                max_score=question_rubric.total_marks,
+                topic_classification="Unknown",
+                sub_parts=[],
+                pedagogical_remedial_strategy="AI grading failed due to complexity. Manual review required.",
+                overall_confidence=0.0,
+                flag_for_human_review=True,
+                review_reason="CRITICAL: All structured parsing failed due to token limits."
+            )
+
+    # Auto-flag if confidence is below threshold
     if grading.overall_confidence < LOW_CONF_THRESHOLD and not grading.flag_for_human_review:
         grading.flag_for_human_review = True
         grading.review_reason = (
@@ -859,7 +1046,23 @@ def run_pipeline(
     client = genai.Client()
 
     # ── Stage 0: Parse marking scheme ONCE into structured JSON ──────────
-    parsed_scheme, rubric_index = parse_marking_scheme(scheme_pdf, client)
+    # ── Stage 0: Parse marking scheme (cached) ───────────────────────────
+    scheme_cache_path = scheme_pdf.replace(".pdf", "_parsed.json")
+
+    if os.path.exists(scheme_cache_path):
+        print(f"\n📑 STAGE 0 — Mark Scheme Pre-parsing")
+        print(f"  ✅ Cache found — loading from {scheme_cache_path} (delete to re-parse)")
+        with open(scheme_cache_path) as f:
+            parsed_scheme = ParsedMarkScheme.model_validate_json(f.read())
+        rubric_index = {q.question_number: q for q in parsed_scheme.questions}
+        print(f"     {len(parsed_scheme.questions)} question rubrics loaded.")
+    else:
+        parsed_scheme, rubric_index = parse_marking_scheme(scheme_pdf, client)
+        # Save cache next to the scheme PDF
+        with open(scheme_cache_path, "w") as f:
+            f.write(parsed_scheme.model_dump_json(indent=2))
+        print(f"  💾 Cached to {scheme_cache_path}")
+
     paper_title = paper_title or parsed_scheme.paper_title
 
     # ── Stage 1: Layout segmentation ─────────────────────────────────────
@@ -915,6 +1118,8 @@ def run_pipeline(
                 paper_title, q_num, q_path, transcription, grading
             )
             print(f"      Saved to eval store (ID: {eval_id})")
+
+            time.sleep(5)
 
             all_results.append({
                 "eval_store_id":  eval_id,

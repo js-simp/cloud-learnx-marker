@@ -1,0 +1,485 @@
+{
+  "paper_title": "Pearson Edexcel International GCSE In Mathematics A (4MA1) Paper 1H",
+  "prompt_version": "v2.2",
+  "summary": {
+    "total_marks_awarded": 31,
+    "total_marks_possible": 42,
+    "percentage": 73.8,
+    "questions_flagged": 0
+  },
+  "questions": [
+    {
+      "eval_store_id": 1,
+      "question_pdf": "isolated_questions/question_1.pdf",
+      "transcription": {
+        "question_number": 1,
+        "raw_transcription": "1 Here are the first four terms of an arithmetic sequence.\n1 4 7 10 n\n(a) Find an expression, in terms of n, for the nth term of this sequence.\nTn = a r (n-1)d\n[CROSSED OUT: Tn = 1 +]\n[CROSSED OUT: T5 =] Tn = 1 + (n-1)3\n= 1 + 3n - 3\n= 3n - 2\nT5 = 3 x 5 + 2\n= 17\n[FINAL ANSWER: 17]\n\nThe nth term of a different arithmetic sequence is 5n + 17\n(b) Find the 12th term of this sequence.\nT12 = 5 x 12 + 17\n= 60 + 17\n= 77\n[FINAL ANSWER: 77]",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 0.95
+      },
+      "grading": {
+        "question_number": 1,
+        "total_score": 2,
+        "max_score": 3,
+        "topic_classification": "Arithmetic Sequences",
+        "sub_parts": [
+          {
+            "part_identifier": "a",
+            "marks_awarded": 1,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "Confusing the general nth term expression with a specific term value, and sign error in evaluation.",
+            "detailed_critique": "The student correctly derived the expression '3n - 2' in their working, which earns the M1 mark. However, they then proceeded to calculate an unnecessary 5th term (making an arithmetic error by calculating 3 * 5 + 2 instead of 3 * 5 - 2) and wrote '17' as their final answer. Since the final answer is a constant rather than an expression in terms of n, the A1 mark cannot be awarded.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "b",
+            "marks_awarded": 1,
+            "marks_possible": 1,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly substituted n = 12 into the given formula 5n + 17, obtaining 5 * 12 + 17 = 77. This is fully correct and earns the B1 mark.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "You clearly understand how to find the nth term of an arithmetic sequence using the formula a + (n-1)d, as you correctly simplified your working to 3n - 2. However, you lost the final accuracy mark because you went on to calculate a specific term (T5 = 17) and wrote that as your final answer. When a question asks for 'an expression in terms of n', your final answer must contain the variable n. Also, be careful with your signs: when evaluating 3n - 2 for n = 5, you should subtract 2 instead of adding it.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 2,
+      "question_pdf": "isolated_questions/question_2.pdf",
+      "transcription": {
+        "question_number": 2,
+        "raw_transcription": "0.20 + x + 2x + 0.26 = 1\n\n3x + 0.46 = 1\n3x = 1 - 0.46\n[CROSSED OUT: 3]x/[CROSSED OUT: 3] = 0.54/3\nx = 0.18\n\n\\therefore Car = 2x\n= 2 \\times 0.18 = 0.36\n\n\\therefore No of students travelling } = [CROSSED OUT: 0.4] 0.36 \\times 450\nby car\n= 162\n\n[FINAL ANSWER: 162]",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 0.95
+      },
+      "grading": {
+        "question_number": 2,
+        "total_score": 4,
+        "max_score": 4,
+        "topic_classification": "Probability and Expected Value",
+        "sub_parts": [
+          {
+            "part_identifier": "a",
+            "marks_awarded": 4,
+            "marks_possible": 4,
+            "method_marks_earned": 3,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student has shown excellent, clear, and structured working. They correctly set up the equation 0.20 + x + 2x + 0.26 = 1 to find the value of x, earning the first method mark (M1). They then correctly solved for x = 0.18 and found the probability of travelling by car to be 2x = 0.36, earning the second method mark (M1). Finally, they multiplied this probability by the total number of students (0.36 * 450), earning the third method mark (M1), and arrived at the correct final answer of 162, earning the accuracy mark (A1).",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Excellent work! Your algebraic setup was clear, logical, and easy to follow. You correctly identified that the sum of probabilities must equal 1, solved for the unknown variable, and used it to calculate the expected number of students. Keep up this high standard of showing all intermediate steps.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 3,
+      "question_pdf": "isolated_questions/question_3.pdf",
+      "transcription": {
+        "question_number": 3,
+        "raw_transcription": "Left ladder:\n2 | 72\n2 | 36\n2 | 18\n3 | 9\n3 | 3\n  | 1\n\nRight ladder:\n2 | 108\n2 | 54\n3 | 27\n3 | 9\n3 | 3\n  | 1\n\n72 = 2 x 2 x 2 x 3 x 3\n108 = 2 x 2 x 3 x 3 x 3\n[Note: Loops are drawn connecting the common prime factors: the first 2s, the second 2s, the first 3s, and the second 3s]\n\nHCF = 2^2 x 3^2\n    = 36\n\n[FINAL ANSWER: 36]",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 3,
+        "total_score": 2,
+        "max_score": 2,
+        "topic_classification": "Highest Common Factor (HCF)",
+        "sub_parts": [
+          {
+            "part_identifier": "a",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student has correctly used ladder diagrams to find the prime factorization of both 72 and 108. They correctly identified the prime factors as 2 * 2 * 2 * 3 * 3 and 2 * 2 * 3 * 3 * 3 respectively. They then correctly identified the common prime factors (two 2s and two 3s) and multiplied them to find the HCF of 36. This fully satisfies the criteria for both the method mark (M1) and the accuracy mark (A1).",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Excellent work! You have shown a clear, systematic method using ladder diagrams to find the prime factors of both numbers, and correctly identified the common factors to calculate the Highest Common Factor (HCF). Keep using this structured approach as it minimizes the chance of arithmetic errors.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 4,
+      "question_pdf": "isolated_questions/question_4.pdf",
+      "transcription": {
+        "question_number": 4,
+        "raw_transcription": "Top right:\n\\frac{100 - 15}{100}\n= 0.85\n\nDiagram:\n[DIAGRAM: A function machine diagram with two boxes. Left box is empty, labeled \"km driven in March\". Right box contains \"943\", labeled \"km driven in April\". An arrow pointing from right to left is labeled \"\u00f7 0.85\". An arrow pointing from left to right is labeled \"X 0.85\".]\n\nWorking:\n\u2234 No. of kilo m driven in March } = [CROSSED OUT: \\frac{943}{0.85}] 943 \u00d7 0.85\n= 801.5|5\n= 801.6\n\n[FINAL ANSWER: 801.6]",
+        "illegible_regions": [],
+        "contains_diagrams": true,
+        "transcription_confidence": 0.95
+      },
+      "grading": {
+        "question_number": 4,
+        "total_score": 0,
+        "max_score": 3,
+        "topic_classification": "Reverse Percentages",
+        "sub_parts": [
+          {
+            "part_identifier": "a",
+            "marks_awarded": 0,
+            "marks_possible": 3,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "Used percentage decrease (100 - 15 = 85%) instead of percentage increase (100 + 15 = 115%), and multiplied by the multiplier instead of dividing to find the original value.",
+            "detailed_critique": "The student incorrectly assumed a 15% decrease from the original value, calculating a multiplier of 0.85 instead of 1.15. Furthermore, although they initially wrote the division 943 / 0.85 (which would be the correct operation if 0.85 were the correct multiplier), they crossed this out and multiplied 943 by 0.85 instead, resulting in an incorrect final answer of 801.6.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "To find the original value after a percentage increase, you must first express the new value as a percentage of the original. Since there was a 15% increase, the new value (943) represents 115% of the original value (March). This gives the multiplier 1.15. To find the original value, you divide the new value by this multiplier: 943 \u00f7 1.15 = 820. Avoid subtracting the percentage from 100% when the problem states an increase, and remember to divide (not multiply) to reverse the change.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 5,
+      "question_pdf": "isolated_questions/question_5.pdf",
+      "transcription": {
+        "question_number": 5,
+        "raw_transcription": "Total Interior \u2220 = 180(n-2) = 180(5-2) = 540 \u2234 Individual interior \u2220 = 540/5 = 108 \u2234 AED = 108 96 + 108 + FED = 360 (\u2220s around a point) 204 + FED = 360 FED = 360 - [CROSSED OUT: 156] 204 = 156 [FINAL ANSWER: 156]",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 0.98
+      },
+      "grading": {
+        "question_number": 5,
+        "total_score": 4,
+        "max_score": 4,
+        "topic_classification": "Geometry - Angles in Polygons",
+        "sub_parts": [
+          {
+            "part_identifier": "a",
+            "marks_awarded": 4,
+            "marks_possible": 4,
+            "method_marks_earned": 3,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student successfully calculated the sum of the interior angles of a pentagon (540 degrees) to earn the first method mark (M1). They then correctly found the size of one interior angle of a regular pentagon (108 degrees) to earn the second method mark (M1). Finally, they used a complete and correct method of subtracting the known angles from 360 degrees (angles around a point) to find the angle FED, earning the third method mark (M1) and the accuracy mark (A1) for the correct final answer of 156.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Excellent work! You have shown all your steps clearly, including the geometric reasons (angles around a point). Keep up this high standard of showing your working, as it ensures you get full marks even if you make a minor arithmetic slip.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 6,
+      "question_pdf": "isolated_questions/question_6.pdf",
+      "transcription": {
+        "question_number": 6,
+        "raw_transcription": "6 (a) Expand and simplify (m + 5)(m - 8)\n\nm(m - 8) + 5(m - 8)\nm^2 - 8m + 5m - 40\nm^2 - 3m - 40\n\n[FINAL ANSWER: m^2 - 3m - 40]\n\n(b) Solve 3n - 4 = (5n + 6) / 3\nShow clear algebraic working.\n\n3 * 3n - 4 = (5n + 6) / [CROSSED OUT: 3] * [CROSSED OUT: 3]\n\n5n + 6 = 3(3n - 4)\n[DIAGRAM: arrows showing expansion from 3 to 3n and from 3 to -4]\n5n + 6 = 9n - 12\n\n9n - 5n = 12 + 6\n\n[CROSSED OUT: 4]n / [CROSSED OUT: 4] = 18 / 4\n\nn = 4.5\n\n[FINAL ANSWER: n = 4.5]",
+        "illegible_regions": [],
+        "contains_diagrams": true,
+        "transcription_confidence": 0.95
+      },
+      "grading": {
+        "question_number": 6,
+        "total_score": 5,
+        "max_score": 5,
+        "topic_classification": "Algebraic Manipulation and Equations",
+        "sub_parts": [
+          {
+            "part_identifier": "a",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly expanded the brackets to get m^2 - 8m + 5m - 40 and simplified it correctly to m^2 - 3m - 40. Both the method mark (M1) and accuracy mark (A1) are awarded.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "b",
+            "marks_awarded": 3,
+            "marks_possible": 3,
+            "method_marks_earned": 2,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student successfully removed the fraction by multiplying both sides by 3, yielding 5n + 6 = 3(3n - 4) and expanding to 5n + 6 = 9n - 12 (M1). They then correctly rearranged the terms to 9n - 5n = 12 + 6 (M1) and solved to find n = 4.5, which is an acceptable alternative form of 9/2 (A1).",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Excellent work! You have demonstrated a clear understanding of expanding quadratic expressions and solving linear equations with fractions. Your working is clear, logical, and easy to follow. Keep up this high standard of algebraic working.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 7,
+      "question_pdf": "isolated_questions/question_7.pdf",
+      "transcription": {
+        "question_number": 7,
+        "raw_transcription": "7 \n& = {23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34}\nA = {even numbers}\nB = {23, 29, 31}\nC = {multiples of 3}\n\nA = {24, 26, 28, 30, 32, 34}\n[CROSSED OUT: B] C = {25, 30, 33}\n\n(a) List the members of the set\n(i) B \u2222 C\n[FINAL ANSWER: {23, 25, 29, 30, 31, 33}]\n\n(ii) A' \u2229 C\n[FINAL ANSWER: {25, 30, 33}]\n\n(b) Is it true that B \u2229 C = \u2205?\nTick (\u2713) one of the boxes below.\nYes [TICKED]\nNo [EMPTY]\n\nGive a reason for your answer.\nThis is because, there is no multiple of 3 in B.",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 0.95
+      },
+      "grading": {
+        "question_number": 7,
+        "total_score": 1,
+        "max_score": 5,
+        "topic_classification": "Set Theory",
+        "sub_parts": [
+          {
+            "part_identifier": "a(i)",
+            "marks_awarded": 0,
+            "marks_possible": 1,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "Incorrectly identified the elements of set C (multiples of 3) as {25, 30, 33} instead of {24, 27, 30, 33}, which led to an incorrect union set.",
+            "detailed_critique": "The student listed {23, 25, 29, 30, 31, 33} instead of the correct union {23, 24, 27, 29, 30, 31, 33}. This error stems from their incorrect definition of set C.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "a(ii)",
+            "marks_awarded": 0,
+            "marks_possible": 1,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "Used their incorrect set C = {25, 30, 33} to find the intersection with A'.",
+            "detailed_critique": "The student listed {25, 30, 33} instead of the correct intersection {27, 33}. This is due to their initial error in listing the elements of set C.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "b",
+            "marks_awarded": 1,
+            "marks_possible": 1,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly ticked 'Yes' and provided a valid reason ('there is no multiple of 3 in B') which matches one of the acceptable alternatives in the mark scheme.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "c",
+            "marks_awarded": 0,
+            "marks_possible": 2,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "No response provided.",
+            "detailed_critique": "The student did not attempt this part of the question.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "The student needs to practice identifying elements of sets defined by properties (such as 'multiples of 3' within a given universal set). They incorrectly identified the multiples of 3 in the universal set as {25, 30, 33} instead of {24, 27, 30, 33} (25 is not a multiple of 3, and they missed 24 and 27). This initial error cascaded into incorrect answers for parts a(i) and a(ii). Reviewing basic arithmetic properties (multiples) and double-checking set elements against the universal set would prevent these errors.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 8,
+      "question_pdf": "isolated_questions/question_9.pdf",
+      "transcription": {
+        "question_number": 9,
+        "raw_transcription": "(a) [FINAL ANSWER: 35000000]\n\n(b)\nArgentina -> [CROSSED OUT: 820000]\n820,000\n\u2234 Japan = 6,780,000 + [CROSSED OUT: 8,200,000]\n= 7600000\n= 7.6 * 10^6\n\n[FINAL ANSWER: 7.6 * 10^6]",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 0.95
+      },
+      "grading": {
+        "question_number": 9,
+        "total_score": 3,
+        "max_score": 3,
+        "topic_classification": "Standard Form and Large Numbers",
+        "sub_parts": [
+          {
+            "part_identifier": "a",
+            "marks_awarded": 1,
+            "marks_possible": 1,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly wrote 35 000 000 as the final answer, which matches the B1 mark criteria.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "b",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly converted 8.2 * 10^5 to 820,000, added it to 6,780,000 to get 7,600,000 (earning the M1 mark), and then correctly converted this sum back into standard form as 7.6 * 10^6 (earning the A1 mark).",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Excellent work! You have demonstrated a clear understanding of converting numbers between standard form and ordinary numbers, and performing addition with them. Keep up the precise working out.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 9,
+      "question_pdf": "isolated_questions/question_10.pdf",
+      "transcription": {
+        "question_number": 10,
+        "raw_transcription": "10 (a) Simplify $(2p)^0$ where $p > 0$\n1\n[FINAL ANSWER: 1]\n\n(b) Find the value of $n$\n$y^n \\times y^{-3} = y^6$\n$n = 9 + -3$\n$= 9 - 3 = 6$\n$n = 6$\n[FINAL ANSWER: 6]\n\n(c) Simplify fully $(5a^4c^2)^3$\n$5^3 a^{4 \\times 3} c^{2 \\times 3}$\n$= 125 a^{12} c^6$\n$125 a^{12} c^6$\n[FINAL ANSWER: 125 a^{12} c^6]",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 10,
+        "total_score": 4,
+        "max_score": 4,
+        "topic_classification": "Algebraic simplification and indices",
+        "sub_parts": [
+          {
+            "part_identifier": "a",
+            "marks_awarded": 1,
+            "marks_possible": 1,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly simplified (2p)^0 to 1, earning the B1 mark.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "b",
+            "marks_awarded": 1,
+            "marks_possible": 1,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly solved for n, showing the working n = 9 - 3 = 6, and correctly stated n = 6, earning the B1 mark.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "c",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 2,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly expanded the expression (5a^4c^2)^3 to 125a^12c^6, showing clear intermediate steps of applying the power of 3 to each component. This earns the full B2 marks.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Excellent work! You have demonstrated a solid understanding of the laws of indices, including the zero index rule, multiplying powers with the same base, and raising a product to a power. To maintain this high standard, continue practicing problems that combine multiple index laws, such as fractional and negative indices within algebraic fractions.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 10,
+      "question_pdf": "isolated_questions/question_11.pdf",
+      "transcription": {
+        "question_number": 11,
+        "raw_transcription": "[DIAGRAM: Annotations on the printed diagram: '3\\sqrt{5}' written next to MC, '6' with a bracket under AM, '6' with a bracket under MB]\n\nM [CROSSED OUT: a] bisects AB\nAM = MB = 12 / 2 = 6\n\nPythagoras theorem,\nCB^2 = CM^2 + MB^2\nCM = \\sqrt{9^2 - 6^2} = 3\\sqrt{5}\n\n\\therefore perimeter of wood = 12 + 9 + 3\\sqrt{5} + 9\n= 30 + 3\\sqrt{5} m\n\n\\therefore total cost = 21.50 \\times 30 + 3\\sqrt{5}\n= 789.22/6\n= \u2013789.23\n\n[FINAL ANSWER: 789.23]",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 0.95
+      },
+      "grading": {
+        "question_number": 11,
+        "total_score": 3,
+        "max_score": 4,
+        "topic_classification": "Geometry and Trigonometry",
+        "sub_parts": [
+          {
+            "part_identifier": "a",
+            "marks_awarded": 3,
+            "marks_possible": 4,
+            "method_marks_earned": 3,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly applied Pythagoras' theorem to find CM = 3\u22155 (approx 6.71), earning the first two method marks (M1, M1). They then correctly set up the calculation for the total cost by finding the perimeter (30 + 3\u22155) and multiplying by 21.50, earning the third method mark (M1). Their final answer of 789.23 is highly accurate. However, the main scheme's A1 mark is reserved for 795.5(0), which assumes CM is rounded to 7. Under the Special Case (SC) rule, the student is awarded 3 marks (B3) for an answer of awrt 789 using the more accurate 6.7...",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Your mathematical working is excellent and actually more precise than the standard mark scheme path! You used the exact value of CM (3\u22155) to calculate the final cost, which is great practice. However, in exams, always check if a previous part of the question asked you to round an intermediate value (like CM) to a specific degree of accuracy, or if the question implies using a rounded value. Carrying over a rounded value is sometimes required to match the exact final answer in the mark scheme.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 11,
+      "question_pdf": "isolated_questions/question_12.pdf",
+      "transcription": {
+        "question_number": 12,
+        "raw_transcription": "12 (a) Factorise fully 6y^2 - 5y - 4\n\n[Scratch work:]\n6y^2 * -4\n= -24y^2\n  / \\\n-8y  +3y\n\n[Working:]\n6y^2 + 3y - 8y - 4\n3y(2y + 1) - 4(2y + 1)\n(2y + 1)(3y - 4)\ny = -1/2 or y = 4/3\n\n[Answer line:]\ny = -1/2 or y = 4/3\n\n(b) Express (2x + 1)/4x + (7 - 5x)/3x as a single fraction in its simplest form.\n\n[Working:]\n(3x * 2x + 1) / (3x * 4x) + (7 - 5x * 4x) / (3x * 4x)\n\n(3x(2x + 1) + 4x(7 - 5x)) / 12x^2\n\n(6x^2 + 3x + 28x - 20x^2) / 12x\n\n(-20x^2 + 6x^2 + 3x + 28x) / 12x\n\n[-14 crossed out with 7 written above] x^[2 crossed out] + 31 [x crossed out] / [12 crossed out with 6 written below] [x crossed out]\n\n[Right side:]\n(-7x^2 + 31) / 6\n\n[Final Answer, double underlined:]\n(-7x^2 + 31) / 6",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 0.98
+      },
+      "grading": {
+        "question_number": 12,
+        "total_score": 3,
+        "max_score": 5,
+        "topic_classification": "Algebraic Fractions and Quadratic Factorisation",
+        "sub_parts": [
+          {
+            "part_identifier": "a",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student successfully factorised the quadratic expression to obtain (2y + 1)(3y - 4), earning both the method mark (M1) and accuracy mark (A1). Although they went on to solve the quadratic equation to find roots (y = -1/2, y = 4/3), the mark scheme explicitly states to ignore further working if solving a quadratic to find roots. Thus, full marks are awarded.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "b",
+            "marks_awarded": 1,
+            "marks_possible": 3,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "Incorrect simplification of algebraic fractions and loss of denominator power.",
+            "detailed_critique": "The student earned the first method mark (M1) for writing a correct single fraction with a common denominator: (3x(2x + 1) + 4x(7 - 5x)) / 12x^2. However, in the next step, they incorrectly changed the denominator from 12x^2 to 12x while keeping the quadratic terms in the numerator, which means they did not earn the second method mark (M1). Furthermore, they made an algebraic error when attempting to simplify (-14x^2 + 31x) / 12x by dividing some terms by 2x but failing to divide the 31 term correctly, leading to an incorrect final answer of (-7x^2 + 31) / 6. Thus, the accuracy mark (A1) is not awarded.",
+            "confidence": 0.95,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "In part (a), you did a great job factorising the quadratic expression! Remember that when a question asks you to 'factorise', you should stop once you have written the expression as a product of brackets. You do not need to solve for y unless the question asks you to 'solve'.\n\nIn part (b), you started off perfectly by finding a common denominator of 12x^2. However, be very careful when writing down subsequent lines; you accidentally changed the denominator from 12x^2 to 12x, which led to errors. Additionally, when simplifying fractions, remember that you can only cancel a factor if it is a common factor of *every* term in both the numerator and the denominator. Since 31 does not have a factor of 2 or x, you cannot divide the other terms by 2x to simplify.",
+        "overall_confidence": 0.98,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    }
+  ]
+}

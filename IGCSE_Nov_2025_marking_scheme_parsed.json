@@ -1,0 +1,1021 @@
+{
+  "paper_title": "International GCSE Maths",
+  "subject": "Mathematics",
+  "questions": [
+    {
+      "question_number": 1,
+      "total_marks": 4,
+      "sub_parts": [
+        {
+          "part_identifier": "calculation of sum of products",
+          "marks": 2,
+          "method_mark_criteria": "for at least 4 correct products added (need not be evaluated) OR (M1 for use of values within interval (including end points) for at least 4 products added or correct midpoints used for at least 4 products and not added)",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "2.5 × 8 + 7.5 × 7 + 12.5 x 3 + 17.5 × 10 + 22.5 × 2",
+            "20 + 52.5 +37.5 + 175 + 45 (= 330)",
+            "[lower bound products are: 0, 35, 30, 150, 40]",
+            "[upper bound products are: 40, 70, 45, 200, 50]"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "division by 30",
+          "marks": 1,
+          "method_mark_criteria": "dep on M1 allow division by their ∑f provided addition or total under column seen",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "\"330\" ÷ 30"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "final answer",
+          "marks": 1,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "Correct answer scores full marks (unless from obvious incorrect working)",
+          "acceptable_alternatives": [
+            "11"
+          ],
+          "common_errors": []
+        }
+      ],
+      "general_notes": "Values in quotation marks must come from a correct method previously seen unless clearly stated otherwise."
+    },
+    {
+      "question_number": 2,
+      "total_marks": 2,
+      "sub_parts": [
+        {
+          "part_identifier": "rounding",
+          "marks": 1,
+          "method_mark_criteria": "for rounding at least 2 of the 3 given numbers to one significant figure",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "Any two from: 2 (or 4)",
+            "60",
+            "9 (or 3)"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "rounded calculation",
+          "marks": 1,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "dep on M1, all figures rounded correctly and 80 given.",
+          "acceptable_alternatives": [
+            "80 with rounded calculation seen",
+            "eg 2^2 x 60 / sqrt(9) = 80 or 4x60 / 3 = 80"
+          ],
+          "common_errors": [
+            "ignore any statements – just mark the rounded calculation"
+          ]
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 3,
+      "total_marks": 2,
+      "sub_parts": [
+        {
+          "part_identifier": "bisector construction",
+          "marks": 2,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "for a correct bisector with suitable arcs shown",
+          "acceptable_alternatives": [
+            "Correct bisector with suitable arcs shown"
+          ],
+          "common_errors": [
+            "(B1 for suitable arcs but no bisector or a bisector without suitable arcs)"
+          ]
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 4,
+      "total_marks": 3,
+      "sub_parts": [
+        {
+          "part_identifier": "values of e, f, g",
+          "marks": 3,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "all three correct",
+          "acceptable_alternatives": [
+            "e=2",
+            "f=6",
+            "g=10"
+          ],
+          "common_errors": [
+            "(B2 for two correct)",
+            "(B1 for one correct)"
+          ]
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 5,
+      "total_marks": 3,
+      "sub_parts": [
+        {
+          "part_identifier": "initial fraction manipulation",
+          "marks": 1,
+          "method_mark_criteria": "for correct improper fractions or fractional part of numbers written correctly over a suitable common denominator",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "26/7 (+) 5/3 or oe",
+            "15a/21a (+) 14a/21a oe"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "further fraction manipulation",
+          "marks": 1,
+          "method_mark_criteria": "for correct fractions with a common denominator with addition sign present or for working with mixed numbers to the stage shown",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "eg 78/21 + 35/21 or 26x3/21 + 5x7/21 or 26x3+5x7 / 21 or 78a/21a + 35a/21a or 3 15/21 + 1 14/21 = 4 29/21 oe or 4 + 15/21 + 14/21 = 4 + 1 8/21 oe"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "final answer",
+          "marks": 1,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "Dep on M2 for a correct answer from fully correct working",
+          "acceptable_alternatives": [
+            "A fully correct solution shown",
+            "eg 78/21 + 35/21 = 113/21 = 5 8/21 or 3 15/21 + 1 14/21 = 4 29/21 = 5 8/21",
+            "If common denominator is not 21 then cancelling must be shown",
+            "eg 156/42 + 70/42 = 226/42 = 5 16/42 = 5 8/21 oe or 156/42 + 70/42 = 226/42 = 5 8/21 oe or 3 30/42 + 1 28/42 = 4 58/42 = 5 16/42 = 5 8/21 oe"
+          ],
+          "common_errors": []
+        }
+      ],
+      "general_notes": "implies the first M1. If a student shows that 5 8/21 = 113/21 and has working that shows LHS = 113/21 this can gain full marks. NB Use of decimals scores no marks unless as a check."
+    },
+    {
+      "question_number": 6,
+      "total_marks": 4,
+      "sub_parts": [
+        {
+          "part_identifier": "a",
+          "marks": 4,
+          "method_mark_criteria": "M1 for a method to find 1 part of the ratio or a method to find the amount of money that either Eli or Peta gets OR finds the proportion of the money that either Eli or Peta gives to charity. Allow decimal equivalents eg 0.4 and 0.27(27...) throughout for M marks. M1 for a method to find the amount of money that either Eli or Peta gives to charity OR finds total proportion of the money that will be given to charity OR for a method to find the amount of money that Eli keeps and the amount of money that Peta keeps. M1 for a method to find the total amount of money that both Eli and Peta gives to charity OR for a complete method OR For a method to find the total amount of money both Eli and Peta keep.",
+          "accuracy_mark_criteria": "A1 Correct answer scores full marks (unless from obvious incorrect working)",
+          "acceptable_alternatives": [
+            "275/(2+3) (= 55) or 275/(2+3) x 2 (= 110) or 275/(2+3) x 3 (= 165)",
+            "OR (2/5) x (3/11) = 6/55 or (3/5) x 0.32 = 24/125 oe",
+            "\"110\" x (3/11) (= 30) or \"165\" x 0.32 (= 52.8(0))",
+            "OR \"6/55\" x 275 (= 30) or \"24/125\" x 275 (= 52.8(0)) or \"6/55\" + \"24/125\" (= 414/1375)",
+            "OR (1 - 3/11) x \"110\" (= 80) and (1 - 0.32) x \"165\" (= 112.2(0))",
+            "\"110\" x (3/11) (= 30) and \"165\" x 0.32 (= 52.8(0))",
+            "OR \"6/55\" x 275 (= 30) and \"24/125\" x 275 (= 52.8(0))",
+            "OR \"414/1375\" x 275",
+            "OR (1 - 3/11) x \"110\" + (1 - 0.32) x \"165\" (= 192.2(0))",
+            "82.8(0)"
+          ],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 7,
+      "total_marks": 2,
+      "sub_parts": [
+        {
+          "part_identifier": "a",
+          "marks": 1,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "B1",
+          "acceptable_alternatives": [
+            "474.5"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "b",
+          "marks": 1,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "B1 allow 124.9 or 124.999(9...)",
+          "acceptable_alternatives": [
+            "125"
+          ],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 8,
+      "total_marks": 2,
+      "sub_parts": [
+        {
+          "part_identifier": "a",
+          "marks": 2,
+          "method_mark_criteria": "M1 for one correct application of an index rule (must be seen in powers of 8 or correct conversion to powers of 2) this could be after an initial mistake – working will need to be clearly seen OR for forming a correct equation in the indices alone OR for a complete method for the value of n",
+          "accuracy_mark_criteria": "A1 Accept 8^-3 or (2^3)^-3",
+          "acceptable_alternatives": [
+            "eg (8^-2 x 8^9 =) 8^-2+9 or 8^7 or 2^-6+27 or 2^21",
+            "or (8^-2 ÷ 8^10 =) 8^-2-10 or 8^-12 or 1/8^12 or 2^-6-30 or 2^-36 or 1/2^36",
+            "or (8^9 ÷ 8^10 =) 8^9-10 or 8^-1 or 1/8^(1) or 2^27-30 or 2^-3 or 1/2^3",
+            "or (8^n x 8^10 =) 8^n+10 or 2^3n+30",
+            "OR -2+9 = n + 10 oe eg -6+27 = 3n + 30 oe",
+            "OR (-2 + 9 - 10) / 3 oe eg (-6 + 27 - 30) / 3 oe",
+            "-3"
+          ],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 9,
+      "total_marks": 3,
+      "sub_parts": [
+        {
+          "part_identifier": "a",
+          "marks": 3,
+          "method_mark_criteria": "M1 may be seen embedded. Do not allow (1 + 12%) unless correctly processed. M1 for a complete method.",
+          "accuracy_mark_criteria": "A1 Correct answer scores full marks (unless from obvious incorrect working)",
+          "acceptable_alternatives": [
+            "100(%) + 12(%) (= 112(%)) or 1 + 0.12 (= 1.12) oe or 140/112 (=1.25) oe",
+            "140 / \"1.12\" or (140 / 112) x 100 oe",
+            "125"
+          ],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 10,
+      "total_marks": 7,
+      "sub_parts": [
+        {
+          "part_identifier": "a",
+          "marks": 1,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "B1",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "b",
+          "marks": 2,
+          "method_mark_criteria": "M1 for correctly isolating terms in y on one side and number terms on the other side of an inequality or an equation. Ignore incorrect inequality signs for this mark",
+          "accuracy_mark_criteria": "A1 oe eg 19/2 < y Must have correct inequality symbol on answer line",
+          "acceptable_alternatives": [
+            "eg 5y – 7y < 1 – 20 or −2y < −19 oe or 20 – 1 < 7y – 5y or 19 < 2y oe or y = 9.5 or y < 9.5",
+            "y > 9.5"
+          ],
+          "common_errors": [
+            "NB sight of correct answer in working space and just (y =) 9.5 on answer line gains M1 only"
+          ]
+        },
+        {
+          "part_identifier": "c",
+          "marks": 2,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "B2 for the correct factorisation",
+          "acceptable_alternatives": [
+            "5w²x²(3x³ +5w)"
+          ],
+          "common_errors": [
+            "(B1 for a correct partial factorisation of at least 2 different terms outside the bracket eg 5wx(3wx² +5w²x) or 5w²(3x² +5wx²) or for the correct highest common factor on the outside and one term inside the bracket correct eg 5w²x²(3x³ +...) or 5w²x²(...+5w) or for (3x³ +5w) as a factor)"
+          ]
+        },
+        {
+          "part_identifier": "d",
+          "marks": 2,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "B2",
+          "acceptable_alternatives": [
+            "3a³c⁴ oe eg 3a³/c⁻⁴"
+          ],
+          "common_errors": [
+            "(B1 a single product with 2 of 3, a³, c⁴ correct eg 3a³cⁿ where n ≠ 4 or 3aᵐc⁴ where m ≠ 3 or pa³c⁴ where p ≠ 3. One term can be missing with 2 correct for B1)"
+          ]
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 11,
+      "total_marks": 4,
+      "sub_parts": [
+        {
+          "part_identifier": "M1_step1",
+          "marks": 1,
+          "method_mark_criteria": "for a correct trig statement for angle ACB or angle DCB or angle BDC or angle BAC OR for use of Pythagoras to find AB or DC",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "Allow use of any letter to represent the angles or sides",
+            "Calculations or values do not need to be linked to the correct side or angle"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "M1_step2",
+          "marks": 1,
+          "method_mark_criteria": "for a correct trig statement for angle ACB and angle DCB or angle BAC and angle DCB or angle BAC and angle ADC OR for a correct trig statement involving angle ACD",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "Allow use of any letter to represent the angles or sides",
+            "Calculations or values do not need to be linked to the correct side or angle"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "M1_step3",
+          "marks": 1,
+          "method_mark_criteria": "for a complete method OR for a correct trig statement for angle ACD",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "Allow use of any letter to represent the angle"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "A1_final_answer",
+          "marks": 1,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "Answer in range 13.4 – 13.6",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 12,
+      "total_marks": 4,
+      "sub_parts": [
+        {
+          "part_identifier": "M1_step1",
+          "marks": 1,
+          "method_mark_criteria": "for using the angle sum on a line to form an equation in x or for a numerical method to find x using the angle sum on the line",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "M1_step2",
+          "marks": 1,
+          "method_mark_criteria": "for using the value of x to find the exterior or interior angle",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "M1_step3",
+          "marks": 1,
+          "method_mark_criteria": "for using the formula for an exterior or an interior angle to form an equation in n or for a complete method to find n",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "A1_final_answer",
+          "marks": 1,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "40",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 13,
+      "total_marks": 5,
+      "sub_parts": [
+        {
+          "part_identifier": "a(i)",
+          "marks": 1,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "for 3/5 on bottom left oe (0.6)",
+          "acceptable_alternatives": [
+            "0.6"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "a(ii)",
+          "marks": 1,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "for 3/8, 5/8, 3/8, 5/8 oe (0.375, 0.625, 0.375, 0.625)",
+          "acceptable_alternatives": [
+            "0.375",
+            "0.625"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "b(i)",
+          "marks": 1,
+          "method_mark_criteria": "ft their tree diagram if probabilities less than 1",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "Allow equivalent fractions or decimals ie 0.4 or 0.37(5)"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "b(ii)",
+          "marks": 1,
+          "method_mark_criteria": "ft a correct calculation for the required probability",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "Allow equivalent fractions or decimals ie 0.4 or 0.37(5)"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "b(iii)",
+          "marks": 1,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "ft oe eg 34/40 or 0.85 or 85%. Allow equivalent fractions or decimals to 2dp truncated or rounded or equivalent percentage (with % sign) to 2sf truncated or rounded",
+          "acceptable_alternatives": [
+            "34/40",
+            "0.85",
+            "85%"
+          ],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 14,
+      "total_marks": 6,
+      "sub_parts": [
+        {
+          "part_identifier": "a_M1_1",
+          "marks": 1,
+          "method_mark_criteria": "an expansion with only one error. Do not award this mark for 21x² +14x+14x²-35x or (21x² +14x) (14x²-35x)",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [],
+          "common_errors": [
+            "21x² +14x+14x²-35x",
+            "(21x² +14x) (14x²-35x)"
+          ]
+        },
+        {
+          "part_identifier": "a_M1_2",
+          "marks": 1,
+          "method_mark_criteria": "ft dep on M1 and a quadratic expression",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "allow one further error"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "a_A1_final_answer",
+          "marks": 1,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "42x³-77x²-70x",
+          "acceptable_alternatives": [],
+          "common_errors": [
+            "do not isw incorrect simplification eg 42x³-77x²-70x = 6x³ −11x2 −10x gets M2A0"
+          ]
+        },
+        {
+          "part_identifier": "b_M1_1",
+          "marks": 1,
+          "method_mark_criteria": "for writing LHS correctly over the same common denominator or for subtracting 5/7 from both sides allow use of equivalent decimal 0.71(42...) for method marks or multiplying through by 2y or multiplying through by 7",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "allow use of equivalent decimal 0.71(42...) for method marks"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "b_M1_2",
+          "marks": 1,
+          "method_mark_criteria": "for a correct equation with all fractions removed or for a correct equation with y isolated",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "b_A1_final_answer",
+          "marks": 1,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "oe eg 63/60 or 21/20 dep on M1",
+          "acceptable_alternatives": [
+            "63/60",
+            "21/20"
+          ],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 15,
+      "total_marks": 2,
+      "sub_parts": [
+        {
+          "part_identifier": "M1_step1",
+          "marks": 1,
+          "method_mark_criteria": "a correct method to find the area of the sector",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "Allow 3.14... or 22/7 for π"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "A1_final_answer",
+          "marks": 1,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "accept 94.2 – 94.3",
+          "acceptable_alternatives": [
+            "94.2",
+            "94.3"
+          ],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 16,
+      "total_marks": 2,
+      "sub_parts": [
+        {
+          "part_identifier": "implied",
+          "marks": 2,
+          "method_mark_criteria": "M1 for clearly identifying 25 and 4 as the LQ & UQ (may also indicate 9 (median))",
+          "accuracy_mark_criteria": "A1 cao",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 17,
+      "total_marks": 3,
+      "sub_parts": [
+        {
+          "part_identifier": "implied",
+          "marks": 3,
+          "method_mark_criteria": "M1 for explicitly multiplying the numerator and denominator by √7 +3 or −√7 −3. M1 for numerator correctly expanded and may be simplified to at least 2 terms and denominator correctly expanded and may be simplified to one term, this mark implies previous M1.",
+          "accuracy_mark_criteria": "A1 dep on M2",
+          "acceptable_alternatives": [
+            "SCB1 for -10-√112 gained with no method marks awarded",
+            "SCB2 for -10-√112 gained if you would award 1st M1 but not second M1 (total 2 marks)"
+          ],
+          "common_errors": [
+            "2√7+2/√7-3 x √7+3/√7+3 = -10-4√7 scores M1M0"
+          ]
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 18,
+      "total_marks": 4,
+      "sub_parts": [
+        {
+          "part_identifier": "implied",
+          "marks": 4,
+          "method_mark_criteria": "M1 for correctly squaring both sides. M1 ft from their incorrect squaring for multiplying by (3y – t) and expanding the bracket allow one error in one term. M1 ft dep on 2 terms in y and 2 other terms for correctly collecting the terms in y on one side and other terms on the other side.",
+          "accuracy_mark_criteria": "A1 oe eg y = (-w-p²t)/(1-3p²)",
+          "acceptable_alternatives": [
+            "y = (w+p²t)/(3p²-1)",
+            "y = (-w-p²t)/(1-3p²)"
+          ],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 19,
+      "total_marks": 3,
+      "sub_parts": [
+        {
+          "part_identifier": "implied",
+          "marks": 3,
+          "method_mark_criteria": "M1 correct statement of the cosine rule for this angle in any form. M1 correct statement for angle BAC, this mark implies the previous M mark.",
+          "accuracy_mark_criteria": "A1 accept 71.7-71.8",
+          "acceptable_alternatives": [
+            "SCB1 for an answer of 49.4 to 49.5 or 58.7 to 58.8"
+          ],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 20,
+      "total_marks": 3,
+      "sub_parts": [
+        {
+          "part_identifier": "implied",
+          "marks": 3,
+          "method_mark_criteria": "M1 for a statement that the gradient of M is -1/4 may be implied by equation of line with gradient of -1/4. M1 ft a gradient of -1/4 or -4 for this mark, substitution of the given coordinate to find the equation.",
+          "accuracy_mark_criteria": "A1 oe y = -0.25x + 3 must be in the form y=",
+          "acceptable_alternatives": [
+            "y = -0.25x + 3"
+          ],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 21,
+      "total_marks": 3,
+      "sub_parts": [
+        {
+          "part_identifier": "a",
+          "marks": 1,
+          "method_mark_criteria": "for a start to completing the square or correct substitution into a(x+b/2a)^2 + ... from the formula or a(x+b/2a)^2 - (b/2a)^2 + c or a = 5 embedded in an incorrect final answer in the form 5(x – d)^2 + e (must be these signs)",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "b",
+          "marks": 1,
+          "method_mark_criteria": "for correctly completing the square but terms do not need to be simplified and 23 may or may not be present correct simplification or of the first two parts of a(x+b/2a)^2 - (b/2a)^2 -(+c) NB: Please refer to ALT mark scheme for comparison of coefficients method",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "c",
+          "marks": 1,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "oe eg 3+5(x-2)² (if student continues to solve a quadratic equation, ISW)",
+          "acceptable_alternatives": [
+            "5(x-2)² +3"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "ALT_a",
+          "marks": 1,
+          "method_mark_criteria": "for multiplying out a(x−b)²+c or a = 5 embedded in an incorrect final answer in the form 5(x – d)² + e (must be these signs)",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "ALT_b",
+          "marks": 1,
+          "method_mark_criteria": "for equating coefficients",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "ALT_c",
+          "marks": 1,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "oe eg 3+5(x-2)² (if student continues to solve a quadratic equation, ISW)",
+          "acceptable_alternatives": [
+            "5(x-2)² +3"
+          ],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 24,
+      "total_marks": 3,
+      "sub_parts": [
+        {
+          "part_identifier": "(i)",
+          "marks": 1,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "(-1, 3)"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "(ii)",
+          "marks": 1,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "(4, 10)"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "(iii)",
+          "marks": 1,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "(2, 3)"
+          ],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 25,
+      "total_marks": 3,
+      "sub_parts": [
+        {
+          "part_identifier": "a",
+          "marks": 1,
+          "method_mark_criteria": "a correct method to solve the quadratic equation 2x²+x-28 = 0 Allow (2x+8)(x-3.5) or (2x+8)(2x−7) leading to (x+4)(x−3.5) or (2x+8)(2x−7) leading to correct values of x Do not allow (x+4)(x−3.5) without previous working (If using formula allow some simplification – as far as -1±√1+224 / 4)",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "(2x – 7)(x + 4)",
+            "2x(x + 4) – 7(x + 4)",
+            "x(2x - 7) + 4(2x – 7)",
+            "-1±√1^2-4×2×-28 / 2×2",
+            "2[(x+1/4)^2-(1/4)^2]-28(=0)"
+          ],
+          "common_errors": [
+            "Do not allow (x+4)(x−3.5) without previous working"
+          ]
+        },
+        {
+          "part_identifier": "b",
+          "marks": 1,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "oe dep on M1",
+          "acceptable_alternatives": [
+            "3.5",
+            "-4"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "c",
+          "marks": 1,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "oe dep on M1",
+          "acceptable_alternatives": [
+            "x > 3.5, x < -4"
+          ],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 26,
+      "total_marks": 5,
+      "sub_parts": [
+        {
+          "part_identifier": "BF",
+          "marks": 1,
+          "method_mark_criteria": "for method to find BF",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "√10² +14²",
+            "√296",
+            "2√74",
+            "17.2..."
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "EF",
+          "marks": 1,
+          "method_mark_criteria": "for method to find EF",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "\"2√74\" tan 50",
+            "\"2√74\" / tan(180-90-50)",
+            "\"2√74\" sin 50 / sin(180-90-50)",
+            "20.5..."
+          ],
+          "common_errors": [
+            "other longer ways to find EF may be used but must be a complete method eg (BE =) \"2√74\"sin 90 / sin(180-90-50) (= 26.7...) and (EF =) √\"26.7...\"²-296"
+          ]
+        },
+        {
+          "part_identifier": "BC",
+          "marks": 1,
+          "method_mark_criteria": "dep on previous mark for correct method to find BC",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "1/5 x \"20.5...\"",
+            "4.1..."
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "Volume Method",
+          "marks": 1,
+          "method_mark_criteria": "for method to find the area of the cross section ABCD or method to find the volume of the cuboid AB × BC × BG or method to find the volume of the triangular prism 1/2 × AB×(AD-BC)×BG or method to find the volume of the cuboid AB × AD × BG",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "\"2√74\" tan 50 + 1/2 x \"2√74\" tan 50 x10 oe",
+            "\"20.5...\"+ 1/2 x \"20.5...\" x10 oe",
+            "10×\"4.1...\"+ 1/2 x10x(\"20.5...\"-\"4.1...\") oe",
+            "10×\"4.1...\"x14 oe",
+            "1/2 x10x(\"20.5...\"-\"4.1...\")x14 oe",
+            "10×\"20.5...\"x14 oe"
+          ],
+          "common_errors": [
+            "ft their value for EF provided first M1 awarded and clearly identified on the diagram or by labelling"
+          ]
+        },
+        {
+          "part_identifier": "Final Answer",
+          "marks": 1,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "1720 - 1724",
+          "acceptable_alternatives": [
+            "1720"
+          ],
+          "common_errors": [
+            "Correct answer scores full marks (unless from obvious incorrect working)"
+          ]
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 27,
+      "total_marks": 6,
+      "sub_parts": [
+        {
+          "part_identifier": "a",
+          "marks": 1,
+          "method_mark_criteria": "for an un-simplified expression for BC in terms of a and b allow a sign error in one term or in one vector eg -4b+a-2a-5b+3a or -4b - a - 2a +5b-3a or for an answer of 4a -b",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "-4b+a-2a+5b-3a oe"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "a_accuracy",
+          "marks": 1,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "or -4a+b",
+          "acceptable_alternatives": [
+            "b-4a"
+          ],
+          "common_errors": [
+            "Correct answer scores full marks (unless from obvious incorrect working)"
+          ]
+        },
+        {
+          "part_identifier": "b_M1_OD",
+          "marks": 1,
+          "method_mark_criteria": "ft their BC provided it is in the form ma + nb for all method marks",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "(OD=)2a+4b-a+1/2(\"b-4a\") oe",
+            "(OD=)5b-3a-1/2(\"b-4a\") oe"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "b_M2_OP_AP_BP_CP_DP",
+          "marks": 1,
+          "method_mark_criteria": "for a correct expression, including a parameter, for vector OP, must be clearly identified as OP or for a correct expression, including a parameter, for vector AP, BP, CP or DP must be clearly identified",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "eg OP = 2a+4b-a+x(4b-a)",
+            "OP = 2a + y(4b-a)",
+            "OP=5b-3a-1/2(\"b – 4a\") + λ(4b − a)",
+            "OP=5b-3a-1/2(\"b-4a\")+n(\"1/2b\")",
+            "OP=\"1/2b\"+n×\"1/2b\"",
+            "OP = n×\"1/2b\" oe",
+            "AP = x(4b-a)",
+            "AP = -2a+n×\"1/2b\"oe",
+            "BP = y(4b-a)",
+            "BP = 1/2(\"b-4a\")+n×\"1/2b\"oe"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "b_M3_TwoExpressions",
+          "marks": 1,
+          "method_mark_criteria": "for two correct expressions for vector OP or two correct expressions for vector AP, or two correct expressions for vector BP or two correct expressions for vector CP or two correct expressions for vector DP one of which contains n\"1/2b\" and one contains x(4b – a)",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "eg OP = 2a+4b-a+x(4b-a) and OP = n×\"1/2b\"",
+            "OP = 2a + y(4b-a) and OP = 5b-3a-1/2(\"b-4a\")+n(\"1/2b\")",
+            "AP = x(4b-a) and AP = -2a+n×\"1/2b\"oe",
+            "BP = y(4b-a) and BP = 1/2(\"b-4a\")+n×\"1/2b\""
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "b_A1_FinalAnswer",
+          "marks": 1,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "oe allow 1.88(235...)",
+          "acceptable_alternatives": [
+            "32/17"
+          ],
+          "common_errors": [
+            "Dependent on a correct vector method shown"
+          ]
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 28,
+      "total_marks": 6,
+      "sub_parts": [
+        {
+          "part_identifier": "M1_find_e",
+          "marks": 1,
+          "method_mark_criteria": "correct substitutions to find e may be seen after substituting the original equations to eliminate x or y",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "2.6 = 3 × 0.2 + e oe",
+            "e = 2",
+            "y = 3x + 2 oe"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "M1_find_d",
+          "marks": 1,
+          "method_mark_criteria": "correct substitutions to find d may be seen after substituting the original equations to eliminate x or y",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "0.2² + 2.6² = d – 11 × 0.2 oe",
+            "d = 9",
+            "x² + y² =9-11x oe"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "M1_form_quadratic",
+          "marks": 1,
+          "method_mark_criteria": "a correct substitution to create an equation in one variable ft their values of d and e provided clearly stated or for substituting the original equations to eliminate x or y",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "x² +(3x+\"2\")² = \"9\"-11x oe",
+            "x² + (3x+e)² = d−11x oe",
+            "(y-\"2\"/3)² + y² = \"9\"-11(y-\"2\"/3) oe",
+            "(y-e/3)² + y² = d-11(y-e/3) oe"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "M1_quadratic_terms",
+          "marks": 1,
+          "method_mark_criteria": "ft (dep on M2) awarded for a quadratic with 2 out of 3 terms correct for their values of e and d",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "10x² +23x-5(=0) oe",
+            "10x² + 23x = 5",
+            "10y² +29y-143(= 0) oe",
+            "10y² +29y = 143"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "M1_solve_quadratic",
+          "marks": 1,
+          "method_mark_criteria": "(dep on M2) for method to solve their 3 term quadratic using any correct method (allow one sign error and some simplification – allow as far as eg -23±√529+200 / 20 rather than ±) or -29±√841+5720 / 20 (may have just –rather than °) or if factorising allow brackets which expanded give 2 out of 3 terms correct) or correct values for x or correct values for y (may have just one value)",
+          "accuracy_mark_criteria": "",
+          "acceptable_alternatives": [
+            "(5x – 1)(2x + 5) (= 0)",
+            "(x =) -23±√23²-4×10×-5 / 2×10",
+            "10[(x+23/20)² - (23/20)²] - 5(= 0)",
+            "(2y + 11)(5y – 13) (= 0)",
+            "(y =) -29±√29²-4×10×-143 / 2×10",
+            "10[(y+29/20)² - (29/20)²] - 143(= 0)"
+          ],
+          "common_errors": [
+            "-23±√529+200 / 20 rather than ±",
+            "-29±√841+5720 / 20 (may have just –rather than °)"
+          ]
+        },
+        {
+          "part_identifier": "A1_final_coordinates",
+          "marks": 1,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "oe dep on M3",
+          "acceptable_alternatives": [
+            "(-2.5, -5.5)"
+          ],
+          "common_errors": [
+            "Working required"
+          ]
+        }
+      ],
+      "general_notes": ""
+    }
+  ]
+}
