@@ -1,0 +1,1097 @@
+{
+  "paper_title": "0580/21 October/November 2025 Mark Scheme",
+  "prompt_version": "v2.2",
+  "summary": {
+    "total_marks_awarded": 71,
+    "total_marks_possible": 100,
+    "percentage": 71.0,
+    "questions_flagged": 4
+  },
+  "questions": [
+    {
+      "eval_store_id": 36,
+      "question_pdf": "isolated_questions/question_1.pdf",
+      "transcription": {
+        "question_number": 1,
+        "raw_transcription": "Divide $90 in the ratio 2: 3.Total ratio = 5900 crossed out to 90 \u00f7 5 = 180 crossed out to 18180 crossed out to 18 \u00d7 2 = 360 crossed out to 3618 \u00d7 3 = 54$36$54",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 1,
+        "total_score": 2,
+        "max_score": 2,
+        "topic_classification": "Ratio and Proportion",
+        "sub_parts": [
+          {
+            "part_identifier": "1",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly identified the total number of parts in the ratio (2+3=5). They then correctly calculated the value of one part by dividing 90 by 5, which is 18. This step earns the method mark (M1). Subsequently, they correctly multiplied 18 by 2 to get 36 and by 3 to get 54. Both final answers are correct, earning the accuracy mark (A1). The working is clear and logical.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Excellent work! You have demonstrated a clear understanding of how to divide a quantity in a given ratio. Your working is well-structured and easy to follow, leading to the correct answers. Keep up the great work in showing all your steps clearly.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 37,
+      "question_pdf": "isolated_questions/question_2.pdf",
+      "transcription": {
+        "question_number": 2,
+        "raw_transcription": "A triangle ABC is drawn. Angle ACB is marked as 82\u00b0. A line segment extends from C to the right, past B. An angle of 148\u00b0 is marked between the line segment BC and the line extending from C to the right. The text 'NOT TO SCALE' is present next to the diagram.In the diagram, AC = BC.Work out angle CAB.360 - (148 + 82) = 130130 + 2x = 2802x = 280 - 1302x : 50x = 25\u00b0Angle CAB = 25\u00b0",
+        "illegible_regions": [],
+        "contains_diagrams": true,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 2,
+        "total_score": 3,
+        "max_score": 3,
+        "topic_classification": "Geometry - Angles in Triangles and Around a Point",
+        "sub_parts": [
+          {
+            "part_identifier": "2",
+            "marks_awarded": 3,
+            "marks_possible": 3,
+            "method_marks_earned": 2,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly applied the first method by calculating 360 - (148 + 82) = 130, which aligns with the first M1 mark. Although the subsequent algebraic setup '130 + 2x = 280' and '2x = 280 - 130' is incorrect, the student then correctly deduced '2x : 50' (implying 2x = 50) and 'x = 25'. This demonstrates the application of the second method mark (180 - their 130) / 2, as 180 - 130 = 50. The final answer of 25\u00b0 is accurate, earning the A1 mark. The student's working, despite the minor algebraic misstep, clearly shows the intended method steps from the mark scheme.",
+            "confidence": 0.9,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Your initial step of calculating 360 - (148 + 82) = 130 was correct and a good start. When you then moved to find the base angles of the isosceles triangle, remember that the sum of angles in a triangle is 180\u00b0. So, if one angle is 130\u00b0, the other two equal angles (let's call them x) must satisfy 130 + 2x = 180. From there, you would subtract 130 from 180 to get 2x = 50, and then divide by 2 to find x = 25. While you arrived at the correct final answer, be careful with your algebraic setup to ensure all steps are mathematically sound. Keep practicing the sum of angles in a triangle and solving simple linear equations.",
+        "overall_confidence": 0.9,
+        "flag_for_human_review": true,
+        "review_reason": "The question statement 'Angle ACB is marked as 82\u00b0' directly contradicts the first method mark (M1 for 360 - 148 - 82) which implies angle ACB is 130\u00b0. The student followed the mark scheme's implied interpretation. The grading is based strictly on the provided mark scheme, but the question itself is ambiguous/contradictory, which may warrant review of the question's validity."
+      }
+    },
+    {
+      "eval_store_id": 38,
+      "question_pdf": "isolated_questions/question_3.pdf",
+      "transcription": {
+        "question_number": 3,
+        "raw_transcription": "(n-2) x180/n (20-2) x180/20 18x180/20 18x9 162\u00b0 162\u00b0",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 3,
+        "total_score": 2,
+        "max_score": 2,
+        "topic_classification": "Geometry - Polygons",
+        "sub_parts": [
+          {
+            "part_identifier": "3",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly applied the formula for the interior angle of a regular polygon, (n-2)x180/n, by substituting n=20. The subsequent calculations were accurate, leading to the correct final answer of 162\u00b0.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Excellent work! You have a clear understanding of how to calculate the interior angle of a regular polygon. Keep up the great work in applying formulas accurately and showing your steps clearly.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 39,
+      "question_pdf": "isolated_questions/question_4.pdf",
+      "transcription": {
+        "question_number": 4,
+        "raw_transcription": "1/2 x b x h h = 3cm 12 = 1/2 x 8 x h 24 = 8 x h 24/8 = h 3 = h 3 cm Translate triangle T by the vector (-3 1)",
+        "illegible_regions": [],
+        "contains_diagrams": true,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 4,
+        "total_score": 2,
+        "max_score": 2,
+        "topic_classification": "Geometry (Area of Triangle) and Algebra",
+        "sub_parts": [
+          {
+            "part_identifier": "4",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly set up the equation for the area of a triangle (12 = 1/2 x 8 x h), which earns the method mark. They then accurately performed the algebraic steps to solve for h, resulting in h = 3, which earns the accuracy mark. The final answer is correct with appropriate units. The additional sentence about translating a triangle is irrelevant to this question and has been disregarded.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "You have demonstrated excellent understanding of how to use the area formula for a triangle and solve for an unknown dimension. Your algebraic manipulation was accurate and clear. Keep up the great work! Just be mindful to only include information relevant to the specific question asked to ensure clarity in your answers.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 40,
+      "question_pdf": "isolated_questions/question_5.pdf",
+      "transcription": {
+        "question_number": 5,
+        "raw_transcription": "Translate triangle T by the vector (3 1)",
+        "illegible_regions": [
+          "y-component of vector in 5(a)"
+        ],
+        "contains_diagrams": false,
+        "transcription_confidence": 0.9
+      },
+      "grading": {
+        "question_number": 5,
+        "total_score": 1,
+        "max_score": 4,
+        "topic_classification": "Transformations (Translation)",
+        "sub_parts": [
+          {
+            "part_identifier": "5(a)",
+            "marks_awarded": 1,
+            "marks_possible": 2,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": "Incorrect sign for the x-component of the translation vector.",
+            "detailed_critique": "The student correctly identified the y-component of the translation vector as 1, earning 1 mark. However, the x-component was given as 3 instead of the correct -3, resulting in no mark for this component. The overall description of 'Translation' was correct.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "5(b)",
+            "marks_awarded": 0,
+            "marks_possible": 2,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "Question part not attempted.",
+            "detailed_critique": "The student did not provide an answer for part (b) of the question.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "For part (a), ensure you understand that a positive x-component means moving right, and a negative x-component means moving left. Similarly, a positive y-component means moving up, and a negative y-component means moving down. Always double-check the direction of movement when determining the signs of the vector components. For part (b), remember to attempt all parts of a question to maximize your score, even if you are unsure.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 41,
+      "question_pdf": "isolated_questions/question_6.pdf",
+      "transcription": {
+        "question_number": 6,
+        "raw_transcription": "(a) (b) (\u00b3\u221a125)\u00b2 = (5)\u00b2 = 25",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 6,
+        "total_score": 2,
+        "max_score": 3,
+        "topic_classification": "Number/Indices and Roots",
+        "sub_parts": [
+          {
+            "part_identifier": "6(a)",
+            "marks_awarded": 0,
+            "marks_possible": 1,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": null,
+            "detailed_critique": "No answer was provided for part (a).",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "6(b)",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly evaluated (\u00b3\u221a125)\u00b2 by first finding the cube root of 125 as 5, and then squaring it to get 25. The final answer of 25 matches the 'cao' (correct answer only) specified in the mark scheme for the accuracy mark. The method of evaluating the cube root and then squaring is a valid approach to the problem as interpreted by the student. Although the method mark criteria in the mark scheme refers to '\u221a125', the final answer '25 cao' strongly suggests the intended question was (\u00b3\u221a125)\u00b2. Given the student's working leads logically to the correct answer as per the A1, full marks are awarded.",
+            "confidence": 0.6,
+            "ambiguous_aspects": [
+              "The mark scheme's method mark (M1) criteria refers to '\u221a125' (square root of 125), while the accuracy mark (A1) is for '25 cao'. If the question was (\u221a125)\u00b2, the answer would be 125. The student's answer is (\u00b3\u221a125)\u00b2 = 25. This suggests a discrepancy within the mark scheme itself, where the A1 '25 cao' implies the question was (\u00b3\u221a125)\u00b2, but the M1 refers to (\u221a125). The student's working is mathematically correct for the expression they wrote, and their final answer matches the A1. This ambiguity in the mark scheme makes strict application challenging."
+            ]
+          }
+        ],
+        "pedagogical_remedial_strategy": "For part (a), ensure you attempt all parts of a question, even if you are unsure. For part (b), your calculation of (\u00b3\u221a125)\u00b2 = (5)\u00b2 = 25 is mathematically correct. You correctly identified that the cube root of 125 is 5 and then squared it. Keep up the good work with your understanding of roots and powers.",
+        "overall_confidence": 0.7,
+        "flag_for_human_review": true,
+        "review_reason": "The mark scheme for 6(b) contains a contradiction: the method mark (M1) refers to operations involving '\u221a125', but the accuracy mark (A1) is for '25 cao'. The student's answer is '25' derived from '(\u00b3\u221a125)\u00b2'. This implies either the question was (\u00b3\u221a125)\u00b2 and the M1 is incorrect, or the student misread the question (if it was (\u221a125)\u00b2) and the A1 is incorrect. Given the A1 is '25 cao', I have awarded marks assuming the question intended (\u00b3\u221a125)\u00b2, but this requires human clarification on the mark scheme's intent."
+      }
+    },
+    {
+      "eval_store_id": 42,
+      "question_pdf": "isolated_questions/question_7.pdf",
+      "transcription": {
+        "question_number": 7,
+        "raw_transcription": "(a) P/t * 2/2 P/2 * x/x P/2 (b) 3x/4 - x-1/2 3x/4 - 2x+2/4 x+2/4",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 7,
+        "total_score": 2,
+        "max_score": 4,
+        "topic_classification": "Algebraic Simplification",
+        "sub_parts": [
+          {
+            "part_identifier": "7(a)",
+            "marks_awarded": 0,
+            "marks_possible": 2,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "Incorrect application of algebraic simplification rules for multiplication of fractions.",
+            "detailed_critique": "The student's working 'P/t * 2/2 P/2 * x/x P/2' does not demonstrate the required method for simplifying the expression. The mark scheme requires showing 'P/t x t/2' or explicit cross-cancelling of 't'. While the final answer 'P/2' is correct, the method shown does not meet the M1 criteria, and therefore no marks can be awarded.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "7(b)",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly identified the need for a common denominator and correctly transformed the expression to '3x/4 - 2x+2/4'. This step demonstrates the method required for M1, as it is equivalent to (3x - 2(x-1))/4. The subsequent simplification to 'x+2/4' is also correct, earning the A1 mark.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "For part (a), the student needs to review the rules for multiplying algebraic fractions, specifically focusing on identifying common factors in the numerator and denominator for cross-cancellation. Practice problems involving expressions like (A/B) * (B/C) would be beneficial. For part (b), the student demonstrated a strong understanding of combining algebraic fractions and handling negative signs during expansion. Continue practicing similar problems to reinforce these excellent skills.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 43,
+      "question_pdf": "isolated_questions/question_8.pdf",
+      "transcription": {
+        "question_number": 8,
+        "raw_transcription": "Orange t cents\napple : w cents\n3t + w = 51 - [1]\n6t + 5w = 129 - [2]\n[1] x 2\n6t + 2w = 102 - [3]\n6t + 5w = 129\n6t + 2w = 102\n3w = 27\nw = 27/3\nw = 9\n3t + 9 = 51\n3t = 51 - 9\n3t = 42\nt = 42/3\nt = 14",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 8,
+        "total_score": 5,
+        "max_score": 5,
+        "topic_classification": "Simultaneous Equations",
+        "sub_parts": [
+          {
+            "part_identifier": "8 (equations)",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 2,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly formulated both simultaneous equations: 3t + w = 51 and 6t + 5w = 129. Each correct equation earns a B1 mark.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "8 (elimination)",
+            "marks_awarded": 1,
+            "marks_possible": 1,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly multiplied the first equation by 2 (6t + 2w = 102) and then subtracted it from the second equation (6t + 5w = 129) to eliminate 't', leading to 3w = 27. This demonstrates a correct method for eliminating one variable.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "8 (answers)",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 2,
+            "identified_misconception": null,
+            "detailed_critique": "The student accurately calculated w = 9 from 3w = 27. They then correctly substituted w = 9 into the first equation (3t + 9 = 51) and solved for t, finding t = 14. Both answers are correct, earning A1 for each.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Excellent work! You have demonstrated a strong understanding of how to set up and solve simultaneous equations. Your working is clear, logical, and accurate. Keep practicing similar problems to maintain this high standard.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 44,
+      "question_pdf": "isolated_questions/question_9.pdf",
+      "transcription": {
+        "question_number": 9,
+        "raw_transcription": "S: d/t 24.5 x 2 Sxt=d Speed = 4.5 5 5.5 Time = 2 hours = 9 KM 9 km",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 9,
+        "total_score": 2,
+        "max_score": 2,
+        "topic_classification": "Speed, Distance, Time",
+        "sub_parts": [
+          {
+            "part_identifier": "9",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly identified the speed as 4.5, which earns the B1 mark. They then correctly calculated the distance as 9 km, which earns the A1 mark. Although there was some extraneous working ('24.5 x 2'), the essential components for full marks were present and correct.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "You correctly identified the speed and calculated the final distance. Well done! To make your working clearer, try to present your steps in a more organised way, showing how you use the formula 'Speed x Time = Distance' with your specific values. For example, you could write: 'Speed = 4.5 km/h, Time = 2 hours, Distance = 4.5 x 2 = 9 km'. This will help you avoid any confusion in your calculations.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 45,
+      "question_pdf": "isolated_questions/question_10.pdf",
+      "transcription": {
+        "question_number": 10,
+        "raw_transcription": "$\\mathcal{E} = \\{1, 2, 3, 4, 5, 6, 7, 8\\}$\n$A = \\{1, 2, 3, 4, 6\\}$\n$B = \\{1, 3, 5, 7\\}$\n$A \\cap B = \\{1, 3\\}$\nFINAL ANSWER: $A \\cap B = \\{1, 3\\}$\n\n$A' = \\{5, 7, 8\\}$\n$A' \\cup B = \\{1, 3, 5, 7, 8\\}$\n$n(A' \\cup B) = 5$\nFINAL ANSWER: 5",
+        "illegible_regions": [
+          "\u26a0\ufe0f Fallback mode \u2014 structured transcription was truncated"
+        ],
+        "contains_diagrams": false,
+        "transcription_confidence": 0.75
+      },
+      "grading": {
+        "question_number": 10,
+        "total_score": 2,
+        "max_score": 2,
+        "topic_classification": "Set Theory",
+        "sub_parts": [
+          {
+            "part_identifier": "10(a)",
+            "marks_awarded": 1,
+            "marks_possible": 1,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly identified the intersection of sets A and B as {1, 3}, which matches the mark scheme's acceptable answer.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "10(b)",
+            "marks_awarded": 1,
+            "marks_possible": 1,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly determined the complement of set A (A'), then the union of A' and B (A' U B), and finally the cardinality of this union, n(A' U B) = 5. This final answer matches the mark scheme's acceptable answer.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Excellent work! You have a strong understanding of set notation and operations, including intersection, complement, union, and cardinality. Keep up the great work and continue to practice these concepts to maintain your proficiency.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 46,
+      "question_pdf": "isolated_questions/question_11.pdf",
+      "transcription": {
+        "question_number": 11,
+        "raw_transcription": "100x (r = 0.24) x 100\n100r = 24.24\nr = 0.24\n99r = 24\nr = 24/99\n8/33",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 0.95
+      },
+      "grading": {
+        "question_number": 11,
+        "total_score": 2,
+        "max_score": 2,
+        "topic_classification": "Number - Recurring Decimals to Fractions",
+        "sub_parts": [
+          {
+            "part_identifier": "",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly set up the equations 100r = 24.24 and r = 0.24, and then subtracted them to obtain 99r = 24, demonstrating the required method. The subsequent calculation to r = 24/99 and its simplification to 8/33 is accurate and matches the acceptable alternatives in the mark scheme.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Excellent work! You have clearly demonstrated a strong understanding of how to convert a recurring decimal to a fraction using the algebraic method, and you correctly simplified your answer. Keep up the great work!",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 47,
+      "question_pdf": "isolated_questions/question_12.pdf",
+      "transcription": {
+        "question_number": 12,
+        "raw_transcription": "\u03b8/360 * 2\u03c0r + 18 = 18 + 2\u03c0\u03b8/360 * 2\u03c0(9) = 2\u03c0\u03b8/360 * 18\u03c0 = 2\u03c0\u03b8 = 2\u03c0 * 360 / 18\u03c0\u03b8 = 2 * 20\u03b8 = 40\u00b0Area = \u03b8/360 * \u03c0r\u00b2Area = 40/360 * \u03c0(9)\u00b2Area = 1/9 * \u03c0 * 81Area = 9\u03c0 cm\u00b2",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 12,
+        "total_score": 4,
+        "max_score": 4,
+        "topic_classification": "Geometry - Area and Perimeter of Sectors",
+        "sub_parts": [
+          {
+            "part_identifier": "",
+            "marks_awarded": 4,
+            "marks_possible": 4,
+            "method_marks_earned": 3,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly interpreted the problem to deduce that the arc length of the sector is 2\u03c0. They then accurately used the arc length formula to calculate the central angle (\u03b8 = 40\u00b0). Following this, they correctly applied the area of a sector formula using their calculated angle and the given radius to arrive at the final answer of 9\u03c0 cm\u00b2. The method is fully correct and clearly presented, earning the M3 mark. The final answer is accurate, earning the A1 mark. The intermediate step of finding \u03b8=40\u00b0 also aligns with the B2 criteria for intermediate accuracy.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Excellent work! Your approach to first determine the arc length, then calculate the central angle, and finally use that angle to find the area of the sector is very clear and mathematically sound. You demonstrated a strong understanding of the formulas for arc length and area of a sector, as well as algebraic manipulation. Keep up this high standard of working and presentation!",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 48,
+      "question_pdf": "isolated_questions/question_13.pdf",
+      "transcription": {
+        "question_number": 13,
+        "raw_transcription": "13 These are Rahul's 10 best scores.9 8 9 10 9 9 9 9 9 8The mean of these scores is 8.Find the interquartile rangeYou must show all your working.6, 6, 7, 7, 7, 8, 9, 9, 9, 10Q1 = 2.75th place= 6+6/2 = 6.5Q3 = 8.25th place= 9+6.5 = 25.5IQR = 9+6-5 = 25.515.5",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 13,
+        "total_score": 1,
+        "max_score": 4,
+        "topic_classification": "Statistics - Quartiles and Interquartile Range",
+        "sub_parts": [
+          {
+            "part_identifier": "part 1",
+            "marks_awarded": 0,
+            "marks_possible": 2,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "The student's transcribed question did not include a variable 'x' for which the mean was given, as implied by the mark scheme's criteria for Part 1. Therefore, this part of the question was not addressed by the student.",
+            "detailed_critique": "The mark scheme for Part 1 refers to finding a value 'x' given a mean of 8 (M1 for 68+2x / 10 = 8, A1 for x = 6). The student's transcribed question does not contain any variable 'x' and instead lists all 10 scores explicitly. As such, the student did not attempt this part of the question, and no marks can be awarded.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "part 2",
+            "marks_awarded": 1,
+            "marks_possible": 2,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": "The student used an incorrect set of data to calculate the quartiles and interquartile range. The question provided the scores: 9, 8, 9, 10, 9, 9, 9, 9, 9, 8. The student used the data: 6, 6, 7, 7, 7, 8, 9, 9, 9, 10.",
+            "detailed_critique": "The student correctly ordered their *chosen* (but incorrect) data set. For the B1 mark, the mark scheme allows for a Lower quartile of 6.5, 6.75, or 7, or an Upper quartile of 9. The student stated Q1 = 6.5. While their working '6+6/2' for the 2.75th position is not strictly correct for interpolation, 6.5 is an acceptable value for Q1 using a common method (median of the lower half or (n/4)th value) for their data. Therefore, B1 is awarded for identifying an acceptable Q1 value. However, the student's calculation for Q3 ('9+6.5 = 25.5') is incorrect, and their final IQR ('15.5') is also incorrect. The A1 mark requires the final answer to be 2, 2.25, or 2.5 'nfww' (not from wrong working). Since the Q3 calculation and the final IQR are incorrect, and the initial data used was wrong, the A1 mark cannot be awarded.",
+            "confidence": 0.9,
+            "ambiguous_aspects": [
+              "The student used an incorrect data set, which is a fundamental error. However, the B1 mark criteria lists specific acceptable values for quartiles without explicitly stating 'from correct data'. The student's stated Q1 value (6.5) matches one of these acceptable values. This creates a slight ambiguity regarding whether B1 should be awarded when the initial data is incorrect, but given the strict instruction to follow the rubric, and the value being explicitly listed, it is awarded."
+            ]
+          }
+        ],
+        "pedagogical_remedial_strategy": "Rahul, it's crucial to always use the exact data provided in the question. In this case, you used a different set of scores than what was given. This led to incorrect calculations for the interquartile range. Please review how to carefully transcribe and use the given data. Also, ensure you are confident in calculating the positions and values of the lower (Q1) and upper (Q3) quartiles for a given data set, especially when the number of data points is even. Remember that the Interquartile Range (IQR) is always Q3 - Q1. Double-check your arithmetic when performing these calculations.",
+        "overall_confidence": 0.9,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 49,
+      "question_pdf": "isolated_questions/question_14.pdf",
+      "transcription": {
+        "question_number": 14,
+        "raw_transcription": "14 D C 55\u00b0 88\u00b0 X 27\u00b0 E B A NOT TO SCALE A, B, C, D and E lie on the circle. AC and BD intersect at X. Angle ACD = 55\u00b0 and angle CXD = 88\u00b0. (a) Complete the statements, giving a geometrical reason in each part. Angle CDB = 27\u00b0 because The sum of interior angles in a triangle add up to 180\u00b0 Angle ABD = 55\u00b0 because Angles Subtended from the Same arc Angle AED = 125\u00b0 because opposite angles of a cyclic quadrilateral add up to 180\u00b0 [6] (b) Triangle CXD is mathematically similar to triangle BXA. DX = 8.0 cm, BX = 2.7 cm and AX = 4.0 cm. (i) Work out the length of CX. 55\u00b0 88\u00b0 X 27\u00b0 4 2.7 8 Ox/Ax = Cx/Bx 8/4 = Cx/2.7 2 x 2.7 = CX 5.4 CM CX = 5.4 cm [2] (ii) Complete the statement. Area of triangle CXD : area of triangle BXA = 2 : 1 [1]",
+        "illegible_regions": [],
+        "contains_diagrams": true,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 14,
+        "total_score": 7,
+        "max_score": 9,
+        "topic_classification": "Geometry (Circle Theorems, Similar Triangles)",
+        "sub_parts": [
+          {
+            "part_identifier": "a(i)",
+            "marks_awarded": 1,
+            "marks_possible": 2,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": "Calculation error in finding the angle.",
+            "detailed_critique": "The student correctly identified the reason 'The sum of interior angles in a triangle add up to 180\u00b0' for finding an angle in a triangle, which earns 1 mark. However, the calculated angle CDB is 27\u00b0, which is incorrect. The correct calculation for angle CDB in triangle CXD is 180\u00b0 - 88\u00b0 - 55\u00b0 = 37\u00b0. Therefore, the accuracy mark for the angle is not awarded.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "a(ii)",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 2,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly identified Angle ABD as 55\u00b0 and provided the correct geometrical reason 'Angles Subtended from the Same arc', which is an acceptable alternative for 'Angles in the same segment are equal'. Both marks are awarded.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "a(iii)",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 2,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly identified Angle AED as 125\u00b0. This is derived from Angle ABD = 55\u00b0 (from part a(ii)) and the property that opposite angles in the cyclic quadrilateral ABDE sum to 180\u00b0 (180\u00b0 - 55\u00b0 = 125\u00b0). The reason 'opposite angles of a cyclic quadrilateral add up to 180\u00b0' is also correct. Both marks are awarded.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "b(i)",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly set up the ratio of corresponding sides for similar triangles CXD and BXA (DX/AX = CX/BX, or 8/4 = CX/2.7). This demonstrates a correct method for finding CX, earning the method mark. The calculation 2 x 2.7 = 5.4 is correct, leading to the accurate final answer of 5.4 cm, earning the accuracy mark.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "b(ii)",
+            "marks_awarded": 0,
+            "marks_possible": 1,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "Confusing ratio of sides with ratio of areas in similar figures.",
+            "detailed_critique": "The student provided the ratio 2:1. This is the ratio of the corresponding sides (e.g., DX:AX = 8:4 = 2:1). However, the ratio of the areas of similar triangles is the square of the ratio of their corresponding sides. Therefore, the correct ratio should be (2:1)^2 = 4:1. No marks are awarded.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "For part (a)(i), please be more careful with your calculations when applying the angle sum of a triangle. Double-check your arithmetic. For part (b)(ii), remember that for similar figures, the ratio of their areas is the square of the ratio of their corresponding linear dimensions (like sides). You correctly found the ratio of the sides, but you need to square that ratio to get the ratio of the areas.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 50,
+      "question_pdf": "isolated_questions/question_15.pdf",
+      "transcription": {
+        "question_number": 15,
+        "raw_transcription": "(a) Write 66000 in standard form. 6.6x10\u2074 (b) Work out (3.7\u00d710\u2078) + (3.7\u00d710\u2077). Give your answer in standard form. (3.7\u00d710\u2078) + (0.37 x 10\u2078) 4.07 x 10\u2078 4.07x10\u2078",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 15,
+        "total_score": 3,
+        "max_score": 3,
+        "topic_classification": "Number - Standard Form",
+        "sub_parts": [
+          {
+            "part_identifier": "a",
+            "marks_awarded": 1,
+            "marks_possible": 1,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly converted 66000 to standard form, providing the exact answer required by the mark scheme.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "b",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student demonstrated a correct method by converting 3.7 x 10^7 to 0.37 x 10^8, which aligns with the M1 criteria. They then correctly added the terms and provided the final answer in standard form, matching the A1 criteria.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Excellent work on this question! You have a strong understanding of standard form, both for writing numbers and performing calculations. Keep practicing these types of questions to maintain your proficiency and ensure you can handle more complex operations with standard form.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 51,
+      "question_pdf": "isolated_questions/question_16.pdf",
+      "transcription": {
+        "question_number": 16,
+        "raw_transcription": "x R > 3R <= 2.5R <= 4",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 16,
+        "total_score": 0,
+        "max_score": 4,
+        "topic_classification": "Inequalities",
+        "sub_parts": [
+          {
+            "part_identifier": "",
+            "marks_awarded": 0,
+            "marks_possible": 4,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "The student demonstrates a fundamental misunderstanding of how to write and interpret inequalities to define regions. The use of 'R' is incorrect and the expressions do not form valid inequalities.",
+            "detailed_critique": "The student's answer 'x R > 3R <= 2.5R <= 4' does not represent any standard mathematical inequalities. The symbol 'R' is used incorrectly, and the expressions do not correspond to any of the required inequalities (x < 2.5, y >= 3, y < 4, y < 2x) or even the boundary lines (x = 2.5, y = 3, y = 4, y = 2x). Consequently, no marks can be awarded for this response.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "You need to revisit the basic concepts of inequalities. Focus on understanding what each inequality symbol (<, >, \", >=) means and how to use them to describe a region on a graph. Practice writing inequalities for horizontal lines (e.g., y > 3), vertical lines (e.g., x < 2.5), and diagonal lines (e.g., y < 2x). Pay close attention to whether the line is solid or dashed and which side of the line is shaded to determine the correct inequality symbol. The 'R' in your answer is not standard notation for inequalities and suggests a confusion with variables or relations; ensure you are using the correct mathematical symbols.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 52,
+      "question_pdf": "isolated_questions/question_17.pdf",
+      "transcription": {
+        "question_number": 17,
+        "raw_transcription": "I = M(k\u00b2+c\u00b2)\n(a) Find the value of I when M = 7, k = 3 and c = 2.\nI = 7 (3\u00b2 + 2\u00b2)\nI = 7 (9 + 4)\nI = 7 (13)\nI = 91\nI = 91\n(b) Rearrange the formula to write k in terms of I, M and c.\nI/M = k\u00b2 + c\u00b2\nI/M - c\u00b2 = k\u00b2\nk = \u221a(I/M - c\u00b2)\nk = \u221a(I/M - c\u00b2)",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 17,
+        "total_score": 4,
+        "max_score": 5,
+        "topic_classification": "Algebra: Substitution and Rearranging Formulae",
+        "sub_parts": [
+          {
+            "part_identifier": "a",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly substituted the given values into the formula, showing clear working for the calculation of I = 7(3\u00b2 + 2\u00b2). The subsequent steps of I = 7(9 + 4), I = 7(13), and the final answer I = 91 are all correct, earning both the method and accuracy marks.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "b",
+            "marks_awarded": 2,
+            "marks_possible": 3,
+            "method_marks_earned": 2,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "Omission of the 'plus or minus' sign when taking the square root to solve for a variable.",
+            "detailed_critique": "The student correctly performed the initial algebraic manipulations by dividing both sides by M (I/M = k\u00b2 + c\u00b2) and then isolating k\u00b2 (I/M - c\u00b2 = k\u00b2), earning two method marks. However, in the final step of taking the square root to solve for k, the 'plus or minus' (\u00b1) sign was omitted from the final answer. The mark scheme explicitly requires the '\u00b1' for the accuracy mark, which was not awarded.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "For part (a), your work is excellent. You clearly showed all steps for substitution and calculation, leading to the correct answer. Keep up this precision! For part (b), you demonstrated a strong understanding of algebraic rearrangement by correctly isolating k\u00b2. However, when you take the square root of both sides of an equation to solve for a variable, remember that there are always two possible solutions: a positive root and a negative root. Therefore, you must include the 'plus or minus' (\u00b1) sign in front of the square root. For example, if x\u00b2 = 9, then x = \u00b13. Practice more problems involving rearranging formulae where you need to take a square root, paying close attention to including the '\u00b1' sign in your final answer.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 53,
+      "question_pdf": "isolated_questions/question_18.pdf",
+      "transcription": {
+        "question_number": 18,
+        "raw_transcription": "f(x) = 2x+5\nf(x)f(x) - f(x) = ax^2 + bx + c\nFind the value of a, the value of b and the value of c\n(2x + 5)(2x + 5) - (2x + 5) = ax^2 + bx + c\n4x^2 + 10x + 10x + 25 - 2x - 5 = ax^2 + bx + c\n4x^2 + 20x + 25 - 2x - 5\n4x^2 + 18x + 20\na = 4\nb = 18\nc = 20\n[4]",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 18,
+        "total_score": 2,
+        "max_score": 4,
+        "topic_classification": "Algebraic Manipulation",
+        "sub_parts": [
+          {
+            "part_identifier": "",
+            "marks_awarded": 2,
+            "marks_possible": 4,
+            "method_marks_earned": 2,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly substituted f(x) into the expression f(x)f(x) - f(x). They accurately expanded (2x+5)(2x+5) to 4x^2 + 10x + 10x + 25, which satisfies the B1 criterion. They then correctly simplified this to 4x^2 + 20x + 25, earning the B2 mark. Following this, they correctly subtracted (2x+5) from their expanded quadratic to arrive at 4x^2 + 18x + 20. This leads to a=4, b=18, and c=20. According to the provided mark scheme, the expected accuracy criteria are a=4, b=16, c=10. While the student's value for 'a' matches, their values for 'b' and 'c' do not match the mark scheme's specified values. Therefore, strictly adhering to the mark scheme, the B3 mark (for two correct values) and the final mark (for all three correct values) cannot be awarded.",
+            "confidence": 0.8,
+            "ambiguous_aspects": [
+              "The mark scheme's expected final answer (a=4, b=16, c=10) is inconsistent with the expression f(x)f(x) - f(x) given in the question. The student's calculation of f(x)f(x) - f(x) to 4x^2 + 18x + 20 is mathematically correct for the expression provided in the question."
+            ]
+          }
+        ],
+        "pedagogical_remedial_strategy": "Your algebraic manipulation and simplification of the expression f(x)f(x) - f(x) were excellent. You correctly expanded (2x+5)^2 to 4x^2 + 20x + 25 and then accurately subtracted (2x+5) to get 4x^2 + 18x + 20. This means your values for a, b, and c (a=4, b=18, c=20) are correct for the expression you were asked to evaluate. In this specific instance, there appears to be a discrepancy between the question as stated and the expected answer in the mark scheme. Your mathematical process was sound.",
+        "overall_confidence": 0.7,
+        "flag_for_human_review": true,
+        "review_reason": "The student's calculation of f(x)f(x) - f(x) is mathematically correct, yielding a=4, b=18, c=20. However, the provided mark scheme's accuracy criteria specifies a=4, b=16, c=10. This indicates an inconsistency between the question and the mark scheme's expected answer. The student has correctly performed the task as presented in the question, but their final answer does not match the mark scheme's target for b and c. A human examiner should review whether to award full marks given the student's correct working for the stated problem."
+      }
+    },
+    {
+      "eval_store_id": 54,
+      "question_pdf": "isolated_questions/question_19.pdf",
+      "transcription": {
+        "question_number": 19,
+        "raw_transcription": "19 Solve(1/3)^x = 9^(x-4)(1/3)^x = (3^-1)^x = 3^-x9^(x-4) = (3^2)^(x-4) = 3^(2x-8)-x = 2x - 8-3x = -8x = 8/3",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 19,
+        "total_score": 3,
+        "max_score": 3,
+        "topic_classification": "Algebra - Indices/Exponents",
+        "sub_parts": [
+          {
+            "part_identifier": "",
+            "marks_awarded": 3,
+            "marks_possible": 3,
+            "method_marks_earned": 2,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly converted (1/3)^x to 3^-x and 9^(x-4) to 3^(2(x-4)) or 3^(2x-8), demonstrating a clear understanding of index laws (M1). They then correctly equated the powers, -x = 2x - 8, which is equivalent to the M2 criterion (allowing for a minor typo in the mark scheme's example of 2(x+4) instead of 2(x-4) given the question). The subsequent algebraic manipulation and final answer x = 8/3 are accurate (A1). Full marks are awarded.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Your solution is excellent! You have demonstrated a strong understanding of index laws and algebraic manipulation. You correctly converted both sides of the equation to a common base and accurately solved for x. Keep up the great work!",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 55,
+      "question_pdf": "isolated_questions/question_20.pdf",
+      "transcription": {
+        "question_number": 20,
+        "raw_transcription": "(a) 1/4 x 0/3 = 0/12 = 0 (b)(i) Bag A 5/8 white 3/8 black Bag B (from white A) 3/4 white 1/4 black Bag B (from black A) 3/4 white 1/4 black (ii) = (5/8 x 3/4) + (3/8 x 1/4) = 15/32 + 3/32 = 18/32 = 9/16 (c) bag A black 3/8 bag B black 1/4 New black total 3/8 + 2/5 x ? = 5/8",
+        "illegible_regions": [
+          "line 3 of working for part (c)"
+        ],
+        "contains_diagrams": true,
+        "transcription_confidence": 0.95
+      },
+      "grading": {
+        "question_number": 20,
+        "total_score": 5,
+        "max_score": 9,
+        "topic_classification": "Probability (Tree Diagrams, Conditional Probability)",
+        "sub_parts": [
+          {
+            "part_identifier": "a",
+            "marks_awarded": 1,
+            "marks_possible": 1,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly calculated the probability as 0, showing appropriate working.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "b(i)",
+            "marks_awarded": 1,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "Incorrect conditional probabilities for drawing from Bag B after a white ball is transferred from Bag A.",
+            "detailed_critique": "The student correctly identified the probabilities for drawing from Bag A (5/8 white, 3/8 black). For the conditional probabilities from Bag B, the student correctly stated '3/4 white 1/4 black' for the case where a black ball was drawn from Bag A. This satisfies the B1 criterion 'for 3/4 and 1/4 correctly placed on the same pair of branches'. However, the probabilities for Bag B after a white ball from Bag A were incorrect (stated as 3/4 white, 1/4 black, instead of the required 3/8 white, 5/8 black). Therefore, the full accuracy mark for all branches cannot be awarded.",
+            "confidence": 0.9,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "b(ii)",
+            "marks_awarded": 3,
+            "marks_possible": 3,
+            "method_marks_earned": 2,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly applied the formula for the probability of drawing a black ball, using their probabilities from part (b)(i). The calculation (5/8 x 3/4) + (3/8 x 1/4) is correct and matches the M2 criteria. The subsequent arithmetic (15/32 + 3/32 = 18/32) and simplification to 9/16 are also correct, earning the accuracy mark.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "c",
+            "marks_awarded": 0,
+            "marks_possible": 3,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "Misunderstanding of how to combine probabilities for sequential events and mutually exclusive outcomes. The student's working does not follow the structure required for method marks.",
+            "detailed_critique": "The student's working 'bag A black 3/8 bag B black 1/4 New black total 3/8 + 2/5 x ? = 5/8' does not demonstrate a correct method for calculating the required probability. While some individual probabilities (like 3/8 for black from Bag A, and potentially 2/5 for black from Bag B after a black transfer) are mentioned, they are not combined in the form of products and sums as required by the mark scheme's M1 or M2 criteria. The illegible region prevents any benefit of the doubt for forming a correct product.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "For part (b)(i), it is crucial to carefully read and interpret how the composition of Bag B changes based on the ball transferred from Bag A. Practice drawing full tree diagrams, clearly labeling each branch with the correct probability, especially for conditional probabilities. For part (c), review the rules for combining probabilities: multiply probabilities along branches for sequential events (e.g., P(A and B) = P(A) * P(B|A)) and add probabilities for mutually exclusive outcomes (e.g., P(event X or event Y) = P(event X) + P(event Y)). Ensure you are setting up the correct products for each path and then summing them.",
+        "overall_confidence": 0.95,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 56,
+      "question_pdf": "isolated_questions/question_21.pdf",
+      "transcription": {
+        "question_number": 21,
+        "raw_transcription": "21 (a)(3-\u221a5)(2+3\u221a5)=a+b\u221a5Find the value of a and the value of b.3 (2 + 3\u221a5) - \u221a5 (2 + 3\u221a5)6 + 9\u221a5 - 2\u221a5 - 25-19 + 7\u221a5a = -19b = 7(b) Rationalise the denominator.Write your answer in its simplest form.6/\u221a26/\u221a2 x \u221a2/\u221a26\u221a2/23\u221a2= 3\u221a2",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 21,
+        "total_score": 4,
+        "max_score": 4,
+        "topic_classification": "Surds",
+        "sub_parts": [
+          {
+            "part_identifier": "a",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 2,
+            "identified_misconception": "Error in multiplying surds with coefficients, specifically -\u221a5 * 3\u221a5.",
+            "detailed_critique": "The student correctly set up the expansion and correctly identified three terms: 6, +9\u221a5, and -2\u221a5. This earns B1 for three correct terms. However, there was an error in the multiplication of the last two terms: -\u221a5 * 3\u221a5 should result in -3 * (\u221a5 * \u221a5) = -3 * 5 = -15, but the student wrote -25. Despite this error, the coefficient of \u221a5 (b=7) was correctly derived from 9\u221a5 - 2\u221a5. The mark scheme awards B1 for each correct value of 'a' and 'b', or B1 for three correct terms. Since 'b' is correct (7) and three terms are correct, the student earns both B1 marks.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "b",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly applied the method for rationalising the denominator by multiplying both the numerator and denominator by \u221a2. This earns the M1 mark. The subsequent simplification to 6\u221a2/2 and then to the final answer of 3\u221a2 is also correct, earning the A1 mark.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "For part (a), review the rules for multiplying surds, especially when coefficients are involved, e.g., (c\u221aa) * (d\u221aa) = cd * a. Pay close attention to the signs and ensure that \u221a5 * \u221a5 simplifies to 5. For part (b), your working was excellent; continue to practice rationalising denominators to maintain this skill.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 57,
+      "question_pdf": "isolated_questions/question_22.pdf",
+      "transcription": {
+        "question_number": 22,
+        "raw_transcription": "Solve.2/(x-1) = x/(x+2)2(x+2) = x(x-1)2x + 4 = x^2 - x0 = x^2 - x - 2x - 40 = x^2 - 3x - 4x^2 - 4x + x - 4x(x-4) + 1(x-4)(x-4)(x+1) = 0x = 4 OR x = -1x = 4 or x = -1",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 22,
+        "total_score": 5,
+        "max_score": 5,
+        "topic_classification": "Algebra - Solving Quadratic Equations",
+        "sub_parts": [
+          {
+            "part_identifier": "22",
+            "marks_awarded": 5,
+            "marks_possible": 5,
+            "method_marks_earned": 3,
+            "accuracy_marks_earned": 2,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly cross-multiplied to form the equation 2(x+2) = x(x-1), earning the initial method mark (M1). They then accurately expanded and rearranged this into the standard quadratic form x^2 - 3x - 4 = 0, which earned the B2 mark. The student proceeded to correctly factorise the quadratic expression as (x-4)(x+1), demonstrating a valid method for solving their three-term quadratic, thus earning the M2 mark. Finally, the correct solutions x = 4 and x = -1 were derived, earning the A2 mark. All steps were clear, logical, and accurate.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Excellent work! You have demonstrated a strong understanding of how to solve rational equations by converting them into quadratic equations and then solving the quadratic. Your steps for cross-multiplication, rearranging into standard form, and factorising were all perfectly executed. Keep up the great work!",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 58,
+      "question_pdf": "isolated_questions/question_23.pdf",
+      "transcription": {
+        "question_number": 23,
+        "raw_transcription": "= -x\u00b2 - 2x + 7- (x+1)\u00b2 + 8y = -x\u00b2 - 2x + 7= -1 (x\u00b2 + 2x - 7)= -1 [ x\u00b2 + 2x + 1 - 7 - 1 ]= -1 [ (x+1)\u00b2 - 8 ]( -1 , 8 )",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 23,
+        "total_score": 4,
+        "max_score": 4,
+        "topic_classification": "Quadratic Functions - Vertex",
+        "sub_parts": [
+          {
+            "part_identifier": "23",
+            "marks_awarded": 4,
+            "marks_possible": 4,
+            "method_marks_earned": 2,
+            "accuracy_marks_earned": 2,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly used the method of completing the square to transform the quadratic expression into vertex form `-(x+1)\u00b2 + 8`. This process is clearly shown through the steps: factoring out -1, completing the square inside the bracket, and simplifying to the final vertex form. From this correct vertex form, they accurately identified the coordinates of the vertex as `(-1, 8)`. All steps are mathematically sound and lead to the correct final answer.",
+            "confidence": 1.0,
+            "ambiguous_aspects": [
+              "The mark scheme's individual mark values (M2, B3, A1) sum to more than the total marks for the question (4). The grading assumes 2 method marks for achieving the vertex form (matching M2) and 2 accuracy marks for correctly identifying both the x and y coordinates from this form, summing to the total of 4 marks."
+            ]
+          }
+        ],
+        "pedagogical_remedial_strategy": "Excellent work! You have correctly used the method of completing the square to find the vertex of the quadratic function. Your steps are clear and accurate, leading to the correct vertex coordinates of (-1, 8). Keep up the great work!",
+        "overall_confidence": 0.9,
+        "flag_for_human_review": true,
+        "review_reason": "The mark scheme lists M2, B3, and A1 for this question, which sum to 6 marks, but the total marks for the question is 4. I have awarded 2 method marks for achieving the vertex form (M2) and 2 accuracy marks for correctly identifying both x and y coordinates from this form, summing to 4. A human review is requested to confirm this interpretation of the mark allocation."
+      }
+    },
+    {
+      "eval_store_id": 59,
+      "question_pdf": "isolated_questions/question_24.pdf",
+      "transcription": {
+        "question_number": 24,
+        "raw_transcription": "In the diagram, OBD and ACD are straight lines. O is the origin, the position vector of A is a and the position vector of B is b. BC = 1/3 OA M is the midpoint of CD. Find the position vector of M. Give your answer in terms of a and b, in its simplest form. Diagram shows a triangle OAD. Point B is on OD. Point C is on AD. Point M is on CD. Vector OA is labeled 'a'. Vector OB is labeled 'b'. -> AC -> -> -> = AO + AB + BC -> = -a + b + 1/3 a -> = -2/3 a + b",
+        "illegible_regions": [],
+        "contains_diagrams": true,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 24,
+        "total_score": 0,
+        "max_score": 4,
+        "topic_classification": "Vectors",
+        "sub_parts": [
+          {
+            "part_identifier": "24",
+            "marks_awarded": 0,
+            "marks_possible": 4,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "The student incorrectly assumed that vector AB is equal to vector OB (b) rather than calculating it as OB - OA (b - a). Additionally, the student did not attempt to find the position vector of M, which was the main objective of the question.",
+            "detailed_critique": "The student has attempted to calculate vector AC. However, the calculation for AC is incorrect as they have used 'b' for vector AB instead of 'b - a'. More importantly, the question asks for the position vector of M (OM), and the student's work does not show any attempt to find OM or any of the intermediate vectors (such as OD, BD, DM, or MC) that would lead to OM as per the mark scheme. No marks can be awarded.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "You have correctly identified some of the given vectors, but your calculation for vector AC contains an error. Remember that vector AB is found by subtracting the position vector of A from the position vector of B (i.e., AB = OB - OA). More critically, the question asks for the position vector of M (OM). You need to establish a clear path from the origin O to M. This typically involves finding intermediate points like D or C. For example, you could find OD, then AD, then AC, then CD, and finally OM = OC + CM or OM = OD + DM. Focus on breaking down the problem into smaller, manageable vector additions/subtractions to reach the target vector.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 60,
+      "question_pdf": "isolated_questions/question_25.pdf",
+      "transcription": {
+        "question_number": 25,
+        "raw_transcription": "10ax+6bx-25a-15b 4x\u00b2-25 2x (5a+3b) -5 (5a +3b) (2x+5) (2x-5) (2x-5) (5a+3b) (2x+5) (2x-5) 5a + 3b 2x + 5",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 25,
+        "total_score": 4,
+        "max_score": 4,
+        "topic_classification": "Algebraic Fractions",
+        "sub_parts": [
+          {
+            "part_identifier": "25",
+            "marks_awarded": 4,
+            "marks_possible": 4,
+            "method_marks_earned": 3,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly factored the numerator by grouping, showing the intermediate step '2x (5a+3b) -5 (5a +3b)' which leads to (5a+3b)(2x-5), earning B2. They also correctly factored the denominator as a difference of two squares, '(2x+5)(2x-5)', earning B1. Finally, they correctly simplified the fraction to '5a + 3b / 2x + 5', earning A1. All steps are clear and accurate, leading to the full marks.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Excellent work! You have demonstrated a strong understanding of factoring algebraic expressions, including factoring by grouping and the difference of two squares, and then simplifying algebraic fractions. Your working is clear and logical. Continue to practice these skills, perhaps by tackling more complex algebraic fraction problems involving quadratic factors or multiple terms in the numerator/denominator. Keep up the great work!",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 61,
+      "question_pdf": "isolated_questions/question_26.pdf",
+      "transcription": {
+        "question_number": 26,
+        "raw_transcription": "x = 90\u00b0 (crossed out) A graph of y = tan(x) is drawn, showing asymptotes at 90\u00b0 and 270\u00b0, and x-intercepts at 0\u00b0, 180\u00b0, 360\u00b0. The x-axis is labeled 90, 180, 270, 360.",
+        "illegible_regions": [],
+        "contains_diagrams": true,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 26,
+        "total_score": 0,
+        "max_score": 3,
+        "topic_classification": "Trigonometry - Solving Trigonometric Equations",
+        "sub_parts": [
+          {
+            "part_identifier": "overall",
+            "marks_awarded": 0,
+            "marks_possible": 3,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "The student demonstrated knowledge of the graph of y=tan(x) but did not provide a solution to a trigonometric equation, which was the likely requirement of the question based on the mark scheme.",
+            "detailed_critique": "The student has correctly drawn and labeled a graph of y = tan(x), showing the asymptotes and x-intercepts. This demonstrates a good understanding of the tangent function's graphical representation. However, the mark scheme for this question awards marks for providing a correct numerical answer to a trigonometric equation (B2) or for an intermediate step involving tan\u207b\u00b9 resulting in 30 or -30 (B1). The student's work, while graphically accurate, does not provide any numerical solutions or the specific intermediate steps required by the mark scheme. Therefore, no marks can be awarded based on the given criteria.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "You've done a great job sketching the graph of y = tan(x) and identifying its key features like asymptotes and x-intercepts. This shows a strong foundational understanding of the tangent function. However, this question likely required you to solve a trigonometric equation, such as tan(x) = k, for specific values of x. While the graph can be a helpful tool for visualizing solutions, the final answer should be the numerical values of x. Next time, after sketching the graph, consider how you would use the inverse tangent function (tan\u207b\u00b9) to find the principal value, and then use the periodicity of the tangent function (180\u00b0) and your graph to find all solutions within the given range. Practice solving equations like tan(x) = 1/\u221a3 or tan(x) = -1 to ensure you can find the specific numerical answers required.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    }
+  ]
+}
