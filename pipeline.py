@@ -717,7 +717,16 @@ def transcribe_question(
     - Act like a human examiner: cross-reference the final answer box and previous steps to resolve messy digits.
     
     Transcribe ALL handwritten content on these page(s) for Question {question_number}:
-    ...
+    - Every line of working, even if crossed out (note it as "[CROSSED OUT: ...]")
+    - Every numerical calculation and algebraic step
+    - Any diagrams (describe them as "[DIAGRAM: ...]")
+    - The final answer, clearly marked as "[FINAL ANSWER: ...]"
+    - Any margin notes or annotations
+ 
+    For regions you cannot read clearly EVEN AFTER using context to resolve ambiguity,
+    write "[ILLEGIBLE: description of region]" and list those regions in illegible_regions.
+ 
+    Be precise and literal. Your transcription will be used by another system to grade.
     """
 
     def _call():
