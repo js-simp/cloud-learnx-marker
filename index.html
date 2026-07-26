@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud LearnX - Auto-Marker</title>
+    <!-- Supabase JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 40px; display: flex; justify-content: center; }
+        .container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); max-width: 600px; width: 100%; }
+        h1, h2 { color: #2c3e50; text-align: center; }
+        .form-group { margin-bottom: 20px; }
+        label { font-weight: bold; display: block; margin-bottom: 5px; }
+        input[type="text"], input[type="email"], input[type="password"], input[type="file"] { 
+            width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; background: #fafafa; box-sizing: border-box; 
+        }
+        button { background: #3498db; color: white; border: none; padding: 12px 20px; width: 100%; border-radius: 5px; font-size: 16px; cursor: pointer; font-weight: bold; transition: background 0.3s; margin-top: 10px; }
+        button:hover { background: #2980b9; }
+        .btn-secondary { background: #7f8c8d; }
+        .btn-secondary:hover { background: #6c7a7d; }
+        #upload-container, #status-board { display: none; }
+        #status-board { margin-top: 30px; padding: 15px; background: #e8f8f5; border-left: 4px solid #1abc9c; border-radius: 4px; }
+        .progress-text { font-size: 14px; color: #555; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Cloud LearnX Auto-Marker</h1>
+
+        <!-- 1. AUTHENTICATION BOX -->
+        <div id="auth-box">
+            <h2>Sign In or Create Account</h2>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="tutor@cloudlearnx.com" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="••••••••" required>
+            </div>
+            <button onclick="handleLogin()">Log In</button>
+            <button class="btn-secondary" onclick="handleSignup()">Sign Up</button>
+        </div>
+
+        <!-- 2. MAIN UPLOAD DASHBOARD (Hidden until logged in) -->
+        <div id="upload-container">
+            <p style="text-align: right; font-size: 14px;"><a href="#" onclick="handleLogout()">Log Out</a></p>
+            <form id="upload-form">
+                <div class="form-group">
+                    <label for="student_paper">Student Paper (PDF):</label>
+                    <input type="file" id="student_paper" accept="application/pdf" required>
+                </div>
+                <div class="form-group">
+                    <label for="marking_scheme">Marking Scheme (PDF):</label>
+                    <input type="file" id="marking_scheme" accept="application/pdf" required>
+                </div>
+                <button type="submit" id="submit-btn">Grade Paper (1 Credit)</button>
+            </form>
+
+            <div id="status-board">
+                <h3 style="margin-top: 0;">Status: <span id="status-indicator">Uploading...</span></h3>
+                <div class="progress-text" id="progress-details">Initializing backend task...</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ── 1. SUPABASE INITIALIZATION ──────────────────────────────────────────────
+        // REPLACE THESE WITH YOUR ACTUAL KEYS FROM SUPABASE DASHBOARD:
+        // Project Settings -> API
+        const SUPABASE_URL = "https://rswfvxzwdloggvymjkos.supabase.co";
+        const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJzd2Z2eHp3ZGxvZ2d2eW1qa29zIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUwMTQxNDksImV4cCI6MjEwMDU5MDE0OX0.J-5_E7yROrAmdjkA9XJV7qUuj__gvOIKoS2ZzvLlauQ";
+
+        // IMPORTANT: Variable is named 'supabaseClient' to avoid shadowing window.supabase
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // Check if user is already logged in on page load
+        window.addEventListener('DOMContentLoaded', async () => {
+            const token = localStorage.getItem('access_token');
+            if (token) {
+                // Verify session validity
+                const { data, error } = await supabaseClient.auth.getUser(token);
+                if (data && data.user) {
+                    showDashboard();
+                } else {
+                    localStorage.removeItem('access_token');
+                }
+            }
+        });
+
+        // ── 2. AUTH HANDLERS ────────────────────────────────────────────────────────
+        async function handleSignup() {
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (!email || !password) return alert("Please enter both email and password.");
+
+            const { data, error } = await supabaseClient.auth.signUp({ email, password });
+
+            if (error) {
+                alert("Signup Error: " + error.message);
+            } else {
+                alert("Signup successful! Please check your email for a confirmation link.");
+            }
+        }
+
+        async function handleLogin() {
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (!email || !password) return alert("Please enter both email and password.");
+
+            const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+
+            if (error) {
+                alert("Login Error: " + error.message);
+            } else {
+                localStorage.setItem('access_token', data.session.access_token);
+                showDashboard();
+            }
+        }
+
+        function handleLogout() {
+            supabaseClient.auth.signOut();
+            localStorage.removeItem('access_token');
+            document.getElementById('upload-container').style.display = 'none';
+            document.getElementById('auth-box').style.display = 'block';
+        }
+
+        function showDashboard() {
+            document.getElementById('auth-box').style.display = 'none';
+            document.getElementById('upload-container').style.display = 'block';
+        }
+
+        // ── 3. GRADING FORM HANDLER ─────────────────────────────────────────────────
+        document.getElementById('upload-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const token = localStorage.getItem('access_token');
+            if (!token) return alert("Authentication token missing. Please log in again.");
+
+            const submitBtn = document.getElementById('submit-btn');
+            const statusBoard = document.getElementById('status-board');
+            const statusIndicator = document.getElementById('status-indicator');
+            const progressDetails = document.getElementById('progress-details');
+
+            const studentFile = document.getElementById('student_paper').files[0];
+            const schemeFile = document.getElementById('marking_scheme').files[0];
+
+            const formData = new FormData();
+            formData.append('student_paper', studentFile);
+            formData.append('marking_scheme', schemeFile);
+            formData.append('token', token); // Send token expected by main.py
+
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Processing...";
+            statusBoard.style.display = 'block';
+
+            try {
+                const response = await fetch('/api/v1/grade-paper', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.job_id) {
+                    statusIndicator.innerText = "Queued";
+                    progressDetails.innerText = `Job ID: ${data.job_id}. Processing in background...`;
+                    pollStatus(data.job_id);
+                } else {
+                    throw new Error(data.detail || "Grading request failed");
+                }
+            } catch (error) {
+                statusIndicator.innerText = "Error";
+                statusIndicator.style.color = "red";
+                progressDetails.innerText = error.message;
+                submitBtn.disabled = false;
+                submitBtn.innerText = "Grade Paper (1 Credit)";
+            }
+        });
+
+        // ── 4. STATUS POLLING ───────────────────────────────────────────────────────
+        async function pollStatus(jobId) {
+            const statusIndicator = document.getElementById('status-indicator');
+            const progressDetails = document.getElementById('progress-details');
+            const submitBtn = document.getElementById('submit-btn');
+
+            const interval = setInterval(async () => {
+                try {
+                    const response = await fetch(`/api/v1/status/${jobId}`);
+                    const data = await response.json();
+                    const status = data.details.status;
+
+                    statusIndicator.innerText = status;
+
+                    if (status === "Completed") {
+                        clearInterval(interval);
+                        statusIndicator.style.color = "green";
+                        const s = data.details.summary;
+                        progressDetails.innerHTML = `
+                            <strong>Grading Complete!</strong><br>
+                            Paper: ${s.paper_title || 'N/A'}<br>
+                            Total Score: ${s.total_marks_awarded} / ${s.total_marks_possible}<br>
+                            Percentage: ${s.percentage}%<br>
+                            Flagged Questions: ${s.questions_flagged ? s.questions_flagged.join(', ') : 'None'}
+                        `;
+                        submitBtn.disabled = false;
+                        submitBtn.innerText = "Grade Another Paper";
+                    } else if (status === "Failed") {
+                        clearInterval(interval);
+                        statusIndicator.style.color = "red";
+                        progressDetails.innerText = `Error: ${data.details.error}`;
+                        submitBtn.disabled = false;
+                        submitBtn.innerText = "Retry";
+                    }
+                } catch (err) {
+                    console.error("Polling error:", err);
+                }
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

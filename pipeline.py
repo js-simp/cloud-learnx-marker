@@ -234,21 +234,29 @@ def save_grading_result(
     return row_id
 
 
-def get_few_shot_examples(topic: str, n: int = 3, db_path: str = DB_PATH) -> List[dict]:
+def get_few_shot_examples(topic: str = None, n: int = 3, db_path: str = DB_PATH) -> List[dict]:
     """
-    Pull teacher-reviewed correct examples for a topic.
+    Pull teacher-reviewed examples — both confirmed-correct gradings AND
+    teacher-corrected ones (which carry error_analysis showing what to avoid).
     These are injected into the grading prompt to improve accuracy over time.
+
+    `topic` is currently NOT used to filter (topic classification is not yet
+    wired into the rubric). Instead, this pulls the N most recent reviewed
+    examples across all questions — useful early on while the eval store is
+    small, since corrections often reflect general grading-style mistakes
+    (e.g. "follow the mark scheme literally") rather than topic-specific ones.
+
+    TODO: once topic_classification is added to QuestionRubric, re-enable
+    topic filtering here for better targeting at scale.
     """
     conn = sqlite3.connect(db_path)
     rows = conn.execute("""
         SELECT transcription, ai_grading, teacher_correction
         FROM   grading_evals
         WHERE  is_reviewed = TRUE
-          AND  is_correct  = TRUE
-          AND  topic_classification = ?
         ORDER  BY created_at DESC
         LIMIT  ?
-    """, (topic, n)).fetchall()
+    """, (n,)).fetchall()
     conn.close()
 
     examples = []
@@ -567,7 +575,6 @@ def execute_ai_layout_segmentation(
         for chunk_start in range(0, len(uploaded), chunk_size):
             chunk_end    = min(chunk_start + chunk_size, len(uploaded))
             chunk_blobs  = uploaded[chunk_start:chunk_end]
-            page_offset  = chunk_start  # pages in this chunk are offset by this
 
             print(f"    Processing pages {chunk_start+1}–{chunk_end}...")
 
@@ -715,17 +722,17 @@ def transcribe_question(
     - Analyze the equation: If a student writes "2x + [unclear] = 7" and the next line is "2x = 4", 
       deduce that the unclear character is a 3. 
     - Act like a human examiner: cross-reference the final answer box and previous steps to resolve messy digits.
-    
+
     Transcribe ALL handwritten content on these page(s) for Question {question_number}:
     - Every line of working, even if crossed out (note it as "[CROSSED OUT: ...]")
     - Every numerical calculation and algebraic step
     - Any diagrams (describe them as "[DIAGRAM: ...]")
     - The final answer, clearly marked as "[FINAL ANSWER: ...]"
     - Any margin notes or annotations
- 
+
     For regions you cannot read clearly EVEN AFTER using context to resolve ambiguity,
     write "[ILLEGIBLE: description of region]" and list those regions in illegible_regions.
- 
+
     Be precise and literal. Your transcription will be used by another system to grade.
     """
 
@@ -827,11 +834,33 @@ def grade_question(
     if few_shot_examples:
         examples_block = "\n\n--- REVIEWED EXAMPLES (use these to calibrate your judgement) ---\n"
         for i, ex in enumerate(few_shot_examples, 1):
+            correct_grading = ex['correction'] or ex['grading']
             examples_block += f"""
 EXAMPLE {i}:
 Student transcription: {ex['transcription'].get('raw_transcription', '')}
-Correct grading: {json.dumps(ex['correction'] or ex['grading'], indent=2)}
----"""
+Correct grading: {json.dumps(correct_grading, indent=2)}"""
+
+            # Surface structured error analysis if present (from teacher corrections)
+            error_analysis = (ex['correction'] or {}).get("error_analysis")
+            if error_analysis:
+                t_errors = error_analysis.get("transcription_errors") or []
+                g_errors = error_analysis.get("grading_errors") or []
+                correct_trans = error_analysis.get("correct_transcription")
+                notes = error_analysis.get("teacher_notes")
+
+                if t_errors or g_errors or correct_trans or notes:
+                    examples_block += "\nIMPORTANT — Last time, the AI made these mistakes on a similar question:"
+                    for te in t_errors:
+                        examples_block += f"\n  - Transcription mistake: {te}"
+                    for ge in g_errors:
+                        examples_block += f"\n  - Grading mistake: {ge}"
+                    if correct_trans:
+                        examples_block += f"\n  - The correct reading was: {correct_trans}"
+                    if notes:
+                        examples_block += f"\n  - Teacher note: {notes}"
+                    examples_block += "\nDo NOT repeat these mistakes."
+
+            examples_block += "\n---"
 
     system_instruction = """
     You are a Chief Assistant Principal Examiner for International GCSE Mathematics.
@@ -1113,7 +1142,9 @@ def run_pipeline(
 
             # Fetch few-shot examples for this topic from eval store
             # (empty on first run; grows richer as teacher reviews accumulate)
-            few_shots = get_few_shot_examples(topic=rubric.question_number, n=3)
+            # Fetch few-shot examples from eval store (topic-agnostic for now —
+            # pulls recent reviewed examples including teacher corrections)
+            few_shots = get_few_shot_examples(n=3)
 
             # Pass B: Grading (sends rubric text only — ~500 tokens instead of ~15,000)
             print(f"  [B] Grading against rubric (text-only, ~500 tokens)...")

@@ -1,0 +1,872 @@
+{
+  "paper_title": "Paper 4 (Extended)",
+  "prompt_version": "v2.2",
+  "summary": {
+    "total_marks_awarded": 50,
+    "total_marks_possible": 94,
+    "percentage": 53.2,
+    "questions_flagged": 5
+  },
+  "questions": [
+    {
+      "eval_store_id": 62,
+      "question_pdf": "temp_uploads/sliced_pdfs_c1d7ec2a/question_1.pdf",
+      "transcription": {
+        "question_number": 1,
+        "raw_transcription": "Solve.4c-9=134C = 13 +94C = 2244C= 5.5[FINAL ANSWER: c= 5.5]",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 1,
+        "total_score": 2,
+        "max_score": 2,
+        "topic_classification": "Algebra: Solving Linear Equations",
+        "sub_parts": [
+          {
+            "part_identifier": "1",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly performed the first step by adding 9 to both sides of the equation, showing '4C = 13 + 9', which simplifies to '4C = 22'. This earns the method mark (M1). The final answer 'c = 5.5' is also correct, matching the accuracy mark criteria (A1). The intermediate step '4C= 5.5' is slightly ambiguous as it appears to equate 4C to 5.5 rather than showing the division, but the final answer clearly states c=5.5, indicating the correct calculation was performed.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "You have demonstrated a strong understanding of how to solve linear equations. Your steps were clear and logical, leading to the correct final answer. To make your working even clearer, especially for multi-step problems, always show the division step explicitly, for example, 'C = 22/4' before stating the final decimal answer. This helps to ensure full clarity in your mathematical reasoning.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 63,
+      "question_pdf": "temp_uploads/sliced_pdfs_c1d7ec2a/question_2.pdf",
+      "transcription": {
+        "question_number": 2,
+        "raw_transcription": "= 7.9994= 78.0",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 2,
+        "total_score": 1,
+        "max_score": 2,
+        "topic_classification": "Number/Rounding",
+        "sub_parts": [
+          {
+            "part_identifier": "2",
+            "marks_awarded": 1,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "Error in final rounding or transcription of the final answer, leading to a significantly incorrect value despite correct intermediate calculation.",
+            "detailed_critique": "The student correctly calculated an intermediate value of 7.9994. This value is seen to 4 significant figures and is consistent with the unrounded or correctly rounded value expected before the final answer, thus earning the B1 mark as per the general notes ('B1 for 7.99[9...] or for their answer seen to 3 or more sf and rounded correctly'). However, the final answer provided, '78.0', is incorrect and does not match the required '8.0 cao' for the accuracy mark (A1). It appears there might have been a transcription error or a significant miscalculation in the final step.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "You did a great job with the initial calculation, arriving at 7.9994, which shows you understood the core steps. However, it's crucial to ensure your final answer is presented clearly and accurately. Double-check your rounding and transcription in the very last step. It looks like you might have accidentally written '78.0' instead of '8.0'. Always review your final answer against the question's requirements to catch these types of errors.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 64,
+      "question_pdf": "temp_uploads/sliced_pdfs_c1d7ec2a/question_3.pdf",
+      "transcription": {
+        "question_number": 3,
+        "raw_transcription": "Uk: 1 litre fuel\n\u00a31 = 1.215\n\u00a31.62 = x\nx = 1.9683\nx: 1.97 $\nUSA\n1 gallon = 3.785 L = $4.83\n3.785 L = $4.83\n1 L = $1.78\n[FINAL ANSWER: .....u.k...... by $ 0.69]",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 3,
+        "total_score": 2,
+        "max_score": 3,
+        "topic_classification": "Number: Currency Conversion and Unit Cost Comparison",
+        "sub_parts": [
+          {
+            "part_identifier": "3",
+            "marks_awarded": 2,
+            "marks_possible": 3,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": "The student made a calculation error when determining the cost per litre in the USA, specifically in the division of total cost by total volume.",
+            "detailed_critique": "The student correctly calculated the cost of 1 litre of fuel in the UK in USD by multiplying \u00a31.62 by the exchange rate 1.215, resulting in $1.9683. This correctly satisfies the M1 criterion for '1.62 \u00d7 1.215'. However, when calculating the cost per litre in the USA, the student incorrectly stated '1 L = $1.78'. The correct calculation for the USA cost per litre should be $4.83 / 3.785 L = $1.276... per litre. Due to this error in the USA calculation, the B2 mark (for both correct conversions) and the M2 mark (for setting up the full difference calculation correctly) cannot be awarded. Despite the intermediate calculation error for the USA cost, the student's final answer, 'UK by $ 0.69', is correct and matches the accuracy mark criteria. As some correct method (M1) was demonstrated, and the final answer is accurate, the final accuracy mark is awarded.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "You demonstrated a good understanding of how to convert currency and calculate unit costs, as shown by your correct calculation for the UK fuel price. However, it is crucial to be meticulous with all calculations, especially division. Double-check your work for each step, particularly when converting units or finding unit rates. A small error in an intermediate step can prevent you from earning full method marks, even if your final answer happens to be correct. Always write down the full, unrounded value from your calculator before rounding for the final answer to maintain accuracy throughout your working.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 65,
+      "question_pdf": "temp_uploads/sliced_pdfs_c1d7ec2a/question_4.pdf",
+      "transcription": {
+        "question_number": 4,
+        "raw_transcription": "(a)(i) Translate Shape A by the vector (3/2)(a)(ii) Rotate Shape A 90\u00b0 Anti-clockwise centre of rotation (0,0 origin).",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 0.98
+      },
+      "grading": {
+        "question_number": 4,
+        "total_score": 4,
+        "max_score": 7,
+        "topic_classification": "Transformations",
+        "sub_parts": [
+          {
+            "part_identifier": "4(a)(i)",
+            "marks_awarded": 1,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "Incorrect vector for translation.",
+            "detailed_critique": "The student correctly identified the transformation as a 'Translate', which earns the B1 method mark. However, the vector provided, (3/2), is incorrect. The correct vector for the translation of Shape A is (8, -3). Therefore, the accuracy mark cannot be awarded.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "4(a)(ii)",
+            "marks_awarded": 3,
+            "marks_possible": 3,
+            "method_marks_earned": 3,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": null,
+            "detailed_critique": "The student has correctly identified all three components of the rotation: 'Rotate', '90\u00b0 Anti-clockwise', and 'centre of rotation (0,0 origin)'. Each of these components earns a B1 mark, leading to a full score for this part.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "4(b)",
+            "marks_awarded": 0,
+            "marks_possible": 2,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "No attempt made for this part of the question.",
+            "detailed_critique": "No answer was provided for part (b) of the question. Therefore, no marks can be awarded.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "For part (a)(i), you correctly identified the type of transformation. However, it's crucial to accurately determine the translation vector. Remember that the top number in the vector indicates horizontal movement (positive for right, negative for left) and the bottom number indicates vertical movement (positive for up, negative for down). Double-check the coordinates of the original shape and its image to find the correct vector. For part (a)(ii), your description of the rotation is perfect \u2013 you've included all the necessary information: type of transformation, angle, direction, and centre of rotation. Excellent work there! For part (b), it appears you did not attempt this part. Always try to provide an answer, even if you're unsure, as you might still earn method marks for showing some understanding of the concept, such as identifying the correct line of reflection.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 66,
+      "question_pdf": "temp_uploads/sliced_pdfs_c1d7ec2a/question_5.pdf",
+      "transcription": {
+        "question_number": 5,
+        "raw_transcription": "1000 5 8 13 20 29 3 5 7 9 2 2 2 n^2 + 4 [CROSSED OUT: 5 8 19 20 24 3 11 1 4 8 -10 3 4 4 4 4] 9 n/2 (5n-1) = 3 5n^2 - n = 6 5n^2 - n - 6 = 0 6/5 = 3rd term",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 5,
+        "total_score": 4,
+        "max_score": 6,
+        "topic_classification": "Sequences and Series",
+        "sub_parts": [
+          {
+            "part_identifier": "5(a)",
+            "marks_awarded": 1,
+            "marks_possible": 1,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly provided the answer '1000', which matches the accuracy mark criteria for this part.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "5(b)",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly identified the first differences (3, 5, 7, 9) and the second differences (2, 2, 2), which satisfies the B1 method mark for showing the second difference is 2. They then correctly derived the quadratic expression 'n^2 + 4', which matches the accuracy mark criteria.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "5(c)(i)",
+            "marks_awarded": 1,
+            "marks_possible": 1,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student provided the answer '9', which matches the accuracy mark criteria for this part.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "5(c)(ii)",
+            "marks_awarded": 0,
+            "marks_possible": 2,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "The student attempted to solve a quadratic equation derived from an incorrect formula or an unrelated problem. The working 'n/2 (5n-1) = 3' and subsequent steps '5n^2 - n = 6', '5n^2 - n - 6 = 0' do not lead to the expected values of '21' or '12' as per the mark scheme, nor do they appear to be relevant to the sequence established in part (b). The final statement '6/5 = 3rd term' is also incorrect.",
+            "detailed_critique": "The student's working for this part involves setting up and solving a quadratic equation that does not align with the expected answers or likely question context for 5(c)(ii). No method or accuracy marks can be awarded as the working does not demonstrate any steps towards '21' or '12'.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "For parts (a), (b), and (c)(i), your work is excellent. You correctly identified the value for (a), accurately derived the quadratic expression for the nth term in (b) with clear working for the differences, and provided the correct answer for (c)(i). This demonstrates a strong understanding of sequences and their properties. For part (c)(ii), it appears you attempted to solve a quadratic equation, but the initial setup of the equation (n/2 (5n-1) = 3) does not seem to relate to the sequence you found in part (b) or to the expected answers in the mark scheme. It's crucial to carefully read the question for part (c)(ii) to understand what is being asked. If it involves the sequence n^2 + 4, ensure your calculations are based on that formula. If it's a different sequence or a different type of problem (e.g., sum of an arithmetic series), make sure you are using the correct formula and applying it to the correct values. Double-check your formula for the sum of an arithmetic series and how to set up the equation based on the problem's context.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 67,
+      "question_pdf": "temp_uploads/sliced_pdfs_c1d7ec2a/question_6.pdf",
+      "transcription": {
+        "question_number": 6,
+        "raw_transcription": "6 Expand.5x\u00b2(3x-2)15x\u00b3 - 10x\u00b2",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 6,
+        "total_score": 2,
+        "max_score": 2,
+        "topic_classification": "Algebraic Expansion",
+        "sub_parts": [
+          {
+            "part_identifier": "a",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 2,
+            "identified_misconception": null,
+            "detailed_critique": "The student has correctly expanded the expression 5x\u00b2(3x-2) to 15x\u00b3 - 10x\u00b2. This matches the exact final answer required by the mark scheme, earning both marks.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Excellent work! You have correctly expanded the algebraic expression and provided the exact final answer. Your understanding of multiplying terms with exponents and coefficients is strong. Keep up this precision in your algebraic manipulations.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 68,
+      "question_pdf": "temp_uploads/sliced_pdfs_c1d7ec2a/question_7.pdf",
+      "transcription": {
+        "question_number": 7,
+        "raw_transcription": "-2.5 <= y < 4",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 7,
+        "total_score": 1,
+        "max_score": 2,
+        "topic_classification": "Inequalities",
+        "sub_parts": [
+          {
+            "part_identifier": "a",
+            "marks_awarded": 1,
+            "marks_possible": 2,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": "Error in determining the lower bound value and its associated inequality symbol. The student used '-2.5 <=' instead of '-1.5 <'.",
+            "detailed_critique": "The student's answer is '-2.5 <= y < 4'. According to the mark scheme, a B1 mark is awarded for either '-1.5 < y' OR 'y < 4'. The student correctly identified the upper bound as 'y < 4', which earns the B1 mark. However, the lower bound of '-2.5 <=' is incorrect, as the mark scheme requires '-1.5 <'. Therefore, the full 2 marks for the complete correct inequality '-1.5 < y < 4' cannot be awarded.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "You correctly identified the upper limit of the inequality as 'y < 4'. This shows a good understanding of how to determine one boundary. However, you made an error with the lower limit, using '-2.5 <=' instead of '-1.5 <'. When working with inequalities, it's crucial to accurately identify both the numerical value of the boundary and the correct inequality symbol (e.g., <, >, <=, >=). Double-check how you derive these values, especially from graphs or problem statements, paying close attention to whether the boundary point is included (<= or >=) or excluded (< or >). Review the original problem to understand why the lower bound should be -1.5 and why the strict inequality '<' is used.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 69,
+      "question_pdf": "temp_uploads/sliced_pdfs_c1d7ec2a/question_8.pdf",
+      "transcription": {
+        "question_number": 8,
+        "raw_transcription": "**Question 8(a)**\n= 980 \u00d7 0.2\n= $196\n12 x 72.75\n: 8867\n- 996 + 867 = 89063\nFINAL ANSWER: $1063\n\n**Question 8(b)**\n= (1063 - 980) / 980 \u00d7 100\n= 8.47%\nFINAL ANSWER: 8.47 %",
+        "illegible_regions": [
+          "\u26a0\ufe0f Fallback mode \u2014 structured transcription was truncated"
+        ],
+        "contains_diagrams": false,
+        "transcription_confidence": 0.75
+      },
+      "grading": {
+        "question_number": 8,
+        "total_score": 3,
+        "max_score": 4,
+        "topic_classification": "Percentage Change",
+        "sub_parts": [
+          {
+            "part_identifier": "a",
+            "marks_awarded": 1,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "The student correctly performed the calculation specified by the method mark (20% of 980) but then provided a final answer that was inconsistent with this calculation and the mark scheme's expected accuracy mark. The presence of unrelated calculations suggests confusion or a change in approach.",
+            "detailed_critique": "The student correctly calculated '980 \u00d7 0.2 = 196', which directly matches the M1 criterion '20/100 x 980'. Therefore, the method mark (M1) is awarded. However, the final answer provided by the student is '$1063', which does not match the accuracy mark (A1) criterion of '1099'. The intermediate working '12 x 72.75 : 8867 - 996 + 867 = 89063' is irrelevant to the problem and has been disregarded. Due to the discrepancy between the student's final answer and the A1 criterion, the accuracy mark cannot be awarded.",
+            "confidence": 0.8,
+            "ambiguous_aspects": [
+              "The mark scheme for part (a) has a significant inconsistency: the method mark (M1 for '20/100 x 980' which equals 196) does not lead to the accuracy mark (A1 for '1099'). The student correctly performed the M1 calculation but then presented a final answer that matched neither the M1 result nor the A1 target. This makes strict application of the mark scheme challenging.",
+              "The transcription notes 'Fallback mode \u2014 structured transcription was truncated' and 'illegible regions' suggest that the full context of the student's working for part (a) might not be completely captured, especially regarding how they arrived at '$1063' after correctly calculating '$196'."
+            ]
+          },
+          {
+            "part_identifier": "b",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly applied the formula for percentage change using their value from part (a): '(1063 - 980) / 980 \u00d7 100'. This aligns with the M1 criterion for calculating percentage change using their previous answer. The calculation '83 / 980 \u00d7 100 = 8.4693...' is then correctly evaluated and rounded to '8.47%' (3 significant figures), which satisfies the A1 (follow through) criterion. Both method and accuracy marks are awarded for this part.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "For part (a), you correctly calculated 20% of 980, which is 196. This shows a good understanding of finding a percentage of a number. However, your final answer of $1063 was not consistent with this calculation. It's crucial to ensure that your final answer directly follows from your working. If the question asked to increase 980 by 20%, the answer would be 980 + 196 = 1176. If it asked for 20% of 980, the answer would be 196. Please review the exact wording of the question to ensure your calculation matches what is being asked. For part (b), your method for calculating the percentage change using your value from part (a) was excellent, and you correctly rounded your answer. Keep up the good work on showing clear steps and accurate calculations for percentage change.",
+        "overall_confidence": 0.75,
+        "flag_for_human_review": true,
+        "review_reason": "The mark scheme for part (a) presents a significant inconsistency: the method mark (M1 for '20/100 x 980' which equals 196) does not align with the accuracy mark (A1 for '1099'). The student correctly performed the calculation for the M1 but then provided a final answer ('1063') that matches neither the M1 result nor the A1 target. The presence of irrelevant calculations and the 'truncated transcription' further complicate the assessment of part (a). A human examiner should review how to interpret the mark scheme's conflicting criteria for part (a) and the student's working to ensure fair grading."
+      }
+    },
+    {
+      "eval_store_id": 70,
+      "question_pdf": "temp_uploads/sliced_pdfs_c1d7ec2a/question_9.pdf",
+      "transcription": {
+        "question_number": 9,
+        "raw_transcription": "38 / 8 * 100\n[CROSSED OUT: 3800 / 8 = x / 8]\n475 = x\n[FINAL ANSWER: 475]",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 9,
+        "total_score": 2,
+        "max_score": 2,
+        "topic_classification": "Number: Percentage Calculations",
+        "sub_parts": [
+          {
+            "part_identifier": "a",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly set up the calculation `38 / 8 * 100`, which is an acceptable equivalent method (oe) for finding the original number when 8% is 38, thus earning the M1 mark. The subsequent calculation leading to the final answer of 475 is also correct, earning the A1 mark.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Excellent work! You clearly understood how to reverse a percentage calculation to find the original amount. Your method `38 / 8 * 100` is efficient and accurate. Keep up the great work in showing your steps and arriving at the correct answer.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 71,
+      "question_pdf": "temp_uploads/sliced_pdfs_c1d7ec2a/question_10.pdf",
+      "transcription": {
+        "question_number": 10,
+        "raw_transcription": "10 (a) Write down all the factors of 18.1, 2, 3, 6, 9, 18. (b) Factorise. 3y-xy+15-5x = Y (3-x) 5(3-1) = (3-x)(y+5) [FINAL ANSWER: (3-X) (y+5)] (c) 3y-xy+15-5x = 18 where x and y are positive integers. Using your answers to part (a) and part (b), find one possible value of x and the corresponding value of y. (3-x) (y+5) = 18 [FINAL ANSWER: x= , y = ]",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 0.9
+      },
+      "grading": {
+        "question_number": 10,
+        "total_score": 5,
+        "max_score": 6,
+        "topic_classification": "Number Theory and Algebra (Factorisation and Solving Equations)",
+        "sub_parts": [
+          {
+            "part_identifier": "a",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 2,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly listed all factors of 18: 1, 2, 3, 6, 9, 18. This perfectly matches the criteria for full marks (B1 for the list).",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "b",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly factorised the expression 3y-xy+15-5x into (3-x)(y+5). The working shows the grouping step, 'Y (3-x) 5(3-1)', which, despite a minor transcription error (3-1 instead of 3-x), clearly indicates the correct method of grouping terms, earning the M1 mark. The final factorised form (3-x)(y+5) is correct, earning the A1 mark.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "c",
+            "marks_awarded": 1,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "Incomplete solution: The student correctly set up the equation but did not provide the final values for x and y.",
+            "detailed_critique": "The student correctly used their answer from part (b) to set up the equation (3-x)(y+5) = 18. This demonstrates understanding of how to relate the factorised expression to the given value, satisfying the M1 criterion for setting up the product of two integer factors equal to 18. However, the student did not provide any specific values for x and y in the final answer space, thus failing to meet the A1 criterion for providing a correct pair of (x, y) values.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "For part (a), your list of factors for 18 is perfect, showing a strong grasp of number properties. For part (b), your factorisation is also excellent. Just be careful with your written working; ensure that when you group terms like '5(3-x)', you write the 'x' clearly to avoid any potential misinterpretations, even though your final answer was correct. For part (c), you did a great job setting up the equation (3-x)(y+5) = 18. The next crucial step is to use the factors of 18 (which you correctly identified in part a) to find possible integer values for (3-x) and (y+5). Remember that x and y must be positive integers. This means (3-x) can only be 1 (if x=2) or 2 (if x=1). Then, for each of these possibilities, find the corresponding value for (y+5) and subsequently for y. Always make sure to write down your final answers for x and y.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 72,
+      "question_pdf": "temp_uploads/sliced_pdfs_c1d7ec2a/question_11.pdf",
+      "transcription": {
+        "question_number": 11,
+        "raw_transcription": "1: 50\n800 x\nx = 40000 m\u00b2\n4.0 x 10\u2078 cm\u00b2",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 11,
+        "total_score": 0,
+        "max_score": 3,
+        "topic_classification": "Ratio, Proportion and Rates of Change: Scale Factors (Area)",
+        "sub_parts": [
+          {
+            "part_identifier": "main",
+            "marks_awarded": 0,
+            "marks_possible": 3,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "The student incorrectly applied the linear scale factor (50) directly to the area, rather than squaring it to obtain the area scale factor (50\b2).",
+            "detailed_critique": "The student correctly identified the linear scale factor as 1:50. However, when attempting to scale the area, they incorrectly multiplied the given area (800) by the linear scale factor (50), resulting in 40000. For area conversions involving a linear scale factor, the linear scale factor must be squared (50\b2 = 2500). The mark scheme requires a method involving '800 \b7 50\b2' or a B1 for '50\b2' or '800 \b7 100\b2', none of which were demonstrated. Although the student correctly converted their incorrect value of 40000 m\b2 to 4.0 x 10\b8 cm\b2, this does not recover marks as the initial calculation was fundamentally flawed and the final answer does not match the expected answer of 3200. Therefore, no marks can be awarded.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "You correctly identified the linear scale factor of 1:50. However, when dealing with areas, you need to remember that the area scale factor is the square of the linear scale factor. So, if the linear scale is 1:50, the area scale factor is 1:50\b2, or 1:2500. You multiplied by 50, but you should have divided by 50\b2 (or multiplied by 1/50\b2) to find the model's area. Also, be careful with unit conversions. You correctly converted m\b2 to cm\b2 by multiplying by 100\b2, but ensure the initial value you are converting is correct. Practice problems involving scaling of areas and volumes to solidify your understanding of how scale factors apply to different dimensions.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 73,
+      "question_pdf": "temp_uploads/sliced_pdfs_c1d7ec2a/question_12.pdf",
+      "transcription": {
+        "question_number": 12,
+        "raw_transcription": "The diagram shows triangle PQR. Calculate the shortest distance from Q to PR. [DIAGRAM: Triangle PQR. Angle P is 42\u00b0. Angle Q is 115\u00b0. Side PQ is 12.5 cm. A perpendicular line is drawn from Q to PR, forming a right-angled triangle. The side opposite 42\u00b0 is labeled 'opp', and the hypotenuse is labeled 'hyp'.] Sin \u03b8 = opp / hyp Sin 42\u00b0 = opp / 12.5 Sin 42 x 12.5 = opp 8.36cm = opp [FINAL ANSWER: 8.36 cm]",
+        "illegible_regions": [],
+        "contains_diagrams": true,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 12,
+        "total_score": 3,
+        "max_score": 3,
+        "topic_classification": "Trigonometry",
+        "sub_parts": [
+          {
+            "part_identifier": "main",
+            "marks_awarded": 3,
+            "marks_possible": 3,
+            "method_marks_earned": 2,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly identified that the shortest distance from Q to PR is the perpendicular height, which forms a right-angled triangle with angle P (42\u00b0) and hypotenuse PQ (12.5 cm). The setup 'Sin 42\u00b0 = opp / 12.5' directly matches the M2 criterion 'dist / 12.5 = sin42 oe or better'. The subsequent calculation 'Sin 42 x 12.5 = opp' is correct, and the final answer '8.36cm' is accurate to 3 significant figures, meeting the A1 criterion for '8.36 or 8.364...'. All marks are awarded.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Excellent work! You have clearly understood how to apply trigonometry to find the shortest distance in a triangle. Your steps are logical, and your calculation is accurate. Keep up this high standard of working.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 74,
+      "question_pdf": "temp_uploads/sliced_pdfs_c1d7ec2a/question_13.pdf",
+      "transcription": {
+        "question_number": 13,
+        "raw_transcription": "13 Make x the subject of this formula. A = w\u00b2 + 5x\u00b2A - w\u00b2 = 5x\u00b2A - w\u00b2 / 5 = x\u00b2x = \u00b1 sqrt(A - w\u00b2 / 5)",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 13,
+        "total_score": 3,
+        "max_score": 3,
+        "topic_classification": "Algebraic Rearrangement of Formulae",
+        "sub_parts": [
+          {
+            "part_identifier": "main",
+            "marks_awarded": 3,
+            "marks_possible": 3,
+            "method_marks_earned": 2,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly performed the first step by subtracting w\u00b2 from both sides to get A - w\u00b2 = 5x\u00b2, earning the first method mark (M1). They then correctly divided by 5 to isolate x\u00b2, resulting in A - w\u00b2 / 5 = x\u00b2, earning the second method mark (M1). Finally, the student correctly took the square root of both sides and included the '\u00b1' sign, leading to the fully correct final answer x = \u00b1 sqrt(A - w\u00b2 / 5). This earns the final accuracy mark (A1) as per the mark scheme's requirement for the complete correct answer.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "Excellent work! You have demonstrated a clear understanding of how to rearrange a formula to make a specific variable the subject. You correctly applied inverse operations in the correct order and remembered to include the '\u00b1' sign when taking the square root, which is a common point of error for many students. Keep up this precise and thorough approach to algebraic manipulation.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 75,
+      "question_pdf": "temp_uploads/sliced_pdfs_c1d7ec2a/question_14.pdf",
+      "transcription": {
+        "question_number": 14,
+        "raw_transcription": "14 The table shows some values for y = 5x\u00b2-x\u00b3-4.x|-2|-1|0|1|2|3|4|5y|24|2|-4|0|8|14|68|-4(a) Complete the table.(b) On the grid, draw the graph of y = 5x\u00b2-x\u00b3-4 for -2\u2264x\u22645.[DIAGRAM: A coordinate grid with x-axis from -2 to 5 and y-axis from -10 to 30. A curve representing y = 5x\u00b2-x\u00b3-4 is drawn, passing through points like (-2, 24), (-1, 2), (0, -4), (1, 0), (2, 8), (3, 14), (4, 12), (5, -4). A straight line is also drawn on the grid.](c) By drawing a suitable straight line on the grid, solve the equation x\u00b3-5x\u00b2-x+14= 0.[CROSSED OUT: = 5x\u00b2 - x\u00b3 - 4 + (x\u00b3 - 5x\u00b2 - x + 14)][CROSSED OUT: = 5x\u00b2 - 5x\u00b2 - x\u00b3 + x\u00b3 - 4 + 14 - x]y = 10 - x= - x + 10x = -1.5 or x = 2 or x = 4.5",
+        "illegible_regions": [],
+        "contains_diagrams": true,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 14,
+        "total_score": 9,
+        "max_score": 11,
+        "topic_classification": "Graphs of Cubic Functions and Solving Equations Graphically",
+        "sub_parts": [
+          {
+            "part_identifier": "14(a)",
+            "marks_awarded": 2,
+            "marks_possible": 3,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 2,
+            "identified_misconception": "Arithmetic error in calculating the y-value for x=4.",
+            "detailed_critique": "The student correctly calculated the y-values for x=-2, -1, 0, 1, 2, 3, and 5. However, there was an error in calculating the y-value for x=4. The correct value is y = 5(4)\u00b2 - (4)\u00b3 - 4 = 5(16) - 64 - 4 = 80 - 64 - 4 = 12, but the student recorded 68. Assuming 3 values were required to be completed, and one was incorrect, 2 marks are awarded.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "14(b)",
+            "marks_awarded": 3,
+            "marks_possible": 4,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 3,
+            "identified_misconception": null,
+            "detailed_critique": "The student's graph is described as passing through 8 points, including the correct value for (4, 12), despite an error in the table for this point. This indicates that the student plotted 8 correct points, which earns the B3FT mark according to the mark scheme (B3FT for 7 or 8 correct points). The curve is well-drawn.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "14(c)",
+            "marks_awarded": 4,
+            "marks_possible": 4,
+            "method_marks_earned": 2,
+            "accuracy_marks_earned": 2,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly derived the equation of the straight line to be drawn, y = 10 - x, which earns the M2 mark. The description confirms that a straight line was drawn. The intersection points read from the graph, x = -1.5, x = 2, and x = 4.5, are all within the acceptable ranges specified by the mark scheme (-1.7 to -1.4, 2, 4.4 to 4.7). Therefore, all 3 correct values earn the A2 mark.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "For part (a), you demonstrated a good understanding of substituting values into the function, but you made a small arithmetic error when calculating the y-value for x=4. Double-check your calculations, especially when dealing with powers and negative numbers, to avoid such slips. For part (b), your graph plotting was excellent! It's particularly commendable that you plotted the correct point for x=4 on the graph, even though you had a different value in your table. This shows you understood the shape of the curve and likely self-corrected. For part (c), your ability to rearrange the equation to find the correct straight line and then accurately read the solutions from the graph was perfect. This is a strong demonstration of graphical problem-solving skills.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 76,
+      "question_pdf": "temp_uploads/sliced_pdfs_c1d7ec2a/question_15.pdf",
+      "transcription": {
+        "question_number": 15,
+        "raw_transcription": "15 The height of each of 140 basketball players is recorded. The table shows the results. Height (h cm) 160 < h \n\n\u2264 180, 180 < h \n\n\u2264 185, 185 < h < 190, 190 < h \n\n\u2264 200, 200 < h < 210 Frequency 7, 12, 31, 70, 20 (a) Calculate an estimate of the mean height. M 170, 182.5, 187.5, 197, 205 f 7, 12, 31, 70, 20 = 140 M x f 1190, 2190, 5812.5, 13790, 4100 = 27082.5 mean: Total Mf / Total f = 27082.5 / 140 = 193.45 [FINAL ANSWER BOX]: 193.45 cm [4] (b) Two of the players are chosen at random. Find the probability that both players have a height greater than 190 cm and no more than 200 cm. = 70/140 x 69/139 = 69/278 [FINAL ANSWER BOX]: 69/278 [2] fd = 7/20 = 0.35 fd = 12/5 = 2.4 fd = 31/5 = 6.2 fd = 70/10 = 7 fd = 20/10 = 2",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 15,
+        "total_score": 7,
+        "max_score": 9,
+        "topic_classification": "Statistics: Mean from Grouped Data, Probability, Frequency Density",
+        "sub_parts": [
+          {
+            "part_identifier": "15(a)",
+            "marks_awarded": 2,
+            "marks_possible": 4,
+            "method_marks_earned": 2,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "Error in calculating one of the midpoints for a class interval.",
+            "detailed_critique": "The student correctly identified the frequencies and the total number of players. They attempted to find the midpoints for each class interval and correctly calculated four out of five midpoints (170, 182.5, 187.5, 205). However, the midpoint for the interval 190 < h \n\n\n\u2264 200 should be (190+200)/2 = 195, but the student incorrectly used 197. This error in one midpoint means the first method mark (M1 for midpoints soi) cannot be awarded. Despite this, the student correctly applied the method of calculating \u03a3fm using their chosen midpoints and frequencies, and then correctly divided this sum by the total frequency (140) to estimate the mean. This earns the second and third method marks. Due to the incorrect midpoint, their final answer of 193.45 is not within the acceptable range of 192 or 192.4..., so the accuracy mark is not awarded.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "15(b)",
+            "marks_awarded": 2,
+            "marks_possible": 2,
+            "method_marks_earned": 1,
+            "accuracy_marks_earned": 1,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly identified the number of players with a height greater than 190 cm and no more than 200 cm as 70. They then correctly applied the probability formula for choosing two players without replacement, calculating (70/140) \u00d7 (69/139). The simplification of this product to 69/278 is also correct. Both the method and accuracy marks are fully awarded.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "15(c)",
+            "marks_awarded": 3,
+            "marks_possible": 3,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 3,
+            "identified_misconception": null,
+            "detailed_critique": "The student correctly calculated the frequency density for all five class intervals: 7/20 = 0.35, 12/5 = 2.4, 31/5 = 6.2, 70/10 = 7, and 20/10 = 2. These calculations are all accurate. Given that the question is worth 3 marks and the student has provided all five correct frequency densities, full marks are awarded. The mark scheme states 'B2 for three correct blocks or B1 for two correct blocks', which implies a progression to B3 for all correct, consistent with the total marks available.",
+            "confidence": 0.8,
+            "ambiguous_aspects": [
+              "The mark scheme for part (c) states 'B2 for three correct blocks or B1 for two correct blocks' for a 3-mark question. While the student has all five correct, the explicit criteria for awarding 3 marks (B3) is not stated. Standard practice implies B3 for all correct, but this is an interpretation beyond the literal text."
+            ]
+          }
+        ],
+        "pedagogical_remedial_strategy": "For part (a), you demonstrated a good understanding of the process for estimating the mean from grouped data, correctly using the sum of (midpoint \u00d7 frequency) divided by the total frequency. However, be very careful when calculating midpoints. For the interval 190 < h \n\n\n\u2264 200, the midpoint is (190 + 200) / 2 = 195, not 197. A small error in a midpoint can lead to an incorrect final answer, even if the rest of your method is sound. Always double-check your midpoint calculations. Your work for part (b) was excellent; you correctly identified the relevant frequency and applied the probability rule for 'without replacement' scenarios, leading to the correct simplified answer. For part (c), your calculations for all the frequency densities were perfectly accurate. This shows a strong grasp of how to prepare data for a histogram. Well done!",
+        "overall_confidence": 0.9,
+        "flag_for_human_review": true,
+        "review_reason": "The mark scheme for part (c) is ambiguous regarding the award of 3 marks. It explicitly states 'B2 for three correct blocks or B1 for two correct blocks' for a 3-mark question, but does not specify the criteria for awarding 3 marks (B3). The student provided all five correct frequency densities, which would typically warrant full marks, but this is an inference based on common marking practices rather than explicit instruction in the rubric."
+      }
+    },
+    {
+      "eval_store_id": 77,
+      "question_pdf": "temp_uploads/sliced_pdfs_c1d7ec2a/question_16.pdf",
+      "transcription": {
+        "question_number": 16,
+        "raw_transcription": "(a) Calculate AD.\nc\u00b2 = a\u00b2 + b\u00b2 - 2ab cos C\nc\u00b2 = 9.6\u00b2 + 12.1\u00b2 - 2 \u00d7 9.6 \u00d7 12.1 cos 56\nc\u00b2 = 238.57 - 129.91\nc\u00b2 = 108",
+        "illegible_regions": [
+          "\u26a0\ufe0f Fallback mode \u2014 structured transcription was truncated"
+        ],
+        "contains_diagrams": false,
+        "transcription_confidence": 0.75
+      },
+      "grading": {
+        "question_number": 16,
+        "total_score": 0,
+        "max_score": 3,
+        "topic_classification": "Mismatch between student answer and mark scheme",
+        "sub_parts": [
+          {
+            "part_identifier": "",
+            "marks_awarded": 0,
+            "marks_possible": 3,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "The student has attempted to answer a question involving the Cosine Rule (geometry/trigonometry) with specific numerical values (9.6, 12.1, 56 degrees). However, the provided mark scheme for Question 16 is for a different mathematical problem, specifically one involving algebraic manipulation to solve for a variable 'k' from an equation like 1250 * k^3 = 1484, leading to a square root calculation. There is a fundamental mismatch between the question the student has answered and the mark scheme provided.",
+            "detailed_critique": "The student's working clearly demonstrates an application of the Cosine Rule (c\u00b2 = a\u00b2 + b\u00b2 - 2ab cos C) with specific values. They correctly substitute 9.6, 12.1, and 56 degrees into the formula and perform the subsequent calculations to arrive at c\u00b2 = 108. While this working is mathematically sound for a Cosine Rule problem, it does not align with any of the criteria specified in the provided mark scheme for Question 16. The mark scheme expects steps related to '1250 * k^3 = 1484' or 'sqrt(1484/1250)', which are entirely different mathematical operations and concepts. Therefore, no marks can be awarded based on the given mark scheme.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "It appears you have answered a question different from the one intended by the mark scheme provided. Your application of the Cosine Rule is correct for the problem you've shown, demonstrating a good understanding of that topic. However, it is crucial to always double-check the question number and ensure your working directly addresses the problem asked. In an exam, answering the wrong question, even if your work is correct for a different problem, will result in zero marks for that specific question. Always read the question carefully and confirm you are solving the problem presented.",
+        "overall_confidence": 0.8,
+        "flag_for_human_review": true,
+        "review_reason": "The student's answer is for a Cosine Rule problem, while the provided mark scheme for Question 16 is for a problem involving 'k^3' and 'sqrt(1484/1250)'. There is a clear mismatch between the student's work and the mark scheme, indicating either the student answered the wrong question or the provided mark scheme is for a different question than the one the student attempted. A human review is needed to clarify this discrepancy."
+      }
+    },
+    {
+      "eval_store_id": 78,
+      "question_pdf": "temp_uploads/sliced_pdfs_c1d7ec2a/question_17.pdf",
+      "transcription": {
+        "question_number": 18,
+        "raw_transcription": "b/x[CROSSED OUT] 22/2 = 6[CROSSED OUT] 6:36[CROSSED OUT] 2-6[CROSSED OUT] 2x\u00b2 + 12x + 36 - 38 2(x\u00b2 + 6x + 18) - 38 2[(x + 6)\u00b2] - 38 a = [FINAL ANSWER: 2], b = [FINAL ANSWER: 6], c = [FINAL ANSWER: 38]",
+        "illegible_regions": [],
+        "contains_diagrams": false,
+        "transcription_confidence": 1.0
+      },
+      "grading": {
+        "question_number": 17,
+        "total_score": 0,
+        "max_score": 10,
+        "topic_classification": "Mismatch: Student answer is Algebra, Mark Scheme is Trigonometry",
+        "sub_parts": [
+          {
+            "part_identifier": "a",
+            "marks_awarded": 0,
+            "marks_possible": 3,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "The student's answer is an attempt at an algebra problem (likely involving quadratic expressions or completing the square) and does not relate to the geometry/trigonometry problem described in the mark scheme for part (a).",
+            "detailed_critique": "The provided mark scheme for Question 17 part (a) describes a problem requiring the use of the cosine rule to find a length in a triangle. The student's response, '2x\u00b2 + 12x + 36 - 38 ... a = 2, b = 6, c = 38', is an algebraic expression and an attempt to identify coefficients, which is completely unrelated to the criteria for part (a). Therefore, no marks can be awarded.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "b",
+            "marks_awarded": 0,
+            "marks_possible": 4,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "The student's answer is an attempt at an algebra problem and does not relate to the geometry/trigonometry problem described in the mark scheme for part (b).",
+            "detailed_critique": "The provided mark scheme for Question 17 part (b) describes a problem requiring the use of the sine rule to find an angle in a triangle. The student's response is an algebraic expression and an attempt to identify coefficients, which is completely unrelated to the criteria for part (b). Therefore, no marks can be awarded.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "c",
+            "marks_awarded": 0,
+            "marks_possible": 3,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "The student's answer is an attempt at an algebra problem and does not relate to the geometry/trigonometry problem described in the mark scheme for part (c).",
+            "detailed_critique": "The provided mark scheme for Question 17 part (c) describes a problem requiring the calculation of the area of a triangle using the formula 1/2ab sinC. The student's response is an algebraic expression and an attempt to identify coefficients, which is completely unrelated to the criteria for part (c). Therefore, no marks can be awarded.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "It appears there might be a mismatch between the question you attempted and the mark scheme provided for grading. Your work shows an attempt at an algebra problem, specifically manipulating a quadratic expression and identifying coefficients (a=2, b=6, c=38). However, the mark scheme for Question 17 is for a geometry problem involving trigonometry (cosine rule, sine rule, and area of a triangle). Please ensure you are attempting the correct question and referring to the appropriate mark scheme. If this was indeed your answer for Question 17, then you need to review the topics of trigonometry, including the sine rule, cosine rule, and area of a triangle formula, as your response does not address these concepts.",
+        "overall_confidence": 0.9,
+        "flag_for_human_review": true,
+        "review_reason": "The student's transcribed answer is clearly an attempt at an algebra problem (manipulating quadratic expressions and identifying coefficients a, b, c). However, the provided official mark scheme for Question 17 is for a geometry/trigonometry problem involving the cosine rule, sine rule, and area of a triangle. The student's answer cannot be graded against this mark scheme as it addresses a completely different mathematical topic. Human review is needed to clarify if the student's answer was submitted for the wrong question, or if the provided mark scheme is incorrect for the student's actual question 17."
+      }
+    },
+    {
+      "eval_store_id": 79,
+      "question_pdf": "temp_uploads/sliced_pdfs_c1d7ec2a/question_18.pdf",
+      "transcription": {
+        "question_number": 18,
+        "raw_transcription": "[CROSSED OUT: OA]\n[CROSSED OUT: Sin \u03b8 = opp/hyp]\n[CROSSED OUT: Sin \u03b8 = opp/hyp]\n[CROSSED OUT: Sin 45 = opp/10.5]\n[CROSSED OUT: Sin 45 x 10.5 = opp]\n[CROSSED OUT: 7.42 cm = opp]\nsin \u03b8 = opp/hyp\nsin \u03b8 = 24/hyp\nsin \u03b8 = 24/25.1\n\u03b8 = sin\u207b\u00b9(24/25.1)\n\u03b8 = 72.97\u00b0\na\u00b2 + b\u00b2 = c\u00b2\n7.4\u00b2 + 24\u00b2 = c\u00b2\n\u221a(7.42\u00b2 + 24\u00b2) = c\n25.1 cm = OA\n[ILLEGIBLE] OA\nFINAL ANSWER: 72.97\u00b0",
+        "illegible_regions": [
+          "\u26a0\ufe0f Fallback mode \u2014 structured transcription was truncated"
+        ],
+        "contains_diagrams": false,
+        "transcription_confidence": 0.75
+      },
+      "grading": {
+        "question_number": 18,
+        "total_score": 0,
+        "max_score": 3,
+        "topic_classification": "Trigonometry and Pythagoras Theorem",
+        "sub_parts": [
+          {
+            "part_identifier": "",
+            "marks_awarded": 0,
+            "marks_possible": 3,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "The student has answered a question unrelated to the provided mark scheme for Question 18. The work shown pertains to trigonometry and Pythagoras theorem, not the algebraic manipulation of quadratic expressions as indicated by the mark scheme.",
+            "detailed_critique": "The student's response demonstrates calculations involving trigonometry (sin \u03b8 = opp/hyp, sin\u207b\u00b9) and Pythagoras theorem (a\u00b2 + b\u00b2 = c\u00b2), leading to a final answer of 72.97\u00b0. However, the provided mark scheme for Question 18 is for an algebraic problem involving quadratic expressions and finding coefficients a, b, and c. As the student's work does not address the requirements of the mark scheme for Question 18, no marks can be awarded.",
+            "confidence": 0.9,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "It appears you have answered a question different from Question 18. Your working shows a good understanding of trigonometry and Pythagoras theorem, and your calculations for finding an angle and a side length are generally correct for the problem you seem to be solving. However, the mark scheme for Question 18 is for an algebra question involving quadratic expressions. Please ensure you are always answering the correct question number and carefully read the instructions for each problem.",
+        "overall_confidence": 0.7,
+        "flag_for_human_review": true,
+        "review_reason": "The student's answer is entirely unrelated to the provided mark scheme for Question 18. The mark scheme is for an algebra question (quadratics), while the student's work is for a trigonometry/Pythagoras problem. A human examiner should verify if the mark scheme or the student's question number is mismatched."
+      }
+    },
+    {
+      "eval_store_id": 80,
+      "question_pdf": "temp_uploads/sliced_pdfs_c1d7ec2a/question_19.pdf",
+      "transcription": {
+        "question_number": 19,
+        "raw_transcription": "[CROSSED OUT: OA]\nSin \u03b8 = opp/hyp\nSin \u03b8 = opp/hyp\nSin \u03b8 = 24/25.1\n\u03b8 = sin\u207b\u00b9 (24/25.1)\n\u03b8 = 72.97\u00b0\n\nSin 45 = opp/10.5\nSin 45 x 10.5 = opp\n7.42 cm = opp\n\na\u00b2 + b\u00b2 = c\u00b2\n7.4\u00b2 + 24\u00b2 = c\u00b2\n\u221a(7.42\u00b2 + 24\u00b2) = c\n25.1 cm = OA\n[ILLEGIBLE] OA\nFINAL ANSWER: 72.97\u00b0",
+        "illegible_regions": [
+          "\u26a0\ufe0f Fallback mode \u2014 structured transcription was truncated"
+        ],
+        "contains_diagrams": false,
+        "transcription_confidence": 0.75
+      },
+      "grading": {
+        "question_number": 19,
+        "total_score": 0,
+        "max_score": 4,
+        "topic_classification": "Geometry: Perimeter of a Sector",
+        "sub_parts": [
+          {
+            "part_identifier": "",
+            "marks_awarded": 0,
+            "marks_possible": 4,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "The student has misinterpreted the question, applying trigonometric ratios and the Pythagorean theorem to calculate angles and side lengths, rather than calculating the perimeter of a sector as indicated by the mark scheme. The calculations performed are not relevant to finding the perimeter of a sector with the given parameters (angle 126 degrees, radius 7.5).",
+            "detailed_critique": "The student's working involves calculations using sine and the Pythagorean theorem, leading to an angle of 72.97\u00b0 and a side length of 25.1 cm. These calculations are mathematically sound for a different problem involving right-angled triangles. However, the provided mark scheme for Question 19 is explicitly for calculating the perimeter of a sector, requiring steps such as finding the major sector angle (234\u00b0), calculating arc length using the formula (angle/360 * 2 * pi * r), and adding two radii. There is no overlap between the student's approach and the criteria outlined in the mark scheme. Therefore, no method or accuracy marks can be awarded.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "It appears there might have been a misunderstanding of the question being asked. The mark scheme indicates that this question was about finding the perimeter of a sector of a circle. This involves two main steps: first, calculating the length of the arc using the formula (angle/360) * 2 * pi * radius, and second, adding the lengths of the two radii to the arc length to get the total perimeter. Your work, while demonstrating knowledge of trigonometry and Pythagoras, was not relevant to this specific problem. Please review how to calculate the arc length and perimeter of a sector. Ensure you carefully read and understand what the question is asking for before attempting to solve it.",
+        "overall_confidence": 1.0,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    },
+    {
+      "eval_store_id": 81,
+      "question_pdf": "temp_uploads/sliced_pdfs_c1d7ec2a/question_20.pdf",
+      "transcription": {
+        "question_number": 20,
+        "raw_transcription": "volume of large pyramid\n= 1/3 Ah\n= 1/3 x 190.75 x 24\n= 882 cm^3\nLSF: 2\nASF = 2^2 = 4\nVolume of small pyramid\n= 1/3 x 27.6 x 8\n= 73.5 cm^3\n= 882 - 73.5\n= 808.5 cm^3\nFINAL ANSWER: 808.5 cm^3",
+        "illegible_regions": [
+          "\u26a0\ufe0f Fallback mode \u2014 structured transcription was truncated"
+        ],
+        "contains_diagrams": false,
+        "transcription_confidence": 0.75
+      },
+      "grading": {
+        "question_number": 20,
+        "total_score": 2,
+        "max_score": 9,
+        "topic_classification": "Geometry: Volume of Pyramids and Frustums",
+        "sub_parts": [
+          {
+            "part_identifier": "a",
+            "marks_awarded": 0,
+            "marks_possible": 4,
+            "method_marks_earned": 0,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "No attempt was made to answer part (a) of the question, which required finding an angle.",
+            "detailed_critique": "The student did not provide any working or answer for part (a) of the question, which typically involves calculating an angle related to the pyramid. Therefore, no marks can be awarded for this section.",
+            "confidence": 1.0,
+            "ambiguous_aspects": []
+          },
+          {
+            "part_identifier": "b",
+            "marks_awarded": 2,
+            "marks_possible": 5,
+            "method_marks_earned": 2,
+            "accuracy_marks_earned": 0,
+            "identified_misconception": "Miscalculation of the linear scale factor (LSF) between similar shapes, leading to incorrect dimensions for the smaller pyramid.",
+            "detailed_critique": "The student correctly identified the strategy to find the volume of the frustum by subtracting the volume of the small pyramid from the volume of the large pyramid (Method 1). They correctly calculated the volume of the large pyramid as 1/3 * 10.5^2 * 24 = 882 cm^3, earning the first method mark (M1). Although '190.75' was written as the area, the final volume of 882 cm^3 indicates the correct base area (10.5^2 = 110.25) was used in the calculation. However, the student made a significant error in determining the linear scale factor (LSF), stating it as '2' instead of '3' (derived from the ratio of heights: 24 / (24-16) = 24/8 = 3). This incorrect LSF led to an incorrect side length for the small pyramid (10.5/2 = 5.25 cm instead of 10.5/3 = 3.5 cm) and consequently an incorrect base area (5.25^2 = 27.5625, approximated as 27.6). Despite these errors, the student correctly applied the volume formula for the small pyramid (1/3 * Area * height), using the correct height of 8 cm (24-16). This application of the formula, with follow-through from their incorrect area, earns the second method mark (M1). The B2 mark for correctly finding the side of the small square (3.5) or the M1 for the method to find it (10.5 * (24-16)/24) cannot be awarded due to the incorrect LSF and derived side length. The final subtraction 882 - 73.5 = 808.5 cm^3 is a correct follow-through from their calculated volumes, but since the volume of the small pyramid was incorrect, the final answer is also incorrect. Therefore, no accuracy mark is awarded.",
+            "confidence": 0.9,
+            "ambiguous_aspects": []
+          }
+        ],
+        "pedagogical_remedial_strategy": "For part (b), you correctly identified the overall strategy of subtracting the volume of the small pyramid from the large pyramid, and you accurately calculated the volume of the large pyramid. This shows a good understanding of the basic volume formula for a pyramid. However, you made a critical error in determining the linear scale factor (LSF) between the large and small pyramids. The height of the large pyramid is 24 cm, and the height of the small pyramid (the part removed) is 24 - 16 = 8 cm. Therefore, the LSF (ratio of heights) should be 24/8 = 3, not 2. This error propagated to your calculation of the side length and base area of the small pyramid. Always double-check your scale factors by comparing corresponding lengths or heights. Once you have the correct LSF, you can find the side length of the small pyramid (10.5 / 3 = 3.5 cm), calculate its base area (3.5^2), and then its volume. Ensure you are precise with your scale factor calculations as they are fundamental to solving problems involving similar shapes. For part (a), remember to attempt all parts of a question, even if you find one challenging. Review how to find angles in 3D shapes, particularly within pyramids.",
+        "overall_confidence": 0.9,
+        "flag_for_human_review": false,
+        "review_reason": null
+      }
+    }
+  ]
+}

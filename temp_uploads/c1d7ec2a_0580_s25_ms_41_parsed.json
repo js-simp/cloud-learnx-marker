@@ -1,0 +1,500 @@
+{
+  "paper_title": "Paper 4 (Extended)",
+  "subject": "MATHEMATICS",
+  "questions": [
+    {
+      "question_number": 1,
+      "total_marks": 2,
+      "sub_parts": [
+        {
+          "part_identifier": "1",
+          "marks": 2,
+          "method_mark_criteria": "M1 for a correct first step, e.g., 4c = 13 + 9 or c = 9/4 + 13/4 or better",
+          "accuracy_mark_criteria": "5.5",
+          "acceptable_alternatives": [
+            "5 1/2",
+            "11/2"
+          ],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 2,
+      "total_marks": 2,
+      "sub_parts": [
+        {
+          "part_identifier": "2",
+          "marks": 2,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "8.0 cao",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        }
+      ],
+      "general_notes": "B1 for 7.99[9...] or for their answer seen to 3 or more sf and rounded correctly"
+    },
+    {
+      "question_number": 3,
+      "total_marks": 3,
+      "sub_parts": [
+        {
+          "part_identifier": "3",
+          "marks": 3,
+          "method_mark_criteria": "B2 for 1.96[8...] or 1.97 and 1.27[6...] or 1.28 OR M2 for 1.62 × 1.215 - 4.83/3.785 oe OR M1 for 1.62 × 1.215 or 4.83/3.785",
+          "accuracy_mark_criteria": "UK by [$]0.69 or [$]0.692...",
+          "acceptable_alternatives": [
+            "UK by $0.69",
+            "UK by $0.692..."
+          ],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 4,
+      "total_marks": 7,
+      "sub_parts": [
+        {
+          "part_identifier": "4(a)(i)",
+          "marks": 2,
+          "method_mark_criteria": "B1 for translation or for correct vector oe",
+          "accuracy_mark_criteria": "Translation (8, -3)",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "4(a)(ii)",
+          "marks": 3,
+          "method_mark_criteria": "B1 for each component (Rotation, 90° [anticlockwise], [centre] (0, 0))",
+          "accuracy_mark_criteria": "Rotation 90° [anticlockwise] [centre] (0, 0)",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "4(b)",
+          "marks": 2,
+          "method_mark_criteria": "B1 for reflection in x=k",
+          "accuracy_mark_criteria": "Image drawn at (0, 5) (0, 6) (2, 6) (2, 2) (1, 2) (1, 5)",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        }
+      ],
+      "general_notes": "For 4(b): If 0 scored, SC1 for reflection in y = - 2"
+    },
+    {
+      "question_number": 5,
+      "total_marks": 6,
+      "sub_parts": [
+        {
+          "part_identifier": "5(a)",
+          "marks": 1,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "1000",
+          "acceptable_alternatives": [
+            "10^3"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "5(b)",
+          "marks": 2,
+          "method_mark_criteria": "B1 for second difference = 2 or for answer as a quadratic expression or for a correct expression shown in the working and then spoilt",
+          "accuracy_mark_criteria": "n² + 4 final answer oe",
+          "acceptable_alternatives": [
+            "n^2 + 4 oe"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "5(c)(i)",
+          "marks": 1,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "9",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "5(c)(ii)",
+          "marks": 2,
+          "method_mark_criteria": "B1 for 21",
+          "accuracy_mark_criteria": "12",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 6,
+      "total_marks": 2,
+      "sub_parts": [
+        {
+          "part_identifier": "a",
+          "marks": 2,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "B1 for 15x^3 or -10x^2 or correct answer seen in working and spoilt. The full 2 marks are for '15x^3 - 10x^2 final answer'.",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 7,
+      "total_marks": 2,
+      "sub_parts": [
+        {
+          "part_identifier": "a",
+          "marks": 2,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "B1 for -1.5 < y or y < 4. The full 2 marks are for '-1.5 < y < 4 final answer'.",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 8,
+      "total_marks": 4,
+      "sub_parts": [
+        {
+          "part_identifier": "a",
+          "marks": 2,
+          "method_mark_criteria": "M1 for 20/100 x 980",
+          "accuracy_mark_criteria": "A1 for 1099",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "b",
+          "marks": 2,
+          "method_mark_criteria": "M1 for (their 1099-980)/980 [x100] oe OR M1 for (their 1099/980 - 1) [x100] oe OR M1 for (their 1099-980)/980 x 100 [-100]",
+          "accuracy_mark_criteria": "Correctly evaluated to at least 3sf. Follow through from their 1099 from part (a).",
+          "acceptable_alternatives": [
+            "12.1",
+            "12.14..."
+          ],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 9,
+      "total_marks": 2,
+      "sub_parts": [
+        {
+          "part_identifier": "a",
+          "marks": 2,
+          "method_mark_criteria": "M1 for x/100 x 8 = 38 or 38/8 x 100 oe",
+          "accuracy_mark_criteria": "A1 for 475",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 10,
+      "total_marks": 6,
+      "sub_parts": [
+        {
+          "part_identifier": "a",
+          "marks": 2,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "B1 for a list with one error or one omission. The full 2 marks are for '1, 2, 3, 6, 9, 18'.",
+          "acceptable_alternatives": [
+            "1, 2, 3, 6, 9, 18"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "b",
+          "marks": 2,
+          "method_mark_criteria": "M1 for y(3 - x) + 5(3 - x) or 3(y + 5) - x(y + 5) or for correct answer seen and spoilt",
+          "accuracy_mark_criteria": "A1 for (y + 5)(3 - x) final answer",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "c",
+          "marks": 2,
+          "method_mark_criteria": "FT their (b) for M1. M1 for their 3-x=a and their y+5=b where ab=18 and a, b integers.",
+          "accuracy_mark_criteria": "A1 for x = 2, y = 13 or x = 1, y = 4",
+          "acceptable_alternatives": [
+            "x = 2, y = 13",
+            "x = 1, y = 4"
+          ],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 11,
+      "total_marks": 3,
+      "sub_parts": [
+        {
+          "part_identifier": "main",
+          "marks": 3,
+          "method_mark_criteria": "M2 for 800 ÷ 50² [×10ⁿ] oe. Or B1 for 50² or 800 × 100².",
+          "accuracy_mark_criteria": "Award 3 marks for 3200.",
+          "acceptable_alternatives": [],
+          "common_errors": [
+            "If 0 scored, SC1 for 160 000 as final answer."
+          ]
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 12,
+      "total_marks": 3,
+      "sub_parts": [
+        {
+          "part_identifier": "main",
+          "marks": 3,
+          "method_mark_criteria": "M2 for dist / 12.5 = sin42 oe or better. Or M1 for recognition of shortest distance soi.",
+          "accuracy_mark_criteria": "Award 3 marks for 8.36 or 8.364...",
+          "acceptable_alternatives": [
+            "oe or better for dist / 12.5 = sin42"
+          ],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 13,
+      "total_marks": 3,
+      "sub_parts": [
+        {
+          "part_identifier": "main",
+          "marks": 3,
+          "method_mark_criteria": "M1 for A - w² = 5x² or for A/5 + w²/5 = x². M1 for x² = FT their first step. M1 for correct square root, FT their x² =.",
+          "accuracy_mark_criteria": "Award 3 marks for [±]√(A-w²)/5 oe final answer.",
+          "acceptable_alternatives": [
+            "oe final answer for [±]√(A-w²)/5"
+          ],
+          "common_errors": [
+            "An incorrect answer scores a maximum of M1 M1."
+          ]
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 14,
+      "total_marks": 11,
+      "sub_parts": [
+        {
+          "part_identifier": "14(a)",
+          "marks": 3,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "B1 for each correct value.",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "14(b)",
+          "marks": 4,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "B3FT for 7 or 8 correct points or B2FT for 5 or 6 correct points or B1FT for 3 or 4 correct points.",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "14(c)",
+          "marks": 4,
+          "method_mark_criteria": "M2 for [y =] 10 – x soi or y = k - x ruled or y = 10 + kx ruled, but not y = 10.",
+          "accuracy_mark_criteria": "A2 for x = -1.7 to -1.4, x = 2, x = 4.4 to 4.7. A1 for any two values.",
+          "acceptable_alternatives": [],
+          "common_errors": [
+            "If 0 scored, SC1 for 3 correct values."
+          ]
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 15,
+      "total_marks": 9,
+      "sub_parts": [
+        {
+          "part_identifier": "15(a)",
+          "marks": 4,
+          "method_mark_criteria": "M1 for midpoints soi (170, 182.5, 187.5, 195, 205). M1 for use of Σfm with m in correct interval including both boundaries. M1 (dep on second M1) for Σfm ÷ 140.",
+          "accuracy_mark_criteria": "Award 4 marks for 192 or 192.4... nfww.",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "15(b)",
+          "marks": 2,
+          "method_mark_criteria": "M1 for (70/140) × (69/139).",
+          "accuracy_mark_criteria": "Award 2 marks for 69/278 oe.",
+          "acceptable_alternatives": [
+            "oe for 69/278"
+          ],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "15(c)",
+          "marks": 3,
+          "method_mark_criteria": "",
+          "accuracy_mark_criteria": "B2 for three correct blocks or B1 for two correct blocks.",
+          "acceptable_alternatives": [],
+          "common_errors": [
+            "If 0 scored, SC1 for three of 7/20, 12/5, 31/5, 70/10 or 0.35, 2.4, 6.2, 7."
+          ]
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 16,
+      "total_marks": 3,
+      "sub_parts": [
+        {
+          "part_identifier": "",
+          "marks": 3,
+          "method_mark_criteria": "M2 for sqrt(1484/1250) oe or better OR M1 for 1250 * k^3 = 1484",
+          "accuracy_mark_criteria": "Answer 2.9[0] or 2.901...",
+          "acceptable_alternatives": [
+            "sqrt(1484/1250) oe or better"
+          ],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 17,
+      "total_marks": 10,
+      "sub_parts": [
+        {
+          "part_identifier": "a",
+          "marks": 3,
+          "method_mark_criteria": "M2 for sqrt(9.6^2 + 12.1^2 - 2 * 9.6 * 12.1 * cos56) OR M1 for 9.6^2 + 12.1^2 - 2 * 9.6 * 12.1 * cos 56",
+          "accuracy_mark_criteria": "Answer 10.4 or 10.42... A1 for 108.6 to 108.7",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "b",
+          "marks": 4,
+          "method_mark_criteria": "M3 for 180 - sin^-1(15.8 * sin47 / 12.1) OR M2 for [sinBDC =] 15.8 * sin47 / 12.1 OR M1 for sinBDC / 15.8 = sin47 / 12.1",
+          "accuracy_mark_criteria": "Answer 107.2 to 107.3 B3 for 72.7[4...]",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        },
+        {
+          "part_identifier": "c",
+          "marks": 3,
+          "method_mark_criteria": "M1 for 1/2 * 9.6 * 12.1 * sin56 OR M1 for 1/2 * 15.8 * 12.1 * sin(133 – their angle BDC)",
+          "accuracy_mark_criteria": "Answer 89.59 to 89.80...",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 18,
+      "total_marks": 3,
+      "sub_parts": [
+        {
+          "part_identifier": "",
+          "marks": 3,
+          "method_mark_criteria": "M1 for (x + 3)^2 seen OR M1 for ax^2 + 2abx + ab^2 – c OR M1 for a=2 and one of 2ab=12 and ab^2 - c = -2",
+          "accuracy_mark_criteria": "Answer a = 2, b = 3, c = 20 B2 for any two correct For c, FT 2 + their a * their (b)^2 B1 for b=3 nfww OR B2 for 2(x+3)^2 - 20",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 19,
+      "total_marks": 4,
+      "sub_parts": [
+        {
+          "part_identifier": "",
+          "marks": 4,
+          "method_mark_criteria": "M3 for (360-126)/360 * 2 * pi * 7.5 + 15 OR M2 for (360-126)/360 * 2 * pi * 7.5 OR M1 for 126/360 * 2 * pi * 7.5",
+          "accuracy_mark_criteria": "Answer 45.6 or 45.63... B3 for 30.6 or 30.63... OR B1 for major sector angle = 234",
+          "acceptable_alternatives": [],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 20,
+      "total_marks": 9,
+      "sub_parts": [
+        {
+          "part_identifier": "a",
+          "marks": 4,
+          "method_mark_criteria": "M3 for 24 / (1/2 * sqrt(10.5^2 + 10.5^2)) oe or better OR M2 for AM = 1/2 * sqrt(10.5^2 + 10.5^2) oe OR AM=10.5 cos45 oe OR M1 for AC^2 = 10.5^2 + 10.5^2 OR AM^2 = 5.25^2 +5.25^2 OR AM / 10.5 = cos45 oe",
+          "accuracy_mark_criteria": "Answer 72.8 or 72.81...",
+          "acceptable_alternatives": [
+            "oe or better"
+          ],
+          "common_errors": [
+            "If 0 scored, SC1 for identifying angle OAM"
+          ]
+        },
+        {
+          "part_identifier": "b",
+          "marks": 5,
+          "method_mark_criteria": "Method 1: M2 for 1/3 * 10.5^2 * 24 - 1/3 * (their 3.5)^2 * (24-16) OR M1 for 1/3 * 10.5^2 * 24 OR M1 for 1/3 * (their 3.5)^2 * (24 – 16) Method 2: M1 for volume scale factor = ((24-16)/24)^3 OR M2 for (1-their (1/27)) * 1/3 * 10.5^2 * 24 OR M1 for 1/3 * 10.5^2 * 24 OR M1 for their (1/27) * 1/3 * 10.5^2 * 24 oe",
+          "accuracy_mark_criteria": "Answer 849 1/3 or 849 or 849.3... Method 1: B2 for side of small square = 3.5 OR M1 for 10.5 * (24-16)/24 or better Method 2: B2 for 1/27 or 26/27",
+          "acceptable_alternatives": [
+            "oe"
+          ],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 21,
+      "total_marks": 3,
+      "sub_parts": [
+        {
+          "part_identifier": "main",
+          "marks": 3,
+          "method_mark_criteria": "M2 for 2(5m) – 1 = 3(2n) oe or better OR M1 for 42(5m) or for 43(2n) oe or better",
+          "accuracy_mark_criteria": "Final answer [m =] 6n+1 / 10 oe",
+          "acceptable_alternatives": [
+            "[m =] 6n+1 / 10 oe"
+          ],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    },
+    {
+      "question_number": 22,
+      "total_marks": 3,
+      "sub_parts": [
+        {
+          "part_identifier": "main",
+          "marks": 3,
+          "method_mark_criteria": "M2 for 50 to 60 / 13 - 0.5 or 50+5 / 12 to 13 oe OR M1 for 50 + 5, 50 – 5, 13 + 0.5 or 13 - 0.5 seen",
+          "accuracy_mark_criteria": "Final answer 4.4 nfww",
+          "acceptable_alternatives": [
+            "4.4 nfww"
+          ],
+          "common_errors": []
+        }
+      ],
+      "general_notes": ""
+    }
+  ]
+}
