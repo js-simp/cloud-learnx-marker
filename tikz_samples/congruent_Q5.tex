@@ -1,0 +1,40 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes,calc}
+\usepackage{tkz-euclide} %for right angle marker
+
+\begin{document}
+\begin{tikzpicture}[scale = 1]
+    % Initial point
+    \coordinate (D) at (0,0);
+    % Draw base
+    \draw (D) -- ++(15:4cm) coordinate (B);
+    
+    % % Draw triangle
+    \path[name path=leg1] (D) -- ($(D)!1!67:(B)$) coordinate (K);
+    \path[name path=leg2] (B) -- ($(B)!1!-41:(D)$) coordinate (L);
+   
+    \draw[name intersections={of=leg1 and leg2,by={A}}] (D) -- (A);
+    \draw (B) -- (A);
+
+     % Draw triangle 2
+    \path[name path=leg3] (D) -- ($(D)!1!-41:(B)$) coordinate (N);
+    \path[name path=leg4] (B) -- ($(B)!1!67:(D)$) coordinate (M);
+    \draw[name intersections={of=leg3 and leg4,by={C}}] (D) -- (C);
+    \draw (B) -- (C);
+
+    % Label points E and B
+    \node at (A) [anchor=south] {$A$};
+    \node at (B) [anchor= west] {$B$};
+    \node at (D) [anchor = north east] {$D$};
+    \node at (C) [anchor = north] {$C$};
+    
+    % Draw the angle between lines
+    \pic [draw, "\footnotesize $72^\circ$ ", angle eccentricity=1.4, angle radius=0.6cm] {angle = D--A--B};
+    \pic [draw, "\footnotesize $41^\circ$", angle eccentricity=1.4, angle radius=0.7cm] {angle = A--B--D};
+    \pic [draw, "\footnotesize $41^\circ$", angle eccentricity=1.4, angle radius=0.7cm] {angle = C--D--B};
+    \pic [draw, "\footnotesize $67^\circ$ ", angle eccentricity=1.3, angle radius=0.8cm] {angle = D--B--C};
+   
+\end{tikzpicture}
+\end{document}
+

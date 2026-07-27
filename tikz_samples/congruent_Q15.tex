@@ -1,0 +1,25 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes,calc}
+\usepackage{tkz-euclide} %for right angle marker
+\begin{document}
+\begin{tikzpicture}[scale = 1]
+    % Initial point
+    \coordinate (A) at (0,0);
+    % Draw base at 20 degrees angle to horizontal
+    \draw (A) -- (20:4cm) coordinate (B);
+   
+    % % Draw triangle
+    \draw[name path=leg1] (A) -- ($(A)!1!120:(B)$) coordinate (D);
+    \draw[name path=leg2] (B) -- ($(B)!1!-80:(A)$) coordinate (C);
+    \draw (D) -- (C);
+    
+    % Draw the angle between lines
+    \pic [draw, "\footnotesize $2x$ ", angle eccentricity=1.4, angle radius=0.6cm] {angle = C--B--A};
+    \pic [draw, "\footnotesize $2x$ ", angle eccentricity=1.4, angle radius=0.6cm] {angle = B--A--D};
+    \pic [draw, "\footnotesize $9x$ ", angle eccentricity=1.4, angle radius=0.6cm] {angle = A--D--C};
+    \pic [draw, "\footnotesize $5x$ ", angle eccentricity=1.4, angle radius=0.6cm] {angle = D--C--B};
+
+\end{tikzpicture}
+\end{document}
+

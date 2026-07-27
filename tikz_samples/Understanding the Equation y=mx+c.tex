@@ -1,0 +1,127 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\begin{document}
+
+% Q1 
+\begin{tikzpicture}
+\begin{axis}[
+    xlabel={$x$},
+    ylabel={$y$},
+    axis lines=center,
+    grid=both,
+    grid style={line width=.1pt, draw=gray!10},
+    major grid style={line width=.2pt,draw=gray!50},
+    xmin=-5,
+    xmax=5,
+    ymin=-5,
+    ymax=5,
+    domain=-10:10,
+    smooth,
+    no marks,
+    xtick={-5,-4,...,5},
+    ytick={-5,-4,...,5},
+    legend pos=outer north east,
+]
+\addplot[thick, blue] {2*x - 1};
+\end{axis}
+\end{tikzpicture}
+
+% Q2 
+\begin{tikzpicture}
+\begin{axis}[
+    xlabel={$x$},
+    ylabel={$y$},
+    axis lines=center,
+    grid=both,
+    grid style={line width=.1pt, draw=gray!10},
+    major grid style={line width=.2pt,draw=gray!50},
+    xmin=-5,
+    xmax=5,
+    ymin=-5,
+    ymax=5,
+    domain=-10:10,
+    smooth,
+    no marks,
+    xtick={-5,-4,...,5},
+    ytick={-5,-4,...,5},
+    legend pos=outer north east,
+]
+\addplot[thick, blue] {-3*x + 4};
+\end{axis}
+\end{tikzpicture}
+
+% Q3
+\begin{tikzpicture}
+\begin{axis}[
+    xlabel={$x$},
+    ylabel={$y$},
+    axis lines=center,
+    grid=both,
+    grid style={line width=.1pt, draw=gray!10},
+    major grid style={line width=.2pt,draw=gray!50},
+    xmin=-5,
+    xmax=5,
+    ymin=-5,
+    ymax=5,
+    domain=-10:10,
+    smooth,
+    no marks,
+    xtick={-5,-4,...,5},
+    ytick={-5,-4,...,5},
+    legend pos=outer north east,
+]
+\addplot[thick, blue] {-(1/2)*x + 2};
+\end{axis}
+\end{tikzpicture}
+
+% Q4
+\begin{tikzpicture}
+\begin{axis}[
+    xlabel={$x$},
+    ylabel={$y$},
+    axis lines=center,
+    grid=both,
+    grid style={line width=.1pt, draw=gray!10},
+    major grid style={line width=.2pt,draw=gray!50},
+    xmin=-5,
+    xmax=5,
+    ymin=-5,
+    ymax=5,
+    domain=-5:5,
+    smooth,
+    no marks,
+    xtick={-5,-4,...,5},
+    ytick={-5,-4,...,5},
+    legend pos=outer north east,
+]
+\addplot[thick, blue] coordinates {(2,-5) (2,5)};
+\end{axis}
+\end{tikzpicture}
+
+% Q5
+\begin{tikzpicture}
+\begin{axis}[
+    xlabel={$x$},
+    ylabel={$y$},
+    axis lines=center,
+    grid=both,
+    grid style={line width=.1pt, draw=gray!10},
+    major grid style={line width=.2pt,draw=gray!50},
+    xmin=-5,
+    xmax=5,
+    ymin=-5,
+    ymax=5,
+    domain=-10:10,
+    smooth,
+    no marks,
+    xtick={-5,-4,...,5},
+    ytick={-5,-4,...,5},
+    legend pos=outer north east,
+]
+\addplot[thick, blue] coordinates {(-5,-3) (5,-3)};
+\end{axis}
+\end{tikzpicture}
+
+\end{document}

@@ -1,0 +1,43 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary {angles,quotes,arrows.meta, calc, intersections}
+\usepackage{tkz-euclide}
+\usetikzlibrary{decorations.markings}
+\tikzset{%
+  ->-/.style={decoration={markings, mark=at position 0.1 with {\arrow{>[scale = 1, length=3]}}},
+              postaction={decorate}},
+}
+
+\begin{document}
+\begin{tikzpicture}[scale = 1]
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (5,0);
+    \coordinate (C) at (0,1.5);
+    \coordinate (D) at ( 5,1.5);
+    \coordinate (E) at (2,-0.6);
+    \path (E) -- ++(40:4cm) coordinate (F);
+
+    %parallel lines
+    \draw[->-] (A) -- (B);
+    \draw[->-] (C) -- (D);
+    
+    \coordinate (X) at (intersection cs:first line={(A)--(B)}, second line={(E)--(F)});
+    \coordinate (Y) at (intersection cs:first line={(C)--(D)}, second line={(E)--(F)});
+    
+    %traversal line EF
+    \draw (X) -- (Y);
+
+    \path[name path=leg1] (X) -- ($(X)!1!100:(Y)$);
+    \path[name path=leg2] (D) -- (C);
+    \draw[name intersections={of=leg1 and leg2,by={K}}] (X) -- (K);
+
+    \tkzMarkSegment[pos=.5,mark=|](K,X);
+    \tkzMarkSegment[pos=.5,mark=|](Y,X);
+    
+    % % Draw the angle between lines
+    \pic [draw, "\footnotesize $x$ ", angle eccentricity=1.3, angle radius=0.5cm] {angle = B--X--Y};
+    \pic [draw, "\footnotesize $140^\circ$ ", angle eccentricity=1.4, angle radius=0.4cm] {angle = C--K--X};
+    
+\end{tikzpicture}
+
+\end{document}

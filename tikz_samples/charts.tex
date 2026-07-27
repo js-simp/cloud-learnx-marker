@@ -1,0 +1,103 @@
+\documentclass[tikz, border= 10pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat = 1.18, width = 10cm}
+\usetikzlibrary{shapes.misc}
+\usetikzlibrary{patterns}
+\usetikzlibrary{positioning}
+\usepgfplotslibrary{fillbetween, groupplots}
+
+\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},
+%default radius will be 1pt. 
+cross/.default={5pt}}
+
+\begin{document}
+
+
+%number of miles chart
+    \pgfplotsset{
+    calculate offset/.code={
+        \pgfkeys{/pgf/fpu=true,/pgf/fpu/output format=fixed}
+        \pgfmathsetmacro\testmacro{(\pgfplotspointmeta *10^\pgfplots@data@scale@trafo@EXPONENT@y)*\pgfplots@y@veclength)}
+        \pgfkeys{/pgf/fpu=false}
+    },
+    every node near coord/.style={
+        /pgfplots/calculate offset,
+        yshift=-\testmacro
+    },
+}
+\pgfplotstableread{
+1 56  
+2 32
+3 0  
+}\dataset
+\begin{tikzpicture}
+\begin{axis}[ybar,
+        bar width = 0.3,
+        width=0.9\textwidth,
+        ymin=0,
+        ymax=80,
+        xlabel = {Day},
+        ylabel={Number\\ of trees},
+        ylabel style = {align = center, rotate = -90},
+        xtick=data,
+        xticklabels = {
+            Day 1,
+            Day 2,
+            Day 3
+        },
+        major x tick style = {opacity=1},
+        major grid style = {thick, color = gray!80},
+        minor grid style = {color = gray!50},
+        major tick length=2ex,
+        ymajorgrids = true,
+        yminorgrids = true,
+        minor tick num=4,
+        legend style={at={(1.05,0.5)},anchor=west}
+        ]
+\addplot[draw=black, fill=gray!50] table[x index=0,y index=1] \dataset; %Data1
+\end{axis}
+ \end{tikzpicture}
+
+ %number of miles chart
+    \pgfplotsset{
+    calculate offset/.code={
+        \pgfkeys{/pgf/fpu=true,/pgf/fpu/output format=fixed}
+        \pgfmathsetmacro\testmacro{(\pgfplotspointmeta *10^\pgfplots@data@scale@trafo@EXPONENT@y)*\pgfplots@y@veclength)}
+        \pgfkeys{/pgf/fpu=false}
+    },
+    every node near coord/.style={
+        /pgfplots/calculate offset,
+        yshift=-\testmacro
+    },
+}
+\pgfplotstableread{
+0 3  
+1 6
+2 4   
+}\dataset
+\begin{tikzpicture}
+\begin{axis}[ybar,
+        bar width = 0.3,
+        width=0.9\textwidth,
+        ymin=0,
+        ymax=8.5,
+        xlabel = {Day},
+        ylabel={Number\\ of miles},
+        ylabel style = {align = center, rotate = -90},
+        xtick=data,
+        xticklabels = {
+            Monday,
+            Wednesday,
+            Friday
+        },
+        major x tick style = {opacity=1},
+        minor tick length=2ex,
+        ymajorgrids = true,
+        legend style={at={(1.05,0.5)},anchor=west}
+        ]
+\addplot[draw=black, fill=gray!50] table[x index=0,y index=1] \dataset; %Data1
+\end{axis}
+ \end{tikzpicture}
+
+
+\end{document}

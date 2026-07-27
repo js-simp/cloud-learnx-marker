@@ -1,0 +1,34 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes,calc}
+\usepackage{tkz-euclide} %for right angle marker
+
+\begin{document}
+\begin{tikzpicture}[scale = 1]
+    % Initial point
+    \coordinate (A) at (0,0);
+    % Draw base
+    \draw (A) -- (4,0) coordinate (B);
+    
+    % Draw triangle
+    \path[name path=leg1] (A) -- ++(39:5cm);
+    \path[name path=leg2] (B) -- ++(101:4cm);
+   
+    \draw[name intersections={of=leg1 and leg2,by={Int1}}] (A) -- (Int1);
+    \draw (B) -- (Int1);
+    
+    % Draw extended lines
+    \draw (Int1) -- ++(39:1cm);
+    \draw (B) -- ++(-79:1cm) coordinate (D);
+    \draw (A) -- ++(180:1cm) coordinate (C);
+    %diagonal
+    
+    
+    % Draw the angle between lines
+    \pic [draw, "\footnotesize $62^\circ$ ", angle eccentricity=1.4, angle radius=0.5cm] {angle = A--Int1--B};
+    \pic [draw, "\footnotesize $141^\circ$", angle eccentricity=1.4, angle radius=0.5cm] {angle = Int1--A--C};
+    \pic [draw, "\footnotesize $x$", angle eccentricity=1.3, angle radius=0.5cm] {angle = A--B--D};
+   
+\end{tikzpicture}
+\end{document}
+

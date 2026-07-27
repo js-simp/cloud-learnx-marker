@@ -1,0 +1,39 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes,calc, arrows.meta, intersections}
+\usepackage{tkz-euclide} %for right angle marker
+\usetikzlibrary{decorations.markings}
+\tikzset{%
+  ->-/.style={decoration={markings, mark=at position 0.5 with {\arrow{>[scale = 1.5, length=3]}}},
+              postaction={decorate}},
+  ->>-/.style={decoration={markings, mark=at position 0.5 with {\arrow{>>[scale = 2.5]}}},
+               postaction={decorate}},
+}
+
+\begin{document}
+\begin{tikzpicture}[scale = 2]
+    % Initial point
+    \coordinate (A) at (0,0);
+
+    \coordinate (K) at (0,-1);
+    % Draw base
+    \draw[->-] (A) -- (2,0) coordinate (B);
+    \path[name path=horizontal] (K) -- ++(0:3cm);
+  
+    \path[name path=leg3] (B) -- ($(B)!1!50:(A)$);
+    \draw[name intersections={of=leg3 and horizontal,by={D}}] (D) -- (B);
+
+    \draw[->-] (D) -- ++(0:2cm) coordinate (E);
+    
+    \draw (A) -- (E);\
+    \node[anchor = west, xshift=2.5,yshift=1.8] at (intersection of  A--E and D--B){C};
+    % Label points E and B
+    \node at (A) [anchor=south east] {$A$};
+    \node at (B) [anchor= south west] {$B$};
+    \node at (D) [anchor = east] {$D$};
+    \node at (E) [anchor = west] {$E$};
+
+    
+\end{tikzpicture}
+\end{document}
+

@@ -1,0 +1,39 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary {angles,quotes,arrows.meta, intersections, calc}
+
+\begin{document}
+\begin{tikzpicture}[scale = 1]
+
+%mark points on circle
+        \coordinate (D) at (0,0);
+
+        \draw (D) -- (3,0) coordinate[pos=0.5] (X) coordinate (E);
+        \node at (D) [anchor = east] {$D$};
+        \node at (E) [anchor = west] {$E$};
+
+         %draw first triangle
+        \path[name path=circ1] (D) circle (3.3);
+        \path[name path=circ2] (E) circle (2.93);
+
+        \draw[name intersections={of=circ1 and circ2,by={C}}] (D) -- (C) coordinate[pos=0.5] (Y);
+        \draw (E) -- (C) coordinate[pos=0.5] (Z);;
+        \node at (C) [anchor = south, yshift = 0.2cm, xshift = 0.1cm] {$C$};
+        %second triangle
+
+        \draw[name path=leg1] (C) -- ($(C)!5.5/3!180:(D)$) coordinate[pos=0.5] (R) coordinate (B);
+        \draw[name path=leg2] (C) -- ($(C)!5.5/3!180:(E)$) coordinate[pos=0.5] (S) coordinate (A);
+        \draw (B) -- (A) coordinate[pos=0.5] (T);
+        
+        \node at (A) [anchor = east] {$A$};
+        \node at (B) [anchor = west] {$B$};
+        \node at (X) [anchor = north] {$y$};
+        \node at (Y) [anchor = east] {$6m$};
+        \node at (Z) [anchor = west] {$4m$};
+        \node at (R) [anchor = west] {$x$};
+        \node at (S) [anchor = east] {$22m$};
+        \node at (T) [anchor = south] {$30m$};
+        \path (A) -- (B) ;
+
+\end{tikzpicture}
+\end{document}

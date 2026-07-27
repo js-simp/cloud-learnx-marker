@@ -1,0 +1,42 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes,calc}
+\usepackage{tkz-euclide} %for right angle marker
+
+\begin{document}
+\begin{tikzpicture}[scale = 1]
+    % Initial point
+    \coordinate (C) at (0,0);
+    % Draw base
+    \draw (C) -- (4,0) coordinate (B);
+    
+    % % Draw triangle
+    \path[name path=leg1] (C) -- ++(50:4cm);
+    \path[name path=leg2] (B) -- ++(130:4cm);
+   
+    \draw[name intersections={of=leg1 and leg2,by={A}}] (B) -- (A);
+    \draw (C) -- (A);
+
+    \coordinate (D) at ($(C)!0.5!(A)$);
+    \coordinate (E) at ($(B)!0.5!(A)$);
+
+    \draw (D) -- (E);
+
+    \path[name path=BC] (B) -- (C);
+    
+    \path[name path = leg3] (E) -- ++(-120:3cm);
+    \draw[name intersections={of=BC and leg3,by={F}}] (E) -- (F);
+    
+
+
+    % % Label points E and B
+    \node at (A) [anchor=south] {$A$};
+    \node at (B) [anchor= north west] {$B$};
+    \node at (D) [anchor = east] {$D$};
+    \node at (E) [anchor = west] {$E$};
+    \node at (F) [anchor = north] {$F$};
+    \node at (C) [anchor = north east] {$C$};
+    
+\end{tikzpicture}
+\end{document}
+

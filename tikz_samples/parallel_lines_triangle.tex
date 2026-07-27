@@ -1,0 +1,46 @@
+\documentclass[usenames,dvipsnames]{standalone}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{lipsum,tikz,tikz-layers,tkz-euclide,amsmath}
+\usetikzlibrary{calc,intersections,positioning,arrows,shapes.geometric}
+\usepackage{xcolor}
+
+\begin{document}
+
+% \lipsum[1-1]
+
+\tikz[thick, scale=1.2, line join=round, font=\small]{
+
+% Draw the base line with points A, B, and C, and arrowheads at A and D
+\draw (0,0)--node[pos=0,left] {$A$} node[pos=.4,above] {$B$} node[pos=1,right] {$C$} coordinate[pos=0] (a) coordinate[pos=0.4] (b) coordinate[pos=1] (c) (5.5,0);
+
+% Draw line from point B at an angle of 180+56 degrees, marked with E and G
+% This line is named l2 for later reference
+% Two small lines are drawn perpendicular to this line to simulate the "||" symbol
+\draw[name path=l2] (b)-- node[pos=.5, above left] {$E$} node[pos=1,below] {$G$} coordinate[pos=1] (g) node[pos=.65,sloped] {\scriptsize$\boldsymbol{|}$} node[pos=.62,sloped] {\scriptsize$\boldsymbol{|}$} ++(180+56:3.5)--coordinate[pos=0.5] (f) (c);
+
+% Draw line from the end of the previous line back to the base line, marked with F and D
+% This line is named l1 for later reference
+% Two small lines are drawn perpendicular to this line to simulate the "||" symbol
+\draw[name path=l1] (f)--node[pos=0,below right] {$F$} node[pos=1,left] {$D$} coordinate[pos=1](d) node[pos=.26,sloped] {\scriptsize$\boldsymbol{|}$} node[pos=.23,sloped] {\scriptsize$\boldsymbol{|}$} (f-|a);
+
+% Calculate the intersection of l1 and l2 (which is point E) and do not draw anything at that point
+\fill [name intersections={of=l1 and l2, by=e}] (e) circle (0pt) node[above right] {};
+
+% Draw arrowheads on the line segments starting at points A and D
+\draw[->] (a)--+(.6,0);
+\draw[->] (d)--+(.6,0);
+
+% Mark and label the angle at point B with 56 degrees
+\tkzMarkAngle[size=.8](a,b,e)
+\tkzLabelAngle[pos=.5](a,b,e){\footnotesize$56^\circ$}
+
+% Mark and label the angle at point E with x degrees
+\tkzMarkAngle[size=.6](f,e,b)
+\tkzLabelAngle[pos=.4](f,e,b){\footnotesize$x$}
+
+% Mark and label the angle at point E with y degrees
+\tkzMarkAngle[size=.85](f,g,e)
+\tkzLabelAngle[pos=.65](f,g,e){\footnotesize$y$}
+}
+
+\end{document}

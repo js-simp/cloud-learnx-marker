@@ -1,0 +1,121 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usetikzlibrary{3d, angles, quotes} % for 3d vector calculations
+
+\begin{document}
+
+% Q1
+\begin{tikzpicture}[scale=1, transform shape]
+    % Define the points of the cube
+    \coordinate (A) at (0,0,0);
+    \coordinate (B) at (0,0,-3);
+    \coordinate (C) at (4,0,-3);
+    \coordinate (D) at (4,0,0);
+    \coordinate (E) at (0,2,0);
+    \coordinate (F) at (0,2,-3);
+    \coordinate (G) at (4,2,-3);
+    \coordinate (H) at (4,2,0);
+
+    % Draw the visible edges of the cube
+    \draw (A) -- (D) -- (H) -- (E) -- cycle; % bottom face
+    \draw (D) -- (C) -- (G) -- (H); % right face
+    \draw (E) -- (F) -- (G); % top face
+
+    % Draw the hidden edges of the cube
+    \draw[dashed] (A) -- (B) -- (C);
+    \draw[dashed] (B) -- (F);
+
+    % Place the labels with smaller font size
+    \node at (A) [left,font=\small] {A};
+    \node at (B) [below right,font=\small] {B};
+    \node at (C) [below right,font=\small] {C};
+    \node at (D) [below right,font=\small] {D};
+    \node at (E) [above left,font=\small] {E};
+    \node at (F) [above left,font=\small] {F};
+    \node at (G) [above,font=\small] {G};
+    \node at (H) [above left, font=\small] {H};
+\end{tikzpicture}
+
+% Q2
+\begin{tikzpicture}[scale=1, transform shape]
+    % Define the points of the cube
+    \coordinate (A) at (0,0.5,0);
+    \coordinate (B) at (0.4,0,-4.5);
+    \coordinate (C) at (4.25,0,-4.5);
+    \coordinate (D) at (4,0.5,0);
+    \coordinate (E) at (0.4,2,-4.5);
+    \coordinate (F) at (4.25,2,-4.5);
+
+    % Draw the visible edges of the cube
+    \draw (A) -- (B) -- (C) -- (D) -- cycle; % bottom face
+    \draw (E) -- (F) -- (C) -- (B) -- cycle; % back face
+    \draw (E) -- (A); 
+    \draw (F) -- (D);
+
+    % Right angle symbol at D for angle DCF
+    \draw pic[draw, angle radius=2.5mm] {right angle=D--C--F};
+
+    % Place the labels with smaller font size
+    \node at (A) [left,font=\small] {A};
+    \node at (B) [below right,font=\small] {B};
+    \node at (C) [below right,font=\small] {C};
+    \node at (D) [below right,font=\small] {D};
+    \node at (E) [above left,font=\small] {E};
+    \node at (F) [above left,font=\small] {F};
+\end{tikzpicture}
+
+% Q3
+\begin{tikzpicture}[scale=1, transform shape]
+    % Define the points of the cube
+    \coordinate (A) at (0,0.5,0);
+    \coordinate (B) at (0.4,0,-4.5);
+    \coordinate (C) at (4.25,0,-4.5);
+    \coordinate (D) at (4,0.5,0);
+    \coordinate (E) at (0.4,2,-4.5);
+    \coordinate (F) at (4.25,2,-4.5);
+
+    % Draw the visible edges of the cube
+    \draw (A) -- (B) -- (C) -- (D) -- cycle; % bottom face
+    \draw (E) -- (F) -- (C) -- (B) -- cycle; % back face
+    \draw (E) -- (A); 
+    \draw (F) -- (D);
+
+    % Right angle symbol at D for angle DCF
+    \draw pic[draw, angle radius=2.5mm] {right angle=D--C--F};
+    \pic [draw, -, angle radius=1cm, "$30^{\circ}$", angle eccentricity=1.5] {angle=C--D--F};
+
+    % Place the labels with smaller font size
+    \node at (A) [left,font=\small] {A};
+    \node at (B) [below right,font=\small] {B};
+    \node at (C) [below right,font=\small] {C};
+    \node at (D) [below right,font=\small] {D};
+    \node at (E) [above left,font=\small] {E};
+    \node at (F) [above left,font=\small] {F};
+\end{tikzpicture}
+
+% Q4
+\begin{tikzpicture}[scale=1, transform shape]
+    % Define the points of the cube
+    \coordinate (A) at (0,0,0);
+    \coordinate (B) at (0,0,-3);
+    \coordinate (C) at (2,0,-3);
+    \coordinate (D) at (2,0,0);
+    \coordinate (E) at (1,3,-1.5);
+
+    % Draw the visible edges of the cube
+    \draw[dashed] (A) -- (B);
+    \draw[dashed] (B) -- (C);
+    \draw (A) -- (D) -- (C);
+    \draw (A) -- (E);
+    \draw[dashed] (B) -- (E);
+    \draw (C) -- (E);
+    \draw (D) -- (E);
+
+    % Place the labels with smaller font size
+    \node at (A) [left,font=\small] {A};
+    \node at (B) [left,font=\small] {B};
+    \node at (C) [right,font=\small] {C};
+    \node at (D) [right,font=\small] {D};
+    \node at (E) [right,font=\small] {E};
+\end{tikzpicture}
+
+\end{document}

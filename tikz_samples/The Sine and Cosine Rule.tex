@@ -1,0 +1,259 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usetikzlibrary{angles, quotes}
+
+\begin{document}
+
+% Q1
+\begin{tikzpicture}[scale=1, transform shape]
+    % Define the points of the cube
+    \coordinate (A) at (-2,-1);
+    \coordinate (B) at (3,0);
+    \coordinate (C) at (0,4);
+
+    % Draw the triangle
+    \draw (A) -- (B) -- (C) -- cycle; 
+
+    % Draw the angles
+    \pic [draw, -, angle radius=0.5cm, "$47^{\circ}$", angle eccentricity=1.5] {angle=C--B--A};
+    \pic [draw, -, angle radius=0.5cm, "$73^{\circ}$", angle eccentricity=1.5] {angle=A--C--B};
+
+    % Place the labels with smaller font size
+    \node at (A) [left,font=\small] {A};
+    \node at (B) [right,font=\small] {B};
+    \node at (C) [above,font=\small] {C};
+
+    % Place the labels with smaller font size
+    \draw (A) -- (B) node[midway, below right] {5cm};
+    
+\end{tikzpicture}
+
+% Q2
+\begin{tikzpicture}[scale=1, transform shape]
+    % Define the points of the cube
+    \coordinate (A) at (-2,-1);
+    \coordinate (B) at (2,-2);
+    \coordinate (C) at (0,3);
+
+    % Draw the triangle
+    \draw (A) -- (B) -- (C) -- cycle; 
+
+    % Draw the angles
+    \pic [draw, -, angle radius=0.5cm, "$43^{\circ}$", angle eccentricity=1.5] {angle=A--C--B};
+    \pic [draw, -, angle radius=0.5cm, "$69^{\circ}$", angle eccentricity=1.5] {angle=B--A--C};
+
+    % Place the labels with smaller font size
+    \node at (A) [left,font=\small] {A};
+    \node at (B) [right,font=\small] {B};
+    \node at (C) [above,font=\small] {C};
+
+    % Place the labels with smaller font size
+    \draw (B) -- (C) node[midway, above right] {$13$cm};
+    
+\end{tikzpicture}
+
+% Q3
+\begin{tikzpicture}[scale=1, transform shape]
+    % Define the points of the cube
+    \coordinate (A) at (-2,-1);
+    \coordinate (B) at (3,2);
+    \coordinate (C) at (0,4);
+
+    % Draw the triangle
+    \draw (A) -- (B) -- (C) -- cycle; 
+
+    % Draw the angles
+    \pic [draw, -, angle radius=0.5cm, "$a^{\circ}$", angle eccentricity=1.5] {angle=C--B--A};
+    \pic [draw, -, angle radius=0.5cm, "$51^{\circ}$", angle eccentricity=1.5] {angle=A--C--B};
+
+    % Place the labels with smaller font size
+    \node at (A) [left,font=\small] {A};
+    \node at (B) [right,font=\small] {B};
+    \node at (C) [above,font=\small] {C};
+
+    % Place the labels with smaller font size
+    \draw (A) -- (B) node[midway, below right] {$11$cm};
+    \draw (A) -- (C) node[midway, left] {$7$cm};
+    
+\end{tikzpicture}
+
+% Q4
+\begin{tikzpicture}[scale=1, transform shape]
+    % Define the points of the cube
+    \coordinate (A) at (-2,-1);
+    \coordinate (B) at (3,0);
+    \coordinate (C) at (0,4);
+
+    % Draw the triangle
+    \draw (A) -- (B) -- (C) -- cycle; 
+
+    % Draw the angles
+    \pic [draw, -, angle radius=0.5cm, "$29^{\circ}$", angle eccentricity=1.5] {angle=A--C--B};
+    \pic [draw, -, angle radius=0.5cm, "$c^{\circ}$", angle eccentricity=1.5] {angle=B--A--C};
+
+    % Place the labels with smaller font size
+    \node at (A) [left,font=\small] {A};
+    \node at (B) [right,font=\small] {B};
+    \node at (C) [above,font=\small] {C};
+
+    % Place the labels with smaller font size
+    \draw (A) -- (B) node[midway, below right] {$12$cm};
+    \draw (B) -- (C) node[midway, above right] {$6.5$cm};
+    
+\end{tikzpicture}
+
+% Q5
+\begin{tikzpicture}[scale=1, transform shape]
+    % Define the points of the cube
+    \coordinate (A) at (-2,-1);
+    \coordinate (B) at (3,-1);
+    \coordinate (C) at (6,4);
+
+    % Draw the triangle
+    \draw (A) -- (B) -- (C) -- cycle; 
+
+    % Draw the angles
+    \pic [draw, -, angle radius=0.5cm, "$107^{\circ}$", angle eccentricity=1.5] {angle=C--B--A};
+    \pic [draw, -, angle radius=0.5cm, "$b^{\circ}$", angle eccentricity=1.5] {angle=A--C--B};
+
+    % Place the labels with smaller font size
+    \node at (A) [left,font=\small] {A};
+    \node at (B) [right,font=\small] {B};
+    \node at (C) [above,font=\small] {C};
+
+    % Place the labels with smaller font size
+    \draw (A) -- (B) node[midway, below right] {$10.9$cm};
+    \draw (A) -- (C) node[midway, above left] {$15.3$cm};
+    
+\end{tikzpicture}
+
+% Q6
+\begin{tikzpicture}[scale=1, transform shape]
+    % Define the points of the cube
+    \coordinate (A) at (0,4);
+    \coordinate (B) at (3,0);
+    \coordinate (C) at (3,4);
+    \coordinate (D) at (10,3);
+
+    % Draw the triangle
+    \draw (A) -- (B) -- (C) -- cycle; 
+    \draw (B) -- (C) -- (D) -- cycle;
+
+    % Draw the angles
+    \draw pic[draw, angle radius=2.5mm] {right angle=A--C--B};
+    \pic [draw, -, angle radius=0.5cm, "$80^{\circ}$", angle eccentricity=1.5] {angle=B--C--D};
+    \pic [draw, -, angle radius=0.5cm, "$x^{\circ}$", angle eccentricity=1.5] {angle=C--D--B};
+
+    % Place the labels with smaller font size
+    \node at (A) [left,font=\small] {A};
+    \node at (B) [below,font=\small] {B};
+    \node at (C) [above,font=\small] {C};
+    \node at (D) [right,font=\small] {D};
+
+    % Place the labels with smaller font size
+    \draw (A) -- (B) node[midway, below left] {7cm};
+    \draw (A) -- (C) node[midway, above] {5cm};
+    \draw (B) -- (D) node[midway, below right] {13cm};
+
+\end{tikzpicture}
+
+% Q7
+\begin{tikzpicture}[scale=1, transform shape]
+    % Define the points of the cube
+    \coordinate (A) at (-2,-1);
+    \coordinate (B) at (3,0);
+    \coordinate (C) at (0,4);
+
+    % Draw the triangle
+    \draw (A) -- (B) -- (C) -- cycle; 
+
+    % Draw the angles
+    \pic [draw, -, angle radius=0.5cm, "$35^{\circ}$", angle eccentricity=1.5] {angle=C--B--A};
+
+    % Place the labels with smaller font size
+    \node at (A) [left,font=\small] {A};
+    \node at (B) [right,font=\small] {B};
+    \node at (C) [above,font=\small] {C};
+
+    % Place the labels with smaller font size
+    \draw (A) -- (B) node[midway, below right] {$10$cm};
+    \draw (B) -- (C) node[midway, above right] {$16$cm};
+    \draw (A) -- (C) node[midway, left] {$x$ cm};
+    
+\end{tikzpicture}
+
+% Q8
+\begin{tikzpicture}[scale=1, transform shape]
+    % Define the points of the cube
+    \coordinate (A) at (-2,-1);
+    \coordinate (B) at (5,-3);
+    \coordinate (C) at (2,3);
+
+    % Draw the triangle
+    \draw (A) -- (B) -- (C) -- cycle; 
+
+    % Draw the angles
+    \pic [draw, -, angle radius=0.5cm, "$a^{\circ}$", angle eccentricity=1.5] {angle=C--B--A};
+
+    % Place the labels with smaller font size
+    \node at (A) [left,font=\small] {A};
+    \node at (B) [right,font=\small] {B};
+    \node at (C) [above,font=\small] {C};
+
+    % Place the labels with smaller font size
+    \draw (A) -- (B) node[midway, below left] {$11$cm};
+    \draw (B) -- (C) node[midway, above right] {$6$cm};
+    \draw (A) -- (C) node[midway, above left] {$8$cm};
+    
+\end{tikzpicture}
+
+% Q9
+\begin{tikzpicture}[scale=1, transform shape]
+    % Define the points of the cube
+    \coordinate (A) at (-2,-3);
+    \coordinate (B) at (3,-1);
+    \coordinate (C) at (2,5);
+
+    % Draw the triangle
+    \draw (A) -- (B) -- (C) -- cycle; 
+
+    % Draw the angles
+    \pic [draw, -, angle radius=0.5cm, "$38^{\circ}$", angle eccentricity=1.5] {angle=A--C--B};
+
+    % Place the labels with smaller font size
+    \node at (A) [left,font=\small] {A};
+    \node at (B) [right,font=\small] {B};
+    \node at (C) [above,font=\small] {C};
+
+    % Place the labels with smaller font size
+    \draw (A) -- (B) node[midway, below right] {$x$cm};
+    \draw (B) -- (C) node[midway, above right] {$26$cm};
+    \draw (A) -- (C) node[midway, left] {$20$cm};
+    
+\end{tikzpicture}
+
+% Q10
+\begin{tikzpicture}[scale=1, transform shape]
+    % Define the points of the cube
+    \coordinate (A) at (-2,-1);
+    \coordinate (B) at (3,-5);
+    \coordinate (C) at (0,4);
+
+    % Draw the triangle
+    \draw (A) -- (B) -- (C) -- cycle; 
+
+    % Draw the angles
+    \pic [draw, -, angle radius=0.5cm, "$119^{\circ}$", angle eccentricity=2] {angle=B--A--C};
+
+    % Place the labels with smaller font size
+    \node at (A) [left,font=\small] {A};
+    \node at (B) [right,font=\small] {B};
+    \node at (C) [above,font=\small] {C};
+
+    % Place the labels with smaller font size
+    \draw (A) -- (B) node[midway, below left] {$15$cm};
+    \draw (B) -- (C) node[midway, above right] {$x$cm};
+    \draw (A) -- (C) node[midway, left] {$21$cm};
+    
+\end{tikzpicture}
+
+\end{document}

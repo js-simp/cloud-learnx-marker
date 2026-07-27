@@ -1,0 +1,38 @@
+\documentclass[tikz,border=2mm]{standalone}
+\usetikzlibrary{calc,quotes,intersections, angles}
+
+\begin{document}
+    \begin{tikzpicture}[scale=2]
+    % mark points on circle
+        \coordinate[label = right:$D$] (D) at (0,0);
+        \coordinate[label=below:$A$] (A) at (-90:1);
+
+    % draw chords and circle
+        \draw[name path=circ] (0,0) circle (1);
+        \draw (D) -- (A);
+        
+    % draw tangent
+    \draw (A) -- ($(A)!1.5!-90:(D)$) coordinate (L);
+    \draw (A) -- ($(A)!1.5!90:(D)$) coordinate (M);
+
+    % %
+    \path[name path=AC] (A) -- ($(A)!2!22:(D)$);
+    \path[name path=AB] (A) -- ($(A)!2!-30:(D)$);
+    \path[name intersections={of=AC and circ, by={C}}];
+    \path[name intersections={of=AB and circ, by={B,temp}}];
+
+    \draw (C) -- (A);
+    \draw (A) -- (B);
+
+    % Label points C and B
+    \node at (C) [anchor=east] {$C$};
+    \node at (B) [anchor= west] {$B$};
+
+    \draw (C) -- (B);
+    % \draw (A) -- (D);
+    
+    \pic [draw, "$68^\circ$", angle eccentricity=1.5, angle radius = 0.5cm] {angle = C--A--M};
+    \pic [draw, "$x$", angle eccentricity=1.2, angle radius = 0.8cm] {angle = D--A--C};
+        
+    \end{tikzpicture}
+\end{document}

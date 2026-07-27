@@ -1,0 +1,91 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{trees,arrows}
+\begin{document}
+
+% Set the overall layout of the tree
+\tikzstyle{level 1}=[level distance=3.5cm, sibling distance=5cm]
+\tikzstyle{level 2}=[level distance=3.5cm, sibling distance=2.5cm]
+\tikzstyle{level 3}=[level distance=5cm, sibling distance=2cm]
+
+% Define styles for bags and leafs
+\tikzstyle{bit} = [text width=4em, text centered]
+\tikzstyle{end} = [circle, minimum width=3pt,fill, inner sep=0pt]
+
+\begin{tikzpicture}[grow=right, sloped]
+\node[end] {}
+    child {
+        node[bit] {Incorrect}% This is the first of three "Bag 2"
+        child {
+                node[bit] {Incorrect}
+                child{
+                node[bit] {Incorrect}
+                edge from parent
+                node[pos = 0.5, below, yshift = -0.1cm, xshift = 0.2cm] (C1) {0.3}
+                }
+                child{
+                node[bit]{Correct}
+                edge from parent
+                node[pos = 0.5, above, yshift = 0.1cm, xshift = 0.2cm] (C1) {0.7}
+                }
+                edge from parent
+                node[pos = 0.5, below, yshift = -0.1cm, xshift = 0.2cm] (C1) {0.3}
+            }
+            child {
+                node[bit] {Correct}
+                child{
+                node[bit]{Incorrect}
+                edge from parent
+                node[pos = 0.5, below, yshift = -0.1cm, xshift = 0.2cm] (C1) {0.1}
+                }
+                child{
+                node[bit]{Correct}
+                edge from parent
+                node[pos = 0.5, above, yshift = 0.1cm, xshift = 0.2cm] (C1) {0.9}
+                }
+                edge from parent
+                node[pos = 0.5, above, yshift = 0.1cm, xshift = 0.2cm] (C1) {0.7}
+            }
+            edge from parent
+        node[pos = 0.5, below, yshift = -0.1cm, xshift = 0.2cm] (B2) {0.1}
+    }
+    child {
+        node[bit] {Correct}
+            child {% Here are three children, hence three end branches
+                node[bit] {Incorrect}
+                child{
+                node[bit]{Incorrect}
+                edge from parent
+                node[pos = 0.5, below, yshift = -0.1cm, xshift = 0.2cm] (C1) {0.3}
+                }
+                child{
+                node[bit]{Correct}
+                node[bit]{Correct}
+                edge from parent
+                node[pos = 0.5, above, yshift = 0.1cm, xshift = 0.2cm] (C1) {0.7}
+                }
+                edge from parent
+        node[pos = 0.5, below, yshift = -0.1cm, xshift = 0.2cm] (B1) {0.1}
+            }
+            child {
+                node[bit] {Correct}
+                child{
+                node[bit]{Incorrect}
+                edge from parent
+                node[pos = 0.5, below, yshift = -0.1cm, xshift = 0.2cm] (C1) {0.1}
+                }
+                child{
+                node[bit]{Correct}
+                edge from parent
+                node[pos = 0.5, above, yshift = 0.1cm, xshift = 0.2cm] (C1) {0.9}
+                }
+                edge from parent
+                node[pos = 0.5, above, yshift = 0.1cm, xshift = 0.2cm] (C1) {0.9}
+            }
+        edge from parent
+        node[pos = 0.5, above, yshift = 0.1cm, xshift = 0.2cm] (B1) {0.9}
+    };
+   
+\end{tikzpicture}
+
+\end{document}
