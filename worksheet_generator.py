@@ -30,6 +30,8 @@ from google import genai
 from google.genai import types as genai_types
 from supabase import create_client
 
+from adapter import normalize_student_profile
+
 from claude_client import (
     generate_structured, generate_text,
     cached_block, plain_block,
@@ -745,28 +747,39 @@ def generate_worksheet(
 
 
 if __name__ == "__main__":
-    test_profile = {
-        "name": "Ahmed Hassan", "year": 10,
-        "curriculum_id": "edexcel_igcse_4ma1_higher",
-        "topic_scores": {"Trigonometry": 0.45, "Pythagoras": 0.70},
-        "known_misconceptions": [
-            "confuses sin and cos when angle is given",
-            "forgets to square root at the end of Pythagoras",
-        ],
-        "error_patterns": [
-            "sign errors in final step",
-            "does not show sufficient working for method marks",
-        ],
-        "teacher_notes": "Strong visual learner. Responds well to diagram-based questions.",
-    }
-
-    result = generate_worksheet(
-        student_profile=test_profile,
-        topic="Trigonometry",
+    import sys
+    from adapter import normalize_student_profile
+ 
+    # Pass student_id as CLI arg, or use a hardcoded test ID
+    student_id = sys.argv[1] if len(sys.argv) > 1 else "STU-202507-KALA"
+    topic      = sys.argv[2] if len(sys.argv) > 2 else "Trigonometry"
+ 
+    print(f"Loading profile for student: {student_id}")
+ 
+    # Load raw profile from Supabase using the module-level client
+    result = _supabase_client.table("student_profiles") \
+        .select("profile_data") \
+        .eq("id", student_id) \
+        .single() \
+        .execute()
+ 
+    if not result.data:
+        print(f"❌ No profile found for student_id='{student_id}'")
+        sys.exit(1)
+ 
+    raw     = result.data["profile_data"]
+    profile = normalize_student_profile(raw, topic=topic)
+ 
+    print(f"  Student : {profile['name']} | Year {profile['year']}")
+    print(f"  Topic   : {topic}")
+ 
+    output = generate_worksheet(
+        student_profile=profile,
+        topic=topic,
         output_dir=Path("output_worksheets"),
     )
 
-    if result["success"]:
-        print(f"\n✅ PDF ready: {result['pdf_path']}")
+    if output["success"]:
+        print(f"\n✅ PDF ready: {output['pdf_path']}")
     else:
-        print(f"\n❌ Failed: {result['error']}")
+        print(f"\n❌ Failed: {output['error']}")

@@ -206,6 +206,42 @@
                     <input type="text" id="stu_interests" placeholder="Robotics, Space Exploration">
                 </div>
 
+                <!-- ADD THESE TO THE Add Student TAB FORM -->
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Current Working Grade / Level *</label>
+                        <select id="stu_current_level" required>
+                            <option value="Grade 4 (C/D boundary)">Grade 4 (Working below target)</option>
+                            <option value="Grade 5 (C/B boundary)" selected>Grade 5 (Solid Foundation)</option>
+                            <option value="Grade 6 (B grade)">Grade 6 (Targeting A/A*)</option>
+                            <option value="Grade 7 (A grade)">Grade 7 (Strong Higher tier)</option>
+                            <option value="Grade 8 (A* grade)">Grade 8 (Top Performing)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Attitude & Mindset Towards Math</label>
+                        <select id="stu_mindset">
+                            <option value="Anxious & Lacks Confidence">Anxious / Overwhelmed by Multi-step Problems</option>
+                            <option value="Capable but Careless">Capable, but Rushes & Makes Arithmetic Errors</option>
+                            <option value="Highly Motivated & Fast-Paced">Highly Motivated & Enjoys Tough Challenges</option>
+                            <option value="Rote Learner (Lacks Conceptual Depth)">Relies on Memorisation / Struggles with Application</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Tutor Assessment (Mindset & Technical Summary)</label>
+                    <textarea id="stu_tutor_summary" rows="3" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;" 
+                        placeholder="Internal notes for AI prompting: e.g., High potential, gets discouraged quickly when algebra gets dense. Needs clear step-by-step wins."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Parent Summary Report (Parent-Facing Description)</label>
+                    <textarea id="stu_parent_summary" rows="3" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;" 
+                        placeholder="Polite, encouraging update for parents: e.g., Amy shows strong spatial intuition, but needs to focus on showing structured working in algebra."></textarea>
+                </div>
+
                 <div class="form-row">
                     <div class="form-group">
                         <label>Guardian Name</label>
@@ -328,6 +364,13 @@
         const weaknesses = parseCsv(document.getElementById('stu_weaknesses').value);
         const interests = parseCsv(document.getElementById('stu_interests').value);
 
+        // Add these extra extractions in handleStudentOnboard(e):
+        const currentLevel   = document.getElementById('stu_current_level').value;
+        const mindsetTag     = document.getElementById('stu_mindset').value;
+        const tutorSummary   = document.getElementById('stu_tutor_summary').value.trim();
+        const parentSummary  = document.getElementById('stu_parent_summary').value.trim();
+
+
         const studentId = `STU-${new Date().toISOString().slice(0,7).replace('-','')}-${fullName.replace(/\s+/g,'').toUpperCase().slice(0,4)}`;
         const nowIso = new Date().toISOString();
 
@@ -344,7 +387,7 @@
                 exam_board: boardName,
                 syllabus_code: syllabusCode,
                 target_grade: "Grade 8 (A*)",
-                baseline_grade: "Grade 6 (B)"
+                baseline_grade: currentLevel
             },
             contact_and_guardian: {
                 guardian_name: document.getElementById('stu_guardian').value.trim(),
@@ -352,11 +395,20 @@
             },
             pedagogy_and_personalisation: {
                 interests: interests.length ? interests : ["Technology"],
-                frustration_triggers: []
+                frustration_triggers: [],
+                mindset_profile: {
+                    attitude_tag: mindsetTag,
+                    internal_tutor_notes: tutorSummary
+                }
             },
             academic_diagnosis: {
                 active_weakness_tags: weaknesses,
                 known_misconceptions: weaknesses.map(w => ({ tag: w, severity: "Medium" }))
+                
+            },
+            parent_reporting: {
+            parent_visible_summary: parentSummary,
+            last_updated: nowIso
             },
             mastery_matrix: {}
         };
