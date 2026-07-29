@@ -371,17 +371,23 @@ def retrieve_tikz_diagrams(query: str, n: int = TIKZ_MATCH_COUNT) -> str:
 # ============================================================================
 
 def plan_worksheet(student_profile: dict, topic: str) -> WorksheetPlan:
-    print("  🧠 Planning worksheet structure...")
+    print("  🧠 Normalising profile & planning worksheet structure...")
 
-    year           = student_profile.get("year", 10)
-    weaknesses     = student_profile.get("known_misconceptions", [])
-    topic_scores   = student_profile.get("topic_scores", {})
-    error_patterns = student_profile.get("error_patterns", [])
-    notes          = student_profile.get("teacher_notes", "")
-    curriculum_id  = student_profile.get("curriculum_id")
+    # Normalize profile via adapter
+    profile = normalize_student_profile(student_profile)
 
-    topic_score = topic_scores.get(topic, None)
-    score_note  = f"Current score on {topic}: {topic_score:.0%}" if topic_score else "No prior data on this topic."
+    year           = profile["year"]
+    weaknesses     = profile["known_misconceptions"]
+    topic_scores   = profile["topic_scores"]
+    error_patterns = profile["error_patterns"]
+    notes          = profile["teacher_notes"]
+    curriculum_id  = profile["curriculum_id"]
+    interests      = profile["interests"]
+    frustrations   = profile["frustration_triggers"]
+
+    # Fuzzy match topic score lookup
+    topic_score = topic_scores.get(topic) or topic_scores.get(topic.replace("_", " ").title())
+    score_note  = f"Current mastery score on {topic}: {topic_score:.0%}" if topic_score is not None else "No prior data on this topic."
 
     curriculum_block = ""
     if curriculum_id:
@@ -391,12 +397,14 @@ def plan_worksheet(student_profile: dict, topic: str) -> WorksheetPlan:
     You are a highly experienced mathematics tutor designing a personalised practice worksheet.
 
     STUDENT PROFILE:
-    - Year / Grade: {year}
+    - Name: {profile['name']}
+    - Year / Grade: Year {year}
     - Topic for this worksheet: {topic}
     - {score_note}
     - Known misconceptions: {', '.join(weaknesses) if weaknesses else 'None recorded yet'}
     - Common error patterns: {', '.join(error_patterns) if error_patterns else 'None recorded yet'}
-    - Teacher notes: {notes or 'None'}
+    - Student Interests: {', '.join(interests) if interests else 'General Science'}
+    - Pedagogy Notes & Avoidances: {notes or 'None'}
 
     {curriculum_block}
 
@@ -406,13 +414,10 @@ def plan_worksheet(student_profile: dict, topic: str) -> WorksheetPlan:
     - Build up through medium questions that test core method.
     - Include 2-4 challenging questions that stretch the student.
     - Include multi-part questions for complex topics.
-    - If the student has known misconceptions, design specific questions that
-      target and expose those misconceptions.
+    - If student has interests (e.g. robotics, space, gaming), weave them naturally into word problems.
+    - Respect frustration triggers (e.g., if "avoid dense word problems" is specified, keep scenarios concise).
     - Vary question types: diagrams, tables, word problems, show-that, algebraic manipulation.
     - Total marks should be proportional to difficulty — typically 40-70 marks.
-    - Harder questions for higher years (Year 11+ should see more 4-5 mark questions).
-    - Decide the right NUMBER of questions and variants yourself based on the topic's
-      breadth and the student's need for practice — more variants for weaker topics.
 
     Plan the complete worksheet using the tool provided.
     """
