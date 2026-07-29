@@ -420,6 +420,10 @@ def plan_worksheet(student_profile: dict, topic: str) -> WorksheetPlan:
     - Respect frustration triggers (e.g., if "avoid dense word problems" is specified, keep scenarios concise).
     - Vary question types: diagrams, tables, word problems, show-that, algebraic manipulation.
     - Total marks should be proportional to difficulty — typically 40-70 marks.
+    - When a word problem benefits from a student-interest context (e.g. robotics, space,
+      gaming), embed that specific theme in the question's notes field (e.g. "Use a
+      robotics/engineering scenario"). This ensures the question writer receives the
+      theme directly rather than having to infer it.
 
     Plan the complete worksheet using the tool provided.
     """
@@ -462,6 +466,19 @@ def generate_question(
         prev_context = "\nQUESTIONS ALREADY GENERATED (do NOT repeat similar numbers/scenarios):\n"
         prev_context += "\n".join(f"Q{i+1}: {q}" for i, q in enumerate(prev_questions))
 
+    # ── Student context — carried forward from profile into every question ──
+    interests    = student_profile.get("interests", [])
+    frustrations = student_profile.get("frustration_triggers", [])
+    target_grade = student_profile.get("target_grade", "")
+
+    student_context = ""
+    if interests:
+        student_context += f"\nStudent interests (weave naturally into word problem scenarios where appropriate): {', '.join(interests)}"
+    if frustrations:
+        student_context += f"\nAvoid (frustration triggers): {'; '.join(frustrations)}"
+    if target_grade:
+        student_context += f"\nTarget grade: {target_grade} — calibrate question rigour accordingly"
+
     curriculum_id = student_profile.get("curriculum_id")
     curriculum_block = ""
     if curriculum_id:
@@ -486,6 +503,8 @@ def generate_question(
 Generate Question {q_plan.number} for a Year {year} student on the topic: {topic}
 
 {prev_context}
+
+STUDENT CONTEXT:{student_context if student_context else ' None recorded.'}
 
 QUESTION SPECIFICATION:
 - Topic aspect: {q_plan.topic_aspect}
@@ -622,6 +641,10 @@ def compile_with_fix_loop(job_dir: Path, questions: List[GeneratedQuestion]) -> 
 # ============================================================================
 
 def build_mark_scheme(student_name, topic, worksheet_plan, questions) -> dict:
+    # Build a lookup by question number — safe even if some questions were
+    # skipped during generation (avoids index-out-of-bounds on array offset)
+    plan_map = {qp.number: qp for qp in worksheet_plan.questions}
+
     return {
         "paper_title":    f"{topic} Worksheet — {student_name}",
         "subject":        "Mathematics",
@@ -634,7 +657,8 @@ def build_mark_scheme(student_name, topic, worksheet_plan, questions) -> dict:
                 "total_marks":     q.marks,
                 "correct_answer":  q.answer,
                 "mark_scheme":     q.mark_scheme,
-                "misconception_targeted": worksheet_plan.questions[q.number - 1].misconception_targeted,
+                "misconception_targeted": plan_map[q.number].misconception_targeted
+                                          if q.number in plan_map else None,
             }
             for q in questions
         ]
@@ -685,7 +709,11 @@ def generate_worksheet(
                     q_plan, topic, student_profile, prev_summaries,
                 )
                 questions.append(q)
-                prev_summaries.append(q_plan.topic_aspect)
+                # Store a richer summary so the AI can avoid duplicate scenarios/numbers
+                # not just duplicate topic names
+                prev_summaries.append(
+                    f"{q_plan.topic_aspect} — answer: {q.answer[:60]}"
+                )
             except Exception as e:
                 print(f"    ⚠️  Q{q_plan.number} generation failed: {e} — skipping")
                 traceback.print_exc()
@@ -749,30 +777,30 @@ def generate_worksheet(
 if __name__ == "__main__":
     import sys
     from adapter import normalize_student_profile
- 
+
     # Pass student_id as CLI arg, or use a hardcoded test ID
     student_id = sys.argv[1] if len(sys.argv) > 1 else "STU-202507-KALA"
     topic      = sys.argv[2] if len(sys.argv) > 2 else "Trigonometry"
- 
+
     print(f"Loading profile for student: {student_id}")
- 
+
     # Load raw profile from Supabase using the module-level client
     result = _supabase_client.table("student_profiles") \
         .select("profile_data") \
         .eq("id", student_id) \
         .single() \
         .execute()
- 
+
     if not result.data:
         print(f"❌ No profile found for student_id='{student_id}'")
         sys.exit(1)
- 
+
     raw     = result.data["profile_data"]
     profile = normalize_student_profile(raw, topic=topic)
- 
+
     print(f"  Student : {profile['name']} | Year {profile['year']}")
     print(f"  Topic   : {topic}")
- 
+
     output = generate_worksheet(
         student_profile=profile,
         topic=topic,
