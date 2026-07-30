@@ -1,0 +1,187 @@
+{
+  "curriculum_id": "edexcel_igcse_4ma1_higher",
+  "qualification": "Pearson Edexcel International GCSE (9-1)",
+  "board": "Pearson Edexcel",
+  "code": "4MA1",
+  "tier": "Higher",
+  "calculator_policy": "Allowed on all papers (Papers 1H & 2H)",
+  "formula_sheet_provided": true,
+  "topics": [
+    {
+      "topic": "Numbers and the number system",
+      "subtopics": [
+        "Recurring decimals to fractions",
+        "Simplifying and manipulating surds",
+        "Rationalising denominators",
+        "Fractional and negative indices",
+        "Set notation (Venn diagrams, subsets, n(A), union/intersection)",
+        "Repeated percentage change and compound interest",
+        "Upper and lower bounds (degree of accuracy)",
+        "Standard form with calculations"
+      ],
+      "excluded_at_this_level": [
+        "Complex numbers",
+        "Logarithms"
+      ],
+      "command_words_used": ["Evaluate", "Rationalise", "Express in the form", "Calculate", "Show that"],
+      "typical_marks_per_question": [2, 3, 4]
+    },
+    {
+      "topic": "Algebraic Manipulation and Fractions",
+      "subtopics": [
+        "Expanding products of three linear expressions",
+        "Factorising non-unit quadratics (ax^2 + bx + c)",
+        "Algebraic fractions (addition, subtraction, multiplication, division, simplification)",
+        "Completing the square (a(x+b)^2 + c)",
+        "Constructing algebraic proofs",
+        "Rearranging complex formulae where the subject appears twice or under a power/root"
+      ],
+      "excluded_at_this_level": [
+        "Partial fractions",
+        "Binomial expansion for non-integer powers"
+      ],
+      "command_words_used": ["Expand and simplify", "Factorise fully", "Write in the form", "Make x the subject", "Prove algebraically"],
+      "typical_marks_per_question": [2, 3, 4, 5]
+    },
+    {
+      "topic": "Equations, Inequalities and Proportion",
+      "subtopics": [
+        "Linear equations with algebraic fractions",
+        "Direct and inverse proportion (y ∝ x^2, y ∝ 1/x, y ∝ √x, y ∝ 1/x^3)",
+        "Simultaneous linear equations in two unknowns",
+        "Quadratic equations (factorisation, quadratic formula, completing the square)",
+        "Forming and solving quadratics from practical contexts",
+        "Simultaneous equations (one linear, one non-linear/quadratic)",
+        "Quadratic inequalities in one unknown",
+        "Regions defined by linear inequalities (shading)"
+      ],
+      "excluded_at_this_level": [
+        "Matrix transformations for solving linear equations",
+        "Cubic inequalities"
+      ],
+      "command_words_used": ["Solve", "Find the exact solutions", "Shade the region", "Calculate"],
+      "typical_marks_per_question": [3, 4, 5]
+    },
+    {
+      "topic": "Sequences, Functions and Graphs",
+      "subtopics": [
+        "Arithmetic sequences (nth term = a + (n-1)d, sum Sn = n/2(2a + (n-1)d))",
+        "Function notation f(x), f: x -> ...",
+        "Domain and range restrictions (excluding values like x = 2 for 1/(x-2))",
+        "Composite functions (fg) and inverse functions (f^-1)",
+        "Cubic graphs (y = ax^3 + bx^2 + cx + d) and reciprocal graphs (y = A/x + B/x^2)",
+        "Trigonometric graphs (sine, cosine, tangent curves)",
+        "Function transformations: f(x)+a, f(ax), f(x+a), af(x)",
+        "Finding gradients of non-linear graphs using tangents",
+        "Intersection of linear and non-linear graphs to solve equations",
+        "Parallel and perpendicular lines (m1 * m2 = -1)"
+      ],
+      "excluded_at_this_level": [
+        "Geometric series / infinite summation",
+        "Radian measure"
+      ],
+      "command_words_used": ["Find an expression for", "Work out", "Sketch", "Find the inverse function", "Determine"],
+      "typical_marks_per_question": [2, 3, 4]
+    },
+    {
+      "topic": "Calculus",
+      "subtopics": [
+        "Differentiating integer powers of x (d/dx(x^n) = n*x^(n-1))",
+        "Gradients and rates of change",
+        "Stationary points and turning points (maxima and minima)",
+        "Distinguishing turning points using the graph shape",
+        "Linear kinematics applications (displacement s, velocity v, acceleration a)"
+      ],
+      "excluded_at_this_level": [
+        "Integration",
+        "Chain rule, product rule, quotient rule",
+        "Differentiating trig or exponential functions"
+      ],
+      "command_words_used": ["Find dy/dx", "Find the coordinates of the turning points", "Calculate the velocity when t = ..."],
+      "typical_marks_per_question": [3, 4, 5]
+    },
+    {
+      "topic": "Geometry and Circle Theorems",
+      "subtopics": [
+        "Intersecting chord theorems (internal and external)",
+        "Cyclic quadrilaterals (opposite angles sum to 180°)",
+        "Angle at centre is twice angle at circumference",
+        "Angle in a semicircle is 90°",
+        "Angles in the same segment are equal",
+        "Alternate segment theorem",
+        "Tangents and radii properties",
+        "Geometrical reasoning with formal angle proofs"
+      ],
+      "excluded_at_this_level": [
+        "Formal geometric proof of circle theorems (only application and geometric reasons required)"
+      ],
+      "command_words_used": ["Calculate the size of angle...", "Give a reason for each step of your working", "Prove that"],
+      "typical_marks_per_question": [3, 4, 5]
+    },
+    {
+      "topic": "Trigonometry",
+      "subtopics": [
+        "Sine, cosine, and tangent for right-angled triangles (SOH CAH TOA)",
+        "Trigonometry of obtuse angles",
+        "Angles of elevation and depression",
+        "Sine rule: a/sin(A) = b/sin(B) = c/sin(C)",
+        "Cosine rule: a^2 = b^2 + c^2 - 2bc*cos(A)",
+        "Area of a triangle: 1/2 * a * b * sin(C)",
+        "3D Pythagoras' theorem",
+        "3D Trigonometry (including finding the angle between a line and a plane)"
+      ],
+      "excluded_at_this_level": [
+        "Radian measure",
+        "Angle between two planes in 3D"
+      ],
+      "command_words_used": ["Calculate the length of...", "Work out the angle...", "Find the area of"],
+      "typical_marks_per_question": [3, 4, 5, 6]
+    },
+    {
+      "topic": "Mensuration, 3D Shapes and Similarity",
+      "subtopics": [
+        "Perimeter and area of sectors of circles",
+        "Surface area and volume of spheres and right circular cones (using formula sheet)",
+        "Ratios of lengths, areas (k^2), and volumes (k^3) in similar 2D figures and 3D solids",
+        "Solving practical problems involving similar volumes and masses"
+      ],
+      "excluded_at_this_level": [
+        "Arc length / sector calculations using radians"
+      ],
+      "command_words_used": ["Calculate the total surface area", "Work out the volume", "Find the ratio"],
+      "typical_marks_per_question": [3, 4, 5]
+    },
+    {
+      "topic": "Vectors",
+      "subtopics": [
+        "Vector notation (column vectors, bold letters, arrow notation OA)",
+        "Scalar multiplication, addition, and subtraction of vectors",
+        "Modulus (magnitude) of a vector: |(a, b)| = √(a^2 + b^2)",
+        "Resultant vectors",
+        "Vector methods for simple geometric proofs (collinearity, parallel lines, ratios)"
+      ],
+      "excluded_at_this_level": [
+        "3D column vectors",
+        "Vector dot products"
+      ],
+      "command_words_used": ["Express in terms of a and b", "Find the magnitude", "Prove that points A, B, and C are collinear"],
+      "typical_marks_per_question": [2, 3, 4, 5]
+    },
+    {
+      "topic": "Statistics and Probability",
+      "subtopics": [
+        "Histograms with unequal class intervals (Frequency Density = Frequency / Class Width)",
+        "Cumulative frequency diagrams (plotting, estimating median, quartiles, IQR)",
+        "Interquartile range (IQR = UQ - LQ) for discrete and grouped data",
+        "Probability tree diagrams",
+        "Conditional probability (including sampling without replacement)"
+      ],
+      "excluded_at_this_level": [
+        "Standard deviation",
+        "Venn diagram probability calculations using conditional formulas (P(A|B) = P(A∩B)/P(B))"
+      ],
+      "command_words_used": ["Construct a histogram", "Estimate the median", "Work out the probability", "Complete the tree diagram"],
+      "typical_marks_per_question": [2, 3, 4, 5]
+    }
+  ]
+}
