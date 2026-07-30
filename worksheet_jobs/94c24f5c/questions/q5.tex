@@ -1,0 +1,37 @@
+\begin{question}
+\noindent A research ship sets sail from a science station at point $S$, which supports a deep-space tracking antenna. The ship sails 15 km due north to a weather buoy at point $B$. It then changes course and sails 8 km due east to point $P$, where it deploys a probe-recovery drone.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.6, transform shape]
+    % Define the points
+    \coordinate (S) at (0,0);
+    \coordinate (B) at (0,7.5);
+    \coordinate (P) at (4,7.5);
+
+    % Draw the path
+    \draw[thick, ->] (S) -- (B) node[midway, left] {15 km};
+    \draw[thick, ->] (B) -- (P) node[midway, above] {8 km};
+    \draw[dashed] (S) -- (P);
+
+    % Right angle at B
+    \draw pic[draw, angle radius=2.5mm] {right angle=S--B--P};
+
+    % North arrow at S
+    \draw[->] (S) -- (0,2.5) node[above] {N};
+
+    % Angle at S between north and SP
+    \pic [draw, "$\theta$", angle eccentricity=1.6, angle radius=1.2cm] {angle = B--S--P};
+
+    % Labels
+    \node at (S) [below,font=\small] {$S$};
+    \node at (B) [left,font=\small] {$B$};
+    \node at (P) [right,font=\small] {$P$};
+\end{tikzpicture}
+\end{center}
+
+\noindent Calculate the bearing of $P$ from $S$.
+\vspace{5cm}
+\begin{flushright}
+\answerequnit{\theta}{$^\circ$}{3}
+\end{flushright}
+\end{question}

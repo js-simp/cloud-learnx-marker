@@ -1,0 +1,49 @@
+\begin{question}
+\noindent A satellite tracking station at point $O$ is monitoring a weather balloon, $W$, that has been released into the atmosphere.
+
+\noindent The balloon rises directly above a point $P$ on the horizontal ground. The point $P$ is $6.4$ km due east and $3.1$ km due north of the tracking station $O$. The balloon is at a height of $2.5$ km directly above $P$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    % Define the points
+    \coordinate (O) at (0,0,0);
+    \coordinate (P) at (6.4,0,0);
+    \coordinate (N) at (0,0,3.1);
+    \coordinate (Pg) at (6.4,0,3.1);
+    \coordinate (W) at (6.4,2.5,3.1);
+
+    % Ground plane triangle O, P-ground point
+    \draw[thick] (O) -- (Pg) node[midway, below right, font=\small] {};
+    \draw[thick,dashed] (O) -- (P) node[midway, below, font=\small] {$6.4$ km};
+    \draw[thick,dashed] (P) -- (Pg) node[midway, right, font=\small] {$3.1$ km};
+
+    % vertical line from ground point to balloon
+    \draw[thick] (Pg) -- (W) node[midway, right, font=\small] {$2.5$ km};
+
+    % north arrow at O
+    \draw[->, thick] (O) -- (0,0,1.6) node[above, font=\small] {N};
+
+    % right angle markers
+    \draw pic[draw, angle radius=2.5mm] {right angle=O--P--Pg};
+    \draw pic[draw, angle radius=2.5mm] {right angle=P--Pg--W};
+
+    % labels
+    \node at (O) [below left, font=\small] {$O$};
+    \node at (P) [below right, font=\small] {$P$};
+    \node at (Pg) [below right, font=\small] {ground pt};
+    \node at (W) [above right, font=\small] {$W$};
+\end{tikzpicture}
+\end{center}
+
+\noindent (Note: $P$ is $6.4$ km east and $3.1$ km north of $O$, so $OP$ is the straight-line horizontal distance from the station to the point on the ground below the balloon.)
+
+\begin{enumerate}
+    \item[(a)] Calculate the bearing of the balloon (as seen from directly above, i.e.\ the bearing of $P$ from $O$).
+    \vspace{4cm}
+    \answerplain{2}
+
+    \item[(b)] Calculate the angle of elevation of the balloon $W$ from the tracking station $O$.
+    \vspace{4cm}
+    \answerequnit{\theta}{$^\circ$}{2}
+\end{enumerate}
+\end{question}

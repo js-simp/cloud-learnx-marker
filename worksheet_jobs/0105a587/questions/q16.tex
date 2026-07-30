@@ -1,0 +1,49 @@
+\begin{question}
+\noindent Triangle $PQR$ has vertices $P(2,6)$, $Q(6,6)$ and $R(2,4)$.
+
+\noindent Triangle $PQR$ is enlarged with scale factor $-\dfrac{1}{2}$, centre $(-2,2)$, to give triangle $P'Q'R'$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.6, transform shape]
+    \def\axisLimit{8}
+
+    \definecolor{borderColour}{HTML}{000000}
+    \definecolor{fillColour}{HTML}{D8D8D8}
+
+    % Draw grid
+    \draw[step=1cm,gray,very thin] (-6,-2) grid (8,8);
+
+    % Draw axes
+    \draw[thick,->] (-6.5,0) -- (8.5,0) node[anchor=north] {$x$};
+    \draw[thick,->] (0,-2.5) -- (0,8.5) node[anchor=east] {$y$};
+
+    % Label x-axis and y-axis
+    \foreach \x in {-6,...,-1,1,2,...,8}
+        \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+    \foreach \y in {-2,-1,1,2,...,8}
+        \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+
+    % Centre of enlargement
+    \coordinate (COE) at (-2,2);
+    \draw[red, thick] (COE) node[cross out, draw=red, inner sep=2pt, outer sep=0pt] {};
+    \node[below left] at (COE) {$(-2,2)$};
+
+    % Original triangle
+    \coordinate (P) at (2,6);
+    \coordinate (Q) at (6,6);
+    \coordinate (R) at (2,4);
+
+    \draw[fill=fillColour, draw=borderColour, line width=1pt] (P) -- (Q) -- (R) -- cycle;
+    \node[above right] at (P) {$P$};
+    \node[above right] at (Q) {$Q$};
+    \node[below right] at (R) {$R$};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Calculate the coordinates of $P'$, $Q'$ and $R'$.
+
+\noindent \textit{You must show your method.}
+\vspace{5cm}
+\answerplain{4}
+\end{question}

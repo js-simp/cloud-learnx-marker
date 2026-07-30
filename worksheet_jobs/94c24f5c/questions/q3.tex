@@ -1,0 +1,36 @@
+\begin{question}
+\noindent A space agency is designing a support strut for a satellite dish. The strut forms a right-angled triangle $ABC$, as shown in the diagram, with the right angle at $A$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    % Define the points of the triangle
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (5,0);
+    \coordinate (C) at (0,3.2);
+
+    % Draw the triangle
+    \draw (A) -- (B) -- (C) -- cycle;
+
+    % Draw the angles
+    \draw pic[draw, angle radius=2.5mm] {right angle=C--A--B};
+    \pic [draw, "$34^{\circ}$", angle eccentricity=1.6, angle radius=0.7cm] {angle = C--B--A};
+
+    % Place the labels
+    \node at (A) [below left,font=\small] {A};
+    \node at (B) [below right,font=\small] {B};
+    \node at (C) [above left,font=\small] {C};
+
+    % Side labels
+    \draw (A) -- (B) node[midway, below] {$14$ m};
+\end{tikzpicture}
+\end{center}
+
+\noindent In triangle $ABC$, angle $A = 90^{\circ}$, angle $B = 34^{\circ}$, and $AB = 14$ m.
+
+Calculate the length of $AC$, the height of the strut.
+Give your answer correct to 3 significant figures.
+\vspace{4cm}
+\begin{flushright}
+\answerunit{m}{3}
+\end{flushright}
+\end{question}

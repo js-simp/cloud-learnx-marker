@@ -1,0 +1,46 @@
+\begin{question}
+\noindent Triangle $T$ is drawn on the grid below.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+    % Define colours
+    \definecolor{borderColour}{HTML}{000000}
+    \definecolor{fillColour}{HTML}{D8D8D8}
+
+    % Define axis scale
+    \def\axisLimit{6}
+
+    % Draw the grid
+    \draw[step=1cm,gray,very thin] (-\axisLimit,-\axisLimit) grid (\axisLimit,\axisLimit);
+    \draw[thick,->] (-\axisLimit-0.5,0) -- (\axisLimit+0.5,0) node[anchor=north] {$x$};
+    \draw[thick,->] (0,-\axisLimit-0.5) -- (0,\axisLimit+0.5) node[anchor=east] {$y$};
+
+    % Label x-axis and y-axis, skipping 0
+    \foreach \x in {-6,-5,...,-1,1,2,...,6}
+        \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+    \foreach \y in {-6,-5,...,-1,1,2,...,6}
+        \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+
+    % Define the vertices of the original triangle T
+    \coordinate (A) at (-4,1);
+    \coordinate (B) at (-4,3);
+    \coordinate (C) at (-2,1);
+
+    % Draw the original triangle
+    \filldraw[fill=fillColour, draw=borderColour, line width=1pt] (A) -- (B) -- (C) -- cycle;
+
+    % Label triangle T
+    \node[below left] at (A) {A};
+    \node[above] at (B) {B};
+    \node[below right] at (C) {C};
+    \node at (-3.3,1.7) {$T$};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Find the image of triangle $T$ after a translation by the vector $\begin{pmatrix} 3 \\ -2 \end{pmatrix}$.
+
+\noindent Label the image $T'$.
+\vspace{4cm}
+\answermarks{2}
+\end{question}

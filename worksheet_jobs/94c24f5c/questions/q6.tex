@@ -1,0 +1,40 @@
+\begin{question}
+\noindent An astronomer is tracking the positions of two research stations, $A$ (a radio observatory) and $B$ (a mission control centre), during a satellite tracking exercise.
+
+\noindent The bearing of $A$ from $B$ is $073^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9, transform shape]
+    % Points
+    \coordinate (B) at (0,0);
+    \coordinate (A) at (3.2,6);
+
+    % North lines (parallel)
+    \draw[dashed] (B) ++(0,-1.3) -- ++(0,3.3);
+    \draw[dashed] (A) ++(0,-1.3) -- ++(0,3.3);
+
+    % North arrows
+    \draw[->, thick] (0,-1.3) -- (0,1.7) node[above] {N};
+    \draw[->, thick] (3.2,4.7) -- (3.2,7.7) node[above] {N};
+
+    % Line joining stations
+    \draw[thick] (B) -- (A);
+
+    \coordinate (C) at (0,1.7);
+
+    % Angle at B (bearing of A from B), measured from north line clockwise
+    \pic [draw, "$73^{\circ}$", angle eccentricity=1.5, angle radius=1.1cm] {angle = A--B--C};
+
+    % Labels
+    \node at (B) [below left, font=\small] {$B$};
+    \node at (A) [above right, font=\small] {$A$};
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the bearing of $B$ from $A$.
+\vspace{4cm}
+\begin{flushright}
+\answerequnit{}{$^\circ$}{3}
+\end{flushright}
+\end{question}
+

@@ -1,0 +1,56 @@
+\begin{question}
+\noindent In a geology experiment, a student builds a scaled model of a volcano in the shape of a right pyramid with a square base $ABCD$ and vertex $E$ directly above the centre $M$ of the base.
+
+The base $ABCD$ has side length $12$ cm, and the vertical height $EM$ of the model is $16$ cm.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9, transform shape]
+    % Define the points
+    \coordinate (A) at (0,0,0);
+    \coordinate (B) at (0,0,-3);
+    \coordinate (C) at (3,0,-3);
+    \coordinate (D) at (3,0,0);
+    \coordinate (M) at (1.5,0,-1.5);
+    \coordinate (E) at (1.5,3.5,-1.5);
+
+    % Draw the visible edges
+    \draw[dashed] (A) -- (B);
+    \draw[dashed] (B) -- (C);
+    \draw (A) -- (D) -- (C);
+    \draw (A) -- (E);
+    \draw[dashed] (B) -- (E);
+    \draw (C) -- (E);
+    \draw (D) -- (E);
+    \draw[dashed] (A) -- (M);
+    \draw[dashed] (M) -- (C);
+    \draw[dotted] (M) -- (E);
+
+    % Right angle marker at M
+    \draw pic[draw, angle radius=2mm] {right angle=A--M--E};
+
+    % Labels
+    \node at (A) [left,font=\small] {$A$};
+    \node at (B) [below,font=\small] {$B$};
+    \node at (C) [right,font=\small] {$C$};
+    \node at (D) [above right,font=\small] {$D$};
+    \node at (E) [above,font=\small] {$E$};
+    \node at (M) [below,font=\small] {$M$};
+    \node at (0.7,0,-0.6) [font=\small] {$12$ cm};
+    \node at (1.9,1.7,-1.5) [font=\small] {$16$ cm};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item[(a)] Show that the length of the diagonal $AC$ of the base is $16.97$ cm, correct to 2 decimal places.
+    \vspace{3.5cm}
+    \answermarks{2}
+
+    \item[(b)] Find the length of the sloping edge $EC$.
+    \vspace{4cm}
+    \answerunit{cm}{2}
+
+    \item[(c)] Find the angle that the sloping edge $EC$ makes with the base of the pyramid.
+    \vspace{4cm}
+    \answerequnit{}{$^\circ$}{2}
+\end{enumerate}
+\end{question}

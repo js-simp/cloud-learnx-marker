@@ -1,0 +1,48 @@
+\begin{question}
+\noindent A triangular prism is used as a protective casing for a piece of scientific equipment aboard a satellite.
+
+The cross-section $ABC$ is a right-angled triangle, right-angled at $B$, with $AB = 6$ cm and $BC = 8$ cm. The prism has length $CF = 15$ cm, where $DEF$ is the triangular face corresponding to $ABC$ (with $D$ above $A$, $E$ above $B$, $F$ above $C$).
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9, transform shape]
+    % Define the points of the prism
+    \coordinate (A) at (0,0,0);
+    \coordinate (B) at (0,0,-4.5);
+    \coordinate (C) at (4.8,0,-4.5);
+    \coordinate (D) at (0,2,0);
+    \coordinate (E) at (0,2,-4.5);
+    \coordinate (F) at (4.8,2,-4.5);
+
+    % Draw the visible edges of the prism
+    \draw (A) -- (B) -- (C) -- cycle; % bottom triangular face
+    \draw (D) -- (E) -- (F) -- cycle; % top triangular face
+    \draw (A) -- (D);
+    \draw (B) -- (E);
+    \draw (C) -- (F);
+
+    % right angle marker at B
+    \draw pic[draw, angle radius=2.5mm] {right angle=A--B--C};
+
+    % diagonal from A to F (space diagonal through the prism)
+    \draw[thick, dashed] (A) -- (F);
+
+    % Place the labels
+    \node at (A) [left,font=\small] {$A$};
+    \node at (B) [below left,font=\small] {$B$};
+    \node at (C) [below right,font=\small] {$C$};
+    \node at (D) [above left,font=\small] {$D$};
+    \node at (E) [above left,font=\small] {$E$};
+    \node at (F) [above right,font=\small] {$F$};
+
+    \node at (0,-0.3,-2.25) [font=\small] {$6$ cm};
+    \node at (2.4,-0.3,-4.5) [font=\small] {$8$ cm};
+    \node at (2.4,1.2,-4.5) [font=\small] {$15$ cm};
+\end{tikzpicture}
+\end{center}
+
+\noindent $ABC$ is the base of the prism (lying flat), and $D$, $E$, $F$ lie directly above $A$, $B$, $C$ respectively.
+
+Calculate the angle that the diagonal $AF$ makes with the base plane $ABC$, giving your answer to 1 decimal place.
+\vspace{5cm}
+\answerequnit{}{$^\circ$}{4}
+\end{question}

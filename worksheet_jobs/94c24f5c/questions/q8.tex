@@ -1,0 +1,41 @@
+\begin{question}
+\noindent Three space observation stations, $X$, $Y$ and $Z$, are used to track meteor showers as part of a space exploration project. The stations form a triangle, as shown in the diagram (not drawn accurately).
+
+$Y$ is due east of $X$.
+The distance $XY = 14.6$ km.
+The distance $YZ = 9.8$ km.
+Angle $XYZ = 112^{\circ}$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    \coordinate (X) at (-3,-1);
+    \coordinate (Y) at (3,-1);
+    \coordinate (Z) at (5,3.5);
+
+    \draw (X) -- (Y) -- (Z) -- cycle;
+
+    % North line at Y
+    \draw[dashed] (Y) -- (3,2) node[above] {N};
+
+    % Angle at Y between north line and YX (bearing marker), and interior angle XYZ
+    \pic [draw, -, angle radius=1.1cm, "$112^{\circ}$", angle eccentricity=1.5] {angle=X--Y--Z};
+
+    \node at (X) [left,font=\small] {$X$};
+    \node at (Y) [below,font=\small] {$Y$};
+    \node at (Z) [above,font=\small] {$Z$};
+
+    \draw (X) -- (Y) node[midway, below] {$14.6$ km};
+    \draw (Y) -- (Z) node[midway, right] {$9.8$ km};
+\end{tikzpicture}
+\end{center}
+
+\noindent Calculate the bearing of $Z$ from $Y$.
+
+\vspace{0.3cm}
+\noindent \textit{(Hint: first use the sine rule to find angle $XZY$, then use the fact that $Y$ is due east of $X$ to work out the required bearing.)}
+
+\vspace{5cm}
+\begin{flushright}
+\answerequnit{\theta}{$^\circ$}{4}
+\end{flushright}
+\end{question}

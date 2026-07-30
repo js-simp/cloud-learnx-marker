@@ -1,0 +1,55 @@
+\begin{question}
+\noindent A research team is tracking a scientific drone that is hovering at a fixed point $D$ above flat ground while surveying a remote expedition site. Two ground stations, $A$ and $B$, are set up on the horizontal ground, with $B$ due east of $A$ and $AB = 500$ m.
+
+\noindent From station $A$, the drone $D$ is on a bearing of $060^\circ$, and the angle of elevation of the drone from $A$ is $35^\circ$.\\
+From station $B$, the drone $D$ is on a bearing of $310^\circ$.
+
+\noindent Let $C$ be the point on the ground directly below the drone (so $DC$ is vertical).
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    % Ground triangle points (viewed in plan/3D style)
+    \coordinate (A) at (0,0,0);
+    \coordinate (B) at (5,0,0);
+    \coordinate (C) at (3.2,0,-3.8);
+    \coordinate (D) at (3.2,3.2,-3.8);
+
+    % Ground lines
+    \draw (A) -- (B);
+    \draw (A) -- (C);
+    \draw (B) -- (C);
+
+    % Vertical line to drone
+    \draw[thick] (C) -- (D);
+    \draw[dashed] (A) -- (D);
+
+    % Right angle at C
+    \draw pic[draw, angle radius=2.5mm] {right angle=A--C--D};
+
+    % North arrow at A
+    \draw[->] (A) -- (0,0,0.9) node[above,font=\small]{N};
+
+    % Labels
+    \node at (A) [below left, font=\small] {$A$};
+    \node at (B) [below right, font=\small] {$B$};
+    \node at (C) [below, font=\small] {$C$};
+    \node at (D) [above right, font=\small] {$D$ (drone)};
+\end{tikzpicture}
+\end{center}
+
+\noindent The angle $ACB$ (the angle at $C$ in triangle $ABC$ on the ground) can be shown to equal $80^\circ$, and angle $ABC = 40^\circ$.
+
+\begin{enumerate}
+    \item[(a)] Show that angle $BAC = 60^\circ$, and hence find the horizontal distance $AC$.
+    \vspace{4cm}
+    \answerunit{m}{2}
+
+    \item[(b)] Using the angle of elevation from $A$, work out the height $CD$ of the drone above the ground.
+    \vspace{3.5cm}
+    \answerunit{m}{2}
+
+    \item[(c)] Find the direct (straight-line) distance $AD$ from station $A$ to the drone.
+    \vspace{3.5cm}
+    \answerunit{m}{1}
+\end{enumerate}
+\end{question}

@@ -1,0 +1,32 @@
+\begin{question}
+\noindent The diagram shows the positions of two points, $A$ and $B$. The line $NA$ points due north from $A$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    % Points A and B
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (4.5,3);
+    \coordinate (N) at (0,3);
+
+    % North line at A (dashed arrow pointing up)
+    \draw[dashed, ->] (A) -- (N) node[above]{N};
+
+    % Line from A to B
+    \draw[thick] (A) -- (B);
+
+    % Angle arc at A between north line and AB, measured clockwise from north
+    \pic [draw, ->, angle radius=1.2cm, "$68^{\circ}$", angle eccentricity=1.4] {angle = N--A--B};
+
+    % Points
+    \filldraw (A) circle (1.5pt) node[below left]{$A$};
+    \filldraw (B) circle (1.5pt) node[above right]{$B$};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Write down the bearing of $B$ from $A$.
+\vspace{3cm}
+\begin{flushright}
+    \answerequnit{Bearing}{$^\circ$}{2}
+\end{flushright}
+\end{question}

@@ -1,0 +1,33 @@
+\begin{question}
+\noindent Two space research field stations, $P$ and $Q$, are used to track satellite re-entry paths. A third station, $R$, is located such that:
+\[
+PR = 14.6 \text{ km}, \qquad QR = 9.8 \text{ km}, \qquad \text{angle } PRQ = 112^\circ
+\]
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    \coordinate (P) at (0,0);
+    \coordinate (R) at (4,3.2);
+    \coordinate (Q) at (6.2,-0.3);
+
+    \draw (P) -- (R) -- (Q) -- cycle;
+
+    \pic [draw, "$112^{\circ}$", angle eccentricity=1.6, angle radius=0.7cm] {angle = P--R--Q};
+
+    \node at (P) [left,font=\small] {$P$};
+    \node at (R) [above,font=\small] {$R$};
+    \node at (Q) [right,font=\small] {$Q$};
+
+    \node at (1.7,1.9) [font=\small] {$14.6$ km};
+    \node at (5.4,1.7) [font=\small] {$9.8$ km};
+\end{tikzpicture}
+\end{center}
+
+\noindent Show that the distance $PQ$ between the two field stations is $20.9$ km, correct to 1 decimal place.
+
+\vspace{5cm}
+
+\begin{flushright}
+    \answermarks{3}
+\end{flushright}
+\end{question}
