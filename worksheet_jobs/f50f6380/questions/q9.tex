@@ -1,0 +1,38 @@
+\begin{question}
+\noindent A historian is researching a scale model of a rocket used in an early space exploration exhibit, displayed in a museum alongside a collection of novels and historical documents about the space race.
+
+\noindent The model rocket stands vertically and is supported by a straight support wire attached from the top of the rocket to a point on the ground, as shown in the diagram. The rocket $AB$ is $9$ m tall, and the support wire $BC$ has a length of $14$ m.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.7, transform shape]
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (0,9);
+    \coordinate (C) at (10.9,0);
+
+    % Draw the triangle
+    \draw[thick] (A) -- (B) -- (C) -- cycle;
+
+    % Right angle at A
+    \draw pic[draw, angle radius=3.5mm] {right angle=C--A--B};
+
+    % Angle at C
+    \pic [draw, "$x^{\circ}$", angle eccentricity=1.6, angle radius=0.8cm] {angle = B--C--A};
+
+    % Labels
+    \node at (A) [below left, font=\small] {$A$};
+    \node at (B) [above left, font=\small] {$B$};
+    \node at (C) [below right, font=\small] {$C$};
+
+    \draw (A) -- (B) node[midway, left] {$9$ m};
+    \draw (B) -- (C) node[midway, above right] {$14$ m};
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the size of angle $x$, the angle between the support wire $BC$ and the ground $AC$.
+
+\noindent Give your answer correct to 1 decimal place.
+\vspace{4.5cm}
+\begin{flushright}
+\answerequnit{x}{^\circ}{3}
+\end{flushright}
+\end{question}

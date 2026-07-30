@@ -1,0 +1,28 @@
+\begin{question}
+\noindent A rectangular badminton court marking is being designed for a UI/UX mockup. The rectangle has a length of $(3x + 2)$ cm and a width of $(x - 1)$ cm.
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+    \def\lengthA{6}
+    \def\widthA{2.5}
+
+    \coordinate (A) at (0,0);
+    \draw (A) -- ++(0:\lengthA) coordinate(B) -- ++(90:\widthA) coordinate (C) -- ++(180:\lengthA) coordinate (D) -- cycle;
+
+    \node at ($(A)!0.5!(B)$) [below] {$3x + 2$};
+    \node at ($(B)!0.5!(C)$) [right] {$x - 1$};
+\end{tikzpicture}
+\end{center}
+
+\noindent The perimeter of the rectangle is 42 cm.
+
+\begin{enumerate}
+    \item[(a)] Show that $8x + 2 = 42$, and hence find the value of $x$.
+    \vspace{4cm}
+    \answereq{x}{2}
+
+    \item[(b)] Work out the area of the rectangle.
+    \vspace{3cm}
+    \answerunit{$\text{cm}^2$}{2}
+\end{enumerate}
+\end{question}

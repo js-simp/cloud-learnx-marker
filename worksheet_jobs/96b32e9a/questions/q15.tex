@@ -1,0 +1,28 @@
+\begin{question}
+\noindent A rectangular solar panel has width $x$ cm and length $(x + 3)$ cm, as shown in the diagram.
+
+\begin{center}
+\begin{tikzpicture}[scale = 1]
+    \def\lengthA{5}
+    \def\heightA{3.5}
+
+    \coordinate (A) at (0,0);
+    \draw (A) -- ++(0:\lengthA) coordinate(B) -- ++(90:\heightA) coordinate (C) -- ++(180:\lengthA) coordinate[pos=0.5] (M) coordinate (D) -- cycle coordinate[pos=0.5] (N);
+
+    \node at (M) [anchor = north] {$x + 3$};
+    \node at (N) [anchor = east] {$x$};
+\end{tikzpicture}
+\end{center}
+
+\noindent The area of the solar panel is $180 \text{ cm}^2$.
+
+\begin{enumerate}
+    \item[(a)] Show that $x^2 + 3x - 180 = 0$.
+    \vspace{3cm}
+    \answermarks{2}
+
+    \item[(b)] Solve the equation $x^2 + 3x - 180 = 0$ to find the width of the solar panel, giving reasons for rejecting any solution that is not valid.
+    \vspace{5cm}
+    \answerunit{cm}{2}
+\end{enumerate}
+\end{question}

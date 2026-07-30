@@ -1,0 +1,41 @@
+\begin{question}
+\noindent $A$, $B$ and $C$ are points on the circle, with centre $O$.
+$AC$ is a diameter of the circle.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.4]
+    % mark points on circle
+    \coordinate (A) at (180:1);
+    \coordinate (C) at (0:1);
+    \coordinate (B) at (55:1);
+    \coordinate (O) at (0,0);
+
+    % draw circle
+    \draw (0,0) circle (1);
+    \fill[black] (O) circle (0.4pt);
+
+    % draw diameter and chords
+    \draw (A) -- (C);
+    \draw (A) -- (B);
+    \draw (B) -- (C);
+
+    % labels
+    \node at (A) [anchor=east] {$A$};
+    \node at (C) [anchor=west] {$C$};
+    \node at (B) [anchor=south] {$B$};
+    \node at (O) [anchor=north] {$O$};
+
+    % angle labels
+    \pic [draw, "$32^\circ$", angle eccentricity=1.5, angle radius = 0.5cm] {angle = C--A--B};
+    \pic [draw, "$x$", angle eccentricity=1.4, angle radius = 0.6cm] {angle = A--B--C};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $CAB = 32^\circ$.
+
+\noindent Work out the size of angle $x$, marked on the diagram.
+Give a reason for your answer.
+\vspace{4cm}
+\answerequnit{x}{$^\circ$}{2}
+\end{question}

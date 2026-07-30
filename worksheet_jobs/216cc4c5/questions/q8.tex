@@ -1,0 +1,43 @@
+\begin{question}
+\noindent A space exploration society is reading about how astronomers first tracked early weather balloons before satellites existed, a story often told in history books about the space race.
+
+To continue the tradition, the society builds a telescope stand in a field. An observer stands at point $A$, a horizontal distance of $18.7$ m from the base of the stand, $B$. The top of the telescope stand is at point $C$, directly above $B$.
+
+The angle of elevation from $A$ to the top of the stand, $C$, is $32^{\circ}$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9, transform shape]
+    % Define the points
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (7,0);
+    \coordinate (C) at (7,4.5);
+
+    % Draw the right-angled triangle
+    \draw[thick] (A) -- (B) -- (C) -- cycle;
+
+    % Right angle marker at B
+    \draw pic[draw, angle radius=3mm] {right angle=A--B--C};
+
+    % Angle at A
+    \pic [draw, -, angle radius=0.8cm, "$32^{\circ}$", angle eccentricity=1.6] {angle=B--A--C};
+
+    % Labels
+    \node at (A) [left, font=\small] {$A$};
+    \node at (B) [below, font=\small] {$B$};
+    \node at (C) [above, font=\small] {$C$};
+
+    % Side labels
+    \draw (A) -- (B) node[midway, below] {$18.7$ m};
+    \draw (B) -- (C) node[midway, right] {$h$ m};
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the height, $h$, of the telescope stand, $BC$.
+Give your answer correct to 3 significant figures.
+
+\vspace{4.5cm}
+
+\begin{flushright}
+    \answerequnit{h}{m}{3}
+\end{flushright}
+\end{question}

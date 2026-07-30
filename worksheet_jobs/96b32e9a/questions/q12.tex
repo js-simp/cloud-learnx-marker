@@ -1,0 +1,40 @@
+\begin{question}
+\noindent A streamer sets up a telescope on a tripod to livestream an e-sports viewing party of a meteor shower.
+
+The tripod leg forms a right-angled triangle with the ground, as shown in the diagram. The foot of the tripod leg is $1.2$ m from the base of the vertical telescope stand, and the tripod leg itself is $2.5$ m long.
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    % Define the points of the triangle
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (4,0);
+    \coordinate (C) at (0,3);
+
+    % Draw the triangle
+    \draw[thick] (A) -- (B) -- (C) -- cycle;
+
+    % Right angle mark
+    \draw pic[draw, angle radius=2.5mm] {right angle=B--A--C};
+
+    % Angle of elevation at B
+    \pic [draw, "$x^{\circ}$", angle eccentricity=1.6, angle radius=0.8cm] {angle = A--B--C};
+
+    % Labels
+    \node at (A) [below left, font=\small] {Base of stand};
+    \node at (B) [below right, font=\small] {Foot of leg};
+    \node at (C) [above left, font=\small] {Top of leg};
+
+    % Side labels
+    \draw (A) -- (B) node[midway, below] {$1.2$ m};
+    \draw (B) -- (C) node[midway, above right] {$2.5$ m};
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the size of the angle of elevation, $x$, that the tripod leg makes with the ground.
+
+Give your answer correct to 1 decimal place.
+\vspace{4.5cm}
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{3}
+\end{flushright}
+\end{question}

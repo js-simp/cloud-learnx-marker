@@ -1,0 +1,28 @@
+\begin{question}
+\noindent A space agency launches a model rocket as part of a history-of-space-exploration exhibition, recreating the trajectory of an early test rocket.
+
+\noindent The rocket is launched from ground level and travels in a straight line. An observer stands at a point $P$ on the ground, a horizontal distance of $40$ m from the launch point $L$. The observer tracks the rocket to a point $R$ in the sky, directly above $L$, measuring the angle of elevation from $P$ to $R$ as $52^{\circ}$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.6, transform shape]
+    \coordinate (L) at (0,0);
+    \coordinate (P) at (8,0);
+    \coordinate (R) at (0,6);
+
+    \draw[thick] (L) -- (P) -- (R) -- cycle;
+    \draw pic[draw, angle radius=4mm] {right angle=P--L--R};
+    \pic [draw, -, angle radius=1cm, "$52^{\circ}$", angle eccentricity=1.4] {angle=R--P--L};
+
+    \node at (L) [below left, font=\small] {$L$};
+    \node at (P) [below right, font=\small] {$P$};
+    \node at (R) [above, font=\small] {$R$};
+
+    \draw (L) -- (P) node[midway, below] {$40$ m};
+    \draw (L) -- (R) node[midway, left] {$h$ m};
+\end{tikzpicture}
+\end{center}
+
+\noindent Assuming the rocket rises vertically above $L$, work out the height, $h$, that the rocket has reached, giving your answer to 3 significant figures.
+\vspace{4.5cm}
+\answerequnit{h}{m}{3}
+\end{question}

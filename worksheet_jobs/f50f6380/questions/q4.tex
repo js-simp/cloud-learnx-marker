@@ -1,0 +1,29 @@
+\begin{question}
+\noindent A rectangular book cover for a new historical novel is designed with the dimensions shown below, where $x$ is measured in centimetres.
+
+\begin{center}
+\begin{tikzpicture}[scale = 1]
+    \def\lengthA{6}
+    \def\heightA{3}
+
+    \coordinate (A) at (0,0);
+    \draw (A) -- ++(0:\lengthA) coordinate(B) -- ++(90:\heightA) coordinate (C) -- ++(180:\lengthA) coordinate[pos=0.5] (M) coordinate (D) -- cycle coordinate[pos=0.5] (N);
+
+    \node at (M) [anchor = south] {$2x$};
+    \node at (N) [anchor = east] {$x + 3$};
+\end{tikzpicture}
+\end{center}
+
+\noindent The width of the cover is $2x$ cm and the height is $x + 3$ cm.
+
+\vspace{0.3cm}
+\noindent (i) Find an expression, in terms of $x$, for the perimeter of the cover. Give your answer in its simplest form.
+
+\vspace{0.3cm}
+\noindent (ii) Given that $x = 5$, work out the perimeter of the cover.
+
+\vspace{4cm}
+\begin{flushright}
+    \answerplain{3}
+\end{flushright}
+\end{question}

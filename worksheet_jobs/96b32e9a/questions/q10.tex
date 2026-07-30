@@ -1,0 +1,31 @@
+\begin{question}
+\noindent A rectangular greenhouse frame is being built in a garden. The frame is in the shape of a rectangle with length $(2x + y)$ metres and width $(x + 2y)$ metres, as shown in the diagram below.
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+    \def\lengthA{6}
+    \def\heightA{3.5}
+
+    \coordinate (A) at (0,0);
+    \draw[thick] (A) -- ++(0:\lengthA) coordinate(B) -- ++(90:\heightA) coordinate (C) -- ++(180:\lengthA) coordinate (D) -- cycle;
+
+    \node at ($(A)!0.5!(B)$) [anchor = north] {$2x + y$};
+    \node at ($(D)!0.5!(C)$) [anchor = south] {$2x + y$};
+    \node at ($(A)!0.5!(D)$) [anchor = east] {$x + 2y$};
+    \node at ($(B)!0.5!(C)$) [anchor = west] {$x + 2y$};
+\end{tikzpicture}
+\end{center}
+
+\noindent The perimeter of the greenhouse frame is $42$ metres.
+
+\noindent The length of the greenhouse is $3$ metres longer than the width.
+
+\vspace{0.3cm}
+\noindent Form two equations in $x$ and $y$, and solve them simultaneously to find the value of $x$ and the value of $y$.
+
+\vspace{5cm}
+
+\begin{flushright}
+\answerplain{4}
+\end{flushright}
+\end{question}

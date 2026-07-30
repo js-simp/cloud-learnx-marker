@@ -1,0 +1,33 @@
+\begin{question}
+\noindent In a science laboratory, a researcher tracking a satellite signal has set up a measuring grid on a table to model the positions of two receiver stations, $A$ and $B$, used in a space exploration experiment.
+
+\noindent Station $A$ is positioned 9 cm to the left of a reference point $C$, and Station $B$ is positioned 12 cm above $C$, as shown in the diagram. The angle at $C$ is a right angle.
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (0,4);
+    \coordinate (C) at (3,0);
+
+    \draw (A) -- (B) -- (C) -- cycle;
+
+    \draw pic[draw, angle radius=2.5mm] {right angle=B--A--C};
+
+    \node at (A) [below left,font=\small] {A};
+    \node at (B) [above left,font=\small] {B};
+    \node at (C) [below right,font=\small] {C};
+
+    \draw (A) -- (B) node[midway, left] {12 cm};
+    \draw (A) -- (C) node[midway, below] {9 cm};
+    \draw (B) -- (C) node[midway, above right] {$d$};
+\end{tikzpicture}
+\end{center}
+
+\noindent The researcher needs to calculate the straight-line distance $d$, in centimetres, between Station $A$ and Station $B$'s signal path, represented by the direct line $BC$, in order to calibrate the timing of the satellite signal.
+
+\noindent Calculate the distance $BC$.
+\vspace{4cm}
+\begin{flushright}
+    \answerunit{cm}{3}
+\end{flushright}
+\end{question}

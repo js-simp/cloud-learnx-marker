@@ -1,0 +1,38 @@
+\begin{question}
+\noindent The diagram shows three straight lines meeting at point $C$. $A$, $C$ and $B$ lie on a straight line.
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+    % Define the points
+    \coordinate (A) at (-3,0);
+    \coordinate (B) at (3,0);
+    \coordinate (C) at (0,0);
+    \coordinate (D) at ($(C)+(65:2cm)$);
+    \coordinate (E) at ($(C)+(140:2cm)$);
+
+    % Draw the straight line AB
+    \draw (A) -- (B);
+    % Draw the two rays from C
+    \draw (C) -- (D);
+    \draw (C) -- (E);
+
+    % Angle markings
+    \pic [draw, "$65^{\circ}$", angle eccentricity=1.6, angle radius=0.7cm] {angle = B--C--D};
+    \pic [draw, "$x^{\circ}$", angle eccentricity=1.7, angle radius=0.8cm] {angle = D--C--E};
+    \pic [draw, "$40^{\circ}$", angle eccentricity=1.8, angle radius=0.6cm] {angle = E--C--A};
+
+    % Labels
+    \node at (A) [left,font=\small] {$A$};
+    \node at (B) [right,font=\small] {$B$};
+    \node at (C) [below,font=\small] {$C$};
+    \node at (D) [above,font=\small] {$D$};
+    \node at (E) [above,font=\small] {$E$};
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the size of angle $x$.
+\vspace{4cm}
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}

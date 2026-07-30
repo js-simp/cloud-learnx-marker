@@ -1,0 +1,27 @@
+\begin{question}
+\noindent A rectangular room in a museum is used to display a scale model of the Solar System, based on a diagram found in an old astronomy book that a student was reading for their History of Science project.
+
+The rectangular floor has a length of $(3x + 2)$ metres and a width of $(x - 1)$ metres, as shown below.
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+    \def\lengthA{6}
+    \def\heightA{3}
+
+    \coordinate (A) at (0,0);
+    \draw (A) -- ++(0:\lengthA) coordinate (B) -- ++(90:\heightA) coordinate (C) -- ++(180:\lengthA) coordinate[pos=0.5] (M) coordinate (D) -- cycle coordinate[pos=0.5] (N);
+
+    \node at (M) [anchor = north] {$3x + 2$};
+    \node at (N) [anchor = east] {$x - 1$};
+    \node[anchor=west] at ($(B)!0.5!(C)$) {$x - 1$};
+    \node[anchor=south] at ($(D)!0.5!(C)$) {$3x + 2$};
+\end{tikzpicture}
+\end{center}
+
+Find, in terms of $x$, an expression for the perimeter of the room.
+Give your answer in its simplest form.
+\vspace{4cm}
+\begin{flushright}
+    \answerplain{3}
+\end{flushright}
+\end{question}

@@ -1,0 +1,25 @@
+\begin{question}
+\noindent A laboratory petri dish is rectangular in shape. The length is $(x + 5)$ cm and the width is $(x - 2)$ cm.
+
+\begin{center}
+\begin{tikzpicture}[scale = 1]
+    \coordinate (A) at (0,0);
+    \draw (A) -- ++(0:6cm) coordinate(B) -- ++(90:3cm) coordinate (C) -- ++(180:6cm) coordinate[pos=0.5] (M) coordinate (D) -- cycle coordinate[pos=0.5] (N);
+
+    \node at (M) [anchor = north] {$x + 5$};
+    \node at (N) [anchor = east] {$x - 2$};
+\end{tikzpicture}
+\end{center}
+
+\noindent The area of the petri dish is $54\text{ cm}^2$.
+
+\begin{enumerate}
+    \item[(a)] Show that $x^2 + 3x - 64 = 0$.
+    \vspace{3.5cm}
+    \answermarks{2}
+
+    \item[(b)] Find the width of the petri dish, giving your answer correct to 2 decimal places.
+    \vspace{4cm}
+    \answerunit{cm}{2}
+\end{enumerate}
+\end{question}

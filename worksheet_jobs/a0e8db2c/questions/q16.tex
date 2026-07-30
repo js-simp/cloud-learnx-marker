@@ -1,0 +1,43 @@
+\begin{question}
+\noindent Triangle $ABC$ is isosceles, with $AB = AC$.
+
+The angles of the triangle are given, in degrees, by:
+\[
+\angle BAC = (4x + 10)^\circ, \qquad \angle ABC = \angle ACB = (3x - 5)^\circ
+\]
+
+\begin{center}
+\begin{tikzpicture}[scale = 1.1]
+    % Initial point
+    \coordinate (B) at (0,0);
+    % Draw base
+    \draw (B) -- (5,0) coordinate (C);
+
+    % Draw triangle (isosceles, apex above midpoint)
+    \draw (B) -- (2.5,4) coordinate (A);
+    \draw (C) -- (2.5,4);
+
+    % Tick marks to show AB = AC
+    \draw (1.25,2) -- (1.35,2.15);
+    \draw (3.75,2) -- (3.65,2.15);
+
+    % Angle labels
+    \pic [draw, "\footnotesize $(4x+10)^\circ$", angle eccentricity=1.6, angle radius=0.7cm] {angle = C--A--B};
+    \pic [draw, "\footnotesize $(3x-5)^\circ$", angle eccentricity=1.8, angle radius=0.9cm] {angle = A--B--C};
+    \pic [draw, "\footnotesize $(3x-5)^\circ$", angle eccentricity=1.8, angle radius=0.9cm] {angle = B--C--A};
+
+    % Point labels
+    \node at (B) [below left] {$B$};
+    \node at (C) [below right] {$C$};
+    \node at (2.5,4) [above] {$A$};
+\end{tikzpicture}
+\end{center}
+
+\noindent Show that $x = 17$, and hence show that triangle $ABC$ must in fact be equilateral.
+
+\vspace{5cm}
+
+\begin{flushright}
+\answermarks{4}
+\end{flushright}
+\end{question}

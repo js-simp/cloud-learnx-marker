@@ -1,0 +1,35 @@
+\begin{question}
+\noindent A space scientist is testing a small exploration robot in a rectangular laboratory, designed to simulate the surface of Mars. The robot starts at corner $A$ and travels in a straight line directly to the opposite corner $C$, as shown in the diagram.
+
+The laboratory floor $ABCD$ is a rectangle with $AB = 12$ m and $BC = 9$ m.
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (6,0);
+    \coordinate (C) at (6,4.5);
+    \coordinate (D) at (0,4.5);
+
+    \draw (A) -- (B) -- (C) -- (D) -- cycle;
+    \draw[dashed] (A) -- (C);
+
+    \draw pic[draw, angle radius=2.5mm] {right angle=B--A--D};
+
+    \node at (A) [below left,font=\small] {A};
+    \node at (B) [below right,font=\small] {B};
+    \node at (C) [above right,font=\small] {C};
+    \node at (D) [above left,font=\small] {D};
+
+    \draw (A) -- (B) node[midway, below] {12 m};
+    \draw (B) -- (C) node[midway, right] {9 m};
+\end{tikzpicture}
+\end{center}
+
+\noindent The scientist needs to know the exact diagonal distance $AC$ that the robot travels, in order to calculate its battery usage.
+
+\noindent Work out the length of $AC$.
+\vspace{4cm}
+\begin{flushright}
+    \answerunit{m}{3}
+\end{flushright}
+\end{question}

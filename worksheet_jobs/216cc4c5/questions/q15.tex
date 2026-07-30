@@ -1,0 +1,27 @@
+\begin{question}
+\noindent A historian is cataloguing specimen slides for a museum exhibit on early space exploration artefacts. Each rectangular display plate has an area, in cm$^2$, that depends on $x$.
+
+\begin{center}
+\begin{tikzpicture}[scale = 1]
+    \coordinate (A) at (0,0);
+    \draw (A) -- ++(0:6) coordinate(B) -- ++(90:3) coordinate (C) -- ++(180:6) coordinate (D) -- cycle;
+    \node at (3, 1.5) {Area $= x^2 + 7x - 18$ cm$^2$};
+    \node at (3, -0.5) {$x + 9$};
+    \node at (-1, 1.5) {$x - 2$};
+\end{tikzpicture}
+\end{center}
+
+\noindent The rectangular display plate shown has length $(x + 9)$ cm and width $(x - 2)$ cm.
+Its area is $(x^2 + 7x - 18)$ cm$^2$.
+
+\begin{enumerate}
+    \item[(a)] Show that this information is consistent by forming and expanding the appropriate bracket expression, and hence write down the quadratic equation in $x$ that must be satisfied.
+    \vspace{2.5cm}
+    \answermarks{1}
+
+    \item[(b)] Given that the area of the plate is actually $108$ cm$^2$, form a quadratic equation in $x$ and solve it by factorisation to find the value of $x$.
+    \vspace{5cm}
+    \answereq{x}{3}
+
+\end{enumerate}
+\end{question}

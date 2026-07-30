@@ -1,0 +1,27 @@
+\begin{question}
+\noindent A school science lab has a rectangular bench, as shown in the diagram below. The length of the bench is $(2x - 1)$ metres and the width is $(x + 3)$ metres.
+
+\begin{center}
+\begin{tikzpicture}[scale = 1]
+    \def\lengthA{6}
+    \def\heightA{2.5}
+
+    \coordinate (A) at (0,0);
+    \draw (A) -- ++(0:\lengthA) coordinate(B) -- ++(90:\heightA) coordinate (C) -- ++(180:\lengthA) coordinate (D) -- cycle;
+
+    \node at ($(A)!0.5!(B)$) [anchor = north] {$2x - 1$};
+    \node at ($(A)!0.5!(D)$) [anchor = east] {$x + 3$};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item[(a)] Show that the area, $A$ m$^2$, of the bench is given by
+    \[ A = 2x^2 + 5x - 3 \]
+    \vspace{3.5cm}
+    \answermarks{2}
+
+    \item[(b)] Given that $x = 6$, work out the area of the bench.
+    \vspace{2.5cm}
+    \answerunit{$\text{m}^2$}{1}
+\end{enumerate}
+\end{question}

@@ -1,0 +1,32 @@
+\begin{question}
+\noindent A History classroom is having a rectangular reading bench built for its Space Exploration and Ancient Civilisations book displays.
+
+The bench has length $(3x + 2y)$ metres and width $(x + y)$ metres, as shown in the diagram below.
+
+\begin{center}
+\begin{tikzpicture}[scale = 1]
+    \def\lengthA{6}
+    \def\heightA{3}
+
+    \coordinate (A) at (0,0);
+    \draw (A) -- ++(0:\lengthA) coordinate(B) -- ++(90:\heightA) coordinate (C) -- ++(180:\lengthA) coordinate[pos=0.5] (M) coordinate (D) -- cycle coordinate[pos=0.5] (N);
+
+    \node at (M) [anchor = south] {$3x + 2y$};
+    \node at (N) [anchor = east] {$x + y$};
+\end{tikzpicture}
+\end{center}
+
+\noindent The perimeter of the bench is 22 metres.
+
+\noindent The length is also 2 metres more than three times the width.
+
+\begin{enumerate}
+    \item[(a)] Show that $2x + \dfrac{3}{2}y = 5.5$, and write down a second equation connecting $x$ and $y$ using the second piece of information.
+    \vspace{3cm}
+    \answermarks{2}
+
+    \item[(b)] Solve your equations simultaneously to find the values of $x$ and $y$.
+    \vspace{4cm}
+    \answerplain{2}
+\end{enumerate}
+\end{question}

@@ -67,7 +67,7 @@ def generate_structured(
     tool_name:     str,
     model:         str   = MODEL_SONNET,
     max_tokens:    int   = 4096,
-    temperature:   float = 0.4,
+    temperature:   float = None,
 ) -> T:
     """
     Calls Claude with forced tool-use to get reliable structured JSON output,
@@ -79,7 +79,6 @@ def generate_structured(
         return client.messages.create(
             model=model,
             max_tokens=max_tokens,
-            temperature=temperature,
             system=system_blocks,
             messages=[{"role": "user", "content": user_message}],
             tools=[tool],
@@ -108,7 +107,7 @@ def generate_text(
     user_message:  str,
     model:         str   = MODEL_SONNET,
     max_tokens:    int   = 4096,
-    temperature:   float = 0.2,
+    temperature:   float = None,
 ) -> str:
     """Plain text generation — used for LaTeX fix-up, no structured schema needed."""
     def _call():

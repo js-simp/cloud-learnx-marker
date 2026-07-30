@@ -68,11 +68,20 @@ ANSWER MACROS (always place at end of each part, right-aligned):
   \answerunit{unit}{marks}               — dotted line + unit       e.g. \answerunit{cm}{2}
   \answerprefix{prefix}{marks}           — prefix + dotted line     e.g. \answerprefix{\$}{2}
   \answereq{variable}{marks}             — x = dotted line          e.g. \answereq{x}{2}
-  \answerequnit{variable}{unit}{marks}   — x = dotted line + unit   e.g. \answerequnit{v}{m/s}{3}
+  \answerequnit{variable}{unit}{marks}   — x = dotted line + unit   e.g. \answerequnit{v}{\text{m/s}}{3}
   \answerlines{num_lines}{marks}         — ruled lines for written explanation
   \answercoord{marks}                    — coordinate pair ( . , . )
   \answermarks{marks}                    — marks only, no answer line (use for show-that questions)
   \answermcq{A}{B}{C}{D}{marks}          — 4-option MCQ with tickboxes
+
+CRITICAL MACRO RULE FOR UNITS:
+  The {unit} argument in \answerunit and \answerequnit is evaluated in TEXT MODE.
+  If your unit contains math symbols, superscripts, or subscripts (e.g. degrees, cm^2, m/s^2),
+  you MUST wrap the math elements inside $...$ delimiters.
+  - WRONG: \answerequnit{x}{^\circ}{3}   --> FAILS WITH COMPILATION ERROR!
+  - WRONG: \answerunit{cm^2}{2}          --> FAILS WITH COMPILATION ERROR!
+  - RIGHT: \answerequnit{x}{$^\circ$}{3}
+  - RIGHT: \answerunit{$\text{cm}^2$}{2}
 
 SPACING:
   \vspace{Xcm}    — vertical space for working. Use generously (4cm minimum per part).
@@ -183,7 +192,7 @@ If the dice is rolled 90 times, estimate the number of times it will show a prim
 
 
 # ============================================================================
-# SECTION 1 — PYDANTIC SCHEMAS  (unchanged from Gemini version)
+# SECTION 1 — PYDANTIC SCHEMAS
 # ============================================================================
 
 class QuestionPlan(BaseModel):
@@ -205,7 +214,7 @@ class WorksheetPlan(BaseModel):
     questions:               List[QuestionPlan]
 
 class GeneratedQuestion(BaseModel):
-    number:       int
+    number:       Optional[int] = None
     tex_content:  str  = Field(description="Complete LaTeX content for this question, ready to \\input{}")
     marks:        int
     answer:       str  = Field(description="The correct final answer(s)")
@@ -214,7 +223,7 @@ class GeneratedQuestion(BaseModel):
 
 
 # ============================================================================
-# SECTION 2 — LATEX ASSEMBLY  (unchanged — no AI)
+# SECTION 2 — LATEX ASSEMBLY
 # ============================================================================
 
 def build_config_tex(meta: dict) -> str:
@@ -322,18 +331,10 @@ def assemble_latex_project(job_dir, meta, student_name, generated_qs, worksheet_
 
 
 # ============================================================================
-# SECTION 3 — TIKZ LIBRARY RETRIEVAL  (live RAG, replaces static file dump)
+# SECTION 3 — TIKZ LIBRARY RETRIEVAL
 # ============================================================================
 
 def retrieve_tikz_diagrams(query: str, n: int = TIKZ_MATCH_COUNT) -> str:
-    """
-    Embeds the query and searches the tikz_library table in Supabase for the
-    N most relevant diagrams. Returns a formatted context block ready to
-    inject into the question-generation prompt.
-
-    Uses RETRIEVAL_QUERY task type (asymmetric to the RETRIEVAL_DOCUMENT
-    task type used when the library was indexed) for best match quality.
-    """
     try:
         embed_response = _gemini_client.models.embed_content(
             model=EMBED_MODEL,
@@ -369,13 +370,12 @@ def retrieve_tikz_diagrams(query: str, n: int = TIKZ_MATCH_COUNT) -> str:
 
 
 # ============================================================================
-# SECTION 4 — AI PLANNING PASS  (Claude, no caching needed — called once)
+# SECTION 4 — AI PLANNING PASS
 # ============================================================================
 
 def plan_worksheet(student_profile: dict, topic: str) -> WorksheetPlan:
     print("  🧠 Normalising profile & planning worksheet structure...")
 
-    # Normalize profile via adapter
     profile = normalize_student_profile(student_profile)
 
     year           = profile["year"]
@@ -385,9 +385,7 @@ def plan_worksheet(student_profile: dict, topic: str) -> WorksheetPlan:
     notes          = profile["teacher_notes"]
     curriculum_id  = profile["curriculum_id"]
     interests      = profile["interests"]
-    frustrations   = profile["frustration_triggers"]
 
-    # Fuzzy match topic score lookup
     topic_score = topic_scores.get(topic) or topic_scores.get(topic.replace("_", " ").title())
     score_note  = f"Current mastery score on {topic}: {topic_score:.0%}" if topic_score is not None else "No prior data on this topic."
 
@@ -420,10 +418,6 @@ def plan_worksheet(student_profile: dict, topic: str) -> WorksheetPlan:
     - Respect frustration triggers (e.g., if "avoid dense word problems" is specified, keep scenarios concise).
     - Vary question types: diagrams, tables, word problems, show-that, algebraic manipulation.
     - Total marks should be proportional to difficulty — typically 40-70 marks.
-    - When a word problem benefits from a student-interest context (e.g. robotics, space,
-      gaming), embed that specific theme in the question's notes field (e.g. "Use a
-      robotics/engineering scenario"). This ensures the question writer receives the
-      theme directly rather than having to infer it.
 
     Plan the complete worksheet using the tool provided.
     """
@@ -435,7 +429,6 @@ def plan_worksheet(student_profile: dict, topic: str) -> WorksheetPlan:
         tool_name="submit_worksheet_plan",
         model=MODEL_SONNET,
         max_tokens=4096,
-        temperature=0.7,
     )
     print(f"  ✅ Plan: {plan.num_questions} questions, ~{plan.total_marks_estimate} marks")
     print(f"     Distribution: {plan.difficulty_distribution}")
@@ -443,7 +436,7 @@ def plan_worksheet(student_profile: dict, topic: str) -> WorksheetPlan:
 
 
 # ============================================================================
-# SECTION 5 — AI QUESTION GENERATION PASS  (Claude, WITH prompt caching)
+# SECTION 5 — AI QUESTION GENERATION PASS
 # ============================================================================
 
 def generate_question(
@@ -452,12 +445,6 @@ def generate_question(
     student_profile: dict,
     prev_questions: List[str] = None,
 ) -> GeneratedQuestion:
-    """
-    Generate one question. Macro reference + sample questions are CACHED
-    system blocks (identical across every call in a worksheet). Tikz
-    diagrams (if needed) are retrieved LIVE per-question via RAG — this
-    content is dynamic (different per question) so it is NOT cached.
-    """
     prev_questions = prev_questions or []
     year = student_profile.get("year", 10)
 
@@ -466,14 +453,13 @@ def generate_question(
         prev_context = "\nQUESTIONS ALREADY GENERATED (do NOT repeat similar numbers/scenarios):\n"
         prev_context += "\n".join(f"Q{i+1}: {q}" for i, q in enumerate(prev_questions))
 
-    # ── Student context — carried forward from profile into every question ──
     interests    = student_profile.get("interests", [])
     frustrations = student_profile.get("frustration_triggers", [])
     target_grade = student_profile.get("target_grade", "")
 
     student_context = ""
     if interests:
-        student_context += f"\nStudent interests (weave naturally into word problem scenarios where appropriate): {', '.join(interests)}"
+        student_context += f"\nStudent interests: {', '.join(interests)}"
     if frustrations:
         student_context += f"\nAvoid (frustration triggers): {'; '.join(frustrations)}"
     if target_grade:
@@ -484,16 +470,13 @@ def generate_question(
     if curriculum_id:
         curriculum_block = build_curriculum_prompt_block(curriculum_id, topic, year)
 
-    # ── System blocks: static content first (cached) ──────────────────────
     system_blocks = [
         cached_block(MACRO_REFERENCE),
         cached_block(SAMPLE_QUESTIONS),
     ]
     if curriculum_block:
-        # Cached too — identical for every question in this worksheet (same topic+year)
         system_blocks.append(cached_block(curriculum_block))
 
-    # ── Live RAG retrieval — dynamic per question, NOT cached ─────────────
     tikz_context = ""
     if q_plan.has_diagram:
         query = f"{topic} — {q_plan.topic_aspect}"
@@ -520,15 +503,12 @@ QUESTION SPECIFICATION:
 REQUIREMENTS:
 1. Write the complete LaTeX for this question — everything inside a question .tex file.
 2. Use ONLY the macros listed in AVAILABLE LATEX MACROS.
-3. Include generous \\vspace{{Xcm}} for working space.
-4. If the question has a diagram, adapt one of the TIKZ DIAGRAM REFERENCE EXAMPLES above
-   to fit this question's specific numbers/labels, or compose a new one closely following
-   their style if none fit well. Do not invent an unrelated diagram style.
-5. Make the question realistic, with clean numbers where possible.
-6. For multi-part questions, use \\begin{{enumerate}} with \\item[(a)] etc.
-7. Provide: the correct answer, and a mark scheme in Edexcel format (M1 for..., A1 for...).
-8. Stay strictly within the CURRICULUM CONSTRAINTS provided in system context — do
-   not use excluded methods/formulae, and use the specified command words.
+3. Make sure to follow the CRITICAL MACRO RULE FOR UNITS (math units must be wrapped in $...$).
+4. Include generous \\vspace{{Xcm}} for working space.
+5. If the question has a diagram, adapt one of the TIKZ DIAGRAM REFERENCE EXAMPLES above.
+6. Make the question realistic, with clean numbers where possible.
+7. For multi-part questions, use \\begin{{enumerate}} with \\item[(a)] etc.
+8. Provide: the correct answer, and a mark scheme in Edexcel format (M1 for..., A1 for...).
 
 tex_content must be valid LaTeX starting with \\begin{{question}} and ending with \\end{{question}}.
 """
@@ -540,14 +520,13 @@ tex_content must be valid LaTeX starting with \\begin{{question}} and ending wit
         tool_name="submit_question",
         model=MODEL_SONNET,
         max_tokens=4096,
-        temperature=0.4,
     )
     q.number = q_plan.number
     return q
 
 
 # ============================================================================
-# SECTION 6 — LATEX COMPILE + FIX LOOP  (fix uses Haiku — cheap, mechanical)
+# SECTION 6 — LATEX COMPILE + FIX LOOP (Targeted Error Parsing)
 # ============================================================================
 
 def compile_latex(job_dir: Path) -> tuple:
@@ -561,13 +540,22 @@ def compile_latex(job_dir: Path) -> tuple:
                 ["pdflatex", "-interaction=nonstopmode", "main.tex"],
                 cwd=job_dir, capture_output=True, text=True, timeout=120,
             )
-            return True, ""
+            return True, "", None
         log = result.stdout + result.stderr
-        return False, extract_latex_errors(log)
+        failed_q_num = extract_failed_question_num(log)
+        return False, extract_latex_errors(log), failed_q_num
     except subprocess.TimeoutExpired:
-        return False, "Compilation timed out after 120 seconds"
+        return False, "Compilation timed out after 120 seconds", None
     except FileNotFoundError:
-        return False, "pdflatex not found — run: sudo apt-get install texlive-latex-extra"
+        return False, "pdflatex not found — run: sudo apt-get install texlive-latex-extra", None
+
+
+def extract_failed_question_num(log: str) -> Optional[int]:
+    """Scans the LaTeX log to pinpoint which specific question file (e.g. ./questions/q9.tex) caused the crash."""
+    matches = re.findall(r"\./questions/q(\d+)\.tex", log)
+    if matches:
+        return int(matches[-1])  # Return the last active question file being processed before failure
+    return None
 
 
 def extract_latex_errors(log: str) -> str:
@@ -575,13 +563,13 @@ def extract_latex_errors(log: str) -> str:
     lines = log.split("\n")
     for i, line in enumerate(lines):
         if line.startswith("!") or "Error" in line or "Undefined" in line:
-            error_lines.extend(lines[max(0, i-1):min(len(lines), i+5)])
+            error_lines.extend(lines[max(0, i-1):min(len(lines), i+6)])
             error_lines.append("---")
     return "\n".join(error_lines[:50]) if error_lines else log[-2000:]
 
 
 def fix_question_tex(q_number: int, bad_tex: str, error_log: str) -> str:
-    """Cheap mechanical fix — use Haiku, not Sonnet, since this is a simple repair task."""
+    """Cheap mechanical fix — uses Haiku to repair broken LaTeX."""
     user_message = f"""
 The LaTeX for Question {q_number} caused a compilation error.
 
@@ -591,7 +579,8 @@ COMPILE ERROR:
 BROKEN TEX CONTENT:
 {bad_tex}
 
-Fix the LaTeX so it compiles correctly.
+Fix the LaTeX so it compiles correctly. Remember that unit arguments in macros like \\answerunit and \\answerequnit must have math symbols (e.g. ^\\circ or ^2) inside $...$ mode.
+
 Return ONLY the corrected LaTeX content for this question
 (starting with \\begin{{question}} and ending with \\end{{question}}).
 No explanation — only the fixed LaTeX.
@@ -611,7 +600,7 @@ No explanation — only the fixed LaTeX.
 def compile_with_fix_loop(job_dir: Path, questions: List[GeneratedQuestion]) -> bool:
     for attempt in range(MAX_RETRIES):
         print(f"  🔨 Compile attempt {attempt + 1}/{MAX_RETRIES}...")
-        success, error_log = compile_latex(job_dir)
+        success, error_log, failed_q_num = compile_latex(job_dir)
         if success:
             print(f"  ✅ Compiled successfully")
             return True
@@ -620,8 +609,14 @@ def compile_with_fix_loop(job_dir: Path, questions: List[GeneratedQuestion]) -> 
             return False
 
         fixed_any = False
-        for q in questions:
+
+        # If error log identified the specific failing question, fix THAT question directly
+        target_qs = [q for q in questions if q.number == failed_q_num] if failed_q_num else questions
+
+        for q in target_qs:
             q_file = job_dir / "questions" / f"q{q.number}.tex"
+            if not q_file.exists():
+                continue
             q_tex  = q_file.read_text()
             print(f"  🔧 Attempting to fix Q{q.number} (via Haiku)...")
             fixed_tex = fix_question_tex(q.number, q_tex, error_log)
@@ -630,19 +625,19 @@ def compile_with_fix_loop(job_dir: Path, questions: List[GeneratedQuestion]) -> 
                 q.tex_content = fixed_tex
                 fixed_any = True
                 print(f"  🔧 Q{q.number} rewritten")
-                break
+                break  # Try re-compiling right after fixing the culprit
+
         if not fixed_any:
-            print("  ⚠️  Could not identify which question to fix — retrying as-is")
+            print("  ⚠️  Could not identify or rewrite the failing question — retrying build")
+
     return False
 
 
 # ============================================================================
-# SECTION 7 — MARK SCHEME ASSEMBLER  (unchanged — no AI)
+# SECTION 7 — MARK SCHEME ASSEMBLER
 # ============================================================================
 
 def build_mark_scheme(student_name, topic, worksheet_plan, questions) -> dict:
-    # Build a lookup by question number — safe even if some questions were
-    # skipped during generation (avoids index-out-of-bounds on array offset)
     plan_map = {qp.number: qp for qp in worksheet_plan.questions}
 
     return {
@@ -676,13 +671,6 @@ def generate_worksheet(
     board:            str = "Cloud LearnX",
     subject:          str = "Mathematics",
 ) -> dict:
-    """
-    Full worksheet generation pipeline.
-
-    NOTE: tikz_samples_dir parameter has been removed — diagrams are now
-    retrieved live from the indexed tikz_library table in Supabase via RAG,
-    rather than dumping a static batch of files into every prompt.
-    """
     job_id  = str(uuid.uuid4())[:8]
     job_dir = JOBS_DIR / job_id
     job_dir.mkdir(parents=True)
@@ -709,8 +697,6 @@ def generate_worksheet(
                     q_plan, topic, student_profile, prev_summaries,
                 )
                 questions.append(q)
-                # Store a richer summary so the AI can avoid duplicate scenarios/numbers
-                # not just duplicate topic names
                 prev_summaries.append(
                     f"{q_plan.topic_aspect} — answer: {q.answer[:60]}"
                 )
@@ -778,13 +764,11 @@ if __name__ == "__main__":
     import sys
     from adapter import normalize_student_profile
 
-    # Pass student_id as CLI arg, or use a hardcoded test ID
     student_id = sys.argv[1] if len(sys.argv) > 1 else "STU-202507-KALA"
     topic      = sys.argv[2] if len(sys.argv) > 2 else "Trigonometry"
 
     print(f"Loading profile for student: {student_id}")
 
-    # Load raw profile from Supabase using the module-level client
     result = _supabase_client.table("student_profiles") \
         .select("profile_data") \
         .eq("id", student_id) \

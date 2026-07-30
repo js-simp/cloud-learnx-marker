@@ -1,0 +1,29 @@
+\begin{question}
+\noindent An astronomer is setting up a triangular support frame for a telescope mount, as shown in the diagram. The frame $ABC$ is right-angled at $B$.
+
+The length of the sloping strut $AC$ is $17$ m and the horizontal base $BC$ is $15$ m.
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    \coordinate (A) at (0,4);
+    \coordinate (B) at (0,0);
+    \coordinate (C) at (7.5,0);
+
+    \draw[thick] (A) -- (B) -- (C) -- cycle;
+
+    \draw pic[draw, angle radius=2.5mm] {right angle=A--B--C};
+
+    \node at (A) [above,font=\small] {A};
+    \node at (B) [below left,font=\small] {B};
+    \node at (C) [below right,font=\small] {C};
+
+    \draw (A) -- (C) node[midway, above right] {17 m};
+    \draw (B) -- (C) node[midway, below] {15 m};
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the length of $AB$, the vertical strut of the frame.
+
+\vspace{4cm}
+\answerequnit{AB}{m}{3}
+\end{question}

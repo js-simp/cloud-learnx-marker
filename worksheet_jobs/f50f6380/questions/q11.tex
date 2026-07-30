@@ -1,0 +1,43 @@
+\begin{question}
+\noindent Points $A$, $B$ and $C$ lie on the circumference of a circle, centre $O$, which represents the orbit of a space station used by historians and astronauts to study Earth from space.
+
+\noindent $O$ is the centre of the circle. The angle at the centre, $\angle AOC = 136^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    % mark points on circle
+        \coordinate[] (O) at (0,0);
+        \coordinate[] (A) at (112:1);
+        \coordinate[] (C) at (-24:1);
+        \coordinate[] (B) at (200:1);
+
+    % draw chords and circle
+        \draw[name path=circ] (0,0) circle (1);
+        \fill[black] (0,0) circle (0.6pt);
+        \node at (0,0)[below right]{$O$};
+        \draw (A) -- (O);
+        \draw (O) -- (C);
+        \draw (A) -- (B);
+        \draw (B) -- (C);
+
+        \node at (A) [above]{$A$};
+        \node at (C) [right]{$C$};
+        \node at (B) [left]{$B$};
+
+        \pic [draw, "$136^\circ$", angle eccentricity=1.5, angle radius = 0.5cm] {angle = A--O--C};
+        \pic [draw, "$x$", angle eccentricity=1.4, angle radius = 0.55cm] {angle = A--B--C};
+
+    \end{tikzpicture}
+\end{center}
+
+\noindent Point $B$ lies on the major arc $AC$.
+
+\noindent Work out the size of angle $x$, the angle at the circumference subtended by the same arc $AC$.
+
+\noindent Give a reason for each stage of your working.
+\vspace{5cm}
+
+\begin{flushright}
+    \answerequnit{x}{degrees}{3}
+\end{flushright}
+\end{question}

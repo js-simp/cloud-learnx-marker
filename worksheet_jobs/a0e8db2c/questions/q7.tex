@@ -1,0 +1,32 @@
+\begin{question}
+\noindent As part of a Model United Nations exhibition, a diagonal support strut is fitted to hold up a large display screen. The strut, the vertical screen and the horizontal base form a right-angled triangle, as shown in the diagram.
+
+The screen stands vertically and is $2.4$ m tall. The foot of the strut is fixed to the ground $1.0$ m away from the base of the screen. The strut connects the top of the screen to this point on the ground.
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (3,0);
+    \coordinate (C) at (0,4);
+
+    \draw[thick] (A) -- (B) -- (C) -- cycle;
+
+    \draw pic[draw, angle radius=2.5mm] {right angle=C--A--B};
+
+    \node at (A) [below left,font=\small] {Base of screen};
+    \node at (B) [below right,font=\small] {Foot of strut};
+    \node at (C) [above left,font=\small] {Top of screen};
+
+    \draw (A) -- (B) node[midway, below] {$1.0$ m};
+    \draw (A) -- (C) node[midway, left] {$2.4$ m};
+    \draw (B) -- (C) node[midway, above right] {strut};
+\end{tikzpicture}
+\end{center}
+
+\noindent Calculate the length of the strut.
+Give your answer correct to 3 significant figures.
+\vspace{4.5cm}
+\begin{flushright}
+    \answerunit{m}{3}
+\end{flushright}
+\end{question}

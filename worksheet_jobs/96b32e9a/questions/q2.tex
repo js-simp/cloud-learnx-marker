@@ -1,0 +1,39 @@
+\begin{question}
+\noindent The diagram shows three angles on a straight line $AB$, meeting at point $C$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+    % Define the points
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (4,0);
+    \coordinate (C) at (2,0);
+    \coordinate (D) at ($(C)+(65:2cm)$);
+    \coordinate (E) at ($(C)+(122:2cm)$);
+
+    % Draw the straight line and rays
+    \draw (A) -- (B);
+    \draw (C) -- (D);
+    \draw (C) -- (E);
+
+    % Draw the angles between lines
+    \pic [draw, "$62^{\circ}$", angle eccentricity=1.5, angle radius=0.6cm] {angle = B--C--D};
+    \pic [draw, "$x^{\circ}$", angle eccentricity=1.8, angle radius=0.7cm] {angle = D--C--E};
+    \pic [draw, "$39^{\circ}$", angle eccentricity=1.6, angle radius=0.6cm] {angle = E--C--A};
+
+    % Place the labels
+    \node at (A) [left,font=\small] {A};
+    \node at (B) [right,font=\small] {B};
+    \node at (C) [below,font=\small] {C};
+    \node at (D) [above,font=\small] {D};
+    \node at (E) [above,font=\small] {E};
+\end{tikzpicture}
+\end{center}
+
+\noindent $AB$ is a straight line.
+
+\noindent Work out the size of angle $x$.
+\vspace{4cm}
+\begin{flushright}
+    \answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}

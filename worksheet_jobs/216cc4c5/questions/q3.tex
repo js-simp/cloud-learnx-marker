@@ -1,0 +1,36 @@
+\begin{question}
+\noindent A historian is studying an ancient astronomical diagram carved into a stone tablet, used to track the position of stars. The diagram shows a straight line $AB$ with a point $C$ on it, and a ray $CD$ representing a sight-line to a star.
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+    % Define the points
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (4,0);
+    \coordinate (C) at (2,0);
+    \coordinate (D) at ($(C)+(138:2cm)$);
+
+    % Draw the straight line and the ray
+    \draw (A) -- (B);
+    \draw (C) -- (D);
+
+    % Draw the angles
+    \pic [draw, "$138^{\circ}$", angle eccentricity=1.5, angle radius=0.6cm] {angle = B--C--D};
+    \pic [draw, "$x^{\circ}$", angle eccentricity=1.8, angle radius=0.8cm] {angle = D--C--A};
+
+    % Place the labels
+    \node at (A) [left,font=\small] {A};
+    \node at (B) [right,font=\small] {B};
+    \node at (C) [below,font=\small] {C};
+    \node at (D) [above,font=\small] {D};
+\end{tikzpicture}
+\end{center}
+
+\noindent $ACB$ is a straight line.
+
+\noindent Work out the value of $x$.
+
+\vspace{4cm}
+
+\answereq{x}{2}
+
+\end{question}

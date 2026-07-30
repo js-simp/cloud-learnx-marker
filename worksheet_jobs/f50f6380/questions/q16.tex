@@ -1,0 +1,49 @@
+\begin{question}
+\noindent A museum is designing a circular "Space Exploration" gallery ceiling. Points $A$, $B$ and $C$ lie on the circumference of a circle with centre $O$, and $D$ lies on the straight line $AOE$ (a support beam passing through the centre), as shown in the diagram.
+
+\noindent The angle $\angle BOE = (3x + 15)^\circ$ and the angle $\angle BOA = (2x - 5)^\circ$, where $AOE$ is a straight line.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    % mark points on circle
+        \coordinate[label = left:$A$] (A) at (180:1);
+        \coordinate[label = right:$E$] (E) at (0:1);
+        \coordinate[label = above:$B$] (B) at (60:1);
+        \coordinate[label = below right:$C$] (C) at (-40:1);
+        \coordinate (O) at (0,0);
+
+    % draw circle and centre
+        \draw[name path=circ] (0,0) circle (1);
+        \fill[black] (O) circle (0.4pt);
+        \node[below left] at (O) {$O$};
+
+    % straight line through centre
+        \draw (A) -- (E);
+
+    % radii to B
+        \draw (O) -- (B);
+
+    % chords for inscribed angle at C
+        \draw (B) -- (C);
+        \draw (C) -- (A);
+
+    \pic [draw, "$(2x-5)^\circ$", angle eccentricity=1.4, angle radius = 0.5cm] {angle = B--O--A};
+    \pic [draw, "$(3x+15)^\circ$", angle eccentricity=1.5, angle radius = 0.7cm] {angle = E--O--B};
+
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item[(a)] Using the fact that $AOE$ is a straight line, form an equation in $x$ and solve it to find the value of $x$.
+    \vspace{3.5cm}
+    \answereq{x}{2}
+
+    \item[(b)] Hence find the size of $\angle BOA$, the angle at the centre standing on arc $AB$.
+    \vspace{2cm}
+    \answerplain{1}
+
+    \item[(c)] Point $C$ lies on the major arc $AB$ (as shown). Find the size of $\angle ACB$, the angle in the diagram subtended by arc $AB$ at the circumference. Give a reason for your answer, using correct circle theorem terminology.
+    \vspace{3.5cm}
+    \answerlines{3}{2}
+\end{enumerate}
+\end{question}

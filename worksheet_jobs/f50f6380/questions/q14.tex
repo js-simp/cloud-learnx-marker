@@ -1,0 +1,44 @@
+\begin{question}
+\noindent A space research team is launching a weather balloon to gather atmospheric data before a satellite launch. The balloon is tethered to the ground at point $A$ by a taut cable $AB$, which makes an angle of $58^{\circ}$ with the horizontal ground. The balloon $B$ is directly above a point $C$ on the ground, and $AC = 40$ m.
+
+To keep the balloon stable, a second support cable is attached from the balloon $B$ to a fixed point $D$ on the ground, where $CD = 25$ m, as shown in the diagram ($A$, $C$ and $D$ all lie on the horizontal ground, with $C$ between $A$ and $D$).
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8, transform shape]
+    \coordinate (A) at (0,0);
+    \coordinate (C) at (6,0);
+    \coordinate (D) at (10,0);
+    \coordinate (B) at (6,7);
+
+    \draw[thick] (A) -- (C) -- (D);
+    \draw[thick] (A) -- (B);
+    \draw[thick] (C) -- (B);
+    \draw[thick] (D) -- (B);
+    \draw[dashed] (C) -- (B);
+
+    \draw pic[draw, angle radius=3mm] {right angle=D--C--B};
+
+    \pic [draw, "$58^{\circ}$", angle eccentricity=1.6, angle radius=0.7cm] {angle = C--A--B};
+
+    \node at (A) [below,font=\small] {$A$};
+    \node at (C) [below,font=\small] {$C$};
+    \node at (D) [below,font=\small] {$D$};
+    \node at (B) [above,font=\small] {$B$};
+
+    \node at (3, -0.5) [font=\small] {$40$ m};
+    \node at (8, -0.5) [font=\small] {$25$ m};
+\end{tikzpicture}
+\end{center}
+
+\noindent (a) Calculate the height $BC$ of the balloon above the ground.
+
+\vspace{4cm}
+
+\noindent (b) Calculate the length of the support cable $BD$.
+
+\vspace{4cm}
+
+\begin{flushright}
+\answerunit{m}{4}
+\end{flushright}
+\end{question}

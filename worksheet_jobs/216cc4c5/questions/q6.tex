@@ -1,0 +1,44 @@
+\begin{question}
+\noindent A museum has a triangular display case for an ancient astronomical chart, used in a space exploration exhibition alongside historical novels about early astronomers.
+
+The triangle $PQR$ represents the shape of the display case, where the three interior angles are given in terms of $x$.
+
+\begin{center}
+\begin{tikzpicture}[scale = 1]
+    % Initial point
+    \coordinate (P) at (0,0);
+    % Draw base
+    \draw (P) -- (6,0) coordinate node[below]{$Q$};
+
+    % Draw triangle
+    \path[name path=leg1] (P) -- ++(65:5cm);
+    \path[name path=leg2] (6,0) -- ++(120:5cm);
+
+    \draw[name intersections={of=leg1 and leg2,by={R}}] (P) -- (R) node[above]{$R$};
+    \draw (6,0) -- (R);
+
+    \node at (P) [below left] {$P$};
+
+    % Draw the angle between lines
+    \pic [draw, "\footnotesize $(2x+10)^\circ$", angle eccentricity=1.6, angle radius=0.7cm] {angle = Q--P--R};
+    \pic [draw, "\footnotesize $(3x-5)^\circ$", angle eccentricity=1.6, angle radius=0.9cm] {angle = P--Q--R};
+    \pic [draw, "\footnotesize $(x+15)^\circ$", angle eccentricity=1.9, angle radius=0.7cm] {angle = P--R--Q};
+\end{tikzpicture}
+\end{center}
+
+\noindent The angles of triangle $PQR$ are $(2x+10)^\circ$, $(3x-5)^\circ$ and $(x+15)^\circ$, as shown in the diagram.
+
+\begin{enumerate}
+    \item[(a)] Show that $6x + 20 = 180$.
+    \vspace{2.5cm}
+    \answermarks{1}
+
+    \item[(b)] Work out the value of $x$.
+    \vspace{2.5cm}
+    \answereq{x}{1}
+
+    \item[(c)] Hence work out the size of the largest angle in triangle $PQR$.
+    \vspace{3cm}
+    \answerunit{$^\circ$}{1}
+\end{enumerate}
+\end{question}

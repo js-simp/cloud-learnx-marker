@@ -1,0 +1,45 @@
+\begin{question}
+\noindent A UI/UX designer is laying out a rectangular badminton court icon for a sports app. The court-shaped rectangle $ABCD$ has:
+\begin{itemize}
+    \item top side $AB = 3x + 2y$ cm
+    \item bottom side $DC = 5x - 4$ cm
+    \item left side $AD = 2x + y$ cm
+    \item right side $BC = x + 3y - 1$ cm
+\end{itemize}
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+    \coordinate (A) at (0,3);
+    \coordinate (B) at (6,3);
+    \coordinate (C) at (6,0);
+    \coordinate (D) at (0,0);
+
+    \draw[thick] (A) -- (B) -- (C) -- (D) -- cycle;
+
+    \node at (A) [above left] {$A$};
+    \node at (B) [above right] {$B$};
+    \node at (C) [below right] {$C$};
+    \node at (D) [below left] {$D$};
+
+    \node at (3,3.4) {$3x + 2y$};
+    \node at (3,-0.4) {$5x - 4$};
+    \node at (-1.1,1.5) {$2x + y$};
+    \node at (7.1,1.5) {$x + 3y - 1$};
+\end{tikzpicture}
+\end{center}
+
+\noindent Since $ABCD$ is a rectangle, opposite sides are equal in length.
+
+\begin{enumerate}
+    \item[(a)] Use this fact to write down two equations connecting $x$ and $y$.
+    \vspace{2.5cm}
+    \answerlines{2}{2}
+
+    \item[(b)] Solve your equations simultaneously to find the value of $x$ and the value of $y$.
+    \vspace{5cm}
+    \begin{flushright}
+    \answereq{x}{1}\\[0.3cm]
+    \answereq{y}{1}
+    \end{flushright}
+\end{enumerate}
+\end{question}

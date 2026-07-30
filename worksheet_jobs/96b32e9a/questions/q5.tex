@@ -1,0 +1,31 @@
+\begin{question}
+\noindent The diagram shows a triangle with angles $(2x + 10)^\circ$, $(3x - 5)^\circ$ and $(x + 15)^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.3]
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (4,0);
+    \coordinate (C) at (1.3,2.6);
+
+    \draw[thick] (A) -- (B) -- (C) -- cycle;
+
+    \pic [draw, "$(2x+10)^\circ$", angle eccentricity=1.7, angle radius=0.7cm, font=\footnotesize] {angle = B--A--C};
+    \pic [draw, "$(3x-5)^\circ$", angle eccentricity=1.6, angle radius=0.7cm, font=\footnotesize] {angle = C--B--A};
+    \pic [draw, "$(x+15)^\circ$", angle eccentricity=1.5, angle radius=0.6cm, font=\footnotesize] {angle = A--C--B};
+
+    \node at (A) [below left, font=\small] {$A$};
+    \node at (B) [below right, font=\small] {$B$};
+    \node at (C) [above, font=\small] {$C$};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item[(a)] Find the value of $x$.
+    \vspace{4cm}
+    \answereq{x}{2}
+
+    \item[(b)] Work out the size of the smallest angle in the triangle.
+    \vspace{3cm}
+    \answerequnit{}{$^\circ$}{1}
+\end{enumerate}
+\end{question}

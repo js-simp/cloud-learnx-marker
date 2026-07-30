@@ -1,0 +1,63 @@
+\begin{question}
+\noindent $A$, $B$ and $D$ are points on a circle, centre $O$. $TAP$ is a tangent to the circle at $A$. $BD$ is a chord, and $O$ is joined to $B$ and to $D$.
+
+Angle $OAT = 90^\circ$ (angle between tangent and radius).
+
+Angle $BAT = 34^\circ$.
+
+$OB = OD$ (radii of the circle).
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    % centre
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (-90:1);
+    \coordinate (B) at (10:1);
+    \coordinate (D) at (150:1);
+
+    \draw (0,0) circle (1);
+    \fill[black] (O) circle (0.4pt);
+    \node at (O) [anchor = south east] {$O$};
+
+    % tangent at A
+    \coordinate (T) at ($(A)!1.3!90:(O)$);
+    \coordinate (P) at ($(A)!1.3!-90:(O)$);
+    \draw (T) -- (P);
+    \node at (T) [anchor=south] {$T$};
+    \node at (P) [anchor=north] {$P$};
+
+    \node at (A) [anchor=north] {$A$};
+    \node at (B) [anchor=west] {$B$};
+    \node at (D) [anchor=east] {$D$};
+
+    \draw (O) -- (A);
+    \draw (O) -- (B);
+    \draw (O) -- (D);
+    \draw (A) -- (B);
+    \draw (A) -- (D);
+    \draw (B) -- (D);
+
+    % right angle mark at A between tangent and OA
+    \draw ($(A)!0.15!90:(O)$) -- ($(A)!0.15!0:(O)$) -- ($(A)!0.15!-90:(O)$);
+
+    \pic [draw, "$34^\circ$", angle eccentricity=1.5, angle radius = 0.45cm] {angle = T--A--B};
+    \pic [draw, "$x$", angle eccentricity=1.4, angle radius = 0.5cm] {angle = O--A--D};
+    \pic [draw, "$y$", angle eccentricity=1.4, angle radius = 0.5cm] {angle = A--D--O};
+
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item[(a)] Given that angle $OAB = 56^\circ$, work out the size of angle $OAD$, marked $x$ on the diagram.
+
+    \vspace{4cm}
+    \answerequnit{x}{$^\circ$}{2}
+
+    \item[(b)] Triangle $OAD$ is isosceles, since $OA = OD$ (radii).
+
+    Using your answer to part (a), work out the size of angle $ADO$, marked $y$ on the diagram.
+
+    \vspace{4cm}
+    \answerequnit{y}{$^\circ$}{2}
+\end{enumerate}
+\end{question}

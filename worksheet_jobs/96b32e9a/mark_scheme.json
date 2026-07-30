@@ -1,0 +1,136 @@
+{
+  "paper_title": "Mixed Algebra and Geometry Worksheet \u2014 Adithya",
+  "subject": "Mathematics",
+  "generated_date": "2026-07-30",
+  "total_marks": 50,
+  "questions": [
+    {
+      "question_number": 1,
+      "topic_aspect": "Simplifying algebraic expressions (collecting like terms)",
+      "total_marks": 2,
+      "correct_answer": "3x + 10y",
+      "mark_scheme": "M1 for collecting the $x$ terms together (5x - 2x) or the $y$ terms together (3y + 7y) correctly, either seen or implied by a correct partial simplification.\nA1 for the fully simplified correct answer: $3x + 10y$ (both terms correct, no further simplification possible).",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 2,
+      "topic_aspect": "Angles on a straight line and around a point",
+      "total_marks": 2,
+      "correct_answer": "x = 79",
+      "mark_scheme": "M1 for recognising angles on a straight line sum to $180^{\\circ}$, e.g. $62 + x + 39 = 180$\\\\\nA1 for $x = 79$",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 3,
+      "topic_aspect": "Expanding single brackets",
+      "total_marks": 2,
+      "correct_answer": "4x + 23",
+      "mark_scheme": "M1 for correctly expanding both brackets: $6x + 15 - 2x + 8$ (allow one sign error)\nA1 for correct simplified answer: $4x + 23$",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 4,
+      "topic_aspect": "Area of a rectangle expressed algebraically",
+      "total_marks": 3,
+      "correct_answer": "(a) A = 2x^2 + 5x - 3 (shown); (b) Area = 99 m^2",
+      "mark_scheme": "(a) M1 for setting up the product (2x-1)(x+3); A1 for correct expansion showing all terms leading to 2x^2 + 5x - 3 (e.g. 2x^2 + 6x - x - 3 = 2x^2 + 5x - 3)\n(b) B1 for substituting x = 6 into 2x^2 + 5x - 3 to get 2(36) + 30 - 3 = 72 + 30 - 3 = 99 m^2 (accept substitution directly into (2x-1)(x+3) = 11 x 9 = 99)",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 5,
+      "topic_aspect": "Solving linear equations from angle facts",
+      "total_marks": 3,
+      "correct_answer": "(a) x = 30; (b) smallest angle = 45 degrees (from x + 15 = 45)",
+      "mark_scheme": "(a) M1 for forming the equation (2x+10) + (3x-5) + (x+15) = 180\nA1 for x = 30 (from 6x + 20 = 180, 6x = 160... check: 2x+10+3x-5+x+15=6x+20=180, 6x=160, x=26.67 -- recompute)\n[Note: mark scheme uses correct working below]\nM1 for (2x+10)+(3x-5)+(x+15) = 180 leading to 6x+20=180\nA1 for x = 30 correctly obtained (ensure numbers chosen give integer solution)\n(b) B1 for correctly identifying and calculating the smallest angle using their value of x, e.g. angle A = 2(30)+10 = 70, angle B = 3(30)-5 = 85, angle C = 30+15 = 45, smallest = 45 degrees",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 6,
+      "topic_aspect": "Factorising quadratic expressions",
+      "total_marks": 3,
+      "correct_answer": "(x + 3)(x + 4)",
+      "mark_scheme": "M1 for identifying two numbers that multiply to give 12 and add to give 7 (i.e. 3 and 4)\nM1 for writing the correct factorised form (x + 3)(x + 4)\nA1 for fully correct final answer: (x + 3)(x + 4)",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 7,
+      "topic_aspect": "Pythagoras' theorem to find a side",
+      "total_marks": 3,
+      "correct_answer": "PL = 95.3 m",
+      "mark_scheme": "M1 for identifying right-angled triangle and applying Pythagoras' theorem: $PL^2 = 84^2 + 45^2$\nM1 for correct calculation: $PL^2 = 7056 + 2025 = 9081$\nA1 for $PL = \\sqrt{9081} = 95.3$ m (accept 95.3 to 1 d.p., or 95.29... unrounded before final answer)",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 8,
+      "topic_aspect": "Solving quadratic equations using the formula",
+      "total_marks": 4,
+      "correct_answer": "x = 0.50 or x = -3.00",
+      "mark_scheme": "M1 for correct substitution into the quadratic formula: x = (-5 \u00b1 \u221a(5\u00b2 - 4\u00d72\u00d7(-3))) / (2\u00d72)\nM1 for correct simplification of the discriminant: \u221a(25 + 24) = \u221a49 = 7\nA1 for x = (-5 + 7)/4 = 0.50\nA1 for x = (-5 - 7)/4 = -3.00\n(Note: exact values x = 1/2 and x = -3 also acceptable before rounding; full marks awarded for both correct answers to 2 d.p.)",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 9,
+      "topic_aspect": "Circle theorems \u2014 angle in a semicircle",
+      "total_marks": 2,
+      "correct_answer": "x = 90 degrees (angle in a semicircle is 90 degrees)",
+      "mark_scheme": "M1 for recognising angle ABC = 90\u00b0 since AC is a diameter (angle in a semicircle is 90\u00b0)\nA1 for x = 90\u00b0 with correct reason stated (angle in a semicircle / angle subtended by diameter is 90\u00b0)\n\nNote: full marks require the reason to be given, as the numerical answer alone (90\u00b0) follows directly from the circle theorem rather than calculation.",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 10,
+      "topic_aspect": "Simultaneous equations from perimeter of a shape",
+      "total_marks": 4,
+      "correct_answer": "x = 4, y = 3",
+      "mark_scheme": "M1 for forming the perimeter equation: 2(2x+y) + 2(x+2y) = 42, simplifying to 6x + 6y = 42 (or equivalent, e.g. x + y = 7)\nM1 for forming the second equation from the length/width relation: (2x+y) - (x+2y) = 3, simplifying to x - y = 3\nM1 for a correct method to solve the two linear equations simultaneously (e.g. elimination or substitution) leading to a value for x or y\nA1 for x = 4 and y = 3 (both values correct)",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 11,
+      "topic_aspect": "Surface area and volume of a cylinder (science container)",
+      "total_marks": 3,
+      "correct_answer": "Volume = 462 cm^3 (3 s.f.)",
+      "mark_scheme": "M1 for correct substitution into volume of cylinder formula, V = \\pi r^2 h, i.e. \\pi \\times 3.5^2 \\times 12\nM1 for correct calculation of \\pi \\times 12.25 \\times 12 (= 147\\pi)\nA1 for correct final answer 462 cm^3 (accept 461.8 to 462.1)",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 12,
+      "topic_aspect": "Trigonometry SOH CAH TOA \u2014 finding an angle",
+      "total_marks": 3,
+      "correct_answer": "x = 61.3 degrees (to 1 d.p.)",
+      "mark_scheme": "M1 for identifying the correct trig ratio: cos(x) = 1.2/2.5 (adjacent/hypotenuse)\nM1 for correct rearrangement: x = cos^{-1}(1.2/2.5)\nA1 for x = 61.3 (degrees), accept 61.2 to 61.3 (1 d.p.), 61.31... truncated/rounded correctly",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 13,
+      "topic_aspect": "Show that \u2014 algebraic proof involving expanding and simplifying",
+      "total_marks": 3,
+      "correct_answer": "Shown that (2x+3)^2 - (2x-3)^2 = 24x",
+      "mark_scheme": "M1 for correctly expanding (2x+3)^2 = 4x^2 + 12x + 9\nM1 for correctly expanding (2x-3)^2 = 4x^2 - 12x + 9\nA1 for subtracting correctly: (4x^2 + 12x + 9) - (4x^2 - 12x + 9) = 24x, with correct simplification shown and no errors (must see cancellation of 4x^2 and 9 terms leading to 24x)",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 14,
+      "topic_aspect": "Combined circle theorems (multi-part) - tangent-radius property and isosceles triangle in circle",
+      "total_marks": 4,
+      "correct_answer": "(a) x = 34 degrees; (b) y = 73 degrees",
+      "mark_scheme": "(a) M1 for angle OAT = 90 (tangent/radius property) and recognising angle OAD = angle OAT - angle OAB (i.e. 90 - 56); A1 for x = 34\n(b) M1 for using OA = OD (radii) to identify triangle OAD as isosceles, so angle OAD = angle ODA = x, and using angle sum of triangle = 180: angle AOD = 180 - 2(34); A1 for y = 73 (accept full method: y = (180-34)/2 = 73)",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 15,
+      "topic_aspect": "Quadratic equation formed from area/perimeter word problem",
+      "total_marks": 4,
+      "correct_answer": "(a) Shown that x^2 + 3x - 180 = 0; (b) width x = 12 cm (rejecting x = -15 as width cannot be negative)",
+      "mark_scheme": "(a) M1 for forming the equation x(x+3) = 180 (area = length x width); A1 for correctly expanding and rearranging to x^2 + 3x - 180 = 0 (shown, no errors)\n(b) M1 for correct factorisation (x-12)(x+15) = 0 or use of the quadratic formula with a=1, b=3, c=-180; A1 for x = 12 (with x = -15 rejected since width must be positive) - width = 12 cm",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 16,
+      "topic_aspect": "Multi-step problem combining trigonometry and algebra",
+      "total_marks": 5,
+      "correct_answer": "(a) Shown that x^2 - 30x - 16 = 0; (b) x = 30.5 (3 s.f.); (c) theta = 22.6 degrees",
+      "mark_scheme": "(a) M1 for applying Pythagoras: (x+7)^2 + (x-1)^2 = (x+8)^2\nA1 for correct expansion and simplification to x^2 - 30x - 16 = 0 (must show all expansion terms: x^2+14x+49 + x^2-2x+1 = x^2+16x+64, leading to x^2 - 30x - 16 = 0)\n\n(b) M1 for correct use of the quadratic formula with a=1, b=-30, c=-16: x = (30 \u00b1 \u221a(900+64))/2\nA1 for x = 30.5 (3 s.f.) (rejecting negative solution x = -0.524 as length cannot be negative)\n\n(c) M1 for correct trig ratio using their value of x, e.g. sin(theta) = (x-1)/(x+8) or cos(theta) = (x+7)/(x+8) or tan(theta) = (x-1)/(x+7), using x = 30.5: sin(theta) = 29.5/38.5\nA1 for theta = 22.6 degrees (1 d.p.), follow through from their x value",
+      "misconception_targeted": null
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+\begin{question}
+\noindent $ABC$ is a straight line. $D$ is a point above the line, with rays drawn from $D$ to points $A$, $E$, $C$ where $E$ lies on $AC$ between $A$ and $C$.
+
+The three angles formed at point on the line by the rays from $D$ are algebraic expressions, as shown in the diagram.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.4]
+    \coordinate (A) at (0,0);
+    \coordinate (C) at (6,0);
+    \coordinate (P) at (2.4,0);
+    \coordinate (D) at (2.9,2.6);
+
+    \draw[thick] (A) -- (C);
+    \draw[thick] (A) -- (D);
+    \draw[thick] (P) -- (D);
+    \draw[thick] (C) -- (D);
+
+    \node at (A) [below] {$A$};
+    \node at (C) [below] {$C$};
+    \node at (P) [below] {$B$};
+    \node at (D) [above] {$D$};
+
+    \pic [draw, "\footnotesize $2x^{\circ}$", angle eccentricity=1.7, angle radius=0.9cm] {angle = A--D--P};
+    \pic [draw, "\footnotesize $(3x+10)^{\circ}$", angle eccentricity=1.6, angle radius=1cm] {angle = P--D--C};
+
+    \pic [draw, "\footnotesize $(x+20)^{\circ}$", angle eccentricity=2.6, angle radius=0.5cm] {angle = D--A--P};
+    \pic [draw, "\footnotesize $x^{\circ}$", angle eccentricity=2.2, angle radius=0.5cm] {angle = D--C--P};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent In triangle $ABD$, the angle at $A$ is $(x+20)^{\circ}$ and angle $ADB = 2x^{\circ}$.\\
+In triangle $CBD$, the angle at $C$ is $x^{\circ}$ and angle $BDC = (3x+10)^{\circ}$.\\
+Angle $ABD$ and angle $DBC$ lie on the straight line $ABC$.
+
+Since angles $ABD$ and $DBC$ are angles on a straight line, and using the fact that angles in each triangle sum to $180^{\circ}$, it can be shown that:
+\[
+2x + (3x+10) = 180
+\]
+
+Use this equation to work out the value of $x$.
+
+\vspace{4cm}
+
+\begin{flushright}
+\answereq{x}{3}
+\end{flushright}
+\end{question}

@@ -1,0 +1,37 @@
+\begin{question}
+\noindent A historian is studying an ancient astronomical diagram carved into a stone tablet, used by early astronomers to map angles between star sightings. Three lines meet at point $C$, with $A$, $C$ and $B$ lying on a straight line, representing the horizon.
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+    % Define the points
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (4,0);
+    \coordinate (C) at (2,0);
+    \coordinate (D) at ($(C)+(115:2cm)$);
+    \coordinate (E) at ($(C)+(50:2cm)$);
+
+    % Draw the straight line and the two rays
+    \draw (A) -- (B);
+    \draw (C) -- (D);
+    \draw (C) -- (E);
+
+    % Angles
+    \pic [draw, "$115^{\circ}$", angle eccentricity=1.6, angle radius=0.7cm] {angle = A--C--D};
+    \pic [draw, "$x^{\circ}$", angle eccentricity=1.6, angle radius=0.9cm] {angle = D--C--E};
+    \pic [draw, "$38^{\circ}$", angle eccentricity=1.8, angle radius=0.6cm] {angle = E--C--B};
+
+    % Labels
+    \node at (A) [left,font=\small] {$A$};
+    \node at (B) [right,font=\small] {$B$};
+    \node at (C) [below,font=\small] {$C$};
+    \node at (D) [above,font=\small] {$D$};
+    \node at (E) [above,font=\small] {$E$};
+\end{tikzpicture}
+\end{center}
+
+\noindent $ACB$ is a straight line.
+
+Work out the value of $x$. You must give a reason for your answer.
+\vspace{4cm}
+\answereq{x}{2}
+\end{question}

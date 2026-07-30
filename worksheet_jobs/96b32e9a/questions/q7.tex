@@ -1,0 +1,30 @@
+\begin{question}
+\noindent A science drone takes off from a launch point $L$ and flies due east to a point $E$, a distance of $84$ m. It then turns and flies due north to a data-collection point $P$, a distance of $45$ m, as shown in the diagram.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.6, transform shape]
+    \coordinate (L) at (0,0);
+    \coordinate (E) at (8.4,0);
+    \coordinate (P) at (8.4,4.5);
+
+    \draw[thick] (L) -- (E) -- (P) -- cycle;
+
+    \draw pic[draw, angle radius=2.5mm] {right angle=L--E--P};
+
+    \node at (L) [below left,font=\small] {$L$};
+    \node at (E) [below right,font=\small] {$E$};
+    \node at (P) [above right,font=\small] {$P$};
+
+    \draw (L) -- (E) node[midway, below] {$84$ m};
+    \draw (E) -- (P) node[midway, right] {$45$ m};
+\end{tikzpicture}
+\end{center}
+
+\noindent The drone must then fly directly back from $P$ to $L$ in a straight line to return to base before its battery runs out.
+
+Work out the direct distance $PL$.
+Give your answer correct to 1 decimal place.
+
+\vspace{4cm}
+\answerunit{m}{3}
+\end{question}

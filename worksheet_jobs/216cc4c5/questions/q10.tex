@@ -1,0 +1,36 @@
+\begin{question}
+\noindent A history student is researching the design of an ancient circular observatory, once used to track the positions of stars and planets across the sky. The diagram below shows a circle with centre $O$, representing the circular boundary of the observatory. $AC$ is a diameter of the circle, and $B$ is a point on the circumference.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    % centre and diameter points
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (180:1);
+    \coordinate (C) at (0:1);
+    \coordinate (B) at (55:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+    \fill[black] (O) circle (0.5pt);
+
+    \draw (A) -- (C);
+    \draw (A) -- (B);
+    \draw (B) -- (C);
+
+    \node at (A) [anchor=east] {$A$};
+    \node at (C) [anchor=west] {$C$};
+    \node at (B) [anchor=south] {$B$};
+    \node at (O) [anchor=north] {$O$};
+
+    \pic [draw, "$35^\circ$", angle eccentricity=1.5, angle radius=0.5cm] {angle = C--A--B};
+    \pic [draw, "$x$", angle eccentricity=1.4, angle radius=0.4cm] {angle = A--C--B};
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $BAC = 35^\circ$.
+
+\noindent Work out the size of angle $x$ (angle $ACB$), giving reasons for each stage of your working.
+\vspace{4cm}
+\begin{flushright}
+\answereq{x}{3}
+\end{flushright}
+\end{question}

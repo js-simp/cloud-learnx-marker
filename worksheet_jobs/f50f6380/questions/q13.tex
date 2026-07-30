@@ -1,0 +1,49 @@
+\begin{question}
+\noindent A history museum is designing a new display plinth shaped like the composite diagram below, formed from a rectangle and a right-angled triangle joined along one edge. The plinth will hold a scale model of a space rocket used in an exhibition about early space exploration.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+    \def\rectwidth{4}
+    \def\rectheight{3}
+    \def\triheight{3}
+
+    % Rectangle
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (\rectwidth,0);
+    \coordinate (C) at (\rectwidth,\rectheight);
+    \coordinate (D) at (0,\rectheight);
+    \draw (A) -- (B) -- (C) -- (D) -- cycle;
+
+    % Triangle attached to right side of rectangle
+    \coordinate (E) at (\rectwidth+\triheight,0);
+    \draw (B) -- (E) -- (C) -- cycle;
+
+    % Right angle marker at B
+    \draw (\rectwidth-0.3,0) -- (\rectwidth-0.3,0.3) -- (\rectwidth,0.3);
+
+    % Right angle marker for triangle at B (base to vertical BC)
+    \draw (\rectwidth+0.3,0) -- (\rectwidth+0.3,0.3) -- (\rectwidth,0.3);
+
+    % Labels
+    \node at (\rectwidth/2, -0.5) {$2x$};
+    \node at (-0.6, \rectheight/2) {$x + 4$};
+    \node at (\rectwidth + \triheight/2, -0.5) {$x$};
+    \node at (0.7*\rectwidth+0.9, \rectheight/2 +0.3) {};
+\end{tikzpicture}
+\end{center}
+
+\noindent The plinth consists of a rectangle with width $2x$ cm and height $(x+4)$ cm, joined to a right-angled triangle with base $x$ cm and height $(x+4)$ cm, as shown.
+
+\noindent Show that the total area, $A$ cm$^2$, of the plinth is given by
+\[
+A = \frac{5}{2}x^2 + 10x
+\]
+\vspace{1cm}
+
+\noindent \textit{You must show each step of your working clearly.}
+\vspace{5cm}
+
+\begin{flushright}
+\answermarks{4}
+\end{flushright}
+\end{question}

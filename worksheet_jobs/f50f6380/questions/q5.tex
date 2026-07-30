@@ -1,0 +1,39 @@
+\begin{question}
+\noindent A museum triangular display case is designed in the shape of triangle $PQR$, used to hold a scale model of a rocket for a space exploration exhibit alongside a timeline of historical astronomy texts.
+
+The angles of triangle $PQR$ are shown below, given in terms of $x$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+    % Initial points
+    \coordinate (Q) at (0,0);
+    \coordinate (R) at (6,0);
+    \coordinate (P) at (2.2,3.4);
+
+    \draw (Q) -- (R);
+    \draw (Q) -- (P);
+    \draw (R) -- (P);
+
+    % Angle labels
+    \pic [draw, "\footnotesize $2x + 10$", angle eccentricity=1.6, angle radius=0.7cm] {angle = R--Q--P};
+    \pic [draw, "\footnotesize $3x - 5$", angle eccentricity=1.9, angle radius=0.6cm] {angle = P--R--Q};
+    \pic [draw, "\footnotesize $x + 15$", angle eccentricity=2.1, angle radius=0.5cm] {angle = Q--P--R};
+
+    \node at (Q) [below left] {$Q$};
+    \node at (R) [below right] {$R$};
+    \node at (P) [above] {$P$};
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $PQR = (2x+10)^\circ$, angle $QRP = (3x-5)^\circ$ and angle $QPR = (x+15)^\circ$.
+
+\begin{enumerate}
+    \item[(a)] Form an equation in $x$ and solve it to find the value of $x$.
+    \vspace{3.5cm}
+    \answereq{x}{2}
+
+    \item[(b)] Hence find the size of the largest angle in triangle $PQR$.
+    \vspace{2.5cm}
+    \answerunit{$^\circ$}{1}
+\end{enumerate}
+\end{question}

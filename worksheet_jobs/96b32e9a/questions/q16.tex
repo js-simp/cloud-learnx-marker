@@ -1,0 +1,41 @@
+\begin{question}
+\noindent In a Valorant tournament, a drone camera follows the flight path of a thrown grenade, which is modelled as a straight line from launch point $L$ to landing point $G$.
+
+The horizontal distance travelled is $(x + 7)$ metres, the vertical height dropped is $(x - 1)$ metres, and the straight-line flight path $LG$ has length $(x + 8)$ metres, as shown in the diagram.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.7, transform shape]
+    \coordinate (L) at (0,4);
+    \coordinate (H) at (7,4);
+    \coordinate (G) at (7,0);
+
+    \draw[thick] (L) -- (H) -- (G) -- cycle;
+
+    \draw pic[draw, angle radius=3mm] {right angle=L--H--G};
+
+    \node at (L) [left, font=\small] {$L$};
+    \node at (H) [above right, font=\small] {};
+    \node at (G) [below, font=\small] {$G$};
+
+    \node at (3.5, 4.4) {$(x+7)$ m};
+    \node at (7.6, 2) {$(x-1)$ m};
+    \node at (2.8, 1.6) {$(x+8)$ m};
+
+    \pic [draw, "$\theta$", angle eccentricity=1.6, angle radius=0.8cm] {angle = H--L--G};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item[(a)] Show that $x^2 - 30x - 16 = 0$.
+    \vspace{4cm}
+    \answermarks{2}
+
+    \item[(b)] Find the value of $x$, giving your answer to 3 significant figures.
+    \vspace{3.5cm}
+    \answereq{x}{2}
+
+    \item[(c)] Calculate the size of angle $\theta$, the angle of descent of the grenade below the horizontal, giving your answer to 1 decimal place.
+    \vspace{4cm}
+    \answerequnit{\theta}{$^\circ$}{1}
+\end{enumerate}
+\end{question}
