@@ -1,19 +1,18 @@
 """
 =============================================================================
-  WORKSHEET GENERATOR — Claude Edition  (worksheet_generator.py)
+  WORKSHEET GENERATOR — Claude + Gemini Vision Edition (worksheet_generator.py)
 =============================================================================
-  Same pipeline as before, now on Claude Sonnet 5, with:
+  Same pipeline as before, now with:
     - Prompt caching for static context (macro reference + sample questions)
-      that repeats on every question-generation call within a worksheet.
-    - LIVE RAG RETRIEVAL from the tikz_library Supabase table instead of
-      dumping a static batch of files. Each diagram question queries the
-      library using its specific topic_aspect, pulling only the 3-4 most
-      relevant diagrams — precise, and scales to any library size.
+    - LIVE RAG RETRIEVAL from the tikz_library Supabase table
+    - GEMINI VISION AUDIT PASS: Renders isolated TikZ diagrams to images and
+      uses Gemini 2.5 Flash to visually inspect and provide feedback to Claude.
 =============================================================================
 """
 
 import os
 import re
+import io
 import json
 import uuid
 import shutil
@@ -25,6 +24,8 @@ from datetime import date
 
 from pydantic import BaseModel, Field
 from dotenv import load_dotenv
+from PIL import Image
+import fitz  # PyMuPDF
 
 from google import genai
 from google.genai import types as genai_types
@@ -42,9 +43,10 @@ from curriculum_loader import build_curriculum_prompt_block
 load_dotenv()
 
 # ── Config ────────────────────────────────────────────────────────────────────
-TEMPLATE_DIR  = Path(__file__).parent / "template"
-JOBS_DIR      = Path(__file__).parent / "worksheet_jobs"
-MAX_RETRIES   = 3
+TEMPLATE_DIR        = Path(__file__).parent / "template"
+JOBS_DIR            = Path(__file__).parent / "worksheet_jobs"
+MAX_RETRIES         = 3
+MAX_VISUAL_RETRIES  = 2
 JOBS_DIR.mkdir(exist_ok=True)
 
 EMBED_MODEL       = "gemini-embedding-001"
@@ -309,6 +311,11 @@ class GeneratedQuestion(BaseModel):
     mark_scheme:  str  = Field(description="Mark scheme in Edexcel format: M1 for..., A1 for..., etc.")
     topic_aspect: str
 
+class VisualAuditResult(BaseModel):
+    passed: bool = Field(description="True if the diagram is geometrically sound, legible, and visually accurate.")
+    issues_found: List[str] = Field(default=[], description="List of visual or geometric issues spotted in the image.")
+    actionable_fix_feedback: str = Field(default="", description="Specific guidance for the LaTeX generator on how to fix the TikZ code.")
+
 
 # ============================================================================
 # SECTION 2 — LATEX ASSEMBLY
@@ -458,7 +465,86 @@ def retrieve_tikz_diagrams(query: str, n: int = TIKZ_MATCH_COUNT) -> str:
 
 
 # ============================================================================
-# SECTION 4 — AI PLANNING PASS
+# SECTION 4 — VISUAL DIAGRAM AUDIT (GEMINI VISION PASS)
+# ============================================================================
+
+def render_question_to_image(q_tex: str, job_dir: Path, q_num: int) -> Optional[Image.Image]:
+    """Compiles a single question in isolation and returns it as a PIL Image."""
+    isolated_dir = job_dir / "temp_render" / f"q_{q_num}"
+    isolated_dir.mkdir(parents=True, exist_ok=True)
+    
+    layout_src = TEMPLATE_DIR / "layout"
+    if layout_src.exists():
+        shutil.copytree(layout_src, isolated_dir / "layout", dirs_exist_ok=True)
+
+    standalone_tex = rf"""\documentclass[11pt]{{article}}
+\input{{layout/packages}}
+\input{{layout/macros}}
+\pagestyle{{empty}}
+\begin{{document}}
+{q_tex}
+\end{{document}}
+"""
+    tex_path = isolated_dir / "standalone.tex"
+    tex_path.write_text(standalone_tex)
+
+    try:
+        result = subprocess.run(
+            ["pdflatex", "-interaction=nonstopmode", "-halt-on-error", "standalone.tex"],
+            cwd=isolated_dir, capture_output=True, text=True, timeout=30
+        )
+        pdf_path = isolated_dir / "standalone.pdf"
+        if result.returncode != 0 or not pdf_path.exists():
+            return None
+
+        doc = fitz.open(pdf_path)
+        page = doc.load_page(0)
+        pix = page.get_pixmap(dpi=150)
+        img_bytes = pix.tobytes("png")
+        return Image.open(io.BytesIO(img_bytes))
+
+    except Exception as e:
+        print(f"    ⚠️ Failed to render Q{q_num} isolated image: {e}")
+        return None
+
+
+def audit_diagram_with_gemini(image: Image.Image, question_spec: str) -> VisualAuditResult:
+    """Uses Gemini 2.5 Flash to visually verify the rendered TikZ diagram against a checklist."""
+    
+    prompt = f"""
+    You are an expert GCSE/A-Level Mathematics Examiner visually auditing a printed question diagram.
+    
+    QUESTION CONTEXT & SPECIFICATION:
+    {question_spec}
+
+    CHECKLIST — Inspect the image carefully for these specific flaws:
+    1. ANGLE ARCS: Are any angle arcs drawn the wrong way around (e.g., sweeping a 300° reflex arc instead of the intended interior acute/obtuse angle)?
+    2. LABEL OVERLAPS: Are labels, letters, or dimension numbers overlapping each other or colliding with geometric lines?
+    3. VISUAL PROPORTIONS: Does the shape look wildly out of proportion relative to stated measurements (e.g. is a side labeled 12 cm visually shorter than a side labeled 4 cm)?
+    4. ACCIDENTAL CLIPPING: Are any parts of the diagram, labels, or grid cut off by page/bounding borders?
+    5. ANSWER LEAKS: Does the diagram inadvertently reveal or write out the answer that the student is supposed to calculate?
+
+    Evaluate the rendered diagram against these points.
+    """
+
+    try:
+        response = _gemini_client.models.generate_content(
+            model="gemini-2.5-flash-lite",
+            contents=[image, prompt],
+            config=genai_types.GenerateContentConfig(
+                response_mime_type="application/json",
+                response_schema=VisualAuditResult,
+                temperature=0.1,
+            )
+        )
+        return VisualAuditResult.model_validate_json(response.text)
+    except Exception as e:
+        print(f"    ⚠️ Gemini Vision audit call failed: {e}")
+        return VisualAuditResult(passed=True, issues_found=["Vision audit bypassed due to API failure."])
+
+
+# ============================================================================
+# SECTION 5 — AI PLANNING PASS
 # ============================================================================
 
 def plan_worksheet(student_profile: dict, topic: str) -> WorksheetPlan:
@@ -524,7 +610,7 @@ def plan_worksheet(student_profile: dict, topic: str) -> WorksheetPlan:
 
 
 # ============================================================================
-# SECTION 5 — AI QUESTION GENERATION PASS
+# SECTION 6 — AI QUESTION GENERATION PASS
 # ============================================================================
 
 def generate_question(
@@ -631,8 +717,79 @@ tex_content must be valid LaTeX starting with \\begin{{question}} and ending wit
     return q
 
 
+def generate_and_verify_question(
+    q_plan: QuestionPlan,
+    topic: str,
+    student_profile: dict,
+    job_dir: Path,
+    prev_questions: List[str] = None
+) -> GeneratedQuestion:
+    
+    q = generate_question(q_plan, topic, student_profile, prev_questions)
+
+    if not q_plan.has_diagram:
+        return q
+
+    for attempt in range(1, MAX_VISUAL_RETRIES + 1):
+        print(f"    👁️ Visual Audit Attempt {attempt}/{MAX_VISUAL_RETRIES} for Q{q_plan.number}...")
+
+        img = render_question_to_image(q.tex_content, job_dir, q_plan.number)
+        if img is None:
+            print("    ⚠️ Could not render isolated image; accepting question as-is.")
+            break
+
+        spec_summary = f"Topic Aspect: {q_plan.topic_aspect}\nTargeted Question: {q.tex_content[:300]}..."
+        audit = audit_diagram_with_gemini(img, spec_summary)
+
+        if audit.passed:
+            print(f"    ✅ Q{q_plan.number} Visual Audit PASSED!")
+            break
+
+        print(f"    ❌ Q{q_plan.number} Visual Audit FAILED! Issues: {', '.join(audit.issues_found)}")
+        print(f"    💬 Feedback: {audit.actionable_fix_feedback}")
+
+        if attempt < MAX_VISUAL_RETRIES:
+            print(f"    🔄 Requesting Claude to rewrite TikZ for Q{q_plan.number} based on visual feedback...")
+            
+            refinement_prompt = f"""
+            The TikZ diagram you generated for Question {q_plan.number} was visually audited by a vision inspector and found to have issues.
+
+            BROKEN LATEX:
+            {q.tex_content}
+
+            VISUAL AUDIT FEEDBACK:
+            {audit.actionable_fix_feedback}
+
+            SPECIFIC ISSUES SPOTTED:
+            {', '.join(audit.issues_found)}
+
+            Please rewrite the LaTeX for this question, fixing the TikZ code according to the feedback above.
+            Maintain the exact same mathematical structure, marks, and question intent.
+            Return ONLY valid LaTeX starting with \\begin{{question}} and ending with \\end{{question}}.
+            """
+
+            fixed_tex = generate_text(
+                system_blocks=[
+                    cached_block(MACRO_REFERENCE),
+                    cached_block(DIAGRAM_RULES)
+                ],
+                user_message=refinement_prompt,
+                model=MODEL_SONNET,
+                max_tokens=4096,
+                temperature=0.2
+            )
+
+            fixed_tex = re.sub(r"^```(?:latex)?\n?", "", fixed_tex)
+            fixed_tex = re.sub(r"\n?```$", "", fixed_tex).strip()
+
+            if fixed_tex:
+                q.tex_content = fixed_tex
+
+    return q
+
+
 # ============================================================================
-# SECTION 6 — LATEX COMPILE + FIX LOOP (Targeted Error Parsing)
+# SECTION 7 — LATEX COMPILE + FIX LOOP (Targeted Error Parsing)
 # ============================================================================
 
 def compile_latex(job_dir: Path) -> tuple:
@@ -657,10 +814,9 @@ def compile_latex(job_dir: Path) -> tuple:
 
 
 def extract_failed_question_num(log: str) -> Optional[int]:
-    """Scans the LaTeX log to pinpoint which specific question file (e.g. ./questions/q9.tex) caused the crash."""
     matches = re.findall(r"\./questions/q(\d+)\.tex", log)
     if matches:
-        return int(matches[-1])  # Return the last active question file being processed before failure
+        return int(matches[-1])
     return None
 
 
@@ -675,7 +831,6 @@ def extract_latex_errors(log: str) -> str:
 
 
 def fix_question_tex(q_number: int, bad_tex: str, error_log: str) -> str:
-    """Cheap mechanical fix — uses Haiku to repair broken LaTeX."""
     user_message = f"""
 The LaTeX for Question {q_number} caused a compilation error.
 
@@ -715,8 +870,6 @@ def compile_with_fix_loop(job_dir: Path, questions: List[GeneratedQuestion]) -> 
             return False
 
         fixed_any = False
-
-        # If error log identified the specific failing question, fix THAT question directly
         target_qs = [q for q in questions if q.number == failed_q_num] if failed_q_num else questions
 
         for q in target_qs:
@@ -731,7 +884,7 @@ def compile_with_fix_loop(job_dir: Path, questions: List[GeneratedQuestion]) -> 
                 q.tex_content = fixed_tex
                 fixed_any = True
                 print(f"  🔧 Q{q.number} rewritten")
-                break  # Try re-compiling right after fixing the culprit
+                break
 
         if not fixed_any:
             print("  ⚠️  Could not identify or rewrite the failing question — retrying build")
@@ -740,7 +893,7 @@ def compile_with_fix_loop(job_dir: Path, questions: List[GeneratedQuestion]) -> 
 
 
 # ============================================================================
-# SECTION 7 — MARK SCHEME ASSEMBLER
+# SECTION 8 — MARK SCHEME ASSEMBLER
 # ============================================================================
 
 def build_mark_scheme(student_name, topic, worksheet_plan, questions) -> dict:
@@ -767,7 +920,7 @@ def build_mark_scheme(student_name, topic, worksheet_plan, questions) -> dict:
 
 
 # ============================================================================
-# SECTION 8 — MAIN ENTRY POINT
+# SECTION 9 — MAIN ENTRY POINT
 # ============================================================================
 
 def generate_worksheet(
@@ -785,7 +938,7 @@ def generate_worksheet(
     year         = student_profile.get("year", 10)
 
     print(f"\n{'='*60}")
-    print(f"  WORKSHEET GENERATOR (Claude + RAG tikz) — Job {job_id}")
+    print(f"  WORKSHEET GENERATOR (Claude + Gemini Vision) — Job {job_id}")
     print(f"  Student: {student_name} | Year {year} | Topic: {topic}")
     print(f"{'='*60}")
 
@@ -799,8 +952,8 @@ def generate_worksheet(
         for q_plan in plan.questions:
             print(f"  → Q{q_plan.number}: {q_plan.topic_aspect} [{q_plan.difficulty}, {q_plan.marks}m]")
             try:
-                q = generate_question(
-                    q_plan, topic, student_profile, prev_summaries,
+                q = generate_and_verify_question(
+                    q_plan, topic, student_profile, job_dir, prev_summaries,
                 )
                 questions.append(q)
                 prev_summaries.append(
@@ -836,6 +989,11 @@ def generate_worksheet(
         mark_scheme = build_mark_scheme(student_name, topic, plan, questions)
         ms_path = job_dir / "mark_scheme.json"
         ms_path.write_text(json.dumps(mark_scheme, indent=2))
+
+        # Cleanup isolated renders directory
+        temp_render_dir = job_dir / "temp_render"
+        if temp_render_dir.exists():
+            shutil.rmtree(temp_render_dir, ignore_errors=True)
 
         if output_dir:
             Path(output_dir).mkdir(parents=True, exist_ok=True)
