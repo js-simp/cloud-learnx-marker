@@ -1,0 +1,28 @@
+\begin{question}
+\noindent $A$, $B$, $C$ and $D$ are four points on the circumference of a circle, forming a cyclic quadrilateral $ABCD$.
+
+\noindent Angle $DAB = (2x + 10)^\circ$ and angle $BCD = (3x - 20)^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate[label=left:$A$] (A) at (160:1);
+    \coordinate[label=above:$B$] (B) at (75:1);
+    \coordinate[label=right:$C$] (C) at (350:1);
+    \coordinate[label=below:$D$] (D) at (220:1);
+
+    \draw (0,0) circle (1);
+    \draw[line join=bevel] (A) -- (B) -- (C) -- (D) -- cycle;
+
+    \pic [draw, "$(2x+10)^\circ$", angle eccentricity=1.9, angle radius = 0.4cm] {angle = D--A--B};
+    \pic [draw, "$(3x-20)^\circ$", angle eccentricity=1.9, angle radius = 0.4cm] {angle = B--C--D};
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the size of angle $DAB$.
+
+\vspace{5cm}
+
+\begin{flushright}
+\answerequnit{DAB}{$^\circ$}{3}
+\end{flushright}
+\end{question}

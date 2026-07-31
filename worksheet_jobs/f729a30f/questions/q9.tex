@@ -1,0 +1,43 @@
+\begin{question}
+\noindent $P$, $Q$, $R$ and $S$ are four points on the circumference of a circle, forming a cyclic quadrilateral $PQRS$.
+
+\noindent The side $SR$ is extended to a point $T$, so that $QRT$ is a straight line is not formed but $SRT$ is a straight line.
+
+\noindent Angle $PQR = 98^\circ$.\\
+Angle $QRS = 115^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (P) at (150:1);
+    \coordinate (Q) at (70:1);
+    \coordinate (R) at (-10:1);
+    \coordinate (S) at (215:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+    \draw[thick] (P) -- (Q) -- (R) -- (S) -- cycle;
+
+    % extend SR beyond R to T
+    \coordinate (T) at ($(S)!1.6!(R)$);
+    \draw[thick] (S) -- (T);
+
+    \node at (P) [above] {$P$};
+    \node at (Q) [above right] {$Q$};
+    \node at (R) [right] {$R$};
+    \node at (S) [below left] {$S$};
+    \node at (T) [right] {$T$};
+
+    \pic [draw, "$98^\circ$", angle eccentricity=1.4, angle radius=0.35cm] {angle = R--Q--P};
+    \pic [draw, "$115^\circ$", angle eccentricity=1.4, angle radius=0.3cm] {angle = Q--R--S};
+    \pic [draw, "$x$", angle eccentricity=1.6, angle radius=0.3cm] {angle = T--R--Q};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the size of angle $x$, the exterior angle at $R$.
+
+\noindent Give a reason for each stage of your working.
+\vspace{4cm}
+\begin{flushright}
+    \answerequnit{x}{$^\circ$}{3}
+\end{flushright}
+\end{question}

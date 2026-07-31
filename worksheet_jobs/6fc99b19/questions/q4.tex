@@ -1,0 +1,36 @@
+\begin{question}
+\noindent $A$, $B$, $C$ and $D$ are points on the circumference of a circle, as shown in the diagram.
+
+\noindent Chords $AC$ and $BD$ intersect inside the circle. Angle $ADB = 38^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate (A) at (150:1);
+    \coordinate (B) at (95:1);
+    \coordinate (C) at (-20:1);
+    \coordinate (D) at (-110:1);
+
+    \draw[thick] (0,0) circle (1);
+
+    \draw[thick] (A) -- (C);
+    \draw[thick] (B) -- (D);
+    \draw[thick] (A) -- (D);
+    \draw[thick] (B) -- (C);
+
+    \node at (A) [above left] {$A$};
+    \node at (B) [above right] {$B$};
+    \node at (C) [right] {$C$};
+    \node at (D) [below left] {$D$};
+
+    \pic [draw, "$38^\circ$", angle eccentricity=1.6, angle radius = 0.35cm] {angle = A--D--B};
+    \pic [draw, "$x$", angle eccentricity=1.6, angle radius = 0.35cm] {angle = A--C--B};
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the size of angle $x$.\\
+Give a reason for your answer.
+\vspace{4cm}
+\begin{flushright}
+    \answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}

@@ -1,0 +1,51 @@
+\begin{question}
+\noindent $A$, $B$ and $C$ are points on the circumference of a circle, and $TCS$ is a tangent to the circle at $C$.
+
+\noindent The chord $CB$ divides the circle so that angle $ABC = 71^\circ$.
+Angle $ACB = 54^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.1]
+    % mark points on circle
+    \coordinate (C) at (-90:1);
+
+    % draw circle
+    \draw[name path=circ] (0,0) circle (1);
+
+    % draw tangent line through C
+    \draw (C) -- ($(C)!1.5!-90:(0,0)$) coordinate (S);
+    \draw (C) -- ($(C)!1.5!90:(0,0)$) coordinate (T);
+
+    % construct chords to get A and B on circle
+    \path[name path=CB] (C) -- ($(C)!2!-25:(0,0)$);
+    \path[name path=CA] (C) -- ($(C)!2!25:(0,0)$);
+    \path[name intersections={of=CB and circ, by={B,tempB}}];
+    \path[name intersections={of=CA and circ, by={A,tempA}}];
+
+    % draw the triangle
+    \draw (C) -- (B);
+    \draw (C) -- (A);
+    \draw (A) -- (B);
+
+    % labels for points
+    \node[below] at (C) {$C$};
+    \node[right] at (B) {$B$};
+    \node[left] at (A) {$A$};
+    \node[below] at (S) {$S$};
+    \node[above] at (T) {$T$};
+
+    % angle labels
+    \pic [draw, "$71^\circ$", angle eccentricity=1.4, angle radius=0.5cm] {angle = C--B--A};
+    \pic [draw, "$54^\circ$", angle eccentricity=1.5, angle radius=0.45cm] {angle = A--C--B};
+    \pic [draw, "$x$", angle eccentricity=1.3, angle radius=0.6cm] {angle = B--C--S};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent By first finding the size of angle $BAC$, show that the angle between the tangent $TS$ and the chord $CB$, marked $x$ on the diagram, is equal to angle $BAC$, the angle in the alternate segment.
+
+\vspace{5cm}
+
+\answermarks{4}
+
+\end{question}

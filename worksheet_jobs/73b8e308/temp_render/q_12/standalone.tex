@@ -1,0 +1,63 @@
+\documentclass[11pt]{article}
+\input{layout/packages}
+
+% Declare counters expected by \begin{question} macros
+\newcounter{questionNum}
+\newcounter{totalmarks}
+\newcounter{questionmarks}
+\regtotcounter{totalmarks}
+
+% Color definitions to prevent xcolor errors
+\definecolor{primaryGreen}{RGB}{34, 139, 34}
+\definecolor{lightYellow}{RGB}{255, 255, 224}
+\definecolor{primaryBlue}{RGB}{0, 102, 204}
+
+\input{layout/macros}
+
+\pagestyle{empty}
+\begin{document}
+\begin{question}
+\noindent A satellite sensor rotates in a circular orbit path around a central control point $O$, radius $8.4$ m. Two calibration markers, $P$ and $Q$, are fixed on the orbit path. A tracking beacon at point $R$, also on the orbit, monitors the markers.
+
+\noindent Angle $PRQ = 38^\circ$, where $PRQ$ is the angle subtended by the chord $PQ$ at the circumference.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.4]
+    \coordinate (O) at (0,0);
+    \coordinate (P) at (140:1);
+    \coordinate (Q) at (10:1);
+    \coordinate (R) at (250:1);
+
+    \draw[thick] (0,0) circle (1);
+    \fill[black] (0,0) circle (0.4pt);
+    \draw (O) -- (P);
+    \draw (O) -- (Q);
+    \draw (P) -- (R);
+    \draw (R) -- (Q);
+    \draw[dashed] (P) -- (Q);
+
+    \node at (O) [below right, font=\small] {$O$};
+    \node at (P) [above left, font=\small] {$P$};
+    \node at (Q) [above right, font=\small] {$Q$};
+    \node at (R) [below, font=\small] {$R$};
+
+    \pic [draw, angle radius=0.4cm, "$38^\circ$", angle eccentricity=1.6] {angle = P--R--Q};
+    \node at (-0.55, -0.15) {$8.4$ m};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item[(a)] Find the size of angle $POQ$, the angle subtended by the chord $PQ$ at the centre $O$.
+    \vspace{2.5cm}
+    \answereq{POQ}{1}
+
+    \item[(b)] The radius $O$ to the midpoint of $PQ$ bisects both the chord $PQ$ and angle $POQ$.
+
+    Use this fact, together with your answer to part (a), to calculate the length of the chord $PQ$.
+
+    Give your answer correct to 3 significant figures.
+    \vspace{5cm}
+    \answerunit{m}{3}
+\end{enumerate}
+\end{question}
+\end{document}

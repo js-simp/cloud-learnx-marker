@@ -1,0 +1,53 @@
+\begin{question}
+\noindent In the diagram, $A$, $B$, $C$ and $D$ are points on a circle with centre $O$. $EDF$ is a tangent to the circle at $D$. $BOD$ is a straight line (a diameter of the circle).
+
+The angle at the centre, angle $BOC = 116^\circ$, angle $ADB = (2x + 6)^\circ$, and angle $CDF = 55^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (O) at (0,0);
+    \draw (O) circle (1);
+    \fill (O) circle (0.02);
+    \node[below right] at (O) {$O$};
+
+    % Points on circle
+    \coordinate (B) at (100:1);
+    \coordinate (D) at (-80:1);
+    \coordinate (C) at (32:1);
+    \coordinate (A) at (170:1);
+
+    \draw (B) -- (D); % diameter BOD
+    \draw (O) -- (C);
+    \draw (B) -- (C);
+    \draw (C) -- (D);
+    \draw (A) -- (B);
+    \draw (A) -- (D);
+
+    \node[above] at (B) {$B$};
+    \node[below] at (D) {$D$};
+    \node[right] at (C) {$C$};
+    \node[left] at (A) {$A$};
+
+    % Tangent at D
+    \coordinate (E) at ($(D)!1.3!100:(O)$);
+    \coordinate (F) at ($(D)!1.3!-80:(O)$);
+    \draw (E) -- (F);
+    \node[below left] at (E) {$E$};
+    \node[below right] at (F) {$F$};
+
+    \pic [draw, "$116^\circ$", angle eccentricity=1.4, angle radius = 0.45cm] {angle = B--O--C};
+    \pic [draw, "$55^\circ$", angle eccentricity=1.4, angle radius = 0.5cm] {angle = C--D--F};
+    \pic [draw, "$(2x+6)^\circ$", angle eccentricity=1.5, angle radius = 0.6cm] {angle = A--D--B};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item[(a)] Find the size of angle $BDC$.
+    \vspace{3.5cm}
+    \answereq{BDC}{2}
+
+    \item[(b)] Work out the value of $x$.
+    \vspace{4cm}
+    \answereq{x}{2}
+\end{enumerate}
+\end{question}

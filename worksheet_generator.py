@@ -1,18 +1,16 @@
 """
 =============================================================================
-  WORKSHEET GENERATOR — Claude + Gemini Vision Edition (worksheet_generator.py)
+  WORKSHEET GENERATOR — Claude Edition (worksheet_generator.py)
 =============================================================================
-  Same pipeline as before, now with:
-    - Prompt caching for static context (macro reference + sample questions)
-    - LIVE RAG RETRIEVAL from the tikz_library Supabase table
-    - GEMINI VISION AUDIT PASS: Renders isolated TikZ diagrams to images and
-      uses Gemini 2.5 Flash to visually inspect and provide feedback to Claude.
+  - Prompt caching for static context (macro reference + sample questions)
+  - LIVE RAG RETRIEVAL from the tikz_library Supabase table
+  - LATEX SANITIZER & SAFE ENCODING: Gracefully handles degree symbols and
+    non-UTF-8 pdflatex log output without hard-crashing the process.
 =============================================================================
 """
 
 import os
 import re
-import io
 import json
 import uuid
 import shutil
@@ -24,8 +22,6 @@ from datetime import date
 
 from pydantic import BaseModel, Field
 from dotenv import load_dotenv
-from PIL import Image
-import fitz  # PyMuPDF
 
 from google import genai
 from google.genai import types as genai_types
@@ -46,7 +42,6 @@ load_dotenv()
 TEMPLATE_DIR        = Path(__file__).parent / "template"
 JOBS_DIR            = Path(__file__).parent / "worksheet_jobs"
 MAX_RETRIES         = 3
-MAX_VISUAL_RETRIES  = 2
 JOBS_DIR.mkdir(exist_ok=True)
 
 EMBED_MODEL       = "gemini-embedding-001"
@@ -55,6 +50,17 @@ TIKZ_MATCH_COUNT  = 4          # how many diagrams to retrieve per question
 
 _gemini_client   = genai.Client()
 _supabase_client = create_client(os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_SERVICE_ROLE_KEY"))
+
+
+# ── Helper: LaTeX Sanitizer ───────────────────────────────────────────────────
+def sanitize_latex(tex_code: str) -> str:
+    """Sanitizes raw degree symbols to prevent pdflatex encoding errors."""
+    if not tex_code:
+        return ""
+    # Replace raw degree symbol with proper LaTeX math-mode \circ
+    tex_code = tex_code.replace("°", r"^\circ")
+    tex_code = tex_code.replace(r"^\circ^\circ", r"^\circ")
+    return tex_code
 
 
 # ── Static reference content — these get cached, never change per-call ───────
@@ -85,6 +91,18 @@ CRITICAL MACRO RULE FOR UNITS:
   - RIGHT: \answerequnit{x}{$^\circ$}{3}
   - RIGHT: \answerunit{$\text{cm}^2$}{2}
 
+COLOR RULES FOR TIKZ:
+  Use ONLY standard xcolor names: red, blue, green, black, gray, lightgray, darkgray, cyan, magenta, yellow.
+  DO NOT use 'primaryGreen', 'lightYellow', or invent custom color names.
+
+TIKZ & PACKAGE RULES:
+1. DO NOT include \usetikzlibrary{...} or \usepackage{...} in your question code. All libraries are already pre-loaded in the document header.
+2. For tick marks or line decorations, use ONLY valid TikZ library syntax:
+   - Use 'decorations.markings' or 'decorations.pathreplacing' (NEVER 'decorations.pathmarking').
+   - For right angle arcs, use the standard 'angles' and 'quotes' libraries.
+3. For parallel lines or equal side tick marks:
+   - Use simple TikZ drawings like: \draw[thick] (A) -- (B); or standard TikZ markings.
+
 SPACING:
   \vspace{Xcm}    — vertical space for working. Use generously (4cm minimum per part).
 
@@ -103,25 +121,30 @@ DO NOT invent new macros. DO NOT use \begin{exam} or similar — it does not exi
 DIAGRAM_RULES = r"""
 TIKZ DIAGRAM RULES — MANDATORY. Violations cause wrong answers or student confusion.
 
+CRITICAL HARD RULES:
+1. NEVER write raw '°' symbols. Always write '$58^\circ$' or '$x^\circ$'.
+2. NEVER calculate raw arcs manually using \draw (...) arc (...).
+   ALWAYS use the `angles` and `quotes` libraries:
+   \pic [draw, angle radius=6mm, "$x$"] {angle = A--B--C};
+3. NEVER rely on implicit `intersection-2` or ambiguous intersection arrays.
+   Always explicitly define named intersections or single-point outputs:
+   name intersections={of=lineA and circleB, by={P1}}
+
 ═══════════════════════════════════════════════════════
-RULE 1 — ANGLE ARC DIRECTION
+RULE 1 — ANGLE ARC DIRECTION (CRITICAL)
 ═══════════════════════════════════════════════════════
-The tikz `angles` library draws \pic{angle = A--V--B} counter-clockwise from A to B
-around vertex V. This WILL draw the reflex arc (270°+) if the counter-clockwise sweep
-goes the wrong way. ALWAYS verify your angle order sweeps the MINOR arc.
+The tikz `angles` library draws \pic{angle = A--V--B} COUNTER-CLOCKWISE from A to B around vertex V.
+- If going from A to B counter-clockwise goes around the EXTERIOR, it will draw a 300°+ reflex arc!
+- If your generated arc draws a reflex angle (>180°), you MUST swap A and B (e.g. change {angle = A--V--B} to {angle = B--V--A}).
 
 To mark an acute or obtuse angle correctly:
-  - Identify which direction from V gives the interior/minor angle
-  - Order the points so the arc sweeps that direction counter-clockwise
+  - Identify which direction from V gives the interior/minor angle.
+  - Order the points so the arc sweeps that direction COUNTER-CLOCKWISE.
 
 CORRECT pattern for marking angle at vertex B in a triangle ABC where A is left, C is right:
   {angle = C--B--A}   ← sweeps from C to A counter-clockwise through the interior angle
 
-WRONG: {angle = A--B--C}  ← may sweep the reflex exterior arc instead
-
-After writing any \pic{angle = ...} line, mentally verify:
-  "Does counter-clockwise from the first point to the third point, around the vertex,
-   give the SMALL angle I want to mark? If not, reverse the order."
+WRONG: {angle = A--B--C}  ← sweeps the exterior reflex arc!
 
 ═══════════════════════════════════════════════════════
 RULE 2 — DIAGRAM COORDINATES MUST MATCH STATED DIMENSIONS
@@ -139,15 +162,10 @@ distance, compute the third using the actual given lengths/angles.
 RULE 3 — GRID QUESTIONS: ALL SHAPES MUST STAY WITHIN THE GRID
 ═══════════════════════════════════════════════════════
 When drawing transformations (rotations, reflections, enlargements) on a coordinate grid:
-  1. First COMPUTE all image vertices mathematically from the transformation
-  2. Check EVERY image vertex is strictly inside the grid boundaries
+  1. First COMPUTE all image vertices mathematically from the transformation.
+  2. Check EVERY image vertex is strictly inside the grid boundaries.
   3. If any vertex falls outside, CHANGE the original shape's position/size,
-     or change the transformation parameters, until ALL vertices fit
-
-Example: if grid is ±6 and rotation of (1,5) by 180° about (1,-1) gives (1,-7),
-that's outside the grid. Move the original point or adjust the centre of rotation.
-
-Never place shape T' with a vertex at (-2,-7) on a ±6 grid.
+     or change the transformation parameters, until ALL vertices fit.
 
 ═══════════════════════════════════════════════════════
 RULE 4 — PROPORTIONAL VISUAL ACCURACY
@@ -155,37 +173,13 @@ RULE 4 — PROPORTIONAL VISUAL ACCURACY
 The visual size of sides in the diagram must be proportional to the stated measurements.
 A side labelled 15.6 m MUST appear longer than a side labelled 7.2 m in the diagram.
 
-If the longer side appears shorter, rescale the coordinates.
-A quick check: sort your stated lengths, sort your tikz distances — the order must match.
-
 ═══════════════════════════════════════════════════════
-RULE 5 — DO NOT GIVE AWAY THE ANSWER IN THE DIAGRAM
-═══════════════════════════════════════════════════════
-If a student must find angle x, do NOT draw the diagram with x obviously equal to a
-recognisable value (e.g. visually 90° when x is the unknown).
-
-For circle theorem questions asking students to find angle x:
-  - Mark x on the diagram with just the label "$x$", no arc that reveals its size
-  - Do NOT state or strongly imply the answer through the geometry of the diagram itself
-
-═══════════════════════════════════════════════════════
-RULE 6 — FLOATING LABELS AND ALIGNMENT
+RULE 5 — FLOATING LABELS AND ALIGNMENT
 ═══════════════════════════════════════════════════════
 Node labels must be positioned relative to their anchor point:
-  - Vertex labels: use [above left], [below right], etc. anchored to the vertex coordinate
-  - Side labels: use node[midway, above] or node[midway, left] on the draw command
-  - NEVER place labels at arbitrary coordinates disconnected from their referent geometry
-
-═══════════════════════════════════════════════════════
-RULE 7 — VERIFY BEFORE OUTPUT
-═══════════════════════════════════════════════════════
-Before writing your final tex_content, mentally run through this checklist:
-  □ Every angle arc sweeps the minor (interior) angle, not the reflex
-  □ Tikz coordinates are proportional to stated measurements
-  □ All image vertices of transformations lie within the grid
-  □ The longer stated side is visually longer in the diagram
-  □ No label is floating away from its geometry
-  □ The diagram doesn't trivialise the question or reveal the answer
+  - Vertex labels: use [above left], [below right], etc. anchored to the vertex coordinate.
+  - Side labels: use node[midway, above] or node[midway, left] on the draw command.
+  - NEVER place labels at arbitrary coordinates disconnected from their referent geometry.
 """
 
 SAMPLE_QUESTIONS = r"""
@@ -213,6 +207,7 @@ $ADC$ and $BDE$ are straight lines intersecting at point $D$.
 
 \noindent $AB = 8$ cm, $AD = 6$ cm, $CD = 12.5$ cm.
 Work out the length of $CE$.
+
 \vspace{4.5cm}
 \begin{flushright}
     \answerunit{cm}{3}
@@ -235,14 +230,17 @@ $y$ & 40 & 5 & 0.625 \\
 
 \begin{enumerate}
     \item[(a)] Find the value of $n$.
+
     \vspace{4cm}
     \answereq{n}{2}
 
     \item[(b)] Find a formula for $y$ in terms of $x$.
+
     \vspace{2cm}
     \answereq{y}{2}
 
     \item[(c)] Find the value of $q$.
+
     \vspace{1.5cm}
     \answereq{q}{2}
 \end{enumerate}
@@ -254,27 +252,7 @@ A farmer buys 749 sheep for a total cost of $C$.\\
 He sells 700 of the sheep for $C$.\\
 The farmer then sells the remaining 49 sheep at the same price per sheep.\\
 Work out the percentage profit that the farmer makes.
-\vspace{4cm}
-\answerplain{2}
-\end{question}
 
---- EXAMPLE: Table with probability ---
-\begin{question}
-A six-sided dice is rolled once. The table shows the probabilities of some events.
-
-\begin{center}
-\renewcommand{\arraystretch}{1.6}
-\setlength{\arrayrulewidth}{1.2pt}
-\begin{tabular}{|>{\centering\arraybackslash}m{2.8cm}|
-                  >{\centering\arraybackslash}m{2.8cm}|
-                  >{\centering\arraybackslash}m{2.8cm}|}
-\hline
-Event & Even number & Prime number \\ \hline
-Probability & $\dfrac{1}{2}$ & $\dfrac{1}{3}$ \\ \hline
-\end{tabular}
-\end{center}
-
-If the dice is rolled 90 times, estimate the number of times it will show a prime number.
 \vspace{4cm}
 \answerplain{2}
 \end{question}
@@ -310,11 +288,6 @@ class GeneratedQuestion(BaseModel):
     answer:       str  = Field(description="The correct final answer(s)")
     mark_scheme:  str  = Field(description="Mark scheme in Edexcel format: M1 for..., A1 for..., etc.")
     topic_aspect: str
-
-class VisualAuditResult(BaseModel):
-    passed: bool = Field(description="True if the diagram is geometrically sound, legible, and visually accurate.")
-    issues_found: List[str] = Field(default=[], description="List of visual or geometric issues spotted in the image.")
-    actionable_fix_feedback: str = Field(default="", description="Specific guidance for the LaTeX generator on how to fix the TikZ code.")
 
 
 # ============================================================================
@@ -420,7 +393,8 @@ def assemble_latex_project(job_dir, meta, student_name, generated_qs, worksheet_
     (job_dir / "main.tex").write_text(build_main_tex(len(generated_qs), meta['paper_title']))
 
     for q in generated_qs:
-        (job_dir / "questions" / f"q{q.number}.tex").write_text(q.tex_content)
+        clean_tex = sanitize_latex(q.tex_content)
+        (job_dir / "questions" / f"q{q.number}.tex").write_text(clean_tex)
 
     print(f"  ✅ LaTeX project assembled — {len(generated_qs)} questions")
 
@@ -465,86 +439,7 @@ def retrieve_tikz_diagrams(query: str, n: int = TIKZ_MATCH_COUNT) -> str:
 
 
 # ============================================================================
-# SECTION 4 — VISUAL DIAGRAM AUDIT (GEMINI VISION PASS)
-# ============================================================================
-
-def render_question_to_image(q_tex: str, job_dir: Path, q_num: int) -> Optional[Image.Image]:
-    """Compiles a single question in isolation and returns it as a PIL Image."""
-    isolated_dir = job_dir / "temp_render" / f"q_{q_num}"
-    isolated_dir.mkdir(parents=True, exist_ok=True)
-    
-    layout_src = TEMPLATE_DIR / "layout"
-    if layout_src.exists():
-        shutil.copytree(layout_src, isolated_dir / "layout", dirs_exist_ok=True)
-
-    standalone_tex = rf"""\documentclass[11pt]{{article}}
-\input{{layout/packages}}
-\input{{layout/macros}}
-\pagestyle{{empty}}
-\begin{{document}}
-{q_tex}
-\end{{document}}
-"""
-    tex_path = isolated_dir / "standalone.tex"
-    tex_path.write_text(standalone_tex)
-
-    try:
-        result = subprocess.run(
-            ["pdflatex", "-interaction=nonstopmode", "-halt-on-error", "standalone.tex"],
-            cwd=isolated_dir, capture_output=True, text=True, timeout=30
-        )
-        pdf_path = isolated_dir / "standalone.pdf"
-        if result.returncode != 0 or not pdf_path.exists():
-            return None
-
-        doc = fitz.open(pdf_path)
-        page = doc.load_page(0)
-        pix = page.get_pixmap(dpi=150)
-        img_bytes = pix.tobytes("png")
-        return Image.open(io.BytesIO(img_bytes))
-
-    except Exception as e:
-        print(f"    ⚠️ Failed to render Q{q_num} isolated image: {e}")
-        return None
-
-
-def audit_diagram_with_gemini(image: Image.Image, question_spec: str) -> VisualAuditResult:
-    """Uses Gemini 2.5 Flash to visually verify the rendered TikZ diagram against a checklist."""
-    
-    prompt = f"""
-    You are an expert GCSE/A-Level Mathematics Examiner visually auditing a printed question diagram.
-    
-    QUESTION CONTEXT & SPECIFICATION:
-    {question_spec}
-
-    CHECKLIST — Inspect the image carefully for these specific flaws:
-    1. ANGLE ARCS: Are any angle arcs drawn the wrong way around (e.g., sweeping a 300° reflex arc instead of the intended interior acute/obtuse angle)?
-    2. LABEL OVERLAPS: Are labels, letters, or dimension numbers overlapping each other or colliding with geometric lines?
-    3. VISUAL PROPORTIONS: Does the shape look wildly out of proportion relative to stated measurements (e.g. is a side labeled 12 cm visually shorter than a side labeled 4 cm)?
-    4. ACCIDENTAL CLIPPING: Are any parts of the diagram, labels, or grid cut off by page/bounding borders?
-    5. ANSWER LEAKS: Does the diagram inadvertently reveal or write out the answer that the student is supposed to calculate?
-
-    Evaluate the rendered diagram against these points.
-    """
-
-    try:
-        response = _gemini_client.models.generate_content(
-            model="gemini-2.5-flash-lite",
-            contents=[image, prompt],
-            config=genai_types.GenerateContentConfig(
-                response_mime_type="application/json",
-                response_schema=VisualAuditResult,
-                temperature=0.1,
-            )
-        )
-        return VisualAuditResult.model_validate_json(response.text)
-    except Exception as e:
-        print(f"    ⚠️ Gemini Vision audit call failed: {e}")
-        return VisualAuditResult(passed=True, issues_found=["Vision audit bypassed due to API failure."])
-
-
-# ============================================================================
-# SECTION 5 — AI PLANNING PASS
+# SECTION 4 — AI PLANNING PASS
 # ============================================================================
 
 def plan_worksheet(student_profile: dict, topic: str) -> WorksheetPlan:
@@ -610,7 +505,7 @@ def plan_worksheet(student_profile: dict, topic: str) -> WorksheetPlan:
 
 
 # ============================================================================
-# SECTION 6 — AI QUESTION GENERATION PASS
+# SECTION 5 — AI QUESTION GENERATION PASS
 # ============================================================================
 
 def generate_question(
@@ -686,21 +581,15 @@ REQUIREMENTS:
 7. For multi-part questions, use \\begin{{enumerate}} with \\item[(a)] etc.
 8. Provide: the correct answer, and a mark scheme in Edexcel format (M1 for..., A1 for...).
 
-CONTEXT NATURALNESS (Issue 3):
+CONTEXT NATURALNESS:
    If using student interests for context, the connection must feel ORGANIC and PLAUSIBLE.
-   - A robotics student solving a triangle about a robot arm angle: NATURAL
-   - A gaming student solving a geometry question "in a mobile game tournament": FORCED
-   - The scenario must genuinely require the mathematics — not just mention the interest as decoration
-   - If the interest doesn't fit naturally, use a neutral real-world context (architecture,
-     engineering, science) — forced connections are worse than no connection at all
+   - Scenario must genuinely require the mathematics — not just mention the interest as decoration.
+   - If the interest doesn't fit naturally, use a neutral real-world context (architecture, engineering, science).
 
-DO NOT SCAFFOLD AWAY THE CHALLENGE (Issue 4):
-   - Do NOT provide the key equation the student must derive — that IS the question
-   - Do NOT state geometric properties that the student must identify (e.g. "opposite sides
-     of a rectangle are equal" in a question where that's the insight needed)
-   - Do NOT give intermediate results that reduce a multi-step question to a single step
-   - The number of marks awarded must reflect the cognitive work actually required
-   - A 3-mark question where you hand the student the equation reduces to a 1-mark question
+DO NOT SCAFFOLD AWAY THE CHALLENGE:
+   - Do NOT provide the key equation the student must derive.
+   - Do NOT state geometric properties that the student must identify.
+   - The number of marks awarded must reflect the cognitive work actually required.
 
 tex_content must be valid LaTeX starting with \\begin{{question}} and ending with \\end{{question}}.
 """
@@ -714,118 +603,63 @@ tex_content must be valid LaTeX starting with \\begin{{question}} and ending wit
         max_tokens=4096,
     )
     q.number = q_plan.number
-    return q
-
-
-def generate_and_verify_question(
-    q_plan: QuestionPlan,
-    topic: str,
-    student_profile: dict,
-    job_dir: Path,
-    prev_questions: List[str] = None
-) -> GeneratedQuestion:
-    
-    q = generate_question(q_plan, topic, student_profile, prev_questions)
-
-    if not q_plan.has_diagram:
-        return q
-
-    for attempt in range(1, MAX_VISUAL_RETRIES + 1):
-        print(f"    👁️ Visual Audit Attempt {attempt}/{MAX_VISUAL_RETRIES} for Q{q_plan.number}...")
-
-        img = render_question_to_image(q.tex_content, job_dir, q_plan.number)
-        if img is None:
-            print("    ⚠️ Could not render isolated image; accepting question as-is.")
-            break
-
-        spec_summary = f"Topic Aspect: {q_plan.topic_aspect}\nTargeted Question: {q.tex_content[:300]}..."
-        audit = audit_diagram_with_gemini(img, spec_summary)
-
-        if audit.passed:
-            print(f"    ✅ Q{q_plan.number} Visual Audit PASSED!")
-            break
-
-        print(f"    ❌ Q{q_plan.number} Visual Audit FAILED! Issues: {', '.join(audit.issues_found)}")
-        print(f"    💬 Feedback: {audit.actionable_fix_feedback}")
-
-        if attempt < MAX_VISUAL_RETRIES:
-            print(f"    🔄 Requesting Claude to rewrite TikZ for Q{q_plan.number} based on visual feedback...")
-            
-            refinement_prompt = f"""
-            The TikZ diagram you generated for Question {q_plan.number} was visually audited by a vision inspector and found to have issues.
-
-            BROKEN LATEX:
-            {q.tex_content}
-
-            VISUAL AUDIT FEEDBACK:
-            {audit.actionable_fix_feedback}
-
-            SPECIFIC ISSUES SPOTTED:
-            {', '.join(audit.issues_found)}
-
-            Please rewrite the LaTeX for this question, fixing the TikZ code according to the feedback above.
-            Maintain the exact same mathematical structure, marks, and question intent.
-            Return ONLY valid LaTeX starting with \\begin{{question}} and ending with \\end{{question}}.
-            """
-
-            fixed_tex = generate_text(
-                system_blocks=[
-                    cached_block(MACRO_REFERENCE),
-                    cached_block(DIAGRAM_RULES)
-                ],
-                user_message=refinement_prompt,
-                model=MODEL_SONNET,
-                max_tokens=4096,
-                temperature=0.2
-            )
-
-            fixed_tex = re.sub(r"^```(?:latex)?\n?", "", fixed_tex)
-            fixed_tex = re.sub(r"\n?```$", "", fixed_tex).strip()
-
-            if fixed_tex:
-                q.tex_content = fixed_tex
-
+    q.tex_content = sanitize_latex(q.tex_content)
     return q
 
 
 # ============================================================================
-# SECTION 7 — LATEX COMPILE + FIX LOOP (Targeted Error Parsing)
+# SECTION 6 — LATEX COMPILE + FIX LOOP (Targeted Error Parsing)
 # ============================================================================
 
-def compile_latex(job_dir: Path) -> tuple:
+def compile_latex(job_dir: str):
+    """
+    Runs pdflatex safely using raw bytes capture to prevent UnicodeDecodeError 
+    on non-UTF8 characters (like raw degree symbols 0xb0) in TeX logs.
+    """
     try:
         result = subprocess.run(
             ["pdflatex", "-interaction=nonstopmode", "-halt-on-error", "main.tex"],
-            cwd=job_dir, capture_output=True, text=True, timeout=120,
+            cwd=job_dir,
+            capture_output=True,
+            text=False,  # Safe: captures raw bytes to avoid decoding crashes
+            timeout=120,
         )
-        if result.returncode == 0:
-            subprocess.run(
-                ["pdflatex", "-interaction=nonstopmode", "main.tex"],
-                cwd=job_dir, capture_output=True, text=True, timeout=120,
-            )
-            return True, "", None
-        log = result.stdout + result.stderr
-        failed_q_num = extract_failed_question_num(log)
-        return False, extract_latex_errors(log), failed_q_num
+
+        stdout = result.stdout.decode("utf-8", errors="replace") if result.stdout else ""
+        stderr = result.stderr.decode("utf-8", errors="replace") if result.stderr else ""
+
+        log_content = ""
+        log_file = os.path.join(job_dir, "main.log")
+        if os.path.exists(log_file):
+            with open(log_file, "rb") as f:
+                log_content = f.read().decode("utf-8", errors="replace")
+
+        combined_output = stdout + "\n" + stderr + "\n" + log_content
+        success = (result.returncode == 0)
+
+        return success, combined_output
+
     except subprocess.TimeoutExpired:
-        return False, "Compilation timed out after 120 seconds", None
-    except FileNotFoundError:
-        return False, "pdflatex not found — run: sudo apt-get install texlive-latex-extra", None
+        return False, "pdflatex timed out after 120 seconds"
+    except Exception as e:
+        return False, f"Unexpected error during compilation: {str(e)}"
 
 
 def extract_failed_question_num(log: str) -> Optional[int]:
-    matches = re.findall(r"\./questions/q(\d+)\.tex", log)
+    """Scans LaTeX log output for error lines specifically associated with question files."""
+    matches = re.findall(r"\(?\.?/questions/q(\d+)\.tex", log)
     if matches:
         return int(matches[-1])
     return None
 
 
 def extract_latex_errors(log: str) -> str:
+    """Extracts error snippets and surrounding lines from TeX log."""
     error_lines = []
     lines = log.split("\n")
     for i, line in enumerate(lines):
         if line.startswith("!") or "Error" in line or "Undefined" in line:
-            error_lines.extend(lines[max(0, i-1):min(len(lines), i+6)])
+            error_lines.extend(lines[max(0, i-2):min(len(lines), i+6)])
             error_lines.append("---")
     return "\n".join(error_lines[:50]) if error_lines else log[-2000:]
 
@@ -840,14 +674,18 @@ COMPILE ERROR:
 BROKEN TEX CONTENT:
 {bad_tex}
 
-Fix the LaTeX so it compiles correctly. Remember that unit arguments in macros like \\answerunit and \\answerequnit must have math symbols (e.g. ^\\circ or ^2) inside $...$ mode.
+Fix the LaTeX so it compiles correctly.
+Common fixes:
+1. Unit arguments in macros like \\answerunit and \\answerequnit must have math symbols (e.g. ^\\circ or ^2) inside $...$ mode.
+2. TikZ angle arcs must use valid points.
+3. Ensure all environments (\\begin{{enumerate}}, \\begin{{tikzpicture}}) are properly closed with \\end{{...}}.
 
 Return ONLY the corrected LaTeX content for this question
 (starting with \\begin{{question}} and ending with \\end{{question}}).
 No explanation — only the fixed LaTeX.
 """
     fixed = generate_text(
-        system_blocks=[cached_block(MACRO_REFERENCE)],
+        system_blocks=[cached_block(MACRO_REFERENCE), cached_block(DIAGRAM_RULES)],
         user_message=user_message,
         model=MODEL_HAIKU,
         max_tokens=4096,
@@ -855,45 +693,55 @@ No explanation — only the fixed LaTeX.
     )
     fixed = re.sub(r"^```(?:latex)?\n?", "", fixed)
     fixed = re.sub(r"\n?```$", "", fixed)
-    return fixed.strip()
+    return sanitize_latex(fixed.strip())
 
 
 def compile_with_fix_loop(job_dir: Path, questions: List[GeneratedQuestion]) -> bool:
     for attempt in range(MAX_RETRIES):
         print(f"  🔨 Compile attempt {attempt + 1}/{MAX_RETRIES}...")
-        success, error_log, failed_q_num = compile_latex(job_dir)
+        success, error_log = compile_latex(str(job_dir))
         if success:
             print(f"  ✅ Compiled successfully")
             return True
-        print(f"  ❌ Compile failed:\n{error_log[:300]}")
+
+        print(f"  ❌ Compile failed on attempt {attempt + 1}")
         if attempt == MAX_RETRIES - 1:
             return False
 
-        fixed_any = False
-        target_qs = [q for q in questions if q.number == failed_q_num] if failed_q_num else questions
+        failed_q_num = extract_failed_question_num(error_log)
+        snippet_errors = extract_latex_errors(error_log)
 
+        if failed_q_num:
+            print(f"  🎯 Target identified: Q{failed_q_num} caused the compilation failure.")
+            target_qs = [q for q in questions if q.number == failed_q_num]
+        else:
+            print("  ⚠️ Could not isolate single broken question, checking all generated questions...")
+            target_qs = questions
+
+        fixed_any = False
         for q in target_qs:
             q_file = job_dir / "questions" / f"q{q.number}.tex"
             if not q_file.exists():
                 continue
-            q_tex  = q_file.read_text()
-            print(f"  🔧 Attempting to fix Q{q.number} (via Haiku)...")
-            fixed_tex = fix_question_tex(q.number, q_tex, error_log)
+            q_tex = q_file.read_text()
+            print(f"  🔧 Requesting Haiku repair for Q{q.number}...")
+
+            fixed_tex = fix_question_tex(q.number, q_tex, snippet_errors)
             if fixed_tex and fixed_tex != q_tex:
                 q_file.write_text(fixed_tex)
                 q.tex_content = fixed_tex
                 fixed_any = True
-                print(f"  🔧 Q{q.number} rewritten")
+                print(f"  🔧 Q{q.number} rewritten. Retrying full compilation...")
                 break
 
         if not fixed_any:
-            print("  ⚠️  Could not identify or rewrite the failing question — retrying build")
+            print("  ⚠️ Could not rewrite the target question — retrying compilation")
 
     return False
 
 
 # ============================================================================
-# SECTION 8 — MARK SCHEME ASSEMBLER
+# SECTION 7 — MARK SCHEME ASSEMBLER
 # ============================================================================
 
 def build_mark_scheme(student_name, topic, worksheet_plan, questions) -> dict:
@@ -920,7 +768,7 @@ def build_mark_scheme(student_name, topic, worksheet_plan, questions) -> dict:
 
 
 # ============================================================================
-# SECTION 9 — MAIN ENTRY POINT
+# SECTION 8 — MAIN ENTRY POINT
 # ============================================================================
 
 def generate_worksheet(
@@ -938,7 +786,7 @@ def generate_worksheet(
     year         = student_profile.get("year", 10)
 
     print(f"\n{'='*60}")
-    print(f"  WORKSHEET GENERATOR (Claude + Gemini Vision) — Job {job_id}")
+    print(f"  WORKSHEET GENERATOR (Claude Edition) — Job {job_id}")
     print(f"  Student: {student_name} | Year {year} | Topic: {topic}")
     print(f"{'='*60}")
 
@@ -952,8 +800,8 @@ def generate_worksheet(
         for q_plan in plan.questions:
             print(f"  → Q{q_plan.number}: {q_plan.topic_aspect} [{q_plan.difficulty}, {q_plan.marks}m]")
             try:
-                q = generate_and_verify_question(
-                    q_plan, topic, student_profile, job_dir, prev_summaries,
+                q = generate_question(
+                    q_plan, topic, student_profile, prev_summaries,
                 )
                 questions.append(q)
                 prev_summaries.append(
@@ -989,11 +837,6 @@ def generate_worksheet(
         mark_scheme = build_mark_scheme(student_name, topic, plan, questions)
         ms_path = job_dir / "mark_scheme.json"
         ms_path.write_text(json.dumps(mark_scheme, indent=2))
-
-        # Cleanup isolated renders directory
-        temp_render_dir = job_dir / "temp_render"
-        if temp_render_dir.exists():
-            shutil.rmtree(temp_render_dir, ignore_errors=True)
 
         if output_dir:
             Path(output_dir).mkdir(parents=True, exist_ok=True)

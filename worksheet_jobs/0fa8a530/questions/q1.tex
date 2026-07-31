@@ -1,0 +1,32 @@
+\begin{question}
+\noindent A conference organiser is setting up a projector screen stand for a Model United Nations debate. The support strut $AB$ makes an angle of $38^{\circ}$ with the horizontal base $AC$, as shown in the diagram.
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    \coordinate (A) at (0,0);
+    \coordinate (C) at (5.2,0);
+    \coordinate (B) at (5.2,4.06);
+
+    \draw (A) -- (C) -- (B) -- cycle;
+
+    \draw pic[draw, angle radius=2.5mm] {right angle=B--C--A};
+    \pic [draw, "$38^{\circ}$", angle eccentricity=1.5, angle radius=0.8cm] {angle = C--A--B};
+
+    \node at (A) [left,font=\small] {$A$};
+    \node at (C) [below right,font=\small] {$C$};
+    \node at (B) [above right,font=\small] {$B$};
+
+    \draw (A) -- (C) node[midway, below] {$6.5$ cm};
+\end{tikzpicture}
+\end{center}
+
+\noindent $AC = 6.5$ cm and angle $BAC = 38^{\circ}$.
+
+Work out the length of $BC$, giving your answer correct to 1 decimal place.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answerunit{cm}{2}
+\end{flushright}
+\end{question}

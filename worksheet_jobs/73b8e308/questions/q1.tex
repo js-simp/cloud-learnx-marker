@@ -1,0 +1,53 @@
+\begin{question}
+\noindent The diagram shows a circle with centre $O$. Five features of the circle have been labelled with the letters $A$, $B$, $C$, $D$ and $E$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    % Centre
+    \coordinate (O) at (0,0);
+    \fill[black] (O) circle (0.4pt);
+    \node at (0.12,0.1) {\small $O$};
+
+    % Draw the circle
+    \draw[thick] (O) circle (1);
+
+    % A: radius from centre to a point on circle (upper right)
+    \draw[thick] (O) -- (35:1);
+    \node at (17:0.55) {$A$};
+
+    % B: chord (a straight line joining two points on the circumference, not through centre)
+    \coordinate (Bpt1) at (110:1);
+    \coordinate (Bpt2) at (200:1);
+    \draw[thick] (Bpt1) -- (Bpt2);
+    \node at (155:0.85) {$B$};
+
+    % C: tangent line touching circle at exactly one point (bottom), horizontal line perpendicular to radius at (-90:1)
+    \coordinate (Tpoint) at (0,-1);
+    \draw[thick] (-0.6,-1) -- (0.6,-1);
+    \fill[black] (Tpoint) circle (0.4pt);
+    \node at (0.55,-1.15) {$C$};
+
+    % D: sector (region between two radii and an arc), shade small wedge upper left
+    \draw[thick, fill=lightgray] (O) -- (95:1) arc (95:150:1) -- cycle;
+    \node at (122:0.6) {$D$};
+
+    % E: segment (region cut off by a chord), shade region below chord from 200 to 260
+    \draw[thick, fill=gray] (200:1) arc (200:260:1) -- cycle;
+    \node at (230:0.75) {$E$};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Using the letters $A$, $B$, $C$, $D$ and $E$ shown in the diagram, write down the letter that represents:
+
+\begin{enumerate}
+    \item[(a)] the \textbf{tangent}
+    \item[(b)] the \textbf{chord}
+\end{enumerate}
+
+\vspace{2cm}
+
+\begin{flushright}
+    \answerplain{2}
+\end{flushright}
+\end{question}

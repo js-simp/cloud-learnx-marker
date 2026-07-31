@@ -1,0 +1,62 @@
+\begin{question}
+\noindent $B$ and $D$ are points on a circle with centre $O$. $C$ is a point outside the circle, and $CB$ and $CD$ are tangents to the circle at $B$ and $D$ respectively.
+
+Angle $BCD = 38^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.4]
+    % Define the center of the circle
+    \coordinate (O) at (0,0);
+
+    % Draw the circle
+    \draw (O) circle (2cm);
+    \fill[black] (O) circle (1.5pt);
+    \node at (O) [anchor = east] {$O$};
+
+    % Place points B and D on the circumference
+    \coordinate (D) at ($(O) + (-71:2cm)$);
+    \coordinate (B) at ($(O) + (71:2cm)$);
+    \node at (B) [anchor = south east] {$B$};
+    \node at (D) [anchor = north east] {$D$};
+
+    % Draw tangents from points B and D
+    \coordinate (T1) at ($(D)!4!-90:(O)$);
+    \coordinate (T2) at ($(B)!4!90:(O)$);
+
+    \coordinate (E1) at ($(D)!1!90:(O)$);
+    \draw (D) -- (E1);
+    \coordinate (E2) at ($(B)!1!-90:(O)$);
+    \draw (B) -- (E2);
+
+    % Find intersection point C
+    \path [name path=line1] (B) -- (T2);
+    \path [name path=line2] (D) -- (T1);
+    \path [name intersections={of=line1 and line2,by={C}}];
+
+    % Draw tangent lines
+    \draw (B) -- (C) -- (D);
+    \node at (C) [anchor = west] {$C$};
+
+    % Draw radii to O
+    \draw (O) -- (B);
+    \draw (O) -- (D);
+
+    % Right angle marks at B and D
+    \tkzMarkRightAngle[size=.25](O,B,C);
+    \tkzMarkRightAngle[size=.25](C,D,O);
+
+    % Mark angle BCD
+    \pic [draw, "$38^\circ$", angle eccentricity=1.5, angle radius = 0.5cm] {angle = D--C--B};
+
+    % Mark angle x at DBC (angle CBD)
+    \pic [draw, "$x$", angle eccentricity=1.6, angle radius = 0.7cm] {angle = C--B--D};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the size of angle $x$, marked in the diagram as angle $CBD$.
+
+Give a reason for each stage of your working.
+\vspace{5cm}
+\answerequnit{x}{$^\circ$}{3}
+\end{question}

@@ -1,0 +1,48 @@
+\begin{question}
+\noindent A satellite dish company is designing a new circular receiver dish, $O$ being the centre of the dish's circular rim.
+
+A straight support strut, $ST$, is bolted to the rim at point $T$ so that it just touches the rim at $T$ and does not cross into the dish — that is, $ST$ is a tangent to the circular rim at $T$.
+
+A second support beam runs from the centre $O$ of the dish to the point $T$, along the radius $OT$.
+
+The strut $ST$ makes an angle of $34^\circ$ with a horizontal mounting bar $TM$, as shown. The mounting bar $TM$ passes through $T$ and is horizontal. The radius $OT$ makes an angle of $y^\circ$ with the horizontal mounting bar $TM$, on the other side of $OT$ from the strut.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.4]
+    % Centre of dish
+    \coordinate (O) at (0,0);
+    \coordinate (T) at (1,0);
+    \coordinate (S) at (1, 1.1);
+    \coordinate (M) at (1.7, 0);
+
+    % Draw circle (dish rim)
+    \draw[thick] (O) circle (1);
+    \fill[black] (O) circle (0.6pt) node[left]{$O$};
+    \fill[black] (T) circle (0.6pt) node[right]{$T$};
+
+    % Radius OT
+    \draw[thick] (O) -- (T);
+
+    % Horizontal mounting bar through T
+    \draw[thick, dashed] (0.55,0) -- (1.7,0) node[right]{$M$};
+
+    % Tangent line ST at T, perpendicular to OT (OT is horizontal, so tangent is vertical)
+    \draw[thick] (T) -- (S) node[above]{$S$};
+
+    % angle between tangent ST and horizontal bar TM
+    \pic [draw, angle radius=8mm, "$34^\circ$"] {angle = M--T--S};
+
+    % angle y between OT and horizontal bar TM (other side, i.e. below, using O direction)
+    \pic [draw, angle radius=10mm, "$y^\circ$"] {angle = O--T--M};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent (In the diagram, $S$ is the top end of the strut, $O$ is the centre of the dish, $T$ is the point of contact on the rim, and $M$ is a point on the horizontal mounting bar.)
+
+Work out the value of $y$, the angle between the radius $OT$ and the mounting bar $TM$.
+
+You must show your working.
+\vspace{5cm}
+\answerequnit{y}{$^\circ$}{3}
+\end{question}

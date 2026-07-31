@@ -1,0 +1,58 @@
+\documentclass[11pt]{article}
+\input{layout/packages}
+
+% Declare counters expected by \begin{question} macros
+\newcounter{questionNum}
+\newcounter{totalmarks}
+\newcounter{questionmarks}
+\regtotcounter{totalmarks}
+
+% Color definitions to prevent xcolor errors
+\definecolor{primaryGreen}{RGB}{34, 139, 34}
+\definecolor{lightYellow}{RGB}{255, 255, 224}
+\definecolor{primaryBlue}{RGB}{0, 102, 204}
+
+\input{layout/macros}
+
+\pagestyle{empty}
+\begin{document}
+\begin{question}
+\noindent $A$, $B$, $C$ and $D$ are points on the circumference of a circle. The side $DC$ is extended to a point $E$, so that $DCE$ is a straight line.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.4]
+    \coordinate (A) at (150:1);
+    \coordinate (B) at (60:1);
+    \coordinate (C) at (-40:1);
+    \coordinate (D) at (220:1);
+
+    \draw[thick] (0,0) circle (1);
+    \draw[thick] (A) -- (B) -- (C) -- (D) -- cycle;
+
+    % extend DC beyond C to point E
+    \coordinate (E) at ($(D)!1.6!(C)$);
+    \draw[thick] (C) -- (E);
+
+    \node at (A) [above left] {$A$};
+    \node at (B) [above right] {$B$};
+    \node at (C) [below right] {$C$};
+    \node at (D) [below left] {$D$};
+    \node at (E) [right] {$E$};
+
+    \pic [draw, "$112^\circ$", angle eccentricity=1.4, angle radius=0.35cm] {angle = A--B--C};
+    \pic [draw, "$x$", angle eccentricity=1.5, angle radius=0.3cm] {angle = A--C--E};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $ABC = 112^\circ$.
+
+\noindent Find the size of the exterior angle $x$, giving a reason for your answer.
+\vspace{4.5cm}
+
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{3}
+\end{flushright}
+\end{question}
+
+\end{document}

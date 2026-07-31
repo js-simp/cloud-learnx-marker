@@ -1,0 +1,58 @@
+\documentclass[11pt]{article}
+\input{layout/packages}
+\input{layout/macros}
+\pagestyle{empty}
+\begin{document}
+\begin{question}
+\noindent $A$, $B$ and $D$ are points on a circle with centre $O$. $TB$ is a tangent to the circle at point $B$, where $T$ is outside the circle. $ABT$ and $OBC$ are not straight lines; $C$ is the point where $OB$ extended meets $BC$ is not needed — instead $ABCD$ is a cyclic quadrilateral, and $TB$ is a tangent to the circle at $B$, with $TBO$ meeting so that angle $OBT = 90^\circ$.
+
+Angle $OBA = 34^\circ$ and angle $BCD = 108^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.1]
+    \coordinate (O) at (0,0);
+    \draw (O) circle (1);
+    \fill (O) circle (0.35pt);
+    \node at (0.08,-0.12) {$O$};
+
+    \coordinate (B) at (-20:1);
+    \coordinate (A) at (140:1);
+    \coordinate (D) at (200:1);
+    \coordinate (C) at (260:1);
+
+    \draw (O) -- (A);
+    \draw (O) -- (B);
+    \draw (A) -- (B) -- (C) -- (D) -- cycle;
+
+    % tangent at B, perpendicular to OB
+    \coordinate (T) at ($(B)!1.6!90:(O)$);
+    \coordinate (Tb) at ($(B)!0.5!-90:(O)$);
+    \draw (Tb) -- (T);
+    \node at (T) [above right] {$T$};
+
+    \node at (A) [above left] {$A$};
+    \node at (B) [right] {$B$};
+    \node at (C) [below] {$C$};
+    \node at (D) [below left] {$D$};
+
+    \tkzMarkRightAngle[size=0.3](O,B,T);
+
+    \pic [draw, "$34^\circ$", angle eccentricity=1.5, angle radius = 0.35cm] {angle = O--B--A};
+    \pic [draw, "$108^\circ$", angle eccentricity=1.4, angle radius = 0.4cm] {angle = D--C--B};
+\end{tikzpicture}
+\end{center}
+
+\noindent Triangle $OAB$ is isosceles since $OA$ and $OB$ are both radii.
+
+\begin{enumerate}
+    \item[(a)] Find the size of angle $ABD$.
+    \vspace{4.5cm}
+    \answereq{ABD}{$^\circ$}{2}
+
+    \item[(b)] Work out the size of angle $BAD$.
+    \vspace{4cm}
+    \answereq{BAD}{$^\circ$}{2}
+\end{enumerate}
+\end{question}
+
+\end{document}

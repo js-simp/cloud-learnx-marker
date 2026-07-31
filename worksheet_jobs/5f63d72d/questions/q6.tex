@@ -1,0 +1,51 @@
+\begin{question}
+\noindent A satellite dish is modelled as a circle with centre $O$. A signal travels along a straight line from a point $P$ outside the circle, touching the edge of the dish at point $T$, where it forms a tangent to the circle. The straight line $OP$ passes through the centre.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    % centre and point of tangency
+    \coordinate (O) at (0,0);
+    \coordinate (T) at (35:1);
+
+    % draw circle and centre
+    \draw[thick] (O) circle (1);
+    \fill[black] (O) circle (0.5pt);
+    \node[below left] at (O) {$O$};
+    \node[above right] at (T) {$T$};
+
+    % radius OT
+    \draw[thick] (O) -- (T);
+
+    % tangent line at T
+    \coordinate (L1) at ($(T)!1.6!90:(O)$);
+    \coordinate (L2) at ($(T)!0.5!-90:(O)$);
+    \draw[thick] (L2) -- (L1);
+
+    % external point P on the tangent line
+    \coordinate (P) at ($(T)!1.6!90:(O)$);
+    \node[right] at (P) {$P$};
+
+    % right angle mark at T
+    \tkzMarkRightAngle[size=.15](O,T,P);
+
+    % angle at O between OT and OP line
+    \coordinate (Q) at (0,1);
+    \draw[dashed] (O) -- (Q);
+    \pic [draw, angle radius=8mm, "$x$"] {angle = T--O--Q};
+
+    \node[above] at (Q) {};
+\end{tikzpicture}
+\end{center}
+
+\noindent $OQ$ is a radius drawn vertically upwards from $O$, and $OT$ is another radius drawn to the point of contact $T$, where the angle between them is $x^\circ$.
+
+\noindent The line $TP$ is a tangent to the circle at $T$, and angle $OTP = 90^\circ$ (radius meets tangent).
+
+\noindent Given that angle $TPO = 34^\circ$, work out the value of $x$.
+
+\vspace{4cm}
+
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{3}
+\end{flushright}
+\end{question}

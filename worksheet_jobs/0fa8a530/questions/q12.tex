@@ -1,0 +1,30 @@
+\begin{question}
+\noindent A satellite dish is fixed to a support bracket mounted on a flat rooftop. The support bracket $AB$ is vertical and the strut $BC$ holds the dish in place, as shown in the diagram.
+
+$AB = 4.2$ m and $AC = 6.1$ m, where angle $A$ is a right angle.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9, transform shape]
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (0,4.2);
+    \coordinate (C) at (6.1,0);
+
+    \draw[thick] (A) -- (B) -- (C) -- cycle;
+
+    \draw pic[draw, angle radius=2.5mm] {right angle=B--A--C};
+    \pic [draw, "$x^\circ$", angle eccentricity=1.6, angle radius=0.8cm] {angle = A--C--B};
+
+    \node at (A) [below left, font=\small] {$A$};
+    \node at (B) [above left, font=\small] {$B$};
+    \node at (C) [below right, font=\small] {$C$};
+
+    \draw (A) -- (B) node[midway, left] {$4.2$ m};
+    \draw (A) -- (C) node[midway, below] {$6.1$ m};
+\end{tikzpicture}
+\end{center}
+
+\noindent Show that the angle of elevation, $x^\circ$, of the strut $BC$ from the rooftop is $34.5^\circ$, correct to $1$ decimal place.
+
+\vspace{4cm}
+\answermarks{3}
+\end{question}

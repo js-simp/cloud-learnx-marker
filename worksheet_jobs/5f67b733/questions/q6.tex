@@ -1,0 +1,38 @@
+\begin{question}
+\noindent $A$, $B$ and $C$ are points on the circumference of a circle with centre $O$.
+
+\noindent Angle $AOC = (5x + 10)^\circ$ and angle $ABC = (2x + 7)^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (150:1);
+    \coordinate (C) at (30:1);
+    \coordinate (B) at (260:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+    \fill[black] (O) circle (0.7pt);
+    \node[below] at (O) {$O$};
+
+    \draw (A) -- (O);
+    \draw (O) -- (C);
+    \draw (A) -- (B);
+    \draw (B) -- (C);
+
+    \node[above left] at (A) {$A$};
+    \node[above right] at (C) {$C$};
+    \node[below] at (B) {$B$};
+
+    \pic [draw, "$(5x+10)^\circ$", angle eccentricity=1.6, angle radius = 0.5cm] {angle = A--O--C};
+    \pic [draw, "$(2x+7)^\circ$", angle eccentricity=1.6, angle radius = 0.5cm] {angle = C--B--A};
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the size of angle $ABC$.
+
+\vspace{5cm}
+
+\begin{flushright}
+\answerequnit{ABC}{$^\circ$}{3}
+\end{flushright}
+\end{question}

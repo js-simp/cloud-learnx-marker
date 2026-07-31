@@ -1,0 +1,49 @@
+\documentclass[11pt]{article}
+\input{layout/packages}
+\input{layout/macros}
+\pagestyle{empty}
+\begin{document}
+\begin{question}
+\noindent $A$ is a point on a circle, centre $O$. The line $TA$ is a tangent to the circle at $A$.
+$OT$ is a straight line from the centre $O$ to a point $T$ outside the circle, and $OA$ is a radius.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (-90:1);
+
+    % circle and centre
+    \draw[name path=circ] (0,0) circle (1);
+    \fill[black] (0,0) circle (1pt);
+
+    % radius OA
+    \draw (O) -- (A);
+
+    % tangent at A
+    \draw (A) -- ($(A)!1.8!-90:(O)$) coordinate (L);
+    \draw (A) -- ($(A)!1.8!90:(O)$) coordinate (T);
+
+    % right angle mark at A between radius and tangent
+    \tkzMarkRightAngle[size=.2](O,A,T);
+
+    % labels
+    \node at (0,0) [above] {$O$};
+    \node at (A) [below left] {$A$};
+    \node at (T) [right] {$T$};
+
+    % angle at O
+    \pic [draw, "$34^\circ$", angle eccentricity=1.5, angle radius = 0.5cm] {angle = A--O--T};
+
+    % angle x at T
+    \pic [draw, "$x$", angle eccentricity=1.5, angle radius = 0.5cm] {angle = T--A--O};
+\end{tikzpicture}
+\end{center}
+
+\noindent Given that angle $AOT = 34^\circ$, work out the size of angle $x$, the angle between the tangent $TA$ and the line $OT$.
+
+\vspace{4cm}
+\begin{flushright}
+    \answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}
+\end{document}

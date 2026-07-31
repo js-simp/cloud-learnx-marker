@@ -1,0 +1,47 @@
+\documentclass[11pt]{article}
+\input{layout/packages}
+\input{layout/macros}
+\pagestyle{empty}
+\begin{document}
+\begin{question}
+\noindent $A$, $B$, $C$ and $D$ are four points on the circumference of a circle. Chords $AC$ and $BD$ are drawn, and $A$, $D$ both lie on the same side of chord $BC$, subtending angles onto it from the arc as shown.
+
+$AB$ and $DC$ are chords, and angle $DAC$ and angle $DBC$ are both angles subtended by the arc $DC$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate (B) at (150:1);
+    \coordinate (A) at (95:1);
+    \coordinate (D) at (-20:1);
+    \coordinate (C) at (-110:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+
+    \draw (A) -- (D);
+    \draw (B) -- (D);
+    \draw (A) -- (C);
+    \draw (B) -- (C);
+    \draw (D) -- (C);
+
+    \node[above] at (A) {$A$};
+    \node[above left] at (B) {$B$};
+    \node[right] at (D) {$D$};
+    \node[below] at (C) {$C$};
+
+    \pic [draw, "$35^\circ$", angle eccentricity=1.6, angle radius = 0.5cm] {angle = D--A--C};
+    \pic [draw, "$x$", angle eccentricity=1.6, angle radius = 0.5cm] {angle = D--B--C};
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $DAC = 35^\circ$.
+
+Angles $DAC$ and $DBC$ are subtended by the same arc $DC$.
+
+Find the size of angle $x$.
+\vspace{4cm}
+\begin{flushright}
+    \answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}
+
+\end{document}

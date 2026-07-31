@@ -1,0 +1,57 @@
+\begin{question}
+\noindent A satellite dish tracking station is represented by point $P$, outside a circular signal boundary with centre $O$. Two straight signal paths, $PA$ and $PB$, are drawn from $P$ so that they just touch the circular boundary at points $A$ and $B$, as shown in the diagram.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    % centre of circle
+    \coordinate (O) at (0,0);
+
+    % points on circle for tangent points
+    \coordinate (A) at ($(O) + (110:1cm)$);
+    \coordinate (B) at ($(O) + (250:1cm)$);
+
+    % draw circle
+    \draw[thick] (O) circle (1cm);
+    \fill[black] (O) circle (0.5pt);
+
+    % tangent lines extended to meet at external point P
+    \coordinate (P) at ($(A)!4!90:(O)$);
+    \path[name path=line1] (A) -- ($(A)!4!90:(O)$);
+    \path[name path=line2] (B) -- ($(B)!4!-90:(O)$);
+    \path[name intersections={of=line1 and line2, by={P}}];
+
+    % draw tangent lines from P
+    \draw[thick] (P) -- (A);
+    \draw[thick] (P) -- (B);
+
+    % draw radii
+    \draw[thick] (O) -- (A);
+    \draw[thick] (O) -- (B);
+
+    % right angle marks at tangent points
+    \tkzMarkRightAngle[size=.15](O,A,P);
+    \tkzMarkRightAngle[size=.15](P,B,O);
+
+    % angle at P
+    \pic [draw, angle eccentricity=1.4, angle radius=6mm, "$34^\circ$"] {angle = B--P--A};
+
+    % angle at A we need to find
+    \pic [draw, angle eccentricity=1.5, angle radius=5mm, "$x$"] {angle = P--A--O};
+
+    % labels
+    \node at (O) [below] {$O$};
+    \node at (A) [above left] {$A$};
+    \node at (B) [below left] {$B$};
+    \node at (P) [right] {$P$};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent $PA$ and $PB$ are tangents to the circle, and angle $APB = 34^\circ$.
+
+\noindent Find the size of angle $PAO$, marked $x$ on the diagram.
+\vspace{4cm}
+\begin{flushright}
+    \answerequnit{x}{$^\circ$}{3}
+\end{flushright}
+\end{question}

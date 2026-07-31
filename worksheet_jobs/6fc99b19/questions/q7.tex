@@ -1,0 +1,47 @@
+\begin{question}
+\noindent $PQ$ is a tangent to the circle at point $C$. $A$, $B$ and $C$ are points on the circumference, and $AB$, $AC$ and $BC$ are chords.
+
+\noindent The angle between the tangent $PQ$ and the chord $CB$ is $71^\circ$. The angle between the tangent $PQ$ and the chord $CA$ is $58^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    % mark points on circle
+        \coordinate[label = right:$E$] (E) at (0,0);
+        \coordinate[label=below:$C$] (C) at (-90:1);
+        \coordinate[label=above:$A$] (A) at (100:1);
+
+    % draw circle
+        \draw[name path=circ] (0,0) circle (1);
+
+    % draw tangent through C
+    \draw (C) -- ($(C)!1.6!-90:(E)$) coordinate (L) node[right]{$Q$};
+    \draw (C) -- ($(C)!1.6!90:(E)$) coordinate (M) node[left]{$P$};
+
+    % locate B on circle so that angle between tangent and CB is 71 deg
+    \path[name path=CB] (C) -- ($(C)!1.6!-19:(E)$);
+    \path[name intersections={of=CB and circ, by={temp,B}}];
+    \node at (B) [anchor=west] {$B$};
+
+    % locate A on circle so that angle between tangent and CA is 58 deg (already placed A at 100 deg, draw chord)
+    \draw (A) -- (B);
+    \draw (A) -- (C);
+    \draw (C) -- (B);
+
+    \pic [draw, "$71^\circ$", angle eccentricity=1.4, angle radius = 0.9cm] {angle = L--C--B};
+    \pic [draw, "$58^\circ$", angle eccentricity=1.6, angle radius = 0.6cm] {angle = A--C--M};
+    \pic [draw, "$x$", angle eccentricity=1.5, angle radius = 0.5cm] {angle = C--A--B};
+
+    %marking right angles
+    \tkzMarkRightAngle[size=.15](L,C,E);
+\end{tikzpicture}
+\end{center}
+
+\noindent Find the size of angle $x = ACB$'s alternate angle, angle $BAC$, marked $x$ on the diagram.
+
+\noindent Give a reason for each stage of your working.
+\vspace{4.5cm}
+
+\begin{flushright}
+    \answerequnit{x}{$^\circ$}{3}
+\end{flushright}
+\end{question}

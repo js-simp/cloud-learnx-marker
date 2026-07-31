@@ -1,0 +1,31 @@
+\begin{question}
+\noindent An observatory has a circular viewing window, and archaeologists are also studying an ancient circular mosaic floor with four inscribed decorative points forming quadrilateral $PQRS$, all lying on the boundary of the circle.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate[label=above left:$P$] (P) at (130:1);
+    \coordinate[label=below left:$Q$] (Q) at (200:1);
+    \coordinate[label=below right:$R$] (R) at (320:1);
+    \coordinate[label=above right:$S$] (S) at (60:1);
+    \draw[name path=circ] (0,0) circle (1);
+    \draw[line join=bevel] (P) -- (Q) -- (R) -- (S) -- cycle;
+
+    \pic [draw, "$(2x+10)^\circ$", angle eccentricity=1.5, angle radius = 0.4cm] {angle = S--P--Q};
+    \pic [draw, "$(3x-5)^\circ$", angle eccentricity=1.6, angle radius = 0.35cm] {angle = P--R--S};
+    \pic [draw, "$y^\circ$", angle eccentricity=1.6, angle radius = 0.4cm] {angle = P--Q--R};
+\end{tikzpicture}
+\end{center}
+
+\noindent $P$, $Q$, $R$ and $S$ are points on the circumference of a circle.
+Angle $QPS = (2x+10)^\circ$ and angle $QRS = (3x-5)^\circ$.
+
+\begin{enumerate}
+    \item[(a)] Find the value of $x$.
+    \vspace{4cm}
+    \answereq{x}{2}
+
+    \item[(b)] Hence find the size of angle $QPS$.
+    \vspace{2cm}
+    \answerequnit{QPS}{$^\circ$}{1}
+\end{enumerate}
+\end{question}

@@ -1,0 +1,40 @@
+\documentclass[11pt]{article}
+\input{layout/packages}
+\input{layout/macros}
+\pagestyle{empty}
+\begin{document}
+\begin{question}
+\noindent A science lab has two mathematically similar glass beakers, used for measuring liquid volumes. The smaller beaker has a height of $6$ cm and the larger, similar beaker has a height of $15$ cm.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.5]
+    % Small cylinder (beaker)
+    \draw (0,0) ellipse (1.2 and 0.4);
+    \draw (-1.2,0) -- (-1.2,6);
+    \draw (1.2,0) -- (1.2,6);
+    \draw (-1.2,6) arc (180:360:1.2 and 0.4);
+    \draw[dashed] (-1.2,6) arc (180:0:1.2 and 0.4);
+    \node at (0,-1.2) {$6$ cm};
+    \draw[<->] (-2,0) -- (-2,6);
+    \node at (-2.5,3) {};
+
+    % Large cylinder (beaker), placed to the right, taller
+    \begin{scope}[xshift=6.5cm]
+        \draw (0,0) ellipse (2 and 0.6);
+        \draw (-2,0) -- (-2,15);
+        \draw (2,0) -- (2,15);
+        \draw (-2,15) arc (180:360:2 and 0.6);
+        \draw[dashed] (-2,15) arc (180:0:2 and 0.6);
+        \node at (0,-1.2) {$15$ cm};
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the linear scale factor of enlargement from the smaller beaker to the larger beaker.
+\vspace{4cm}
+\begin{flushright}
+    \answerplain{2}
+\end{flushright}
+\end{question}
+
+\end{document}

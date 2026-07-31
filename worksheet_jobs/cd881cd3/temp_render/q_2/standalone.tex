@@ -1,0 +1,59 @@
+\documentclass[11pt]{article}
+\input{layout/packages}
+
+% Declare counters expected by \begin{question} macros
+\newcounter{questionNum}
+\newcounter{totalmarks}
+\newcounter{questionmarks}
+\regtotcounter{totalmarks}
+
+% Color definitions to prevent xcolor errors
+\definecolor{primaryGreen}{RGB}{34, 139, 34}
+\definecolor{lightYellow}{RGB}{255, 255, 224}
+\definecolor{primaryBlue}{RGB}{0, 102, 204}
+
+\input{layout/macros}
+
+\pagestyle{empty}
+\begin{document}
+\begin{question}
+\noindent In the diagram, $A$, $B$ and $C$ are points on the circumference of a circle with centre $O$.
+
+\noindent $AOB$ is the angle at the centre and $ACB$ is the angle at the circumference, both standing on the same arc $AB$.
+
+\noindent Angle $AOB = 80^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (130:1);
+    \coordinate (B) at (50:1);
+    \coordinate (C) at (260:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+    \fill[black] (0,0) circle (0.6pt);
+
+    \draw (O) -- (A);
+    \draw (O) -- (B);
+    \draw (A) -- (C);
+    \draw (C) -- (B);
+
+    \node[above left] at (A) {$A$};
+    \node[above right] at (B) {$B$};
+    \node[below] at (C) {$C$};
+    \node[below] at (O) {$O$};
+
+    \pic [draw, "$80^\circ$", angle eccentricity=1.5, angle radius = 0.5cm] {angle = B--O--A};
+    \pic [draw, "$x$", angle eccentricity=1.6, angle radius = 0.45cm] {angle = A--C--B};
+\end{tikzpicture}
+\end{center}
+
+\noindent Find the size of angle $x$, the angle at the circumference.
+\vspace{4cm}
+
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}
+
+\end{document}

@@ -1,0 +1,34 @@
+\begin{question}
+\noindent A logo designer is working on a circular badge design in her UI/UX portfolio. The badge is based on a circle with centre $O$. Points $A$, $B$ and $C$ lie on the circumference, and $AB$ and $BC$ are chords of the circle.
+
+The angle at the circumference, $\angle ABC$, is $58^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.4]
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (150:1);
+    \coordinate (B) at (-40:1);
+    \coordinate (C) at (250:1);
+
+    \draw[fill=orange!15] (0,0) circle (1);
+    \fill[black] (O) circle (0.6pt);
+    \node[below] at (O) {$O$};
+
+    \draw (A) -- (O) -- (C);
+    \draw (A) -- (B) -- (C);
+
+    \node[above left] at (A) {$A$};
+    \node[right] at (B) {$B$};
+    \node[below left] at (C) {$C$};
+
+    \pic [draw, "$x$", angle eccentricity=1.6, angle radius = 0.55cm] {angle = A--O--C};
+    \pic [draw, "$58^\circ$", angle eccentricity=1.5, angle radius = 0.45cm] {angle = C--B--A};
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the size of angle $x$, the reflex-free angle $AOC$ at the centre of the circle.
+
+Give a reason for your answer.
+\vspace{4cm}
+\answerequnit{x}{$^\circ$}{3}
+\end{question}

@@ -1,0 +1,56 @@
+\begin{question}
+\noindent A space agency is designing a circular observation window for a module. Points $A$, $B$ and $C$ lie on the circumference of the circular window, with centre $O$. The line $TCS$ is a tangent to the circle at $C$.
+
+$OA = OC$ (radii of the circle), and the angle at the centre $AOC = (4x + 10)^\circ$.
+
+The angle between the tangent $TC$ and the chord $CB$ is $BCT = (3x - 5)^\circ$.
+
+$B$ lies on the circle such that angle $ABC$ is the angle in the alternate segment to angle $BCT$, and angle $ABC$ also lies on the arc such that it is subtended by the same arc $AC$ as the angle at the centre $AOC$ (i.e. $ABC$ is the angle at the circumference standing on arc $AC$, opposite $O$).
+
+\begin{center}
+\begin{tikzpicture}[scale=2.3]
+    % Centre and circle
+    \coordinate (O) at (0,0);
+    \draw[name path=circ] (0,0) circle (1);
+    \fill[black] (0,0) circle (0.4pt);
+    \node[below left] at (O) {$O$};
+
+    % Points on circle
+    \coordinate (A) at (150:1);
+    \coordinate (C) at (-70:1);
+    \coordinate (B) at (30:1);
+
+    \node[above left] at (A) {$A$};
+    \node[below] at (C) {$C$};
+    \node[above right] at (B) {$B$};
+
+    % radii
+    \draw (O) -- (A);
+    \draw (O) -- (C);
+
+    % chords
+    \draw (A) -- (B);
+    \draw (B) -- (C);
+    \draw (A) -- (C);
+
+    % tangent at C
+    \draw (C) -- ($(C)!1.4!-90:(O)$) coordinate (S) node[below right]{$S$};
+    \draw (C) -- ($(C)!1.4!90:(O)$) coordinate (T) node[above left]{$T$};
+
+    % right angle mark between radius OC and tangent
+    \tkzMarkRightAngle[size=0.15](O,C,S);
+
+    % angle labels
+    \pic [draw, "$(4x+10)^\circ$", angle eccentricity=1.5, angle radius=0.45cm] {angle = C--O--A};
+    \pic [draw, "$(3x-5)^\circ$", angle eccentricity=1.6, angle radius=0.5cm] {angle = B--C--S};
+\end{tikzpicture}
+\end{center}
+
+\noindent Show that angle $ABC$ and angle $BCT$ are \textbf{not} equal unless $x$ takes a specific value, and find the value of $x$ for which angle $ABC =$ angle $BCT$.
+
+\vspace{4cm}
+
+\begin{flushright}
+\answermarks{4}
+\end{flushright}
+\end{question}

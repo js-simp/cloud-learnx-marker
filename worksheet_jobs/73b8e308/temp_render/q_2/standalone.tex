@@ -1,0 +1,51 @@
+\documentclass[11pt]{article}
+\input{layout/packages}
+
+% Declare counters expected by \begin{question} macros
+\newcounter{questionNum}
+\newcounter{totalmarks}
+\newcounter{questionmarks}
+\regtotcounter{totalmarks}
+
+% Color definitions to prevent xcolor errors
+\definecolor{primaryGreen}{RGB}{34, 139, 34}
+\definecolor{lightYellow}{RGB}{255, 255, 224}
+\definecolor{primaryBlue}{RGB}{0, 102, 204}
+
+\input{layout/macros}
+
+\pagestyle{empty}
+\begin{document}
+\begin{question}
+\noindent A UI/UX designer is creating a badminton scoreboard app. The app displays a triangular banner graphic, shown below as triangle $ABC$, right-angled at $C$.
+
+The hypotenuse $AB = 18$ cm and angle $BAC = 24^{\circ}$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9, transform shape]
+    \coordinate (A) at (0,0);
+    \coordinate (C) at (4.9,0);
+    \coordinate (B) at (4.9,2.2);
+
+    \draw (A) -- (B) -- (C) -- cycle;
+
+    \draw pic[draw, angle radius=2.5mm] {right angle=B--C--A};
+    \pic [draw, "$24^{\circ}$", angle eccentricity=1.6, angle radius=0.7cm] {angle = C--A--B};
+
+    \node at (A) [left,font=\small] {$A$};
+    \node at (C) [below,font=\small] {$C$};
+    \node at (B) [above right,font=\small] {$B$};
+
+    \draw (A) -- (B) node[midway, above left] {$18$ cm};
+    \node at (5.4, 1.1) [font=\small] {$x$ cm};
+\end{tikzpicture}
+\end{center}
+
+\noindent Calculate the length of $BC$, marked $x$ on the diagram.
+Give your answer correct to 3 significant figures.
+\vspace{4cm}
+\begin{flushright}
+    \answerunit{cm}{2}
+\end{flushright}
+\end{question}
+\end{document}

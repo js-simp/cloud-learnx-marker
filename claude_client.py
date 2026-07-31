@@ -12,7 +12,7 @@ import re
 import time
 import anthropic
 from pydantic import BaseModel
-from typing import Type, TypeVar
+from typing import Type, TypeVar, Optional
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -65,9 +65,9 @@ def generate_structured(
     user_message:  str,
     output_model:  Type[T],
     tool_name:     str,
-    model:         str   = MODEL_SONNET,
-    max_tokens:    int   = 4096,
-    temperature:   float = None,
+    model:         str             = MODEL_SONNET,
+    max_tokens:    int             = 4096,
+    temperature:   Optional[float] = None,
 ) -> T:
     """
     Calls Claude with forced tool-use to get reliable structured JSON output,
@@ -75,15 +75,19 @@ def generate_structured(
     """
     tool = pydantic_to_tool_schema(output_model, tool_name)
 
+    kwargs = {
+        "model": model,
+        "max_tokens": max_tokens,
+        "system": system_blocks,
+        "messages": [{"role": "user", "content": user_message}],
+        "tools": [tool],
+        "tool_choice": {"type": "tool", "name": tool_name},
+    }
+    if temperature is not None:
+        kwargs["temperature"] = float(temperature)
+
     def _call():
-        return client.messages.create(
-            model=model,
-            max_tokens=max_tokens,
-            system=system_blocks,
-            messages=[{"role": "user", "content": user_message}],
-            tools=[tool],
-            tool_choice={"type": "tool", "name": tool_name},
-        )
+        return client.messages.create(**kwargs)
 
     response = call_with_retry(_call)
 
@@ -105,19 +109,22 @@ def generate_structured(
 def generate_text(
     system_blocks: list,
     user_message:  str,
-    model:         str   = MODEL_SONNET,
-    max_tokens:    int   = 4096,
-    temperature:   float = None,
+    model:         str             = MODEL_SONNET,
+    max_tokens:    int             = 4096,
+    temperature:   Optional[float] = None,
 ) -> str:
     """Plain text generation — used for LaTeX fix-up, no structured schema needed."""
+    kwargs = {
+        "model": model,
+        "max_tokens": max_tokens,
+        "system": system_blocks,
+        "messages": [{"role": "user", "content": user_message}],
+    }
+    if temperature is not None:
+        kwargs["temperature"] = float(temperature)
+
     def _call():
-        return client.messages.create(
-            model=model,
-            max_tokens=max_tokens,
-            temperature=temperature,
-            system=system_blocks,
-            messages=[{"role": "user", "content": user_message}],
-        )
+        return client.messages.create(**kwargs)
 
     response = call_with_retry(_call)
     return "".join(b.text for b in response.content if b.type == "text").strip()

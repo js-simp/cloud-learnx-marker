@@ -1,0 +1,34 @@
+\documentclass[11pt]{article}
+\input{layout/packages}
+\input{layout/macros}
+\pagestyle{empty}
+\begin{document}
+\begin{question}
+\noindent $A$, $B$, $C$ and $D$ are points on the circumference of a circle, forming a cyclic quadrilateral $ABCD$.
+
+Angle $A = (2x + 15)^\circ$ and angle $C = (3x - 35)^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate[label=left:$A$] (A) at (150:1);
+    \coordinate[label=above right:$B$] (B) at (60:1);
+    \coordinate[label=right:$C$] (C) at (-30:1);
+    \coordinate[label=below left:$D$] (D) at (220:1);
+    \draw[name path=circ] (0,0) circle (1);
+    \draw[line join=bevel] (A) -- (B) -- (C) -- (D) -- cycle;
+
+    \pic [draw, "$(2x+15)^\circ$", angle eccentricity=1.6, angle radius = 0.35cm] {angle = D--A--B};
+    \pic [draw, "$(3x-35)^\circ$", angle eccentricity=1.6, angle radius = 0.35cm] {angle = B--C--D};
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the sizes of angle $A$ and angle $C$.
+
+\vspace{4.5cm}
+
+\begin{flushright}
+\answerplain{3}
+\end{flushright}
+\end{question}
+
+\end{document}

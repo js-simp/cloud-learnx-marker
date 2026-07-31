@@ -1,0 +1,57 @@
+\begin{question}
+\noindent A radio telescope's circular dish is supported by a rigid strut $PT$, which lies along a line that just touches the circular rim of the dish at point $T$, without crossing into the dish. The centre of the dish is $O$.
+
+A second support cable runs from $O$ to the strut, meeting it at an external point $P$, where the cable makes an angle of $34^\circ$ with the line $OP$, as shown.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.7]
+    % centre and tangent point
+    \coordinate (O) at (0,0);
+    \coordinate (T) at (90:1.6);
+
+    % circle (dish cross-section)
+    \draw[thick] (O) circle (1.6);
+    \fill[black] (O) circle (1.5pt);
+    \fill[black] (T) circle (1.5pt);
+
+    % radius OT
+    \draw[thick] (O) -- (T);
+
+    % tangent line at T (strut PT), extending down-right to P
+    \coordinate (P) at ($(T) + (2.8, -3.2)$);
+    \draw[thick] (T) -- ($(T)!2.6!-90:(O)$) coordinate (Ldir);
+    \draw[thick] (T) -- (Ldir);
+
+    % find P on the tangent line at a sensible distance
+    \coordinate (P) at ($(T)!2.3!-90:(O)$);
+    \fill[black] (P) circle (1.5pt);
+
+    % cable OP
+    \draw[thick] (O) -- (P);
+
+    % labels
+    \node at (T) [above] {$T$};
+    \node at (O) [left] {$O$};
+    \node at (P) [below right] {$P$};
+
+    % right angle at T between OT and tangent
+    \tkzMarkRightAngle[size=0.25](O,T,P);
+
+    % angle at P between OP and tangent PT
+    \pic [draw, "$34^\circ$", angle eccentricity=1.5, angle radius=0.5cm] {angle = O--P--T};
+
+    % angle x at O
+    \pic [draw, "$x$", angle eccentricity=1.5, angle radius=0.6cm] {angle = P--O--T};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent The strut $PT$ is a tangent to the circular cross-section of the dish at $T$.
+
+\noindent Work out the size of angle $x$, the angle between the cable $OP$ and the radius $OT$.
+
+\vspace{4cm}
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{3}
+\end{flushright}
+\end{question}

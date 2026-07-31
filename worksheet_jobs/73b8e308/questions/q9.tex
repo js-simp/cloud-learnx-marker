@@ -1,0 +1,49 @@
+\begin{question}
+\noindent A satellite tracking station uses a circular dish. Two straight support cables run from an external anchor point $P$ on the ground to the points $A$ and $B$ on the rim of the dish, each cable touching the circular rim as a tangent. The centre of the dish is $O$.
+
+\noindent Given that $OA$ and $OB$ are radii, angle $OAP = 90^\circ$, angle $OBP = 90^\circ$, and angle $APB = 38^\circ$, find the size of angle $AOB$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+    % Centre of circle
+    \coordinate (O) at (0,0);
+    \draw[thick] (O) circle (1.6cm);
+    \fill[black] (O) circle (1.2pt);
+    \node[below left] at (O) {$O$};
+
+    % Tangent points A and B on circumference (angle AOP = angle BOP = 71 degrees)
+    \coordinate (A) at (0.520, 1.513);
+    \coordinate (B) at (0.520, -1.513);
+
+    % External point P such that OA perp AP and OB perp BP, angle APB = 38 degrees
+    \coordinate (P) at (4.914, 0);
+
+    \fill[black] (A) circle (1pt);
+    \fill[black] (B) circle (1pt);
+    \fill[black] (P) circle (1.2pt);
+
+    % Tangent lines and radii
+    \draw[thick] (P) -- (A);
+    \draw[thick] (P) -- (B);
+    \draw[thick] (O) -- (A);
+    \draw[thick] (O) -- (B);
+    \draw[thick, dashed] (O) -- (P);
+
+    \node[above right] at (A) {$A$};
+    \node[below right] at (B) {$B$};
+    \node[right] at (P) {$P$};
+
+    % Right angle marks at A and B
+    \tkzMarkRightAngle[size=.25](O,A,P);
+    \tkzMarkRightAngle[size=.25](P,B,O);
+
+    % Angle at P
+    \pic [draw, angle radius=8mm, "$38^\circ$"] {angle = A--P--B};
+\end{tikzpicture}
+\end{center}
+
+\vspace{4cm}
+\begin{flushright}
+    \answerequnit{AOB}{$^\circ$}{3}
+\end{flushright}
+\end{question}

@@ -1,0 +1,47 @@
+\begin{question}
+\noindent A scientist is using a telescope mounted at the top of a laboratory tower to observe a specimen resting on a flat table in the courtyard below.
+
+The telescope is at point $T$, which is $18$ m above the level of the table. The specimen is at point $S$ on the table. The angle of depression from $T$ to $S$ is $27^{\circ}$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8, transform shape]
+    % Define the points
+    \coordinate (T) at (0,6);
+    \coordinate (F) at (0,0);
+    \coordinate (S) at (11.78,0);
+    \coordinate (H) at (2.5,6);
+
+    % Draw the vertical tower
+    \draw[thick] (T) -- (F);
+    \draw[thick] (F) -- (S);
+    \draw[thick] (T) -- (S);
+
+    % Horizontal dashed line from T
+    \draw[dashed] (T) -- (H);
+
+    % Angle of depression at T
+    \pic [draw, angle radius=1.2cm, "$27^{\circ}$"] {angle = H--T--S};
+
+    % Right angle at F
+    \draw pic[draw, angle radius=2.5mm] {right angle=S--F--T};
+
+    % Labels
+    \node at (T) [left, font=\small] {$T$};
+    \node at (F) [below left, font=\small] {$F$};
+    \node at (S) [below right, font=\small] {$S$};
+
+    \node at (-0.6,3) [font=\small] {$18$ m};
+\end{tikzpicture}
+\end{center}
+
+\noindent $F$ is the point on the table directly below the telescope, so that $TF$ is vertical and $FS$ is horizontal.
+
+Calculate the horizontal distance $FS$ from the base of the tower to the specimen.
+
+Give your answer correct to 3 significant figures.
+
+\vspace{4cm}
+\begin{flushright}
+    \answerunit{m}{3}
+\end{flushright}
+\end{question}

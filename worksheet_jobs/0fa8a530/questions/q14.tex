@@ -1,0 +1,36 @@
+\begin{question}
+\noindent A company designs a digital-art scanning stand used to photograph miniature models for a UI/UX product catalogue. Before manufacturing the full-size stand, the design team builds a small demonstration model that is mathematically similar to the full-size stand.
+
+\noindent On the demonstration model, the support arm $AC$ leans against the vertical column $AB$, touching the base at $C$. The support arm makes an angle of $58^\circ$ with the base $BC$, and $AC = 18$ cm.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.6]
+    \coordinate (B) at (0,0);
+    \coordinate (A) at (0,7);
+    \coordinate (C) at (11,0);
+
+    \draw[thick] (B) -- (A);
+    \draw[thick] (B) -- (C);
+    \draw[thick] (A) -- (C);
+
+    \draw pic[draw, angle radius=3mm] {right angle=C--B--A};
+    \pic [draw, angle radius=8mm, "$58^\circ$"] {angle = A--C--B};
+
+    \node at (B) [below left] {$B$};
+    \node at (A) [above] {$A$};
+    \node at (C) [below right] {$C$};
+
+    \node at (5.5,-0.6) {};
+    \draw (A) -- (C) node[midway, above right] {$18$ cm};
+\end{tikzpicture}
+\end{center}
+
+\noindent The full-size stand is a mathematically similar (enlarged) version of the demonstration model. The base $BC$ of the full-size stand measures $220$ cm, whereas the base $BC$ of the demonstration model measures $66$ cm.
+
+\noindent Work out the height $AB$ of the vertical column on the \textbf{full-size} stand.
+
+\vspace{6cm}
+\begin{flushright}
+    \answerunit{cm}{4}
+\end{flushright}
+\end{question}

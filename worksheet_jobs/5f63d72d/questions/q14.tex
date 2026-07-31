@@ -1,0 +1,70 @@
+\begin{question}
+\noindent A space agency is designing a circular observation window for a research module. In the diagram, $A$, $B$ and $D$ lie on a circle with centre $O$. $TA$ is a tangent to the circle at $A$. $TBD$ is not a straight line; instead $T$ is an external point where the tangent at $A$ meets the extended chord $OB$.
+
+$OA = OB$ (radii of the circle). Angle $OAT = 90^\circ$ (tangent-radius property). Angle $ATB = 34^\circ$. $ABCD$ is a cyclic quadrilateral, with $C$ also on the circle, and angle $ADC = 118^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    % Circle centre O
+    \coordinate (O) at (0,0);
+    \draw (O) circle (1);
+    \fill[black] (O) circle (0.4pt);
+    \node[below left] at (O) {$O$};
+
+    % Points on circle
+    \coordinate (A) at (-90:1);
+    \coordinate (B) at (30:1);
+    \coordinate (D) at (160:1);
+    \coordinate (C) at (75:1);
+
+    % radii
+    \draw (O) -- (A);
+    \draw (O) -- (B);
+
+    % extend OB to external point T where tangent at A meets it
+    \path[name path=OBext] (O) -- ($(O)!2.4!(B)$);
+    \path[name path=tangentA] (A) -- ($(A)!3!90:(O)$);
+    \path[name intersections={of=OBext and tangentA, by=T}];
+    \draw (O) -- (T);
+    \draw (A) -- (T);
+
+    % chords
+    \draw (A) -- (B);
+    \draw (A) -- (D);
+    \draw (B) -- (C);
+    \draw (C) -- (D);
+    \draw (A) -- (C);
+
+    % labels
+    \node[below] at (A) {$A$};
+    \node[right] at (B) {$B$};
+    \node[above right] at (T) {$T$};
+    \node[left] at (D) {$D$};
+    \node[above] at (C) {$C$};
+
+    % right angle at A between tangent and radius
+    \tkzMarkRightAngle[size=0.15](O,A,T);
+
+    % angle at T
+    \pic [draw, "$34^\circ$", angle eccentricity=1.5, angle radius=0.4cm] {angle = A--T--O};
+
+    % angle ADC
+    \pic [draw, "$118^\circ$", angle eccentricity=1.4, angle radius=0.5cm] {angle = C--D--A};
+
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item[(a)] Find the size of angle $OAT$, giving a reason.
+    \vspace{2.5cm}
+    \answerequnit{OAT}{$^\circ$}{1}
+
+    \item[(b)] Work out the size of angle $AOB$.
+    \vspace{4cm}
+    \answerequnit{AOB}{$^\circ$}{2}
+
+    \item[(c)] Work out the size of angle $ABC$.
+    \vspace{4cm}
+    \answerequnit{ABC}{$^\circ$}{1}
+\end{enumerate}
+\end{question}

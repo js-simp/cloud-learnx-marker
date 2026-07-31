@@ -1,0 +1,31 @@
+\begin{question}
+\noindent A UI/UX designer is laying out a triangular navigation icon for an app. The icon is designed as a right-angled triangle, as shown below.
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (5.2,0);
+    \coordinate (C) at (0,3.6);
+
+    \draw[thick] (A) -- (B) -- (C) -- cycle;
+
+    \draw pic[draw, angle radius=2.5mm] {right angle=B--A--C};
+    \pic [draw, "$x$", angle eccentricity=1.6, angle radius=0.7cm] {angle = A--C--B};
+
+    \node at (A) [below left, font=\small] {$A$};
+    \node at (B) [below right, font=\small] {$B$};
+    \node at (C) [above left, font=\small] {$C$};
+
+    \draw (A) -- (B) node[midway, below] {$5.2$ cm};
+    \draw (A) -- (C) node[midway, left] {$3.6$ cm};
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the size of angle $x$, giving your answer correct to 1 decimal place.
+
+\vspace{4cm}
+
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}

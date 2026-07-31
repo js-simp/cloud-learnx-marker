@@ -1,0 +1,45 @@
+\documentclass[11pt]{article}
+\input{layout/packages}
+\input{layout/macros}
+\pagestyle{empty}
+\begin{document}
+\begin{question}
+\noindent $A$, $B$ and $C$ are points on the circumference of a circle with centre $O$.
+
+\noindent Angle $AOB$ is the angle at the centre and angle $ACB$ is the angle at the circumference, both standing on the same arc $AB$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (130:1);
+    \coordinate (B) at (-30:1);
+    \coordinate (C) at (260:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+    \fill[black] (0,0) circle (0.4pt);
+    \draw (A) -- (O) -- (B);
+    \draw (A) -- (C);
+    \draw (C) -- (B);
+
+    \node[above left] at (A) {$A$};
+    \node[right] at (B) {$B$};
+    \node[below] at (C) {$C$};
+    \node[above] at (0,-0.05) {$O$};
+
+    \pic [draw, "$118^\circ$", angle eccentricity=1.5, angle radius = 0.5cm] {angle = B--O--A};
+    \pic [draw, "$x$", angle eccentricity=1.4, angle radius = 0.5cm] {angle = B--C--A};
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $AOB = 118^\circ$.
+
+\noindent Work out the size of angle $x$.
+
+\vspace{4cm}
+
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}
+
+\end{document}

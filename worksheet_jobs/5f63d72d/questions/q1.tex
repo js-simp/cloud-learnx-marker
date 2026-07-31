@@ -1,0 +1,58 @@
+\begin{question}
+\noindent A radio telescope dish used to track spacecraft has a circular support ring, part of which is shown below. Four lines, labelled $P$, $Q$, $R$ and $S$, have been drawn onto the diagram by an engineer.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    % Centre of circle
+    \coordinate (O) at (0,0);
+
+    % Draw circle
+    \draw[thick] (O) circle (1);
+    \fill[black] (O) circle (0.8pt);
+    \node at (0.12,0.12) {$O$};
+
+    % Line P: radius from centre to circumference
+    \coordinate (A) at (55:1);
+    \draw[very thick, blue] (O) -- (A);
+    \node[right] at (0.3,0.3) {$P$};
+
+    % Line Q: diameter through centre
+    \coordinate (B) at (200:1);
+    \coordinate (C) at (20:1);
+    \draw[very thick, red] (B) -- (C);
+    \node[below] at (-0.55,-0.25) {$Q$};
+
+    % Line R: chord not through centre
+    \coordinate (D) at (110:1);
+    \coordinate (E) at (10:1);
+    \draw[very thick, green!60!black] (D) -- (E);
+    \node[above] at (0.55,0.6) {$R$};
+
+    % Line S: tangent at a point on the circle
+    \coordinate (T) at (-90:1);
+    \draw[very thick, orange] ($(T)+(-0.8,0)$) -- ($(T)+(0.8,0)$);
+    \node[below] at (0,-1.15) {$S$};
+
+    % Mark points where relevant
+    \fill[black] (A) circle (0.7pt);
+    \fill[black] (B) circle (0.7pt);
+    \fill[black] (C) circle (0.7pt);
+    \fill[black] (D) circle (0.7pt);
+    \fill[black] (E) circle (0.7pt);
+    \fill[black] (T) circle (0.7pt);
+\end{tikzpicture}
+\end{center}
+
+\noindent Use the diagram to answer the following.
+
+\begin{enumerate}
+    \item[(a)] Write down the letter of the line which is a \textbf{tangent} to the circle.
+    \vspace{2cm}
+    \answerplain{1}
+
+    \item[(b)] Write down the letter of the line which is a \textbf{chord} but \textbf{not} a diameter.
+    \vspace{2cm}
+    \answerplain{1}
+\end{enumerate}
+
+\end{question}

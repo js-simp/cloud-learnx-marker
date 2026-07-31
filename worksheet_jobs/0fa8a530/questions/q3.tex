@@ -1,0 +1,34 @@
+\begin{question}
+\noindent A science laboratory uses two similar cylindrical test tubes, made by the same manufacturer, for a chemistry experiment.
+
+Test tube $A$ has a length of $8$ cm and test tube $B$ is a larger, similar test tube with a length of $20$ cm.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.6]
+    % Test tube A (smaller)
+    \draw[thick] (0,0) -- (0,8);
+    \draw[thick] (2,0) -- (2,8);
+    \draw[thick] (0,0) arc (180:360:1 and 0.4);
+    \draw[thick] (0,8) arc (180:0:1 and 0.4);
+    \draw[thick, dashed] (0,8) arc (180:360:1 and 0.4);
+    \node at (1,-1.5) {$A$};
+    \node at (-1.3,4) {$8$ cm};
+    \draw[<->] (-1,0) -- (-1,8);
+
+    % Test tube B (larger), placed to the right
+    \draw[thick] (6,0) -- (6,20);
+    \draw[thick] (9,0) -- (9,20);
+    \draw[thick] (6,0) arc (180:360:1.5 and 0.5);
+    \draw[thick] (6,20) arc (180:0:1.5 and 0.5);
+    \draw[thick, dashed] (6,20) arc (180:360:1.5 and 0.5);
+    \node at (7.5,-1.5) {$B$};
+    \node at (4.7,10) {$20$ cm};
+    \draw[<->] (5,0) -- (5,20);
+\end{tikzpicture}
+\end{center}
+
+\noindent Find the linear scale factor from test tube $A$ to test tube $B$.
+
+\vspace{4cm}
+\answerplain{2}
+\end{question}

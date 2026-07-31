@@ -1,0 +1,64 @@
+\begin{question}
+\noindent An engineer is setting up a circular satellite dish support ring, viewed from the side as a circle with centre $O$. Two straight support struts touch the circle at points $B$ and $D$ and meet at an external anchor point $C$, where the struts are held together.
+
+$OB$ and $OD$ are radii of the circle, and $CB$ and $CD$ are tangents to the circle at $B$ and $D$ respectively.
+
+Angle $BOD = 128^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.4]
+
+    % Define the center of the circle
+    \coordinate (O) at (0,0);
+
+    % Draw the circle
+    \draw[fill=blue!10] (O) circle (2cm);
+    \fill[black] (O) circle (2pt);
+    \node[below] at (O) {$O$};
+
+    % Place points B and D on the circumference so angle BOD = 128 degrees
+    \coordinate (D) at ($(O) + (-64:2cm)$);
+    \coordinate (B) at ($(O) + (64:2cm)$);
+
+    % Tangent direction points
+    \coordinate (T1) at ($(D)!4!-90:(O)$);
+    \coordinate (T2) at ($(B)!4!90:(O)$);
+
+    % Find intersection point C (external point)
+    \path [name path=line1] (B) -- (T2);
+    \path [name path=line2] (D) -- (T1);
+    \path [name intersections={of=line1 and line2,by={C}}];
+
+    % Draw tangent lines
+    \draw (B) -- (C) -- (D);
+    \node[right] at (C) {$C$};
+    \node[above right] at (B) {$B$};
+    \node[below right] at (D) {$D$};
+
+    % Draw radii and line OC
+    \draw (O) -- (B);
+    \draw (O) -- (D);
+    \draw[dashed] (O) -- (C);
+
+    % Mark right angles at B and D
+    \tkzMarkRightAngle[size=.3](O,B,C);
+    \tkzMarkRightAngle[size=.3](C,D,O);
+
+    % Mark angle BOD
+    \pic [draw, "$128^\circ$", angle eccentricity=1.4, angle radius = 0.6cm] {angle = D--O--B};
+
+    % Mark equal tangent lengths
+    \tkzMarkSegment[pos=.5,mark=|](B,C);
+    \tkzMarkSegment[pos=.5,mark=|](C,D);
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the size of angle $BCD$, the angle between the two struts at the anchor point $C$.
+
+\vspace{4.5cm}
+
+\begin{flushright}
+    \answerequnit{BCD}{$^\circ$}{3}
+\end{flushright}
+\end{question}

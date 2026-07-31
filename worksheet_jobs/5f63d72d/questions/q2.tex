@@ -1,0 +1,36 @@
+\begin{question}
+\noindent A satellite dish is designed as a circular reflector. Engineers model the circular rim as a circle with centre $O$. Points $P$, $Q$ and $R$ lie on the circumference, where $PR$ is a diameter of the circle.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate (O) at (0,0);
+    \coordinate (P) at (180:1);
+    \coordinate (R) at (0:1);
+    \coordinate (Q) at (55:1);
+
+    \draw[thick] (0,0) circle (1);
+    \fill[black] (O) circle (0.6pt);
+
+    \draw[thick] (P) -- (R);
+    \draw[thick] (P) -- (Q);
+    \draw[thick] (Q) -- (R);
+
+    \node[left] at (P) {$P$};
+    \node[right] at (R) {$R$};
+    \node[above] at (Q) {$Q$};
+    \node[below] at (O) {$O$};
+
+    \pic [draw, angle radius=6mm, "$34^\circ$"] {angle = R--P--Q};
+    \pic [draw, angle radius=8mm, "$x$"] {angle = P--Q--R};
+\end{tikzpicture}
+\end{center}
+
+\noindent $PR$ is a diameter of the circle.\\
+Angle $QPR = 34^\circ$.
+
+Find the size of angle $x$.
+\vspace{4cm}
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}

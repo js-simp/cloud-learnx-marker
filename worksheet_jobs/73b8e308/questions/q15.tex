@@ -1,0 +1,44 @@
+\begin{question}
+\noindent A circular lens component is being manufactured for an optical sensor. Light entering the lens travels along a straight path represented by the chord $PQ$, and $TP$ is a tangent to the circle at point $P$.
+
+\noindent The angle between the tangent $TP$ and the chord $PQ$ is $38^\circ$. The radius of the lens is $6$ cm, with centre $O$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (O) at (0,0);
+    \coordinate[label=right:$P$] (P) at (0:1);
+    \coordinate[label=above:$Q$] (Q) at (140:1);
+    \coordinate[label=below:$R$] (R) at (-100:1);
+
+    \draw[name path=circ] (O) circle (1);
+    \fill[black] (O) circle (0.6pt);
+    \node[below left] at (O) {$O$};
+
+    % tangent at P (vertical line since P is at angle 0)
+    \draw (P) -- ($(P)+(0,1.1)$) coordinate (Ttop);
+    \draw (P) -- ($(P)+(0,-0.9)$) coordinate (Tbot) node[below]{$T$};
+
+    \draw (P) -- (Q);
+    \draw (P) -- (R);
+    \draw (Q) -- (R);
+    \draw (O) -- (Q);
+    \draw (O) -- (R);
+
+    \pic [draw, "$38^\circ$", angle eccentricity=1.6, angle radius=0.6cm] {angle = Ttop--P--Q};
+
+    \node at ($(O)+(0.35,-0.05)$) {\small $6$ cm};
+\end{tikzpicture}
+\end{center}
+
+\noindent $PR$ is a diameter of the circle, so $PR$ passes through the centre $O$.
+
+\begin{enumerate}
+    \item[(a)] By using the alternate segment theorem, find the size of angle $PRQ$.
+    \vspace{2.5cm}
+    \answereq{PRQ}{2}
+
+    \item[(b)] Using your answer to part (a) and the fact that angle $PQR = 90^\circ$ (angle in a semicircle), calculate the length of the chord $PQ$, giving your answer to 3 significant figures.
+    \vspace{4.5cm}
+    \answerequnit{PQ}{\text{cm}}{2}
+\end{enumerate}
+\end{question}

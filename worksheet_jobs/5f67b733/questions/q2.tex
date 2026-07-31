@@ -1,0 +1,53 @@
+\begin{question}
+\noindent $O$ is the centre of a circle. $AT$ is a tangent to the circle at point $A$, and $OA$ is a radius.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    % centre
+    \coordinate (O) at (0,0);
+    \fill[black] (O) circle (0.6pt);
+    \node[below left] at (O) {$O$};
+
+    % point of contact on circle
+    \coordinate (A) at (90:1);
+
+    % draw circle
+    \draw[thick] (0,0) circle (1);
+
+    % draw radius
+    \draw[thick] (O) -- (A);
+
+    % draw tangent line through A, perpendicular to OA
+    \coordinate (T) at ($(A) + (1.6,0)$);
+    \coordinate (S) at ($(A) + (-1.6,0)$);
+    \draw[thick] (S) -- (T);
+    \node[right] at (T) {$T$};
+    \node[above] at (A) {$A$};
+
+    % mark right angle at A between OA and tangent
+    \draw[thick] ($(A) + (0.12,0)$) -- ($(A) + (0.12,-0.12)$) -- ($(A) + (0,-0.12)$);
+
+    % third point B on circle to form triangle with angle x
+    \coordinate (B) at (200:1);
+    \node[left] at (B) {$B$};
+    \draw[thick] (O) -- (B);
+    \draw[thick] (A) -- (B);
+
+    % mark angle x at B (angle OBA)
+    \pic [draw, angle eccentricity=1.5, angle radius = 0.35cm, "$x$"] {angle = O--B--A};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent $OB$ is also a radius, and triangle $OAB$ is isosceles with $OA = OB$.
+
+\noindent Angle $AOB = 40^\circ$.
+
+\noindent Find the value of $x$, the angle marked at $B$.
+
+\vspace{4cm}
+
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}

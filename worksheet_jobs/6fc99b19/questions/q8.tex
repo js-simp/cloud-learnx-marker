@@ -1,0 +1,38 @@
+\begin{question}
+\noindent $A$, $B$ and $C$ are points on the circumference of a circle with centre $O$.
+$OA$ and $OC$ are radii of the circle. The angle at the centre, $\angle AOC = 106°$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.4]
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (127:1);
+    \coordinate (C) at (21:1);
+    \coordinate (B) at (250:1);
+
+    \draw[name path=circ, fill = primaryGreen!15] (O) circle (1);
+    \fill[black] (O) circle (1pt);
+
+    \draw (O) -- (A);
+    \draw (O) -- (C);
+    \draw (O) -- (B);
+    \draw (A) -- (B) -- (C);
+
+    \node at (O) [above] {$O$};
+    \node at (A) [above left] {$A$};
+    \node at (C) [above right] {$C$};
+    \node at (B) [below] {$B$};
+
+    \pic [draw, angle eccentricity=1.5, angle radius = 0.45cm] {angle = C--O--A};
+    \pic [draw, "$x$", angle eccentricity=1.6, angle radius = 0.35cm] {angle = A--B--C};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Show that $x = 53°$.
+
+\vspace{5cm}
+
+\begin{flushright}
+    \answermarks{4}
+\end{flushright}
+\end{question}

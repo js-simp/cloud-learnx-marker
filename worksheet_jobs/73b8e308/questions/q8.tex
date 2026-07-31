@@ -1,0 +1,46 @@
+\begin{question}
+\noindent A circular satellite dish, with centre $O$, is held in place by a straight support strut $AT$. The strut touches the edge of the dish only at point $T$, so $AT$ is a tangent to the circle at $T$.
+
+\noindent $OA$ is a support beam running from the centre $O$ to the base of the mount at $A$, and $OT$ is a radius of the dish.
+
+\noindent Given that $OA = 4.6$ m and $OT = 1.8$ m, find the angle $x = \angle OAT$ between the beam $OA$ and the strut $AT$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.1]
+    \coordinate (O) at (0,0);
+    \coordinate (T) at (0,-1.8);
+    \coordinate (A) at (4.3,-1.8);
+
+    % dish (circle) centered at O
+    \draw[thick] (O) circle (1.8);
+    \fill (O) circle (1.5pt);
+    \node[above] at (O) {$O$};
+
+    % radius OT
+    \draw[thick] (O) -- (T);
+    \node[left] at (T) {$T$};
+    \node[left] at (0,-0.9) {$1.8$ m};
+
+    % tangent line AT (horizontal, perpendicular to OT)
+    \draw[thick] (T) -- (A);
+    \fill (A) circle (1.5pt);
+    \node[below right] at (A) {$A$};
+    \node[below] at (2.15,-1.8) {Tangent strut $AT$};
+
+    % beam OA
+    \draw[thick] (O) -- (A);
+    \node[above right] at (2.15,-0.9) {$4.6$ m};
+
+    % right angle mark at T between OT and AT
+    \draw (T)++(0,0.25) -- ++(0.25,0) -- ++(0,-0.25);
+
+    % angle x at A, between AT and AO (interior angle of triangle OTA)
+    \pic [draw, angle radius=6mm, "$x$"] {angle = T--A--O};
+\end{tikzpicture}
+\end{center}
+
+\vspace{4cm}
+\begin{flushright}
+    \answerequnit{x}{$^\circ$}{3}
+\end{flushright}
+\end{question}

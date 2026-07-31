@@ -1,0 +1,38 @@
+\begin{question}
+\noindent A microbiologist is examining a circular petri dish of radius $6.5$ cm under a microscope. A straight scratch (a chord) on the base of the dish, $AB$, has length $10$ cm.
+
+The point $O$ is the centre of the dish, and $M$ is the midpoint of $AB$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (-5,3.9);
+    \coordinate (B) at (5,3.9);
+    \coordinate (M) at (0,3.9);
+
+    \draw[fill=lightYellow] (O) circle (6.5);
+    \fill[black] (O) circle (2pt);
+    \draw (A) -- (B);
+    \draw (O) -- (A);
+    \draw (O) -- (B);
+    \draw (O) -- (M);
+
+    \tkzMarkRightAngle[size=.25](O,M,B);
+
+    \node[below] at (O) {$O$};
+    \node[left] at (M) {$M$};
+    \node[above left] at (A) {$A$};
+    \node[above right] at (B) {$B$};
+
+    \node[left] at (-2.5,2.1) {$6.5$ cm};
+    \node[above] at (-2.5,3.9) {$5$ cm};
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the distance $OM$, the perpendicular distance from the centre $O$ of the dish to the scratch $AB$.
+
+\vspace{4.5cm}
+\begin{flushright}
+    \answerunit{cm}{3}
+\end{flushright}
+\end{question}

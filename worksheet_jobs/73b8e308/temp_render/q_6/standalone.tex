@@ -1,0 +1,55 @@
+\documentclass[11pt]{article}
+\input{layout/packages}
+
+% Declare counters expected by \begin{question} macros
+\newcounter{questionNum}
+\newcounter{totalmarks}
+\newcounter{questionmarks}
+\regtotcounter{totalmarks}
+
+% Color definitions to prevent xcolor errors
+\definecolor{primaryGreen}{RGB}{34, 139, 34}
+\definecolor{lightYellow}{RGB}{255, 255, 224}
+\definecolor{primaryBlue}{RGB}{0, 102, 204}
+
+\input{layout/macros}
+
+\pagestyle{empty}
+\begin{document}
+\begin{question}
+\noindent $A$, $B$, $C$ and $D$ are four points on the circumference of a circle, as shown in the diagram below. Chords $AC$ and $BD$ intersect inside the circle.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (A) at (150:1);
+    \coordinate (B) at (95:1);
+    \coordinate (C) at (-20:1);
+    \coordinate (D) at (225:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+
+    \draw (A) -- (C);
+    \draw (A) -- (D);
+    \draw (B) -- (C);
+    \draw (B) -- (D);
+
+    \node[above left] at (A) {$A$};
+    \node[above] at (B) {$B$};
+    \node[right] at (C) {$C$};
+    \node[below left] at (D) {$D$};
+
+    \pic [draw, angle eccentricity=1.5, angle radius=0.35cm, "$47^\circ$"] {angle = A--B--D};
+    \pic [draw, angle eccentricity=1.5, angle radius=0.35cm, "$x$"] {angle = A--C--D};
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $ABD = 47^\circ$.
+
+\noindent Find the size of angle $x$, giving a reason for your answer.
+\vspace{4cm}
+\begin{flushright}
+    \answerequnit{x}{$^\circ$}{3}
+\end{flushright}
+\end{question}
+
+\end{document}

@@ -1,0 +1,30 @@
+\begin{question}
+\noindent $A$, $B$, $C$ and $D$ are four points on the circumference of a circle, forming a cyclic quadrilateral $ABCD$. This shape is used in the design of a circular stained-glass window depicting a map of the ancient world, on display in a history museum.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate[label=above left:$B$] (B) at (130:1);
+    \coordinate[label=below left:$A$] (A) at (215:1);
+    \draw[name path=circ] (0,0) circle (1);
+    \path[name path=BD] (B) -- ($(B)!1.5!66:(A)$);
+    \path[name path=AC] (A) -- ($(A)!1.5!-50:(B)$);
+    \path[name intersections={of=circ and BD, by={[]K,D}}];
+    \path[name intersections={of=AC and circ, by={[label=above right:$C$]C}}];
+    \draw[line join=bevel] (A) -- (B) -- (D) -- (C) -- cycle;
+    \node at (D) [right] {$D$};
+
+    \pic [draw, "$(3x+5)^\circ$", angle eccentricity=1.6, angle radius = 0.5cm] {angle = A--B--D};
+    \pic [draw, "$(2x+15)^\circ$", angle eccentricity=1.7, angle radius = 0.4cm] {angle = C--D--B};
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $ABD$ is $(3x+5)^\circ$ and angle $BDC$ is $(2x+15)^\circ$.
+
+\noindent Calculate the size of angle $ABD$.
+
+\vspace{5cm}
+
+\begin{flushright}
+\answerequnit{ABD}{$^\circ$}{3}
+\end{flushright}
+\end{question}

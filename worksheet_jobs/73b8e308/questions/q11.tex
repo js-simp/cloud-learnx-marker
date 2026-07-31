@@ -1,0 +1,48 @@
+\begin{question}
+\noindent A biologist is examining a circular petri dish sample under a microscope. The circular boundary of the sample has centre $O$ and radius $6.4$ mm.
+
+A straight bacterial colony forms a chord $AB$ across the sample. The perpendicular distance from the centre $O$ to the chord $AB$ is $4.1$ mm, meeting the chord at point $M$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.1]
+    \coordinate (O) at (0,0);
+    \draw[thick] (O) circle (3.2);
+
+    % M is directly below O at distance corresponding to 4.1/6.4 * 3.2
+    \coordinate (M) at (0,-2.05625);
+
+    % Half-chord length (scaled): sqrt(3.2^2 - 2.05625^2) = sqrt(10.24 - 4.228) = sqrt(6.012) = 2.452
+    \coordinate (A) at (-2.452,-2.05625);
+    \coordinate (B) at (2.452,-2.05625);
+
+    \draw[thick] (A) -- (B);
+    \draw[thick] (O) -- (M);
+    \draw[thick] (O) -- (A);
+
+    \fill[black] (O) circle (1.2pt);
+    \fill[black] (M) circle (1.2pt);
+    \fill[black] (A) circle (1.2pt);
+    \fill[black] (B) circle (1.2pt);
+
+    \node[above] at (O) {$O$};
+    \node[below left] at (A) {$A$};
+    \node[below right] at (B) {$B$};
+    \node[below] at (M) {$M$};
+
+    \draw (-0.15,-2.05625) -- (-0.15,-1.90625) -- (0,-1.90625);
+
+    \node[left] at (-1.226,-1.03) {$6.4$ mm};
+    \node[right] at (0.1,-1.05) {$4.1$ mm};
+\end{tikzpicture}
+\end{center}
+
+\noindent $O$ is the centre of the circular sample, $OA$ is a radius, and $OM$ is perpendicular to the chord $AB$.
+
+Calculate the length of the bacterial colony $AB$, giving your answer to 3 significant figures.
+
+\vspace{4cm}
+
+\begin{flushright}
+\answerunit{mm}{3}
+\end{flushright}
+\end{question}

@@ -1,0 +1,56 @@
+\begin{question}
+\noindent $A$, $B$ and $C$ are points on the circumference of a circle with centre $O$. The line $TAS$ is a tangent to the circle at $A$.
+
+$OB$ and $OC$ are radii of the circle. The angle between the tangent $TAS$ and the chord $AB$ is $64°$, as shown.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.4]
+    % centre and circle points
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (200:1);
+    \coordinate (B) at (60:1);
+    \coordinate (C) at (330:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+
+    % tangent line at A
+    \draw (A) -- ($(A)!1.6!-90:(O)$) coordinate (S) coordinate[pos=0.05,yshift=0.15cm] (Tlabel);
+    \draw (A) -- ($(A)!1.6!90:(O)$) coordinate (T) coordinate[pos=0.05,yshift=-0.15cm] (Slabel);
+
+    % chords
+    \draw (A) -- (B);
+    \draw (A) -- (C);
+    \draw (B) -- (C);
+
+    % radii
+    \draw (O) -- (B);
+    \draw (O) -- (C);
+    \fill[black] (O) circle (0.4pt);
+
+    % labels
+    \node[left] at (A) {$A$};
+    \node[above right] at (B) {$B$};
+    \node[below right] at (C) {$C$};
+    \node[above] at (T) {$T$};
+    \node[below] at (S) {$S$};
+    \node[below left] at (O) {$O$};
+
+    % angle between tangent and chord AB (angle T-A-B)
+    \pic [draw, "$64^\circ$", angle eccentricity=1.6, angle radius=0.45cm] {angle = T--A--B};
+
+    % angle x at O (angle BOC)
+    \pic [draw, "$x$", angle eccentricity=1.5, angle radius=0.4cm] {angle = B--O--C};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Given that $OB = OC$, work out the size of angle $x$, marked at the centre $O$ between the radii $OB$ and $OC$.
+
+\vspace{1cm}
+\noindent You must show all your working.
+\vspace{5cm}
+
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{4}
+\end{flushright}
+\end{question}

@@ -1,0 +1,51 @@
+\documentclass[11pt]{article}
+\input{layout/packages}
+\input{layout/macros}
+\pagestyle{empty}
+\begin{document}
+\begin{question}
+\noindent A chemistry laboratory uses two similar conical flasks, a small one and a large one, which are mathematically similar in shape.
+
+\noindent The diagram shows the two flasks. The small flask has a height of $12$ cm and a neck width of $3$ cm. The large flask has a height of $30$ cm.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.5]
+    % Small flask
+    \draw[thick] (0,12) -- (-1.5,12) ;
+    \draw[thick] (1.5,12) -- (0,12);
+    \draw[thick] (-1.5,12) -- (-1.5,10);
+    \draw[thick] (1.5,12) -- (1.5,10);
+    \draw[thick] (-1.5,10) .. controls (-4,6) and (-4,3) .. (-3,0);
+    \draw[thick] (1.5,10) .. controls (4,6) and (4,3) .. (3,0);
+    \draw[thick] (-3,0) -- (3,0);
+    \draw[<->] (-2.3,10) -- (-2.3,12);
+    \node at (-3.6,11) {\footnotesize $3$cm};
+    \draw[<->] (5,0) -- (5,12);
+    \node at (6.2,6) {\footnotesize $12$cm};
+
+    % Large flask (scaled visually larger, drawn separately to the right)
+    \begin{scope}[xshift=15cm, scale=1.6]
+    \draw[thick] (0,12) -- (-1.5,12) ;
+    \draw[thick] (1.5,12) -- (0,12);
+    \draw[thick] (-1.5,12) -- (-1.5,10);
+    \draw[thick] (1.5,12) -- (1.5,10);
+    \draw[thick] (-1.5,10) .. controls (-4,6) and (-4,3) .. (-3,0);
+    \draw[thick] (1.5,10) .. controls (4,6) and (4,3) .. (3,0);
+    \draw[thick] (-3,0) -- (3,0);
+    \draw[<->] (-2.3,10) -- (-2.3,12);
+    \node at (-4.0,11) {\footnotesize $y$cm};
+    \draw[<->] (5,0) -- (5,12);
+    \node at (6.3,6) {\footnotesize $30$cm};
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\noindent The neck width of the small flask is $y$ cm on the large flask (the flasks are similar, so all corresponding lengths are in the same ratio).
+
+\noindent Work out the value of $y$, the neck width of the large flask.
+\vspace{4cm}
+\begin{flushright}
+\answerequnit{y}{$\text{cm}$}{3}
+\end{flushright}
+\end{question}
+\end{document}

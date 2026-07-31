@@ -1,0 +1,36 @@
+\begin{question}
+\noindent A space agency is designing a circular viewing window for a satellite. Points $A$, $B$ and $C$ lie on the circumference of the circle, with centre $O$. $AC$ is a diameter of the circle.
+
+Angle $ABC$ is the angle in the semicircle, and angle $BAC = 34^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (180:1);
+    \coordinate (C) at (0:1);
+    \coordinate (B) at (65:1);
+
+    \draw (0,0) circle (1);
+    \fill[black] (O) circle (0.6pt);
+
+    \draw[thick] (A) -- (C);
+    \draw[thick] (A) -- (B);
+    \draw[thick] (B) -- (C);
+
+    \node[left] at (A) {$A$};
+    \node[right] at (C) {$C$};
+    \node[above] at (B) {$B$};
+    \node[below] at (O) {$O$};
+
+    \pic [draw, angle eccentricity=1.5, angle radius = 0.3cm, "$34^\circ$"] {angle = B--A--C};
+    \pic [draw, angle eccentricity=1.4, angle radius = 0.2cm, "$x$"] {angle = C--B--A};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Find the size of angle $x$, marked at $B$. Give a reason for your answer.
+\vspace{4cm}
+\begin{flushright}
+    \answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}

@@ -1,0 +1,34 @@
+\begin{question}
+\noindent $A$, $B$, $C$ and $D$ are points on the circumference of a circle, as shown in the diagram below. Chord $AB$ is drawn, and points $C$ and $D$ both lie on the same side of $AB$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate (A) at (200:1);
+    \coordinate (B) at (-20:1);
+    \coordinate (C) at (60:1);
+    \coordinate (D) at (110:1);
+
+    \draw[thick] (0,0) circle (1);
+
+    \draw[thick] (A) -- (B);
+    \draw[thick] (A) -- (C);
+    \draw[thick] (B) -- (C);
+    \draw[thick] (A) -- (D);
+    \draw[thick] (B) -- (D);
+
+    \node[left] at (A) {$A$};
+    \node[right] at (B) {$B$};
+    \node[above] at (C) {$C$};
+    \node[above left] at (D) {$D$};
+
+    \pic [draw, "$38^\circ$", angle eccentricity=1.5, angle radius = 0.45cm] {angle = A--C--B};
+    \pic [draw, "$x$", angle eccentricity=1.5, angle radius = 0.35cm] {angle = A--D--B};
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $ACB = 38^\circ$.
+
+\noindent Find the size of angle $x$, giving a reason for your answer.
+\vspace{4cm}
+\answerequnit{x}{$^\circ$}{2}
+\end{question}

@@ -1,0 +1,47 @@
+\begin{question}
+\noindent Two cylindrical storage tanks used in a school science laboratory are mathematically similar. Tank $A$ is a small prototype and Tank $B$ is the full-size version used for storing samples.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+    % Tank A - small cylinder
+    \draw (0,0) ellipse (0.6 and 0.2);
+    \draw (-0.6,0) -- (-0.6,-2.4);
+    \draw (0.6,0) -- (0.6,-2.4);
+    \draw (-0.6,-2.4) arc (180:360:0.6 and 0.2);
+    \draw[dashed] (-0.6,-2.4) arc (180:0:0.6 and 0.2);
+    \node at (0,0.6) {Tank $A$};
+    \node at (1.1,-1.2) {$8$ cm};
+    \draw[<->] (-1.0,0) -- (-1.0,-2.4) node[midway, left] {};
+
+    % Tank B - large cylinder
+    \draw (5,0) ellipse (1.5 and 0.5);
+    \draw (3.5,0) -- (3.5,-6);
+    \draw (6.5,0) -- (6.5,-6);
+    \draw (3.5,-6) arc (180:360:1.5 and 0.5);
+    \draw[dashed] (3.5,-6) arc (180:0:1.5 and 0.5);
+    \node at (5,0.9) {Tank $B$};
+    \node at (7.4,-3) {$20$ cm};
+\end{tikzpicture}
+\end{center}
+
+\noindent Tank $A$ has a height of $8$ cm and a total surface area of $150$ cm$^2$.\\
+Tank $B$ has a height of $20$ cm.\\
+The volume of Tank $A$ is $320$ cm$^3$.
+
+\begin{enumerate}
+    \item[(a)] Find the linear scale factor from Tank $A$ to Tank $B$.
+
+    \vspace{2.5cm}
+    \answerplain{1}
+
+    \item[(b)] Find the ratio of the surface area of Tank $A$ to the surface area of Tank $B$, giving your answer in the form $1 : n$.
+
+    \vspace{3cm}
+    \answerplain{1}
+
+    \item[(c)] Work out the volume of Tank $B$.
+
+    \vspace{4cm}
+    \answerunit{$\text{cm}^3$}{2}
+\end{enumerate}
+\end{question}

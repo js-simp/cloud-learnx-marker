@@ -1,0 +1,33 @@
+\begin{question}
+\noindent As part of a school science project, a team releases a weather balloon from a point $B$ on level ground. An observer stands at point $A$, which is 85 m from the release point $B$, tracking the balloon's ascent for their Model United Nations climate-monitoring presentation.
+
+\noindent When the balloon reaches point $C$ directly above $B$, the angle of elevation of the balloon from the observer at $A$ is $38^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (6.5,0);
+    \coordinate (C) at (6.5,5.1);
+
+    \draw (A) -- (B) -- (C) -- cycle;
+
+    \draw pic[draw, angle radius=2.5mm] {right angle=C--B--A};
+    \pic [draw, "$38^{\circ}$", angle eccentricity=1.6, angle radius=0.7cm] {angle = B--A--C};
+
+    \node at (A) [below left, font=\small] {$A$};
+    \node at (B) [below right, font=\small] {$B$};
+    \node at (C) [above right, font=\small] {$C$};
+
+    \draw (A) -- (B) node[midway, below] {85 m};
+    \draw (B) -- (C) node[midway, right] {$h$};
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the height, $h$, of the balloon above the ground at point $C$, giving your answer correct to 3 significant figures.
+
+\vspace{5cm}
+
+\begin{flushright}
+    \answerequnit{h}{m}{3}
+\end{flushright}
+\end{question}

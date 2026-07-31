@@ -1,0 +1,81 @@
+\begin{question}
+\noindent $A$, $B$ and $D$ are points on a circle with centre $O$. $CD$ is a tangent to the circle at $D$. $BOC$ is a straight line, where $C$ is outside the circle.
+
+Angle $AOB = 128^\circ$ and angle $ABD = y$, angle $ADC = x$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.1]
+    % Centre O at origin
+    \coordinate (O) at (0,0);
+
+    % Points on circle at chosen angles
+    \coordinate (A) at (150:1);
+    \coordinate (B) at (22:1);
+    \coordinate (D) at (-100:1);
+
+    % Draw circle
+    \draw[name path=circ] (O) circle (1);
+    \fill[black] (O) circle (0.4pt);
+    \node at (O) [above right] {$O$};
+
+    % Radii
+    \draw (O) -- (A);
+    \draw (O) -- (B);
+    \draw (O) -- (D);
+
+    % BOC straight line - extend beyond O away from B
+    \coordinate (C) at ($(O) + 2.1*(B)-2.1*(O)+(-1.15,0)$);
+    % simpler: extend line from B through O
+    \coordinate (C) at ($(O)!2.15!(B)$);
+    \draw (B) -- (C);
+    \node at (C) [right] {$C$};
+
+    % chords
+    \draw (A) -- (B);
+    \draw (A) -- (D);
+    \draw (B) -- (D);
+
+    % tangent at D, perpendicular to OD, passing through C direction
+    \coordinate (Ddir) at ($(D)!1.6!90:(O)$);
+    \coordinate (Ddir2) at ($(D)!1.6!-90:(O)$);
+    \draw (Ddir2) -- (Ddir);
+
+    % Adjust: tangent line at D must pass through C (since CD tangent)
+    % Recompute C as intersection of tangent at D with line BO extended
+    \path[name path=tangentD] (D) -- ($(D)!3!90:(O)$);
+    \path[name path=tangentD2] (D) -- ($(D)!3!-90:(O)$);
+    \path[name path=lineBO] (B) -- ($(O)!3!(B)$);
+    \path[name intersections={of=tangentD and lineBO, by={Ctry}}];
+
+    % labels
+    \node at (A) [above left] {$A$};
+    \node at (B) [right] {$B$};
+    \node at (D) [below] {$D$};
+
+    \pic [draw, "$128^\circ$", angle eccentricity=1.4, angle radius=0.5cm] {angle = A--O--B};
+    \pic [draw, "$y$", angle eccentricity=1.3, angle radius=0.6cm] {angle = A--B--D};
+    \pic [draw, "$x$", angle eccentricity=1.3, angle radius=0.6cm] {angle = C--D--A};
+
+    \tkzMarkRightAngle[size=0.25](B,D,C)
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Points $A$, $B$, $D$ lie on the circle, $O$ is the centre, $BOC$ is a straight line and $CD$ is a tangent to the circle at $D$. Angle $AOB = 128^\circ$.
+
+\begin{enumerate}
+    \item[(a)] Work out the size of angle $ADB$.
+    \vspace{3.5cm}
+    \answerequnit{}{$^\circ$}{1}
+
+    \item[(b)] Work out the size of angle $y$ (angle $ABD$), given that $ABDA$... use the fact that angle $ADB$ together with angle $DAB$ and angle $y$ form triangle $ABD$, and angle $DAB = 90^\circ$ (since $BD$ is a diameter is NOT given — instead use cyclic quadrilateral $OABD$ is not applicable). Instead: quadrilateral $ABDO$... 
+    
+    Work out the size of angle $ABD$ using the fact that $AOBD$ is not cyclic; instead use triangle $OBD$ and the fact that $OB = OD$ (radii).
+    \vspace{4cm}
+    \answerequnit{y}{$^\circ$}{2}
+
+    \item[(c)] Given that $BC$ is a straight line through the centre $O$, and $CD$ is a tangent to the circle at $D$, work out the size of angle $x$ (angle $CDA$).
+    \vspace{4cm}
+    \answerequnit{x}{$^\circ$}{1}
+\end{enumerate}
+\end{question}

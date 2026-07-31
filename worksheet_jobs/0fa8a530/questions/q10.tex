@@ -1,0 +1,48 @@
+\begin{question}
+\noindent A scientist is setting up a ramp to move heavy equipment up onto a raised platform. The ramp is supported by a vertical strut $BC$, which stands on the horizontal ground at $C$ and meets the platform at $B$. The foot of the ramp is at $A$, on the ground $10.4$ m from the base of the strut, and the top of the ramp meets the platform at $D$, directly above $C$.
+
+From $A$, the angle of elevation to the top of the strut $B$ is $22^{\circ}$. From $A$, the angle of elevation to the top of the platform $D$ is $31^{\circ}$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.85, transform shape]
+    \coordinate (A) at (0,0);
+    \coordinate (C) at (7,0);
+    \coordinate (B) at (7,2.83);
+    \coordinate (D) at (7,4.21);
+
+    % ground
+    \draw[thick] (A) -- (C);
+    % strut and continuation to D
+    \draw[thick] (C) -- (D);
+
+    % ramp lines from A
+    \draw[thick] (A) -- (B);
+    \draw[thick] (A) -- (D);
+
+    % right angle at C
+    \draw pic[draw, angle radius=3mm] {right angle=A--C--D};
+
+    % angle at A between ground and AB
+    \pic [draw, "$22^{\circ}$", angle eccentricity=1.6, angle radius=0.8cm] {angle = C--A--B};
+
+    % angle at A between ground and AD
+    \pic [draw, "$31^{\circ}$", angle eccentricity=2.4, angle radius=1.2cm] {angle = C--A--D};
+
+    % labels
+    \node at (A) [below left, font=\small] {$A$};
+    \node at (C) [below right, font=\small] {$C$};
+    \node at (B) [right, font=\small] {$B$};
+    \node at (D) [above right, font=\small] {$D$};
+
+    \node at (3.5,-0.5) [font=\small] {$10.4$ m};
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the height of the platform, $BD$, giving your answer to 3 significant figures.
+
+\vspace{5cm}
+
+\begin{flushright}
+\answerunit{m}{4}
+\end{flushright}
+\end{question}

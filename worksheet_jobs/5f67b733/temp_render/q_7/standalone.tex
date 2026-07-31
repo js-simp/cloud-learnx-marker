@@ -1,0 +1,71 @@
+\documentclass[11pt]{article}
+\input{layout/packages}
+
+% Declare counters expected by \begin{question} macros
+\newcounter{questionNum}
+\newcounter{totalmarks}
+\newcounter{questionmarks}
+\regtotcounter{totalmarks}
+
+% Color definitions to prevent xcolor errors
+\definecolor{primaryGreen}{RGB}{34, 139, 34}
+\definecolor{lightYellow}{RGB}{255, 255, 224}
+\definecolor{primaryBlue}{RGB}{0, 102, 204}
+
+\input{layout/macros}
+
+\pagestyle{empty}
+\begin{document}
+\begin{question}
+\noindent $A$, $B$ and $C$ are points on the circle. $TAS$ is the tangent to the circle at $A$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    % mark points on circle
+    \coordinate (A) at (-90:1);
+
+    % draw circle
+    \draw[name path=circ] (0,0) circle (1);
+
+    % draw tangent through A
+    \draw (A) -- ($(A)!1.6!-90:(0,0)$) coordinate (S);
+    \draw (A) -- ($(A)!1.6!90:(0,0)$) coordinate (T);
+
+    % construct B and C on the circle
+    \path[name path=AB] (A) -- ($(A)!2!-40:(0,0)$);
+    \path[name path=AC] (A) -- ($(A)!2!-12:(0,0)$);
+    \path[name intersections={of=AB and circ, by={B, tempB}}];
+    \path[name intersections={of=AC and circ, by={C, tempC}}];
+
+    % draw chords
+    \draw (A) -- (B);
+    \draw (A) -- (C);
+    \draw (B) -- (C);
+
+    % labels
+    \node[left] at (T) {$T$};
+    \node[right] at (S) {$S$};
+    \node[below] at (A) {$A$};
+    \node[left] at (B) {$B$};
+    \node[above right] at (C) {$C$};
+
+    % angle between tangent TA and chord AB = 64 degrees
+    \pic [draw, "$64^\circ$", angle eccentricity=1.5, angle radius=0.6cm] {angle = T--A--B};
+
+    % angle in alternate segment (angle ACB) marked as x
+    \pic [draw, "$x$", angle eccentricity=1.4, angle radius=0.5cm] {angle = B--C--A};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent The angle between the tangent $TAS$ and the chord $AB$ is $64^\circ$.
+
+\noindent Find the size of angle $x$, giving a reason for your answer.
+\vspace{4cm}
+
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{3}
+\end{flushright}
+\end{question}
+
+\end{document}

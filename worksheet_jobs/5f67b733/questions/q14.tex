@@ -1,0 +1,44 @@
+\begin{question}
+\noindent $PT$ is a tangent to the circle at point $A$. $AB$ and $AC$ are chords of the circle, and $BC$ is also a chord, with triangle $ABC$ drawn inside the circle.
+
+$AB = BC$ (triangle $ABC$ is isosceles) and the angle between the tangent $PT$ and the chord $AC$ is $58^\circ$, as shown.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.4]
+    % circle
+    \coordinate (O) at (0,0);
+    \draw[name path=circ] (0,0) circle (1);
+
+    % point of tangency
+    \coordinate (A) at (-90:1);
+
+    % tangent line through A
+    \draw (A) -- ($(A)!1.4!-90:(0,0)$) coordinate (T) node[below right]{$T$};
+    \draw (A) -- ($(A)!1.4!90:(0,0)$) coordinate (P) node[above left, xshift=-2pt]{$P$};
+
+    % other two points on circle for chords
+    \coordinate (C) at (-15:1);
+    \coordinate (B) at (155:1);
+
+    % draw triangle
+    \draw[thick] (A) -- (B) -- (C) -- cycle;
+
+    % labels
+    \node[left] at (B) {$B$};
+    \node[right] at (C) {$C$};
+    \node[below] at (A) {$A$};
+
+    % angle between tangent and chord AC (at A, between T and C)
+    \pic [draw, "$58^\circ$", angle eccentricity=1.6, angle radius = 0.45cm] {angle = T--A--C};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Show that the angle between the tangent $PT$ and the chord $AB$ (angle $PAB$) is $64^\circ$.
+
+\vspace{5cm}
+
+\begin{flushright}
+\answermarks{4}
+\end{flushright}
+\end{question}

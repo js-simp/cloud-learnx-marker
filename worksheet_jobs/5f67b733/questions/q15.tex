@@ -1,0 +1,52 @@
+\begin{question}
+\noindent A circular telescope lens is held in place by a metal mount. A support bracket $TP$ is attached to the mount at point $T$ such that $TP$ is a tangent to the circle at $T$. A second bracket connects $T$ to a fixing point $A$ on the circle, and a third rod connects $A$ to another fixing point $B$ on the circle, where $O$ is the centre of the lens.
+
+The angle between the tangent $TP$ and the chord $TB$ is $58^\circ$, and angle $OTA = 24^\circ$, where $OT$ is a radius of the circle.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (O) at (0,0);
+    \coordinate (T) at (-90:1);
+
+    % tangent line at T
+    \coordinate (P) at ($(T)!1.6!-90:(O)$);
+    \coordinate (Lend) at ($(T)!1.6!90:(O)$);
+    \draw (Lend) -- (P) node[below right]{$P$};
+
+    % circle
+    \draw[name path=circ] (O) circle (1);
+    \fill[black] (O) circle (0.6pt);
+    \node[above right] at (O) {$O$};
+
+    % point A found via angle OTA = 24 from OT direction
+    \path[name path=TA] (T) -- ($(T)!2!-114:(O)$);
+    \path[name intersections={of=TA and circ, by={temp,A}}];
+
+    % point B found via angle between tangent and chord TB = 58
+    \path[name path=TB] (T) -- ($(T)!2!58:(P)$);
+    \path[name intersections={of=TB and circ, by={temp2,B}}];
+
+    \draw (O) -- (T);
+    \draw (O) -- (A) node[above left]{$A$};
+    \draw (T) -- (A);
+    \draw (T) -- (B) node[above right]{$B$};
+    \draw (A) -- (B);
+
+    \node[below left] at (T) {$T$};
+
+    \pic [draw, "$24^\circ$", angle eccentricity=1.6, angle radius=0.45cm] {angle = A--T--O};
+    \pic [draw, "$58^\circ$", angle eccentricity=1.5, angle radius=0.6cm] {angle = P--T--B};
+
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item[(a)] Show that angle $TAB = 58^\circ$.
+    \vspace{3cm}
+    \answermarks{1}
+
+    \item[(b)] Calculate the size of angle $ABT$.
+    \vspace{4.5cm}
+    \answerequnit{\text{angle } ABT}{$^\circ$}{3}
+\end{enumerate}
+\end{question}

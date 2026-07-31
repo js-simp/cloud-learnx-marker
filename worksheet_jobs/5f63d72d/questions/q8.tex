@@ -1,0 +1,46 @@
+\begin{question}
+\noindent A circular observatory dome has a triangular support truss $ABC$ fixed to its circular base, as shown in the diagram. $PT$ is a tangent to the circle at point $A$, touching the dome's base along the line of a horizon sensor track.
+
+\noindent $AB$ and $AC$ are chords of the circle. The angle between the tangent $PT$ and the chord $AC$ is $71^\circ$, as shown.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    % mark points on circle
+    \coordinate (A) at (-90:1);
+
+    % draw circle
+    \draw[name path=circ] (0,0) circle (1);
+
+    % draw tangent through A
+    \draw (A) -- ($(A)!1.4!-90:(0,0)$) coordinate (T);
+    \draw (A) -- ($(A)!1.4!90:(0,0)$) coordinate (P);
+
+    % chords from A to points on circle
+    \path[name path=AC] (A) -- ($(A)!2!-25:(0,0)$);
+    \path[name path=AB] (A) -- ($(A)!2!-55:(0,0)$);
+    \path[name intersections={of=AC and circ, by={temp1,C}}];
+    \path[name intersections={of=AB and circ, by={temp2,B}}];
+
+    \draw (A) -- (C) node[above right] {$C$};
+    \draw (A) -- (B) node[above left] {$B$};
+    \draw (B) -- (C);
+
+    \node at (A) [below] {$A$};
+    \node at (T) [right] {$T$};
+    \node at (P) [left] {$P$};
+
+    \pic [draw, "$71^\circ$", angle eccentricity=1.4, angle radius=0.6cm] {angle = C--A--T};
+    \pic [draw, "$x$", angle eccentricity=1.5, angle radius=0.5cm] {angle = A--B--C};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Find the size of angle $x$, marked at vertex $B$.
+
+\noindent Give a reason for each stage of your working.
+\vspace{4cm}
+
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{3}
+\end{flushright}
+\end{question}

@@ -1,0 +1,40 @@
+\begin{question}
+\noindent $A$, $B$ and $C$ are points on the circumference of a circle with centre $O$.
+
+\noindent $AC$ is a diameter of the circle.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (180:1);
+    \coordinate (C) at (0:1);
+    \coordinate (B) at (55:1);
+
+    \draw (0,0) circle (1);
+    \fill[black] (O) circle (0.7pt);
+
+    \draw[thick] (A) -- (C);
+    \draw[thick] (A) -- (B);
+    \draw[thick] (B) -- (C);
+
+    \node[left] at (A) {$A$};
+    \node[right] at (C) {$C$};
+    \node[above] at (B) {$B$};
+    \node[below] at (O) {$O$};
+
+    \pic [draw, angle eccentricity=1.5, angle radius=0.35cm, "$x$"] {angle = A--B--C};
+
+    \node[below left] at (barycentric cs:A=1,B=1,C=0.3) {$34°$};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $BAC = 34°$.
+
+\noindent Find the size of angle $x$, giving a reason for your answer.
+\vspace{4cm}
+
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}

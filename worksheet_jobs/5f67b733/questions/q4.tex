@@ -1,0 +1,33 @@
+\begin{question}
+\noindent $A$, $B$ and $C$ are points on the circumference of a circle with centre $O$.
+
+\noindent Work out the size of angle $x$, marked at the circumference, giving reasons for your answer.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (150:1);
+    \coordinate (B) at (30:1);
+    \coordinate (C) at (270:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+    \fill[black] (O) circle (0.4pt);
+    \node[below] at (O) {$O$};
+
+    \draw (A) -- (O) -- (B);
+    \draw (A) -- (C) -- (B);
+
+    \node[above left] at (A) {$A$};
+    \node[above right] at (B) {$B$};
+    \node[below] at (C) {$C$};
+
+    \pic [draw, "$104^\circ$", angle eccentricity=1.5, angle radius = 0.5cm] {angle = A--O--B};
+    \pic [draw, "$x$", angle eccentricity=1.8, angle radius = 0.25cm] {angle = B--C--A};
+\end{tikzpicture}
+\end{center}
+
+\vspace{4cm}
+\begin{flushright}
+    \answereq{x}{3}
+\end{flushright}
+\end{question}

@@ -1,0 +1,34 @@
+\begin{question}
+\noindent A badminton court has a straight net post $PQ$ that stands vertically on the court, and a guy wire $QR$ is attached from the top of the post to a point $R$ on the ground, anchoring it in place.
+
+$PQ = 1.5$ m and $QR = 2.7$ m. Triangle $PQR$ has a right angle at $P$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    \coordinate (P) at (0,0);
+    \coordinate (Q) at (0,2.5);
+    \coordinate (R) at (4.5,0);
+
+    \draw (P) -- (Q) -- (R) -- cycle;
+
+    \draw pic[draw, angle radius=2.5mm] {right angle=R--P--Q};
+    \pic [draw, "$x^\circ$", angle eccentricity=1.6, angle radius=0.7cm] {angle = P--R--Q};
+
+    \node at (P) [below left,font=\small] {P};
+    \node at (Q) [above,font=\small] {Q};
+    \node at (R) [below right,font=\small] {R};
+
+    \draw (P) -- (Q) node[midway, left] {1.5 m};
+    \draw (P) -- (R) node[midway, below] {};
+    \draw (Q) -- (R) node[midway, above right] {2.7 m};
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the size of angle $x$, the angle between the guy wire $QR$ and the ground.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}

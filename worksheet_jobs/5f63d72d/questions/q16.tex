@@ -1,0 +1,53 @@
+\begin{question}
+\noindent An astronomer sketches the circular cross-section of a satellite dish support ring, with $O$ as the centre. $TA$ is a tangent to the circle at $A$. $B$, $C$ and $D$ are points on the circumference. $AC$ is a diameter of the circle.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    % centre and points on circle
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (200:1);
+    \coordinate (C) at (20:1);
+    \coordinate (B) at (100:1);
+    \coordinate (D) at (300:1);
+
+    % circle
+    \draw[thick] (0,0) circle (1);
+    \fill (O) circle (0.5pt) node[below right, xshift=1pt]{$O$};
+
+    % diameter AC
+    \draw[thick] (A) -- (C);
+
+    % chords
+    \draw[thick] (A) -- (B);
+    \draw[thick] (B) -- (D);
+    \draw[thick] (D) -- (C);
+    \draw[thick] (A) -- (D);
+
+    % tangent at A
+    \draw[thick] ($(A)!1.6!90:(O)$) coordinate (T1) -- ($(A)!1.6!-90:(O)$) coordinate (T2);
+    \node at (T1) [above left]{$T$};
+
+    % labels for points
+    \node at (A) [left]{$A$};
+    \node at (B) [above right]{$B$};
+    \node at (C) [right]{$C$};
+    \node at (D) [below right]{$D$};
+
+    % marked angles
+    \pic [draw, "$58^\circ$", angle eccentricity=1.5, angle radius=0.5cm] {angle = C--A--D};
+    \pic [draw, "$x$", angle eccentricity=1.6, angle radius=0.55cm] {angle = B--D--A};
+    \pic [draw, "$47^\circ$", angle eccentricity=1.4, angle radius=0.45cm] {angle = D--C--A};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $CAD = 58^\circ$ and angle $DCA = 47^\circ$.
+
+\noindent Calculate the size of angle $x$ ($= \angle BDA$), giving reasons for each stage of your working.
+
+\vspace{5cm}
+
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{4}
+\end{flushright}
+\end{question}

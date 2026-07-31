@@ -1,0 +1,36 @@
+\begin{question}
+\noindent A historian is studying the design of an ancient circular observatory floor, once used to track the rising points of stars on the horizon. Three marker stones $A$, $B$ and $C$ lie on the circle, with $AC$ passing through the centre $O$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (A) at (180:1);
+    \coordinate (C) at (0:1);
+    \coordinate (B) at (35:1);
+    \coordinate (O) at (0,0);
+
+    \draw[thick] (0,0) circle (1);
+    \fill[black] (O) circle (0.4pt);
+    \draw[thick] (A) -- (C);
+    \draw[thick] (A) -- (B);
+    \draw[thick] (B) -- (C);
+
+    \node[left] at (A) {$A$};
+    \node[right] at (C) {$C$};
+    \node[above right] at (B) {$B$};
+    \node[below] at (O) {$O$};
+
+    \pic [draw, angle radius=6mm, "$(2x+10)^\circ$"] {angle = C--A--B};
+    \pic [draw, angle radius=5mm, "$(3x-5)^\circ$"] {angle = B--C--A};
+\end{tikzpicture}
+\end{center}
+
+\noindent $AC$ is a diameter of the circle. Angle $BAC = (2x+10)^\circ$ and angle $BCA = (3x-5)^\circ$.
+
+\noindent Show that $x = 15$.
+
+\vspace{5cm}
+
+\begin{flushright}
+    \answermarks{3}
+\end{flushright}
+\end{question}

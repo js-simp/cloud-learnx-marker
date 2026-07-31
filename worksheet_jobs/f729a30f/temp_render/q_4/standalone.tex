@@ -1,0 +1,57 @@
+\documentclass[11pt]{article}
+\input{layout/packages}
+\input{layout/macros}
+\pagestyle{empty}
+\begin{document}
+\begin{question}
+\noindent A satellite dish is designed as part of a space communications tracking system. Its circular cross-section has centre $O$. A support strut $AT$ is fixed so that it just touches the edge of the dish at point $T$, forming a tangent to the circle. The radius $OT$ is drawn to the point of contact, and $OA$ is a straight support beam from the centre to point $A$.
+
+Angle $OAT = 34^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    % centre and tangent point
+    \coordinate (O) at (0,0);
+    \coordinate (T) at (-90:1);
+
+    % circle
+    \draw[name path=circ] (0,0) circle (1);
+    \fill[black] (0,0) circle (0.6pt);
+    \node[above] at (O) {$O$};
+
+    % radius OT
+    \draw (O) -- (T);
+    \node[right] at (-90:0.5) {$r$};
+    \node[below] at (T) {$T$};
+
+    % tangent line at T
+    \coordinate (L) at ($(T)!1.6!-90:(O)$);
+    \coordinate (M) at ($(T)!0.6!90:(O)$);
+    \draw (M) -- (L);
+
+    % point A on tangent line, to the right of T
+    \coordinate (A) at ($(T)!1.4!-90:(O)$);
+    \node[below right] at (A) {$A$};
+
+    % triangle side OA
+    \draw (O) -- (A);
+
+    % right angle mark at T
+    \tkzMarkRightAngle[size=.18](O,T,A);
+
+    % angle at A
+    \pic [draw, angle eccentricity=1.5, angle radius = 0.35cm, "$34^\circ$"] {angle = T--A--O};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the size of angle $TOA$, marked $x$ on the diagram.
+
+\vspace{4cm}
+
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}
+
+\end{document}

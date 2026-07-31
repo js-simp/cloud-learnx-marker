@@ -1,0 +1,63 @@
+\documentclass[11pt]{article}
+\input{layout/packages}
+
+% Declare counters expected by \begin{question} macros
+\newcounter{questionNum}
+\newcounter{totalmarks}
+\newcounter{questionmarks}
+\regtotcounter{totalmarks}
+
+% Color definitions to prevent xcolor errors
+\definecolor{primaryGreen}{RGB}{34, 139, 34}
+\definecolor{lightYellow}{RGB}{255, 255, 224}
+\definecolor{primaryBlue}{RGB}{0, 102, 204}
+
+\input{layout/macros}
+
+\pagestyle{empty}
+\begin{document}
+\begin{question}
+\noindent A circular logo of radius $10$ cm is being designed in a UI/UX layout tool. A straight decorative chord $AB$ is drawn across the circle. The perpendicular distance from the centre $O$ of the circle to the chord $AB$ is $6$ cm, as shown in the diagram.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.35]
+    % Circle of radius 10, centre O at origin
+    \draw[thick] (0,0) circle (10);
+    \fill[black] (0,0) circle (3pt);
+    \node[below] at (0,-0.6) {$O$};
+
+    % Chord AB: horizontal chord at distance 6 from centre
+    % half-chord length = sqrt(10^2-6^2) = 8, so chord from (-8,6) to (8,6)
+    \coordinate (A) at (-8,6);
+    \coordinate (B) at (8,6);
+    \coordinate (M) at (0,6);
+
+    \draw[thick] (A) -- (B);
+    \node[above left] at (A) {$A$};
+    \node[above right] at (B) {$B$};
+
+    % perpendicular from O to chord, meeting at M
+    \draw[thick] (0,0) -- (M);
+    \node[right] at (2.5,3) {$6$ cm};
+
+    % radius from O to A
+    \draw[thick] (0,0) -- (A);
+    \node[left] at (-4,3) {$10$ cm};
+
+    % right angle mark at M
+    \draw (M) ++(-0.6,0) -- ++(0,0.6) -- ++(0.6,0);
+
+    \fill[black] (M) circle (2.5pt);
+\end{tikzpicture}
+\end{center}
+
+\noindent The perpendicular from $O$ meets $AB$ at the point where it is bisected.
+
+\noindent Calculate the length of the chord $AB$.
+\vspace{4cm}
+\begin{flushright}
+    \answerunit{cm}{3}
+\end{flushright}
+\end{question}
+
+\end{document}

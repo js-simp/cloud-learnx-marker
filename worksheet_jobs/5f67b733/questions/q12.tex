@@ -1,0 +1,33 @@
+\begin{question}
+\noindent A satellite dish is supported by a circular collar that fits around a cylindrical mast. $O$ is the centre of the circular cross-section of the collar, and $T$ is the point where a straight support strut touches the collar.
+
+The strut $TP$ is a tangent to the circle at $T$, and $OP$ is a straight brace connecting the centre $O$ to a fixing point $P$ on the strut.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate[label=below:$O$] (O) at (0,0);
+    \coordinate (T) at (140:1);
+    \coordinate (P) at (-15:1.9);
+
+    \draw[name path=circ, fill=gray!15] (0,0) circle (1);
+    \fill[black] (0,0) circle (0.4pt);
+
+    \draw[thick] (O) -- (T);
+    \draw[thick] (T) -- (P);
+    \draw[thick] (O) -- (P);
+
+    \node at (140:1.18) {$T$};
+    \node[below right] at (P) {$P$};
+
+    \pic [draw, "$29^\circ$", angle eccentricity=1.5, angle radius=0.5cm] {angle = O--P--T};
+
+    \node at (0.35,0.55) {$x$};
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $OPT = 29^\circ$.
+
+Work out the size of angle $x$, the angle between the radius $OT$ and the brace $OP$.
+\vspace{4.5cm}
+\answerequnit{x}{$^\circ$}{3}
+\end{question}
