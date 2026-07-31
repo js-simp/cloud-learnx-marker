@@ -98,6 +98,94 @@ TIKZ DIAGRAMS:
 DO NOT invent new macros. DO NOT use \begin{exam} or similar — it does not exist.
 """
 
+DIAGRAM_RULES = r"""
+TIKZ DIAGRAM RULES — MANDATORY. Violations cause wrong answers or student confusion.
+
+═══════════════════════════════════════════════════════
+RULE 1 — ANGLE ARC DIRECTION
+═══════════════════════════════════════════════════════
+The tikz `angles` library draws \pic{angle = A--V--B} counter-clockwise from A to B
+around vertex V. This WILL draw the reflex arc (270°+) if the counter-clockwise sweep
+goes the wrong way. ALWAYS verify your angle order sweeps the MINOR arc.
+
+To mark an acute or obtuse angle correctly:
+  - Identify which direction from V gives the interior/minor angle
+  - Order the points so the arc sweeps that direction counter-clockwise
+
+CORRECT pattern for marking angle at vertex B in a triangle ABC where A is left, C is right:
+  {angle = C--B--A}   ← sweeps from C to A counter-clockwise through the interior angle
+
+WRONG: {angle = A--B--C}  ← may sweep the reflex exterior arc instead
+
+After writing any \pic{angle = ...} line, mentally verify:
+  "Does counter-clockwise from the first point to the third point, around the vertex,
+   give the SMALL angle I want to mark? If not, reverse the order."
+
+═══════════════════════════════════════════════════════
+RULE 2 — DIAGRAM COORDINATES MUST MATCH STATED DIMENSIONS
+═══════════════════════════════════════════════════════
+If a right triangle has legs stated as 3 cm and 4 cm, the tikz coordinates must reflect
+that ratio: e.g. (0,0), (4,0), (0,3) — NOT (0,0), (5,0), (0,3).
+
+NEVER assign tikz coordinates arbitrarily and then write different numbers in the text.
+ALWAYS compute coordinates proportionally from the given measurements.
+
+For triangles: place one vertex at origin, one along x-axis at the correct relative
+distance, compute the third using the actual given lengths/angles.
+
+═══════════════════════════════════════════════════════
+RULE 3 — GRID QUESTIONS: ALL SHAPES MUST STAY WITHIN THE GRID
+═══════════════════════════════════════════════════════
+When drawing transformations (rotations, reflections, enlargements) on a coordinate grid:
+  1. First COMPUTE all image vertices mathematically from the transformation
+  2. Check EVERY image vertex is strictly inside the grid boundaries
+  3. If any vertex falls outside, CHANGE the original shape's position/size,
+     or change the transformation parameters, until ALL vertices fit
+
+Example: if grid is ±6 and rotation of (1,5) by 180° about (1,-1) gives (1,-7),
+that's outside the grid. Move the original point or adjust the centre of rotation.
+
+Never place shape T' with a vertex at (-2,-7) on a ±6 grid.
+
+═══════════════════════════════════════════════════════
+RULE 4 — PROPORTIONAL VISUAL ACCURACY
+═══════════════════════════════════════════════════════
+The visual size of sides in the diagram must be proportional to the stated measurements.
+A side labelled 15.6 m MUST appear longer than a side labelled 7.2 m in the diagram.
+
+If the longer side appears shorter, rescale the coordinates.
+A quick check: sort your stated lengths, sort your tikz distances — the order must match.
+
+═══════════════════════════════════════════════════════
+RULE 5 — DO NOT GIVE AWAY THE ANSWER IN THE DIAGRAM
+═══════════════════════════════════════════════════════
+If a student must find angle x, do NOT draw the diagram with x obviously equal to a
+recognisable value (e.g. visually 90° when x is the unknown).
+
+For circle theorem questions asking students to find angle x:
+  - Mark x on the diagram with just the label "$x$", no arc that reveals its size
+  - Do NOT state or strongly imply the answer through the geometry of the diagram itself
+
+═══════════════════════════════════════════════════════
+RULE 6 — FLOATING LABELS AND ALIGNMENT
+═══════════════════════════════════════════════════════
+Node labels must be positioned relative to their anchor point:
+  - Vertex labels: use [above left], [below right], etc. anchored to the vertex coordinate
+  - Side labels: use node[midway, above] or node[midway, left] on the draw command
+  - NEVER place labels at arbitrary coordinates disconnected from their referent geometry
+
+═══════════════════════════════════════════════════════
+RULE 7 — VERIFY BEFORE OUTPUT
+═══════════════════════════════════════════════════════
+Before writing your final tex_content, mentally run through this checklist:
+  □ Every angle arc sweeps the minor (interior) angle, not the reflex
+  □ Tikz coordinates are proportional to stated measurements
+  □ All image vertices of transformations lie within the grid
+  □ The longer stated side is visually longer in the diagram
+  □ No label is floating away from its geometry
+  □ The diagram doesn't trivialise the question or reveal the answer
+"""
+
 SAMPLE_QUESTIONS = r"""
 EXAMPLE QUESTION FILES (study these for style and structure):
 
@@ -472,6 +560,7 @@ def generate_question(
 
     system_blocks = [
         cached_block(MACRO_REFERENCE),
+        cached_block(DIAGRAM_RULES),
         cached_block(SAMPLE_QUESTIONS),
     ]
     if curriculum_block:
@@ -505,10 +594,27 @@ REQUIREMENTS:
 2. Use ONLY the macros listed in AVAILABLE LATEX MACROS.
 3. Make sure to follow the CRITICAL MACRO RULE FOR UNITS (math units must be wrapped in $...$).
 4. Include generous \\vspace{{Xcm}} for working space.
-5. If the question has a diagram, adapt one of the TIKZ DIAGRAM REFERENCE EXAMPLES above.
+5. If the question has a diagram, adapt one of the TIKZ DIAGRAM REFERENCE EXAMPLES above,
+   and follow ALL rules in TIKZ DIAGRAM RULES strictly.
 6. Make the question realistic, with clean numbers where possible.
 7. For multi-part questions, use \\begin{{enumerate}} with \\item[(a)] etc.
 8. Provide: the correct answer, and a mark scheme in Edexcel format (M1 for..., A1 for...).
+
+CONTEXT NATURALNESS (Issue 3):
+   If using student interests for context, the connection must feel ORGANIC and PLAUSIBLE.
+   - A robotics student solving a triangle about a robot arm angle: NATURAL
+   - A gaming student solving a geometry question "in a mobile game tournament": FORCED
+   - The scenario must genuinely require the mathematics — not just mention the interest as decoration
+   - If the interest doesn't fit naturally, use a neutral real-world context (architecture,
+     engineering, science) — forced connections are worse than no connection at all
+
+DO NOT SCAFFOLD AWAY THE CHALLENGE (Issue 4):
+   - Do NOT provide the key equation the student must derive — that IS the question
+   - Do NOT state geometric properties that the student must identify (e.g. "opposite sides
+     of a rectangle are equal" in a question where that's the insight needed)
+   - Do NOT give intermediate results that reduce a multi-step question to a single step
+   - The number of marks awarded must reflect the cognitive work actually required
+   - A 3-mark question where you hand the student the equation reduces to a 1-mark question
 
 tex_content must be valid LaTeX starting with \\begin{{question}} and ending with \\end{{question}}.
 """
