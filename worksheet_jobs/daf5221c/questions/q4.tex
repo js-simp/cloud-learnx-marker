@@ -1,0 +1,33 @@
+\begin{question}
+\noindent $A$, $B$, $C$ and $D$ are four points on the circumference of a circle, forming the cyclic quadrilateral $ABCD$.
+
+\noindent Angle $DAB = 2x$ and angle $BCD = x + 30^\circ$, as shown in the diagram.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (A) at (150:1);
+    \coordinate (B) at (75:1);
+    \coordinate (C) at (-10:1);
+    \coordinate (D) at (220:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+    \draw[line join=bevel] (A) -- (B) -- (C) -- (D) -- cycle;
+
+    \node at (A) [above right] {$A$};
+    \node at (B) [above right] {$B$};
+    \node at (C) [right] {$C$};
+    \node at (D) [below left] {$D$};
+
+    \pic [draw, "$2x$", angle eccentricity=1.6, angle radius = 0.35cm] {angle = B--A--D};
+    \pic [draw, "$x+30^\circ$", angle eccentricity=1.6, angle radius = 0.35cm] {angle = D--C--B};
+\end{tikzpicture}
+\end{center}
+
+\noindent Find the value of $x$ and hence work out the size of each of the angles $DAB$ and $BCD$.
+
+\vspace{4.5cm}
+
+\begin{flushright}
+\answerplain{3}
+\end{flushright}
+\end{question}

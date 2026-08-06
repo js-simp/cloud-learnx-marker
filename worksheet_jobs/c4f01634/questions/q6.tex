@@ -1,0 +1,55 @@
+\begin{question}
+\noindent In a school science lab, a microscope projects a slide image onto a screen. The lens system inverts the image and enlarges it by scale factor $-2$ about a fixed point $O$ on the screen (the optical centre).
+
+\noindent Triangle $PQR$ represents a specimen shown on the slide, with $O$ marking the optical centre of the lens. The coordinates are shown on the grid below.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.55, transform shape]
+    \definecolor{borderColour}{HTML}{000000}
+    \definecolor{fillColour}{HTML}{D8D8D8}
+
+    \def\axisLimit{6}
+
+    % Draw grid
+    \draw[step=1cm,gray,very thin] (-\axisLimit,-\axisLimit) grid (\axisLimit,\axisLimit);
+
+    % Draw axes
+    \draw[thick,->] (-\axisLimit-0.5,0) -- (\axisLimit+0.5,0) node[anchor=north] {$x$};
+    \draw[thick,->] (0,-\axisLimit-0.5) -- (0,\axisLimit+0.5) node[anchor=east] {$y$};
+
+    % Label x-axis and y-axis
+    \foreach \x in {-\axisLimit,...,-1,1,2,...,\axisLimit}
+        \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+    \foreach \y in {-\axisLimit,...,-1,1,2,...,\axisLimit}
+        \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+
+    % Centre of enlargement O
+    \coordinate (O) at (-1,1);
+    \draw[red, thick] (O) node[cross out, draw=red, inner sep=2pt, outer sep=0pt] {};
+    \node at (-1.5,1.5) {$O$};
+
+    % Original triangle PQR
+    \coordinate (P) at (0,0);
+    \coordinate (Q) at (0,-1);
+    \coordinate (R) at (-2,0);
+
+    \draw[fill=fillColour, draw=borderColour, line width=1pt] (P) -- (Q) -- (R) -- cycle;
+    \node at (0.3,0.3) {$P$};
+    \node at (0.3,-1.3) {$Q$};
+    \node at (-2.4,0.3) {$R$};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent (a) On the grid, draw the image of triangle $PQR$ after an enlargement of scale factor $-2$, centre $O(-1,1)$. Label the image $P'Q'R'$.
+
+\vspace{5cm}
+
+\noindent (b) State the coordinates of $P'$, $Q'$ and $R'$.
+
+\vspace{3cm}
+
+\begin{flushright}
+\answerplain{4}
+\end{flushright}
+\end{question}

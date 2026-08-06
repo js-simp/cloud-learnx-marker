@@ -1,0 +1,40 @@
+\begin{question}
+\noindent A space telescope has a circular lens with centre $O$. Points $A$ and $B$ lie on the circumference of the lens, and $OA$ and $OB$ are radii marking the edges of a support bracket. Point $C$ also lies on the circumference, on the major arc $AB$, and represents the edge of the telescope's field of view.
+
+Angle $AOB = 118^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.4]
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (151:1);
+    \coordinate (B) at (269:1);
+    \coordinate (C) at (40:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+    \fill[black] (O) circle (0.6pt);
+    \draw[thick] (O) -- (A);
+    \draw[thick] (O) -- (B);
+    \draw[thick] (A) -- (C);
+    \draw[thick] (C) -- (B);
+
+    \pic [draw, angle eccentricity=1.4, angle radius=0.5cm, "$118^\circ$"] {angle = A--O--B};
+
+    \node at (O) [below right] {$O$};
+    \node at (A) [above left] {$A$};
+    \node at (B) [below left] {$B$};
+    \node at (C) [above right] {$C$};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item[(a)] Find the size of angle $OAB$.
+
+    \vspace{4cm}
+    \answerequnit{OAB}{$^\circ$}{2}
+
+    \item[(b)] Work out the size of angle $ACB$, the angle representing the telescope's field of view at $C$.
+
+    \vspace{4cm}
+    \answerequnit{ACB}{$^\circ$}{2}
+\end{enumerate}
+\end{question}

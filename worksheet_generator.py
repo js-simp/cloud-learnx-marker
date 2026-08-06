@@ -76,7 +76,7 @@ def load_prompt_dir(dirname: str) -> str:
 # ── Static reference content — these get cached, never change per-call ───────
 MACRO_REFERENCE  = load_prompt("macro_reference.md")
 DIAGRAM_RULES    = load_prompt("diagram_rules.md")
-SAMPLE_QUESTIONS = load_prompt_dir("sample_questions")
+SAMPLE_QUESTIONS = load_prompt("sample_questions.md")
 
 # ============================================================================
 # SECTION 1 — PYDANTIC SCHEMAS
@@ -104,8 +104,15 @@ class GeneratedQuestion(BaseModel):
     number:       Optional[int] = None
     tex_content:  str  = Field(description="Complete LaTeX content for this question, ready to \\input{}")
     marks:        int
-    answer:       str  = Field(description="The correct final answer(s)")
-    mark_scheme:  str  = Field(description="Mark scheme in Edexcel format: M1 for..., A1 for..., etc.")
+    answer:       str  = Field(description="The correct final answer(s), stated plainly (e.g. 'x = 4' or '12.5 cm') — no explanation.")
+    mark_scheme:  str  = Field(description="TERSE examiner mark scheme ONLY — for a tutor who already knows the topic, not a student. "
+        "One short line per mark, Edexcel-style abbreviations (M1/A1/B1/ft), stating WHAT earns the mark, "
+        "not why or how. No prose explanations, no restated theorems, no step-by-step narrative — "
+        "that reasoning belongs in worked_solution, not here. "
+        "Good example: 'M1: correct substitution into cosine rule\\nA1: x = 7.2 (±0.1)'. "
+        "Bad example (too verbose — do NOT do this): 'M1: The student must substitute the given values "
+        "into the cosine rule formula a² = b² + c² - 2bc·cos(A), which is used to find missing sides in "
+        "non-right-angled triangles when two sides and the included angle are known...'")
     topic_aspect: str
 
 
@@ -297,15 +304,15 @@ def plan_worksheet(student_profile: dict, topic: str) -> WorksheetPlan:
     {curriculum_block}
 
     WORKSHEET PLANNING RULES:
-    - Minimum 12 questions. For Year 10+, aim for 14-18 questions.
-    - Start with 2-3 confidence-building easy questions.
+    - Minimum 2 questions. For Year 10+, aim for 5-7 questions.
+    - Start with 1-2 confidence-building easy questions.
     - Build up through medium questions that test core method.
-    - Include 2-4 challenging questions that stretch the student.
+    - Include 2-3 challenging questions that stretch the student.
     - Include multi-part questions for complex topics.
     - If student has interests (e.g. robotics, space, gaming), weave them naturally into word problems.
     - Respect frustration triggers (e.g., if "avoid dense word problems" is specified, keep scenarios concise).
     - Vary question types: diagrams, tables, word problems, show-that, algebraic manipulation.
-    - Total marks should be proportional to difficulty — typically 40-70 marks.
+    - Total marks should be proportional to difficulty — typically 20-40 marks.
 
     Plan the complete worksheet using the tool provided.
     """
@@ -328,10 +335,10 @@ def plan_worksheet(student_profile: dict, topic: str) -> WorksheetPlan:
 # ============================================================================
 
 def generate_question(
-    q_plan:         QuestionPlan,
-    topic:          str,
+    q_plan:          QuestionPlan,
+    topic:           str,
     student_profile: dict,
-    prev_questions: List[str] = None,
+    prev_questions:  List[str] = None,
 ) -> GeneratedQuestion:
     prev_questions = prev_questions or []
     year = student_profile.get("year", 10)
@@ -363,13 +370,15 @@ def generate_question(
         cached_block(DIAGRAM_RULES),
         cached_block(SAMPLE_QUESTIONS),
     ]
-    if curriculum_block:
+    if curriculum_block and curriculum_block.strip():
         system_blocks.append(cached_block(curriculum_block))
 
     tikz_context = ""
     if q_plan.has_diagram:
         query = f"{topic} — {q_plan.topic_aspect}"
-        tikz_context = retrieve_tikz_diagrams(query, n=TIKZ_MATCH_COUNT)
+        retrieved = retrieve_tikz_diagrams(query, n=TIKZ_MATCH_COUNT)
+        if retrieved and retrieved.strip():
+            tikz_context = f"\nTIKZ DIAGRAM REFERENCE EXAMPLES:\n{retrieved}\n"
 
     user_message = f"""
 Generate Question {q_plan.number} for a Year {year} student on the topic: {topic}
@@ -388,17 +397,29 @@ QUESTION SPECIFICATION:
 - Notes: {q_plan.notes or 'None'}
 
 {tikz_context}
-
-REQUIREMENTS:
-1. Write the complete LaTeX for this question — everything inside a question .tex file.
-2. Use ONLY the macros listed in AVAILABLE LATEX MACROS.
-3. Make sure to follow the CRITICAL MACRO RULE FOR UNITS (math units must be wrapped in $...$).
-4. Include generous \\vspace{{Xcm}} for working space.
-5. If the question has a diagram, adapt one of the TIKZ DIAGRAM REFERENCE EXAMPLES above,
-   and follow ALL rules in TIKZ DIAGRAM RULES strictly.
-6. Make the question realistic, with clean numbers where possible.
-7. For multi-part questions, use \\begin{{enumerate}} with \\item[(a)] etc.
-8. Provide: the correct answer, and a mark scheme in Edexcel format (M1 for..., A1 for...).
+YOUR TASK:
+1. Choose concrete, realistic numbers/scenario for this question (clean numbers where possible).
+2. Actually SOLVE it step by step, exactly as a student would have to work through it.
+3. Check your own setup honestly:
+   - Is it self-consistent (no contradictory constraints)?
+   - Is it actually solvable with the information given (not under- or over-determined)?
+   - Does it require genuine work matching {q_plan.marks} marks, or is the answer
+     immediately obvious / directly readable without real reasoning (i.e. trivial)?
+   - Does solving it actually require the misconception/method targeted, if one was specified?
+4. If ANY of the above checks fail, make necessary adjustments to the numbers, scenario, or question 
+   wording until it is a valid, solvable, non-trivial question.
+5. If the question has a diagram, calculate key_values with EVERY concrete fact needed to reproduce this 
+   diagram accurately — labeled points/vertices, exact side lengths, exact angle values, exact coordinates, etc.
+   Do not leave anything implicit when allocating axis limits, points on circles, length of tangents, or node directions.
+   Ensure all label nodes use explicit anchor offsets (e.g., [above left], [below right]) to prevent text clipping.
+6. Write the complete LaTeX for this question — everything inside a question .tex file.
+7. Use ONLY the macros listed in AVAILABLE LATEX MACROS.
+8. Follow the CRITICAL MACRO RULE FOR UNITS (math units must be wrapped in $...$).
+9. Include generous \\vspace{{Xcm}} for working space.
+10. If the question has a diagram, adopt one of the TIKZ DIAGRAM REFERENCE EXAMPLES above,
+    and follow ALL rules in TIKZ DIAGRAM RULES strictly.
+11. For multi-part questions, use \\begin{{enumerate}} with \\item[(a)] etc.
+12. Provide the final answer plainly and a mark scheme in Edexcel format (M1 for..., A1 for...).
 
 CONTEXT NATURALNESS:
    If using student interests for context, the connection must feel ORGANIC and PLAUSIBLE.
@@ -411,7 +432,7 @@ DO NOT SCAFFOLD AWAY THE CHALLENGE:
    - Do NOT state/suggest the theorem that the student must use.
    - The number of marks awarded must reflect the cognitive work actually required.
 
-tex_content must be valid LaTeX starting with \\begin{{question}} and ending with \\end{{question}}.
+`tex_content` must be valid LaTeX starting with \\begin{{question}} and ending with \\end{{question}}.
 """
 
     q = generate_structured(
@@ -420,7 +441,7 @@ tex_content must be valid LaTeX starting with \\begin{{question}} and ending wit
         output_model=GeneratedQuestion,
         tool_name="submit_question",
         model=MODEL_SONNET,
-        max_tokens=4096,
+        max_tokens=8192,
     )
     q.number = q_plan.number
     q.tex_content = sanitize_latex(q.tex_content)

@@ -1,0 +1,50 @@
+\begin{question}
+\noindent A space telescope has a circular mirror, centre $O$. A support strut is bolted to the edge of the mirror at point $P$, and lies along the tangent to the circle at $P$. A second strut $OQ$ connects the centre $O$ to a fixing bracket at $Q$ on the tangent line, as shown.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.1]
+    \coordinate (O) at (0,0);
+    \coordinate (P) at (0,-2);
+
+    % circle
+    \draw[thick] (O) circle (2);
+    \fill[black] (O) circle (1.5pt);
+    \node[left] at (O) {$O$};
+
+    % radius OP
+    \draw[thick] (O) -- (P);
+    \node[below left] at (P) {$P$};
+
+    % tangent line at P (horizontal, perpendicular to vertical radius)
+    \draw[thick] (-3.2,-2) -- (3.2,-2);
+
+    % point Q on tangent
+    \coordinate (Q) at (3,-2);
+    \fill[black] (Q) circle (1.2pt);
+    \node[below right] at (Q) {$Q$};
+
+    % line OQ
+    \draw[thick] (O) -- (Q);
+
+    % right angle mark at P
+    \draw (-0.3,-2) -- (-0.3,-1.7) -- (0,-1.7);
+
+    % angle x at O between OP and OQ
+    \pic [draw, angle radius=8mm, "$x$"] {angle = Q--O--P};
+
+    % angle at Q
+    \node at (2.55,-1.75) {$34^\circ$};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent The angle between the strut $OQ$ and the tangent line at $Q$ is $34^\circ$.
+
+\noindent Calculate the size of angle $x$, marked at the centre $O$.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answerequnit{x}{$^\circ$}{3}
+\end{flushright}
+\end{question}

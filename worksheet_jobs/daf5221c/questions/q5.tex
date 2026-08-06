@@ -1,0 +1,50 @@
+\begin{question}
+\noindent $A$, $B$ and $C$ are points on the circle. $TCS$ is a tangent to the circle at $C$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    % mark points on circle
+    \coordinate (D) at (-90:1);
+
+    % draw circle
+    \draw[name path=circ] (0,0) circle (1);
+
+    % draw tangent line through D (bottom point), extend both ways
+    \draw (D) -- ($(D)!1.6!-90:(0,0)$) coordinate (S) node[below right] {$S$};
+    \draw (D) -- ($(D)!1.6!90:(0,0)$) coordinate[pos=1] (T);
+    \node[below left] at (T) {$T$};
+
+    % define chord paths to find points A and B on circle
+    \path[name path=DB] (D) -- ($(D)!2!-25:(0,0)$);
+    \path[name path=DA] (D) -- ($(D)!2!35:(0,0)$);
+    \path[name intersections={of=DB and circ, by={B,tempB}}];
+    \path[name intersections={of=DA and circ, by={A,tempA}}];
+
+    % draw chords
+    \draw (D) -- (B) node[right] {} ;
+    \draw (D) -- (A);
+    \draw (A) -- (B);
+
+    % Labels for points
+    \node[below right=1mm and -1mm] at (D) {$C$};
+    \node[right] at (B) {$B$};
+    \node[above] at (A) {$A$};
+
+    % Mark the given angle between chord CB and tangent at S side (72 degrees)
+    \pic [draw, "$72^\circ$", angle eccentricity=1.6, angle radius = 0.7cm] {angle = B--D--S};
+
+    % Mark angle x = angle CAB (angle in alternate segment)
+    \pic [draw, "$x$", angle eccentricity=1.5, angle radius = 0.5cm] {angle = B--A--D};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent The angle between the tangent $TCS$ and the chord $CB$ is $72^\circ$, as shown.
+
+\noindent Find the size of angle $x$, giving a reason for your answer.
+
+\vspace{4.5cm}
+\begin{flushright}
+    \answerequnit{x}{$^\circ$}{3}
+\end{flushright}
+\end{question}

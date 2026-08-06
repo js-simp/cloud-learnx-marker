@@ -1,0 +1,64 @@
+{
+  "paper_title": "Circle Theorems Worksheet \u2014 Kalan",
+  "subject": "Mathematics",
+  "generated_date": "2026-08-06",
+  "total_marks": 21,
+  "questions": [
+    {
+      "question_number": 1,
+      "topic_aspect": "Circle Theorems: Angle at the centre is twice the angle at the circumference",
+      "total_marks": 2,
+      "correct_answer": "x = 40\u00b0",
+      "mark_scheme": "M1: x = 80 \u00f7 2 (correctly halving the centre angle, not doubling)\nA1: x = 40\u00b0 with reason \"angle at centre is twice angle at circumference\" (or equivalent)",
+      "misconception_targeted": "Confusing which angle is doubled (centre vs circumference)"
+    },
+    {
+      "question_number": 2,
+      "topic_aspect": "Angle in a semicircle is 90\u00b0",
+      "total_marks": 2,
+      "correct_answer": "y = 55\u00b0",
+      "mark_scheme": "M1: identifies angle in triangle opposite the diameter as 90\u00b0\\nA1: y = 180 - 90 - 35 = 55\u00b0",
+      "misconception_targeted": "Not recognising the diameter as the key feature triggering the 90\u00b0 rule"
+    },
+    {
+      "question_number": 3,
+      "topic_aspect": "Tangent to a circle is perpendicular to the radius",
+      "total_marks": 3,
+      "correct_answer": "x = 56\u00b0",
+      "mark_scheme": "M1: identify angle OPQ = 90\u00b0 (tangent perpendicular to radius)\nM1: use angle sum of triangle OPQ = 180\u00b0 (180 - 90 - 34)\nA1: x = 56\u00b0 (\u00b10)",
+      "misconception_targeted": "Assuming the tangent meets the radius at an angle other than 90\u00b0"
+    },
+    {
+      "question_number": 4,
+      "topic_aspect": "Cyclic quadrilaterals \u2014 opposite angles sum to 180\u00b0",
+      "total_marks": 3,
+      "correct_answer": "x = 50\u00b0, angle DAB = 100\u00b0, angle BCD = 80\u00b0",
+      "mark_scheme": "M1: Uses opposite angles in cyclic quadrilateral sum to 180\u00b0 \u2014 sets up 2x + (x+30) = 180\nM1: Correctly simplifies and solves 3x + 30 = 180 \u2192 x = 50\nA1: Correctly states angle DAB = 100\u00b0 and angle BCD = 80\u00b0 (both required)",
+      "misconception_targeted": "Believing all angles in a cyclic quadrilateral sum to 360\u00b0 individually rather than opposite pairs summing to 180\u00b0"
+    },
+    {
+      "question_number": 5,
+      "topic_aspect": "Alternate segment theorem",
+      "total_marks": 3,
+      "correct_answer": "x = 72\u00b0",
+      "mark_scheme": "M1: Identify angle DCB (72\u00b0, between tangent and chord CB) as the tangent-chord angle\nM1: Correctly identify angle x (angle CAB, in the alternate segment cut off by chord CB) as equal to the tangent-chord angle\nA1: x = 72\u00b0, with reason \"alternate segment theorem\" stated",
+      "misconception_targeted": "Matching the tangent-chord angle to the wrong segment/arc"
+    },
+    {
+      "question_number": 6,
+      "topic_aspect": "Combining multiple circle theorems (angle at centre, isosceles triangles from radii)",
+      "total_marks": 4,
+      "correct_answer": "angle OAB = 31\u00b0, angle ACB = 59\u00b0",
+      "mark_scheme": "(a) M1: recognise triangle OAB is isosceles (OA = OB, radii) and use angle sum of triangle: (180 - 118)/2\nA1: angle OAB = 31\u00b0\n(b) M1: use angle at centre = twice angle at circumference (angle AOB = 118\u00b0), so angle ACB = 118/2\nA1: angle ACB = 59\u00b0",
+      "misconception_targeted": "Forgetting that two radii create an isosceles triangle, missing a step in multi-stage reasoning"
+    },
+    {
+      "question_number": 7,
+      "topic_aspect": "Show that \u2014 combining cyclic quadrilateral and tangent (alternate segment) properties",
+      "total_marks": 4,
+      "correct_answer": "Angle ADC = 118\u00b0",
+      "mark_scheme": "M1: Use cyclic quadrilateral theorem (opposite angles sum to 180\u00b0) to find angle DAB = 180 \u2212 118 = 62\u00b0, with theorem named.\nM1: Use alternate segment theorem (tangent-chord angle = angle in alternate segment) to identify angle ADF = angle DAB (or equivalent chain identifying angle ADF = angle ABC's alternate angle), naming theorem.\nM1: Correct construction of angle chain: angle ADC = angle ADF + angle FDC or use angle ADC = 180\u00b0 \u2212 angle ADF's supplementary relation via straight line EDF and cyclic quad property to reach 118\u00b0, with full reasoning shown (not just numbers).\nA1: Correct conclusion angle ADC = 118\u00b0 with all theorem names stated explicitly (cyclic quadrilateral, alternate segment theorem, angles on a straight line) forming a logical chain.",
+      "misconception_targeted": "Not structuring a logical chain of reasoning with theorem names when proving a result rather than just calculating a number"
+    }
+  ]
+}

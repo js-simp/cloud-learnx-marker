@@ -1,0 +1,48 @@
+\begin{question}
+\noindent $A$, $B$, $C$ and $D$ are four points on the circumference of a circle. The line $EDF$ is a tangent to the circle at point $D$, where $E$ and $F$ lie on either side of $D$ on the tangent line.
+
+$ABCD$ is a cyclic quadrilateral. Angle $BCD = 118^\circ$ and angle $ADF = 62^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    % Circle centre O at origin, radius 1
+    \coordinate (O) at (0,0);
+    \draw (O) circle (1);
+
+    % Points on circle
+    \coordinate (D) at (-90:1);
+    \coordinate (A) at (170:1);
+    \coordinate (B) at (60:1);
+    \coordinate (C) at (10:1);
+
+    % Draw cyclic quadrilateral
+    \draw (A) -- (B) -- (C) -- (D) -- cycle;
+
+    % Draw tangent line at D (horizontal, since D is at bottom of circle, tangent is horizontal)
+    \coordinate (E) at ($(D)+(-1.1,0)$);
+    \coordinate (F) at ($(D)+(1.1,0)$);
+    \draw (E) -- (F);
+
+    % Labels
+    \node at (A) [above left] {$A$};
+    \node at (B) [above right] {$B$};
+    \node at (C) [right] {$C$};
+    \node at (D) [below] {$D$};
+    \node at (E) [left] {$E$};
+    \node at (F) [right] {$F$};
+
+    % Angle markings
+    \pic [draw, angle eccentricity=1.5, angle radius=0.4cm, "$118^\circ$"] {angle = B--C--D};
+    \pic [draw, angle eccentricity=1.5, angle radius=0.5cm, "$62^\circ$"] {angle = D--F--A};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Show that angle $ADC = 118^\circ$.
+
+You must show each step of your working and state the circle theorems you use.
+
+\vspace{5cm}
+
+\answermarks{4}
+\end{question}
