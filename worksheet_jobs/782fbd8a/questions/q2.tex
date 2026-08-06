@@ -1,0 +1,40 @@
+\begin{question}
+\noindent $A$, $B$ and $C$ are points on the circumference of a circle with centre $O$.
+
+\noindent The angle at the centre, $\angle AOB$, is $80^\circ$.
+
+\noindent Angle $ACB = x$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    %mark points on circle
+        \coordinate[] (O) at (0,0);
+        \coordinate[] (A) at (130:1);
+        \coordinate[] (B) at (10:1);
+        \coordinate[] (C) at (260:1);
+
+    %draw chords and circle
+        \draw[name path=circ] (0,0) circle (1);
+        \fill[black] (0,0) circle (1pt);
+        \draw (A) -- (O) node[above, xshift=-4pt, yshift=2pt]{$O$};
+        \draw (O) -- (B);
+        \draw (A) -- (C);
+        \draw (C) -- (B);
+
+        \node at (A) [above left] {$A$};
+        \node at (B) [above right] {$B$};
+        \node at (C) [below] {$C$};
+      
+        \pic [draw, "$80^\circ$", angle eccentricity=1.6, angle radius = 0.5cm] {angle = B--O--A};
+        \pic [draw, "$x$", angle eccentricity=1.6, angle radius = 0.5cm] {angle = B--C--A};
+        
+    \end{tikzpicture}
+\end{center}
+
+\noindent Work out the size of angle $x$.
+
+\vspace{4cm}
+\begin{flushright}
+    \answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}

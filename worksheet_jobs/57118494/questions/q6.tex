@@ -1,0 +1,54 @@
+\begin{question}
+\noindent $A$, $B$ and $D$ are points on the circumference of a circle. The line $TDS$ is a tangent to the circle at $D$. Chord $DB$ and chord $DA$ are drawn, along with chord $AB$, as shown in the diagram.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.4]
+    % mark points on circle
+        \coordinate (E) at (0,0);
+        \coordinate (D) at (-90:1);
+        \coordinate (A) at (100:1);
+        \coordinate (B) at (-25:1);
+
+    % draw circle
+        \draw[name path=circ] (0,0) circle (1);
+
+    % draw tangent through D
+        \draw (D) -- ($(D)!1.5!-90:(E)$) coordinate (S) node[right]{$S$};
+        \draw (D) -- ($(D)!1.5!90:(E)$) coordinate (T) node[left]{$T$};
+
+    % draw chords
+        \draw (D) -- (B);
+        \draw (A) -- (D);
+        \draw (A) -- (B);
+
+    % Label points
+        \node[above left] at (A) {$A$};
+        \node[below] at (D) {$D$};
+        \node[right] at (B) {$B$};
+
+    % angle between tangent and chord DB (angle SDB)
+        \pic [draw, "$72^\circ$", angle eccentricity=1.4, angle radius=0.55cm] {angle = S--D--B};
+
+    % angle DAB (angle in alternate segment, to find)
+        \pic [draw, "$x$", angle eccentricity=1.5, angle radius=0.5cm] {angle = B--A--D};
+
+    % angle ADB (angle in same segment as x, shown for justification)
+        \pic [draw, "$y$", angle eccentricity=1.3, angle radius=0.5cm] {angle = B--D--A};
+\end{tikzpicture}
+\end{center}
+
+\noindent The angle between the tangent $TS$ and the chord $DB$ is $72^\circ$, as shown.
+
+\begin{enumerate}
+    \item[(a)] Find the size of angle $DAB$, marked $x$ on the diagram. Give a reason for your answer.
+
+    \vspace{4cm}
+    \answerequnit{x}{$^\circ$}{2}
+
+    \item[(b)] The angle $ADB$ (marked $y$ on the diagram) is $53^\circ$.\\
+    Show that triangle $ABD$ is \textbf{not} isosceles.
+
+    \vspace{4cm}
+    \answerlines{3}{2}
+\end{enumerate}
+\end{question}

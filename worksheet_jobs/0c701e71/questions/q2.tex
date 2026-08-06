@@ -1,0 +1,34 @@
+\begin{question}
+\noindent $O$ is the centre of the circle below. $A$ and $B$ are points on the circumference, and $OA$ and $OB$ are radii of the circle. $A$ and $B$ are joined to form the triangle $OAB$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.4]
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (110:1);
+    \coordinate (B) at (70:1);
+
+    \draw[thick] (0,0) circle (1);
+    \fill[black] (O) circle (0.4pt);
+
+    \draw[thick] (O) -- (A) node[midway, left] {};
+    \draw[thick] (O) -- (B) node[midway, right] {};
+    \draw[thick] (A) -- (B);
+
+    \node[below] at (O) {$O$};
+    \node[above left] at (A) {$A$};
+    \node[above right] at (B) {$B$};
+
+    \pic [draw, angle radius=6mm, "$40^\circ$"] {angle = B--O--A};
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $AOB = 40^\circ$.
+
+Work out the size of angle $OAB$. Give a reason for your answer.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answerequnit{OAB}{$^\circ$}{2}
+\end{flushright}
+\end{question}

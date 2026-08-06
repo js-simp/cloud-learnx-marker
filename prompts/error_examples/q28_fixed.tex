@@ -1,0 +1,55 @@
+\begin{question}
+\noindent $A$, $B$ and $D$ are points on the circumference of a circle. The line $TDS$ is a tangent to the circle at $D$.
+
+\noindent Chord $DB$ and chord $DA$ are drawn, and chord $AB$ is drawn to complete triangle $ABD$.
+
+\noindent The tangent-chord angle between $TD$ and chord $DB$ is $71^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+
+    % draw circle
+        \draw[name path=circ] (0,0) circle (1);
+        
+    % mark points on circle
+        \coordinate[] (D) at (-90:1);
+
+    % draw tangent
+        \draw (D) -- ($(D)!1.5!-90:(0,0)$) coordinate (S) coordinate[pos = 0.1, yshift= 0.2cm] (P);
+        \draw (D) -- ($(D)!1.5!90:(0,0)$) coordinate (T);
+
+    % Using 70 degrees as angle TDB for ease while preserving visual accuracy
+    %angle subtended by BD at center would be 140 therefore angle made by B to the horizontal from O anticlockwise is 130
+    \coordinate (B) at (130:1);
+
+    %A is an arbitary point on the circumference
+    \coordinate (A) at (40:1);
+
+    %Draw Chords
+    \draw (D) -- (B);
+    \draw (A) -- (D);
+    \draw (A) -- (B);
+
+    % labels
+    \node[below] at (D) {$D$};
+    \node[left] at (B) {$B$};
+    \node[above] at (A) {$A$};
+    \node[below] at (S) {$S$};
+    \node[above] at (T) {$T$};
+
+    %will go with B--D--T when using \pic because it sweeps the angle anticlockwise
+    \pic [draw, "$71^\circ$", angle eccentricity=1.5, angle radius = 0.6cm] {angle = B--D--T};
+    %will go with B--A--D when using \pic because it is sweeps the desired angle anticlockwise
+    \pic [draw, "$x$", angle eccentricity=1.5, angle radius = 0.5cm] {angle = B--A--D};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Show that $x = 71^\circ$, giving reasons for each step of your working.
+
+\vspace{5cm}
+
+\begin{flushright}
+    \answermarks{3}
+\end{flushright}
+\end{question}

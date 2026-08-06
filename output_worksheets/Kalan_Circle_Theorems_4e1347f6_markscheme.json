@@ -1,0 +1,64 @@
+{
+  "paper_title": "Circle Theorems Worksheet \u2014 Kalan",
+  "subject": "Mathematics",
+  "generated_date": "2026-08-01",
+  "total_marks": 25,
+  "questions": [
+    {
+      "question_number": 1,
+      "topic_aspect": "Circle Theorems - Angle at the centre is twice the angle at the circumference",
+      "total_marks": 2,
+      "correct_answer": "x = 50 degrees",
+      "mark_scheme": "M1 for correctly applying the circle theorem \"the angle at the centre is twice the angle at the circumference\" i.e. setting up $x = 100 \\div 2$ (or equivalent, e.g. $100 = 2x$)\nA1 for $x = 50^\\circ$ (correct final answer, with or without working, provided consistent with M1)",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 2,
+      "topic_aspect": "Angle in a semicircle is 90 degrees",
+      "total_marks": 2,
+      "correct_answer": "Angle QPR = 58 degrees",
+      "mark_scheme": "M1 for using angle PQR = 90 degrees (angle in a semicircle) and attempting angle QPR = 180 - 90 - 32\nA1 for angle QPR = 58 degrees (cao)",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 3,
+      "topic_aspect": "Angles in the same segment are equal",
+      "total_marks": 3,
+      "correct_answer": "y = 41 degrees",
+      "mark_scheme": "M1 for identifying that angle ADC and angle ABC are angles subtended by the same arc (AC) from the circumference\nA1 for stating the correct reason: \"angles in the same segment are equal\" (or equivalent correct statement)\nA1 for correct answer y = 41 (degrees), with reason clearly linked to the value",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 4,
+      "topic_aspect": "Cyclic quadrilateral - opposite angles sum to 180 degrees",
+      "total_marks": 4,
+      "correct_answer": "x = 34; angle DAB = 68 degrees, angle BCD = 112 degrees",
+      "mark_scheme": "(a) M1 for setting up the equation $2x + 3x + 10 = 180$ (using the circle theorem that opposite angles in a cyclic quadrilateral sum to $180^\\circ$); A1 for correctly solving to get $x = 34$.\n\n(b) M1 for substituting $x = 34$ into both expressions ($2 \\times 34$ and $3 \\times 34 + 10$); A1 for correct final answers: angle $DAB = 68^\\circ$ and angle $BCD = 112^\\circ$ (accept if angles sum to check to 180).",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 5,
+      "topic_aspect": "Tangent-radius perpendicularity and tangent properties",
+      "total_marks": 3,
+      "correct_answer": "x = 56 degrees",
+      "mark_scheme": "M1 for recognising angle OTS = 90 degrees (tangent is perpendicular to radius at the point of contact)\nM1 for using angle sum of triangle OST = 180 degrees, i.e. setting up 180 - 90 - 34\nA1 for x = 56 (degrees), with correct reasoning stated (e.g. \"tangent-radius angle = 90\u00b0, angles in a triangle sum to 180\u00b0\")",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 6,
+      "topic_aspect": "Alternate segment theorem combined with other angle facts",
+      "total_marks": 5,
+      "correct_answer": "Angle OBC = Angle OCB = 26 degrees (shown using alternate segment theorem: angle BCA = 64 degrees, then angle BOC = 128 degrees by angle at centre = twice angle at circumference, then base angles of isosceles triangle OBC = (180-128)/2 = 26 degrees)",
+      "mark_scheme": "M1 for identifying angle BCA = 64 degrees using the alternate segment theorem (angle between tangent TAS and chord AB equals angle in alternate segment, angle ACB)\nA1 for correctly stating angle BOC = 2 x 64 = 128 degrees using the angle at the centre is twice the angle at the circumference (both angles subtended by arc AB... reasoning must correctly link angle ACB at circumference to angle BOC at centre, both standing on arc AB)\nM1 for stating triangle OBC is isosceles because OB = OC (radii of the same circle)\nM1 for using angle sum of triangle OBC = 180 degrees: angle OBC + angle OCB + angle BOC = 180\nA1 (dependent on all previous marks) for correct conclusion: since triangle OBC is isosceles, angle OBC = angle OCB = (180 - 128)/2 = 26 degrees, fully justified with each theorem named (alternate segment theorem, angle at centre theorem, isosceles triangle base angles)",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 7,
+      "topic_aspect": "Multi-theorem chain problem: angle at centre, cyclic quadrilateral, and tangent properties combined",
+      "total_marks": 6,
+      "correct_answer": "(a) y = angle STU = 71 degrees; (b) angle OST = 19 degrees; (c) z = angle UGS = 32 degrees",
+      "mark_scheme": "(a) M1 for using angle at centre = 2 x angle at circumference (142 / 2); A1 for y = 71 degrees.\n(b) M1 for identifying triangle OST is isosceles (OS = OT, radii) and using angle sum of triangle: (180 - 142)/2; A1 for angle OST = 19 degrees.\n(c) M1 for using tangent-radius perpendicularity (angle OUG = 90 degrees) and angle sum in triangle OUG or relevant reasoning combining angle OUS (found from isosceles triangle OUS, OU=OS) with angle OST/angle STU chain to find angle OUG - angle OUS; A1 for correct chain of reasoning leading to z = 32 degrees (accept equivalent valid method, e.g. alternate segment theorem: angle between tangent GU and chord US equals angle in alternate segment = angle UTS' or derived via triangle GUS angle sum using angle GUS = 90 - angle OUS and angle GSU = 180 - angle OST -... ); full credit for any correct rigorous derivation reaching z = 32 degrees with correct supporting working.",
+      "misconception_targeted": null
+    }
+  ]
+}

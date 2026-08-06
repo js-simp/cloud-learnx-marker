@@ -1,0 +1,37 @@
+\begin{question}
+\noindent $A$, $B$ and $C$ are points on the circumference of a circle with centre $O$.
+
+$AOC$ is the angle at the centre and $ABC$ is the angle at the circumference, both standing on the same arc $AC$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (130:1);
+    \coordinate (C) at (-30:1);
+    \coordinate (B) at (250:1);
+
+    \draw[name path=circ, fill=lightgray!20] (0,0) circle (1);
+    \fill[black] (O) circle (0.7pt);
+    \node[below] at (O) {$O$};
+
+    \draw (A) -- (O);
+    \draw (O) -- (C);
+    \draw (A) -- (B);
+    \draw (B) -- (C);
+
+    \node[above left] at (A) {$A$};
+    \node[right] at (C) {$C$};
+    \node[below] at (B) {$B$};
+
+    \pic [draw, "$160^\circ$", angle eccentricity=1.5, angle radius=0.5cm] {angle = C--O--A};
+    \pic [draw, "$x$", angle eccentricity=1.6, angle radius=0.5cm] {angle = C--B--A};
+\end{tikzpicture}
+\end{center}
+
+\noindent Find the size of angle $x$, giving a reason for your answer.
+
+\vspace{4cm}
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}

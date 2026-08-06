@@ -1,0 +1,59 @@
+\begin{question}
+\noindent A satellite dish engineer models the cross-section of a circular antenna dish as a circle with centre $O$. Points $A$, $B$ and $C$ lie on the circumference, where $AC$ is a diameter of the circle. A support strut $CD$ is attached so that it is tangent to the circle at point $C$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    % Circle centre O at origin, radius 1
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (180:1);
+    \coordinate (C) at (0:1);
+    \coordinate (B) at (130:1);
+
+    \draw[name path=circ] (O) circle (1);
+    \fill[black] (O) circle (0.4pt);
+
+    % Diameter AC
+    \draw[thick] (A) -- (C);
+
+    % Chords AB and BC
+    \draw[thick] (A) -- (B);
+    \draw[thick] (B) -- (C);
+
+    % Tangent at C, perpendicular to AC (i.e. vertical line)
+    \draw[thick] (C) -- ++(90:1) coordinate (Dtop);
+    \draw[thick] (C) -- ++(-90:1) coordinate (Dbot);
+
+    % Labels
+    \node[left] at (A) {$A$};
+    \node[above right] at (B) {$B$};
+    \node[right] at (C) {$C$};
+    \node at (O) [below] {$O$};
+    \node[above right] at (Dtop) {$D$};
+
+    % angle at B (angle in semicircle)
+    \pic [draw, angle eccentricity=1.4, angle radius=0.45cm, "$90^\circ$"] {angle = C--B--A};
+
+    % angle BAC = 35 degrees marked at A
+    \pic [draw, angle eccentricity=1.5, angle radius=0.35cm, "$35^\circ$"] {angle = B--A--C};
+
+    % right angle at C between AC and tangent CD
+    \tkzMarkRightAngle[size=0.25](A,C,Dtop);
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $BAC = 35^\circ$.
+
+\begin{enumerate}
+    \item[(a)] Show that angle $ABC = 90^\circ$, giving a reason for your answer.
+
+    \vspace{3cm}
+    \answermarks{2}
+
+    \item[(b)] Work out the size of angle $BCD$.\\
+    Give a reason for each stage of your working.
+
+    \vspace{4cm}
+    \answerequnit{BCD}{$^\circ$}{2}
+\end{enumerate}
+\end{question}

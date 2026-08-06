@@ -1,0 +1,55 @@
+\begin{question}
+\noindent A satellite dish tracks a communication satellite that appears to trace a circular orbit path, as observed from a ground station. Points $A$, $B$, $C$ and $D$ lie on the circular path, and $ET$ is a tangent to the circle at point $A$, representing the straight-line signal transmitted to the ground station at $T$.
+
+$ABCD$ is a cyclic quadrilateral. The tangent $ET$ touches the circle at $A$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (A) at (-90:1);
+    \coordinate (B) at (-160:1);
+    \coordinate (C) at (150:1);
+    \coordinate (D) at (40:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+
+    \draw (A) -- (B) -- (C) -- (D) -- cycle;
+    \draw (B) -- (D);
+
+    % tangent line at A (horizontal, since A is at bottom of circle)
+    \draw (A) -- ++(-1.4,0) coordinate (E);
+    \draw (A) -- ++(1.4,0) coordinate (T);
+
+    \node at (A) [below] {$A$};
+    \node at (B) [left] {$B$};
+    \node at (C) [above] {$C$};
+    \node at (D) [right] {$D$};
+    \node at (E) [below] {$E$};
+    \node at (T) [below] {$T$};
+
+    \pic [draw, "$62^\circ$", angle eccentricity=1.5, angle radius=0.5cm] {angle = T--A--D};
+    \pic [draw, "$x$", angle eccentricity=1.6, angle radius=0.4cm] {angle = D--A--B};
+    \pic [draw, "$y$", angle eccentricity=1.5, angle radius=0.6cm] {angle = A--B--D};
+    \pic [draw, "$z$", angle eccentricity=1.4, angle radius=0.5cm] {angle = B--C--D};
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $TAD = 62^\circ$ (the angle between the tangent $AT$ and the chord $AD$).\\
+Angle $ABD = 38^\circ$.
+
+\begin{enumerate}
+    \item[(a)] Find the size of angle $ADB$ (marked $x$ is angle $DAB$; first find angle $ADB$), giving a reason for your answer.
+
+    \vspace{4cm}
+    \answerequnit{ADB}{$^\circ$}{2}
+
+    \item[(b)] Find the size of angle $DAB$ (marked $x$), giving a reason for your answer.
+
+    \vspace{3cm}
+    \answerequnit{x}{$^\circ$}{1}
+
+    \item[(c)] Find the size of angle $BCD$ (marked $z$), giving a reason for your answer.
+
+    \vspace{3cm}
+    \answerequnit{z}{$^\circ$}{2}
+\end{enumerate}
+\end{question}

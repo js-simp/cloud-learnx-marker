@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage[active,tightpage]{preview}
+\setlength\PreviewBorder{12pt}
+
+% ===============================
+%   PROJECT-SPECIFIC ENVIRONMENT
+% ===============================
+\input{template/layout/packages}
+\input{template/layout/macros}
+
+\begin{document}
+\begin{preview}
+\begin{question}
+\noindent $A$, $B$ and $C$ are points on a circle with centre $O$. The line $TAS$ is a tangent to the circle at $A$. $OB$ and $OC$ are radii of the circle.
+
+\noindent Angle $BAT = 64^\circ$.
+
+\noindent $O$ is the centre of the circle, so $OA = OB = OC$ (radii of the same circle).
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    % mark points on circle
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (-90:1);
+
+    % draw circle
+    \draw[name path=circ] (0,0) circle (1);
+    \fill[black] (0,0) circle (0.5pt) node[above right]{$O$};
+
+    % draw tangent through A
+    \draw (A) -- ($(A)!1.5!-90:(O)$) coordinate (S);
+    \draw (A) -- ($(A)!1.5!90:(O)$) coordinate (T);
+    \node[below] at (S) {$S$};
+    \node[above left] at (T) {$T$};
+
+    % locate B on circle using ray from A at angle -64 from T direction
+    \path[name path=AB] (A) -- ($(A)!2!-64:(T)$);
+    \path[name intersections={of=AB and circ, by={B}}];
+    
+    % locate C on circle using ray from A at angle -33 from T direction
+    \path[name path=AC] (A) -- ($(A)!2!-33:(T)$);
+    \path[name intersections={of=AC and circ, by={C}}];
+
+    \node[right] at (B) {$B$};
+    \node[above] at (C) {$C$};
+
+    % draw chords and radii
+    \draw (A) -- (B);
+    \draw (A) -- (C);
+    \draw (B) -- (C);
+    \draw (O) -- (B);
+    \draw (O) -- (C);
+
+    % angle labels
+    \pic [draw, "$64^\circ$", angle eccentricity=1.4, angle radius=0.55cm] {angle = T--A--B};
+    \pic [draw, "$x$", angle eccentricity=1.5, angle radius=0.4cm] {angle = B--O--C};
+    \pic [draw, "$y$", angle eccentricity=1.6, angle radius=0.35cm] {angle = O--B--C};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Show that angle $OBC$ (marked $y$) is equal to angle $BOC$ split in a way that gives $y = 26^\circ$, by showing that triangle $OBC$ is isosceles with the base angles each equal to $26^\circ$.
+
+\vspace{6cm}
+
+\begin{flushright}
+\answermarks{5}
+\end{flushright}
+\end{question}
+\end{preview}
+\end{document}

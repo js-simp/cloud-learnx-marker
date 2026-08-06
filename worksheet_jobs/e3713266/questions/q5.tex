@@ -1,0 +1,47 @@
+\begin{question}
+\noindent In a science lab, a student is modelling the path of a laser beam through a circular petri dish (representing a lens cross-section) for a Model UN science-diplomacy exhibit on optical technology.
+
+\noindent A ray of light travels in a straight line along $TPS$, which is tangent to the circular dish at point $P$. Inside the dish, the light path is modelled by the chord $PQ$, and a second chord $QR$ is drawn to a point $R$ on the circle, so that triangle $PQR$ is formed inside the circle, with $R$ on the arc on the opposite side of $PQ$ from where the tangent touches.
+
+\noindent The angle between the tangent $TPS$ and the chord $PQ$, angle $TPQ$, is $71^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    % Point of tangency
+    \coordinate (P) at (-90:1);
+
+    % circle
+    \draw[name path=circ] (0,0) circle (1);
+
+    % tangent line through P
+    \draw (P) -- ($(P)!1.5!-90:(0,0)$) coordinate (S) node[below right]{$S$};
+    \draw (P) -- ($(P)!1.5!90:(0,0)$) coordinate (T) node[above left]{$T$};
+
+    % chord PQ - Q on circle, chosen so angle TPQ = 71 degrees roughly
+    \path[name path=PQline] (P) -- ($(P)!2!-40:(0,0)$);
+    \path[name intersections={of=PQline and circ, by={Qtemp,Q}}];
+    \draw (P) -- (Q) node[above right]{$Q$};
+
+    % point R on major arc, opposite side of PQ from T
+    \coordinate (R) at (160:1);
+    \draw (P) -- (R) node[left]{$R$};
+    \draw (Q) -- (R);
+
+    \node[below]{};
+    \node[above left] at (P) {};
+    \node at (P) [below] {$P$};
+
+    \pic [draw, angle eccentricity=1.4, angle radius=0.6cm, "$71^\circ$"] {angle = T--P--Q};
+    \pic [draw, angle eccentricity=1.5, angle radius=0.5cm, "$x$"] {angle = Q--R--P};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Calculate the size of angle $PRQ$, marked $x$ on the diagram, which represents the deflection angle of the light path.
+
+\vspace{5cm}
+
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{4}
+\end{flushright}
+\end{question}

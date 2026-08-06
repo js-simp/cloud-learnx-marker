@@ -1,0 +1,64 @@
+{
+  "paper_title": "Circle Theorems Worksheet \u2014 Adithya",
+  "subject": "Mathematics",
+  "generated_date": "2026-08-01",
+  "total_marks": 24,
+  "questions": [
+    {
+      "question_number": 1,
+      "topic_aspect": "Angle at the centre is twice the angle at the circumference",
+      "total_marks": 2,
+      "correct_answer": "$x = 60^\\circ$",
+      "mark_scheme": "M1 for recognising that the angle at the centre (120\u00b0) is twice the angle at the circumference (or dividing 120 by 2)\nA1 for $x = 60^\\circ$",
+      "misconception_targeted": "Confusing which angle is 'at the centre' vs 'at the circumference'"
+    },
+    {
+      "question_number": 2,
+      "topic_aspect": "Angle in a semicircle is 90 degrees",
+      "total_marks": 2,
+      "correct_answer": "$x = 55^\\circ$",
+      "mark_scheme": "M1 for recognising that angle $PQR = 90^\\circ$ since $PR$ is a diameter (angle in a semicircle is $90^\\circ$), and using angle sum of triangle $PQR = 180^\\circ$: $x = 180 - 90 - 35$\nA1 for $x = 55^\\circ$ (with correct reason: angle in a semicircle is $90^\\circ$)",
+      "misconception_targeted": "Not recognising the diameter as the key feature triggering this theorem"
+    },
+    {
+      "question_number": 3,
+      "topic_aspect": "Angles in the same segment are equal",
+      "total_marks": 3,
+      "correct_answer": "$x = 38^\\circ$",
+      "mark_scheme": "M1 for identifying that angle ACB and angle ADB are subtended by the same chord (AB) and lie in the same segment (on the same side of AB)\nA1 for stating the reason: angles in the same segment (subtended by the same arc) are equal\nA1 for $x = 38^\\circ$\n\nNote: award full marks only if reasoning references \"same segment\" / \"same arc\" - a bare numerical answer of 38 with no reasoning scores M0A0A1 (1 mark only) since the reason was explicitly requested.",
+      "misconception_targeted": "Assuming all angles in a circle are equal regardless of segment"
+    },
+    {
+      "question_number": 4,
+      "topic_aspect": "Cyclic quadrilaterals \u2014 opposite angles sum to 180 degrees",
+      "total_marks": 4,
+      "correct_answer": "x = 34; Angle A = 68 degrees; Angle C = 112 degrees",
+      "mark_scheme": "(a) M1 for use of opposite angles in a cyclic quadrilateral sum to 180 degrees, i.e. 2x + 3x + 10 = 180\nA1 for x = 34\n(b) M1 (ft) for substituting their value of x into both expressions: angle A = 2(34) = 68 degrees, angle C = 3(34)+10 = 112 degrees\nA1 for correct angle A = 68 degrees AND correct angle C = 112 degrees (with a check that 68 + 112 = 180)\nNote: Award 0 marks in part (a) if student assumes opposite angles are equal (2x = 3x+10) as this reflects the targeted misconception; no ft marks available from an incorrect equal-angles method in part (b) either.",
+      "misconception_targeted": "Thinking opposite angles are equal rather than supplementary"
+    },
+    {
+      "question_number": 5,
+      "topic_aspect": "Tangent to a circle is perpendicular to the radius; tangent-radius properties applied in context",
+      "total_marks": 4,
+      "correct_answer": "$x = 66^\\circ$",
+      "mark_scheme": "M1 for recognising that angle $OTP = 90^\\circ$ (tangent is perpendicular to the radius at the point of contact)\nA1 for stating angle $OTP = 90^\\circ$ correctly with reason (tangent/radius property)\nM1 for using angle sum of triangle $OTP$: $x + 90 + 24 = 180$\nA1 for correct answer $x = 66^\\circ$ with reason (angles in a triangle sum to $180^\\circ$)\n\nNote: full marks require correct reasons stated; correct answer with no reasons scores maximum 2 marks (M1 A0 M1 A0 equivalent \u2014 award M marks for correct method only, reasons required for A marks).",
+      "misconception_targeted": "Forgetting the right angle formed between tangent and radius"
+    },
+    {
+      "question_number": 6,
+      "topic_aspect": "Alternate segment theorem",
+      "total_marks": 4,
+      "correct_answer": "(a) $x = 72^\\circ$ (angle in alternate segment equals angle between tangent and chord). (b) Angle $ABD = 180 - 72 - 53 = 55^\\circ$; since the three angles $72^\\circ$, $53^\\circ$, $55^\\circ$ are all different, no two sides of triangle $ABD$ are equal, so it is not isosceles.",
+      "mark_scheme": "(a) M1 for identifying that angle DAB is in the alternate segment to the tangent-chord angle SDB (correctly matching the 72\u00b0 angle with its correct alternate segment, not the wrong segment on the other side of DB); A1 for $x = 72^\\circ$ with correct reason stated (alternate segment theorem).\n(b) M1 for using angle sum of triangle ABD: angle ABD $= 180 - 72 - 53 = 55^\\circ$; A1 for correct conclusion that since all three angles (72\u00b0, 53\u00b0, 55\u00b0) are different, all three sides are different lengths, so triangle ABD is not isosceles.",
+      "misconception_targeted": "Matching the wrong angle to the wrong segment when applying the theorem"
+    },
+    {
+      "question_number": 7,
+      "topic_aspect": "Multi-step problem combining cyclic quadrilateral, tangent-radius properties, and isosceles triangles formed by two radii",
+      "total_marks": 5,
+      "correct_answer": "(a) Angle OBD = 16 degrees, since OB = OD (both radii), triangle OBD is isosceles, so base angles OBD and ODB are equal: (180 - 148)/2 = 16 degrees.\n(b) Angle BCD = 146 degrees",
+      "mark_scheme": "(a) M1 for recognising OB = OD (radii of the same circle) so triangle OBD is isosceles; A1 for correct calculation: angle OBD = (180\u00b0 - 148\u00b0) \u00f7 2 = 16\u00b0 with reason stated (base angles of isosceles triangle are equal / angles in a triangle sum to 180\u00b0).\n\n(b) M1 for using the tangent-chord (alternate segment) theorem to find angle ADB = 34\u00b0 (angle in alternate segment equals angle between tangent and chord, so angle ADB = angle TAB = 34\u00b0);\nM1 for using triangle OBD or circle facts to establish angle BAD = 90\u00b0 - 16\u00b0 = 74\u00b0 (using right angle between radius OA and tangent, and isosceles triangle OBD result from part (a), combined with angle properties at A);\nA1 (dependent) for correct use of cyclic quadrilateral property: opposite angles of cyclic quadrilateral ABCD sum to 180\u00b0, so angle BCD = 180\u00b0 - angle BAD = 180\u00b0 - 34\u00b0 = 146\u00b0, with correct final answer of 146\u00b0 following correct reasoning throughout (accept alternative valid geometric routes reaching 146\u00b0 with full justification).",
+      "misconception_targeted": "Not identifying isosceles triangles formed by two radii, leading to incorrect angle assumptions"
+    }
+  ]
+}

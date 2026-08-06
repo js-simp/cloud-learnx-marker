@@ -1,0 +1,51 @@
+\begin{question}
+\noindent $A$, $B$ and $D$ are points on the circumference of a circle. The line $TDS$ is a tangent to the circle at $D$.
+
+\noindent Chord $DB$ and chord $DA$ are drawn, and chord $AB$ is drawn to complete triangle $ABD$.
+
+\noindent The tangent-chord angle between $TD$ and chord $DB$ is $71^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    % mark points on circle
+        \coordinate[] (D) at (-90:1);
+
+    % draw circle
+        \draw[name path=circ] (0,0) circle (1);
+
+    % draw tangent
+        \draw (D) -- ($(D)!1.5!-90:(0,0)$) coordinate (S) coordinate[pos = 0.1, yshift= 0.2cm] (P);
+        \draw (D) -- ($(D)!1.5!90:(0,0)$) coordinate (T);
+
+    % chords
+        \path[name path=DB] (D) -- ($(D)!1.5!-25:(T)$);
+        \path[name path=DA] (D) -- ($(D)!2!-10:(0,0)$);
+        \path[name intersections={of=DB and circ, by={B}}];
+        \path[name intersections={of=DA and circ, by={A,temp}}];
+
+    %Draw Chords
+    \draw (D) -- (B);
+    \draw (A) -- (D);
+    \draw (A) -- (B);
+
+    % labels
+    \node[below] at (D) {$D$};
+    \node[right] at (B) {$B$};
+    \node[above] at (A) {$A$};
+    \node[below] at (S) {$S$};
+    \node[above] at (T) {$T$};
+
+    \pic [draw, "$71^\circ$", angle eccentricity=1.5, angle radius = 0.6cm] {angle = B--D--S};
+    \pic [draw, "$x$", angle eccentricity=1.5, angle radius = 0.5cm] {angle = D--A--B};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Show that $x = 71^\circ$, giving reasons for each step of your working.
+
+\vspace{5cm}
+
+\begin{flushright}
+    \answermarks{3}
+\end{flushright}
+\end{question}

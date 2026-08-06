@@ -1,0 +1,99 @@
+\begin{question}
+\noindent A space engineering student is studying satellite dish cross-sections, which are modelled using circles. Four diagrams below each illustrate a different circle theorem.
+
+For each diagram:
+\begin{itemize}
+    \item[(i)] Name the circle theorem being illustrated.
+    \item[(ii)] Work out the size of the missing angle marked with a letter.
+\end{itemize}
+
+\begin{center}
+\begin{tabular}{cc}
+
+\begin{tikzpicture}[scale=1.5]
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (150:1);
+    \coordinate (B) at (-10:1);
+    \coordinate (C) at (250:1);
+    \draw (0,0) circle (1);
+    \fill[black] (O) circle (0.6pt);
+    \draw (A) -- (O) -- (B);
+    \draw (A) -- (C) -- (B);
+    \node at (A) [above left] {$A$};
+    \node at (B) [right] {$B$};
+    \node at (C) [below] {$C$};
+    \pic [draw, angle eccentricity=1.6, angle radius=0.5cm, "$116^\circ$"] {angle = A--O--B};
+    \pic [draw, angle eccentricity=1.6, angle radius=0.4cm, "$x$"] {angle = A--C--B};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.5]
+    \coordinate (A) at (160:1);
+    \coordinate (B) at (0:1);
+    \coordinate (D) at (60:1);
+    \coordinate (E) at (300:1);
+    \draw (0,0) circle (1);
+    \draw (A) -- (B);
+    \draw (A) -- (D) -- (B);
+    \draw (A) -- (E) -- (B);
+    \node at (A) [left] {$A$};
+    \node at (B) [right] {$B$};
+    \node at (D) [above] {$D$};
+    \node at (E) [below] {$E$};
+    \pic [draw, angle eccentricity=1.5, angle radius=0.4cm, "$38^\circ$"] {angle = B--D--A};
+    \pic [draw, angle eccentricity=1.5, angle radius=0.4cm, "$y$"] {angle = B--E--A};
+\end{tikzpicture}
+\\[2.5cm]
+
+\begin{tikzpicture}[scale=1.5]
+    \coordinate (A) at (170:1);
+    \coordinate (B) at (10:1);
+    \coordinate (C) at (100:1);
+    \draw (0,0) circle (1);
+    \fill[black] (0,0) circle (0.6pt);
+    \draw (A) -- (B);
+    \draw (A) -- (C) -- (B);
+    \node at (A) [left] {$A$};
+    \node at (B) [right] {$B$};
+    \node at (C) [above] {$C$};
+    \pic [draw, angle eccentricity=1.6, angle radius=0.4cm, "$z$"] {angle = B--C--A};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.5]
+    \coordinate (A) at (140:1);
+    \coordinate (B) at (60:1);
+    \coordinate (C) at (250:1);
+    \coordinate (D) at (-20:1);
+    \draw (0,0) circle (1);
+    \draw (A) -- (B) -- (D) -- (C) -- cycle;
+    \node at (A) [left] {$A$};
+    \node at (B) [above] {$B$};
+    \node at (C) [below left] {$C$};
+    \node at (D) [right] {$D$};
+    \pic [draw, angle eccentricity=1.6, angle radius=0.4cm, "$95^\circ$"] {angle = C--A--B};
+    \pic [draw, angle eccentricity=1.6, angle radius=0.4cm, "$w$"] {angle = A--D--C};
+\end{tikzpicture}
+\end{tabular}
+\end{center}
+
+\vspace{0.5cm}
+\begin{center}
+\begin{tabular}{|c|p{5.5cm}|c|}
+\hline
+\textbf{Diagram} & \textbf{Name of theorem} & \textbf{Missing angle} \\
+\hline
+1 & & $x = $ \\[1cm]
+\hline
+2 & & $y = $ \\[1cm]
+\hline
+3 & & $z = $ \\[1cm]
+\hline
+4 & & $w = $ \\[1cm]
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{1cm}
+\begin{flushright}
+\answermarks{4}
+\end{flushright}
+\end{question}

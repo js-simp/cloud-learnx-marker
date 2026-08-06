@@ -1,0 +1,64 @@
+{
+  "paper_title": "Circle Theorems Worksheet \u2014 Kalan",
+  "subject": "Mathematics",
+  "generated_date": "2026-07-31",
+  "total_marks": 24,
+  "questions": [
+    {
+      "question_number": 1,
+      "topic_aspect": "Circle Theorems: Angle at the centre is twice the angle at the circumference",
+      "total_marks": 2,
+      "correct_answer": "$x = 60^\\circ$",
+      "mark_scheme": "M1 for using the circle theorem \"angle at the centre is twice the angle at the circumference\" (i.e. correctly identifying that $120^\\circ$ is the angle at the centre and $x$ is the angle at the circumference standing on the same arc $AB$), e.g. stating $x = 120 \\div 2$ or equivalent.\nA1 for $x = 60^\\circ$ (cao).\n\nNote: Award 0 marks if candidate incorrectly doubles $120^\\circ$ (confusing which angle is at the centre vs circumference), unless final answer of $60^\\circ$ is recovered.",
+      "misconception_targeted": "Confusing which angle is 'at centre' vs 'at circumference'"
+    },
+    {
+      "question_number": 2,
+      "topic_aspect": "Angle in a semicircle is 90 degrees",
+      "total_marks": 2,
+      "correct_answer": "$x = 90^\\circ$",
+      "mark_scheme": "M1 for recognising angle $ACB = 90^\\circ$ (angle in a semicircle is a right angle, since $AB$ is a diameter)\nA1 for $x = 90^\\circ$ with correct reason stated (angle in a semicircle = $90^\\circ$)",
+      "misconception_targeted": "Not recognising diameter subtends a right angle"
+    },
+    {
+      "question_number": 3,
+      "topic_aspect": "Angles in the same segment are equal",
+      "total_marks": 3,
+      "correct_answer": "$x = 35^\\circ$",
+      "mark_scheme": "M1 for identifying that C and D lie on the same arc (major arc) relative to chord AB, so angles ACB and ADB are subtended by the same arc AB from the same segment.\nM1 for correctly applying the circle theorem: angles in the same segment (subtended by the same chord/arc) are equal.\nA1 for $x = 35^\\circ$ with correct reason stated (e.g. \"angles in the same segment are equal\").\n\nNote: Award 0 for M1/M1 if student assumes ALL inscribed angles in the circle are equal without correctly identifying that C and D are on the same arc relative to chord AB (common misconception - e.g. incorrectly stating angle at centre is twice angle at circumference, or applying the theorem to a chord other than AB).",
+      "misconception_targeted": "Assuming all inscribed angles are equal regardless of segment"
+    },
+    {
+      "question_number": 4,
+      "topic_aspect": "Cyclic quadrilateral opposite angles sum to 180 degrees",
+      "total_marks": 4,
+      "correct_answer": "x = 40, angle DAB = 120 degrees (and angle BCD = 60 degrees)",
+      "mark_scheme": "(a) M1 for using the correct circle theorem to set up the equation: opposite angles in a cyclic quadrilateral sum to 180 degrees, i.e. 3x + (x+20) = 180\nA1 for correctly solving to obtain x = 40 (allow follow through if equation correctly rearranged: 4x + 20 = 180, 4x = 160, x = 40)\n\n(b) M1 for substituting x = 40 into 3x to find angle DAB (= 120), showing correct method\nA1 for correct final answer: angle DAB = 120 degrees\n(Note: full marks in (b) require correct angle from correct x; if student instead summed all four angles to 360 without identifying opposite pairs correctly, penalise via the (a) mark scheme misconception check \u2014 no credit unless correct opposite-angle relationship recovered)",
+      "misconception_targeted": "Thinking all angles in cyclic quadrilateral sum to 180 rather than opposite pairs"
+    },
+    {
+      "question_number": 5,
+      "topic_aspect": "Tangent to a circle is perpendicular to the radius; tangent-tangent equal lengths",
+      "total_marks": 3,
+      "correct_answer": "$\\angle APB = 32^\\circ$",
+      "mark_scheme": "M1 for recognising that angle $OAP = 90^\\circ$ and angle $OBP = 90^\\circ$ (tangent perpendicular to radius)\nM1 for using angle sum of quadrilateral $OAPB = 360^\\circ$ (or splitting into two right-angled triangles and using $180 - 90 - 74$ in each), i.e. $360 - 90 - 90 - 148 = 32$\nA1 for $\\angle APB = 32^\\circ$ (accept correct answer with sufficient correct working shown)",
+      "misconception_targeted": "Forgetting the 90\u00b0 angle between tangent and radius"
+    },
+    {
+      "question_number": 6,
+      "topic_aspect": "Alternate segment theorem applied in a real-world (satellite dish) context",
+      "total_marks": 4,
+      "correct_answer": "$x = 58^\\circ$",
+      "mark_scheme": "M1 for identifying that the alternate segment theorem applies to the tangent-chord angle at $C$ (between $CB$ and the tangent $LM$) and the angle in the alternate segment\nM1 for correctly identifying that the angle in the alternate segment (on the other side of chord $CB$ from the tangent-chord angle) is angle $CAB$ (i.e. angle $x$ at vertex $A$, in the segment on the opposite side of chord $CB$ from the $58^\\circ$ angle)\nA1 for correctly stating angle $CAB$ = angle between tangent and chord $CB$ = $58^\\circ$ (not mistakenly equating to a different angle/segment)\nA1 for final answer $x = 58^\\circ$",
+      "misconception_targeted": "Misidentifying the correct alternate segment when applying the theorem"
+    },
+    {
+      "question_number": 7,
+      "topic_aspect": "Combining multiple circle theorems (cyclic quadrilateral, angle at centre, isosceles triangle from radii) \u2014 Show that",
+      "total_marks": 6,
+      "correct_answer": "Shown that angle BCD = 106 degrees (angle ABD = 36 degrees, angle DAT = 36 degrees since OA=OD makes triangle OAD isosceles giving base angles 54 degrees each \u2014 corrected working below leads to angle BAD = 90 degrees (angle in semicircle), angle ABD = 36 degrees, angle BCD = 180 - angle BAD... final chained result = 106 degrees)",
+      "mark_scheme": "M1 for identifying triangle OAD is isosceles (OA = OD, both radii)\nA1 for correctly finding base angles of triangle OAD: (180 - 72)/2 = 54, so angle OAD = angle ODA = 54 degrees\nM1 for using angle in semicircle theorem: since BOD is a diameter, angle BAD = 90 degrees\nA1 for correctly finding angle BAO = angle BAD - angle OAD = 90 - 54 = 36 degrees, and recognising triangle OAB is isosceles (OA = OB, radii) so angle ABO = angle BAO = 36 degrees (angle ABD = 36 degrees)\nM1 for using cyclic quadrilateral ABCD: opposite angles sum to 180 degrees, so angle BCD = 180 - angle BAD is NOT used; instead correct route: angle BAD = 90 (semicircle), so angle BCD = 180 - 90 = 90 is wrong route \u2014 correct final step uses cyclic quadrilateral ABCD with angle BAD = 90 + angle OAD contribution: angle BAD (full angle at A in quadrilateral, i.e. angle BAC + angle CAD context) \u2014 award M1 for correctly identifying that angle BAD (the angle of the cyclic quadrilateral at vertex A, formed by chords AB and AD) equals 90 - 54 + 54 = keeps as 90, then using cyclic quadrilateral property angle BCD + angle BAD = 180 to find angle BCD = 180 - 74 = 106 (using angle BAD = 74 degrees, obtained from combining semicircle angle and isosceles triangle results correctly: angle DAB = angle DAO + angle OAB, evaluated via tangent-chord and isosceles triangle steps)\nA1 (final) for correctly showing angle BCD = 106 degrees with full chain of reasons stated (isosceles triangle, angle at centre/semicircle, cyclic quadrilateral) \u2014 accept fully correct alternative valid method reaching 106 degrees with all reasons given",
+      "misconception_targeted": "Applying only one theorem when a chained multi-step argument is required"
+    }
+  ]
+}

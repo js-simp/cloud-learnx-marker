@@ -1,0 +1,39 @@
+\begin{question}
+\noindent A radio telescope dish is mounted on a circular track of centre $O$, used to track satellites passing overhead. Points $A$ and $B$ lie on the circle, marking two sensor positions, and $C$ is a third sensor position on the circumference.
+
+$O$ is the centre of the circle. The angle at the centre, $\angle AOB = 120^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    %mark points on circle
+        \coordinate[] (O) at (0,0);
+        \coordinate[] (A) at (150:1);
+        \coordinate[] (B) at (30:1);
+        \coordinate[] (C) at (260:1);
+
+    %draw chords and circle
+        \draw[name path=circ] (0,0) circle (1);
+        \fill[black] (0,0) circle (0.5pt);
+        \draw (A) -- (O) node[midway, above left] {};
+        \draw (O) -- (B) node[midway, above right] {};
+        \draw (A) -- (C);
+        \draw (C) -- (B);
+
+        \node at (A) [left] {$A$};
+        \node at (B) [right] {$B$};
+        \node at (C) [below] {$C$};
+        \node at (O) [above] {$O$};
+
+        \pic [draw, "$120^\circ$", angle eccentricity=1.5, angle radius = 0.5cm] {angle = B--O--A};
+        \pic [draw, "$x$", angle eccentricity=1.4, angle radius = 0.5cm] {angle = A--C--B};
+\end{tikzpicture}
+\end{center}
+
+\noindent Find the size of angle $x$, the angle at the circumference at point $C$.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}

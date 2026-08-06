@@ -1,0 +1,50 @@
+\begin{question}
+\noindent A space agency uses two geometrically similar triangular support brackets to mount antenna dishes of different sizes onto a satellite frame. The smaller bracket is used on a test-model satellite, and the larger bracket is used on the full-size satellite. The two triangles $ABC$ and $DEF$ are similar, with $A$ corresponding to $D$, $B$ corresponding to $E$, and $C$ corresponding to $F$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+  % Small triangle ABC
+  \coordinate (A) at (0,0);
+  \coordinate (B) at (3.5,0);
+  \coordinate (C) at (1.6,2.4);
+
+  % Large triangle DEF (scale factor 2.5 applied, shifted right)
+  \coordinate (D) at (7,0);
+  \coordinate (E) at (15.75,0);
+  \coordinate (F) at (10.9,6);
+
+  \draw (A) -- (B) -- (C) -- cycle;
+  \draw (D) -- (E) -- (F) -- cycle;
+
+  \node at (A) [below left] {$A$};
+  \node at (B) [below right] {$B$};
+  \node at (C) [above] {$C$};
+
+  \node at (D) [below left] {$D$};
+  \node at (E) [below right] {$E$};
+  \node at (F) [above] {$F$};
+
+  \draw (A) -- (B) node[midway, below] {$7$ cm};
+  \draw (A) -- (C) node[midway, above left] {$6$ cm};
+  \draw (B) -- (C) node[midway, above right] {$5.2$ cm};
+
+  \draw (D) -- (E) node[midway, below] {$17.5$ cm};
+  \draw (D) -- (F) node[midway, above left] {$x$ cm};
+  \draw (E) -- (F) node[midway, above right] {$13$ cm};
+\end{tikzpicture}
+\end{center}
+
+\noindent Triangle $ABC$ is similar to triangle $DEF$.
+
+\noindent $AB = 7$ cm, $AC = 6$ cm, $BC = 5.2$ cm.
+
+\noindent $DE = 17.5$ cm and $EF = 13$ cm.
+
+\noindent Work out the length of $DF$.
+
+\vspace{5cm}
+
+\begin{flushright}
+\answerunit{cm}{3}
+\end{flushright}
+\end{question}

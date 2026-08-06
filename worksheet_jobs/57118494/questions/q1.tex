@@ -1,0 +1,36 @@
+\begin{question}
+\noindent $A$, $B$ and $C$ are points on the circumference of a circle with centre $O$.
+
+$AOC$ passes through the centre such that $O$ is the centre of the circle, and angle $AOB = 120^\circ$, where $AOB$ is the angle at the centre.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (130:1);
+    \coordinate (B) at (-30:1);
+    \coordinate (C) at (260:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+    \fill[black] (0,0) circle (0.4pt) node[below left]{$O$};
+    \draw (A) -- (O) node[midway, above left]{};
+    \draw (O) -- (B) node[midway, above right]{};
+    \draw (A) -- (C);
+    \draw (C) -- (B);
+
+    \node at (A) [above left]{$A$};
+    \node at (B) [right]{$B$};
+    \node at (C) [below]{$C$};
+
+    \pic [draw, "$120^\circ$", angle eccentricity=1.5, angle radius = 0.5cm] {angle = B--O--A};
+    \pic [draw, "$x$", angle eccentricity=1.4, angle radius = 0.5cm] {angle = B--C--A};
+\end{tikzpicture}
+\end{center}
+
+\noindent Find the size of angle $x$, the angle at the circumference.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}

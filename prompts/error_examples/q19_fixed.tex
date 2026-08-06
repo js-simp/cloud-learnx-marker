@@ -1,0 +1,34 @@
+\begin{question}
+\noindent Three space observation stations, $X$, $Y$ and $Z$, are used to track meteor showers as part of a space exploration project. The stations form a triangle, as shown in the diagram (not drawn accurately).
+
+$Y$ is due east of $X$.\\
+The distance $XZ = 14.6$ km.\\
+The distance $YZ = 9.8$ km.\\
+Angle $XYZ = 112^{\circ}$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    \coordinate (Y) at (0,0);
+    \coordinate (X) at (180:5);
+    \coordinate (Z) at (70:6);
+
+    \draw (X) -- (Y) -- (Z) -- cycle;
+ 
+    \pic [draw, -, angle radius=1.1cm, "$112^{\circ}$", angle eccentricity=1.5] {angle=Z--Y--X};
+
+    \node at (X) [left,font=\small] {$X$};
+    \node at (Y) [below,font=\small] {$Y$};
+    \node at (Z) [above,font=\small] {$Z$};
+
+    \draw (X) -- (Z) node[midway, left] {$14.6$ km};
+    \draw (Y) -- (Z) node[midway, right] {$9.8$ km};
+\end{tikzpicture}
+\end{center}
+
+\noindent Calculate the bearing of $Z$ from $X$.
+
+\vspace{5cm}
+\begin{flushright}
+\answerequnit{\theta}{$^\circ$}{4}
+\end{flushright}
+\end{question}

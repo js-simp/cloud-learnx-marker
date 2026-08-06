@@ -1,0 +1,37 @@
+\begin{question}
+\noindent Points $A$, $B$, $C$ and $D$ lie on the circumference of a circle, as shown in the diagram below. Chord $AB$ divides the circle so that $C$ and $D$ lie on the same side of $AB$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (A) at (200:1);
+    \coordinate (B) at (340:1);
+    \coordinate (C) at (100:1);
+    \coordinate (D) at (60:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+
+    \draw (A) -- (B);
+    \draw (A) -- (C);
+    \draw (B) -- (C);
+    \draw (A) -- (D);
+    \draw (B) -- (D);
+
+    \node[left] at (A) {$A$};
+    \node[right] at (B) {$B$};
+    \node[above left] at (C) {$C$};
+    \node[above right] at (D) {$D$};
+
+    \pic [draw, "$38^\circ$", angle eccentricity=1.5, angle radius = 0.45cm] {angle = A--C--B};
+    \pic [draw, "$x$", angle eccentricity=1.5, angle radius = 0.5cm] {angle = A--D--B};
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $ACB = 38^\circ$.
+
+\noindent Work out the size of angle $x$, giving a reason for your answer.
+
+\vspace{4.5cm}
+\begin{flushright}
+    \answerequnit{x}{$^\circ$}{3}
+\end{flushright}
+\end{question}

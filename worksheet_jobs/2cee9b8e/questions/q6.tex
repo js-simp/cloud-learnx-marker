@@ -1,0 +1,53 @@
+\begin{question}
+\noindent A museum is designing a circular observation window for a planetarium exhibit on planetary orbits. The diagram shows the circular window, with $PT$ a tangent to the circle at point $T$. $TA$ and $TB$ are chords of the circle, and $A$, $B$, $T$ lie on the circumference. The angle between the tangent $PT$ and the chord $TB$ is $71^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    % mark point T on circle
+    \coordinate (T) at (-90:1);
+
+    % draw circle
+    \draw[name path=circ] (0,0) circle (1);
+
+    % draw tangent line through T
+    \draw (T) -- ($(T)!1.5!-90:(0,0)$) coordinate (L);
+    \draw (T) -- ($(T)!1.5!90:(0,0)$) coordinate (P);
+
+    % construct chords TB and TA
+    \path[name path=TB] (T) -- ($(T)!1.6!-24:(0,0)$);
+    \path[name path=TA] (T) -- ($(T)!2!-10:(0,0)$);
+    \path[name intersections={of=TB and circ, by={B}}];
+    \path[name intersections={of=TA and circ, by={A}}];
+
+    % draw chords
+    \draw (T) -- (B);
+    \draw (T) -- (A);
+    \draw (A) -- (B);
+
+    % labels
+    \node at (P) [above] {$P$};
+    \node at (L) [below] {};
+    \node at (T) [below] {$T$};
+    \node at (A) [above right] {$A$};
+    \node at (B) [right] {$B$};
+
+    % angle between tangent and chord TB
+    \pic [draw, "$71^\circ$", angle eccentricity=1.5, angle radius=0.55cm] {angle = P--T--B};
+
+    % angle in alternate segment (angle TAB)
+    \pic [draw, "$x$", angle eccentricity=1.4, angle radius=0.5cm] {angle = B--A--T};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Show that the angle $TAB$, marked $x$ on the diagram, is equal to $71^\circ$.
+
+\vspace{1cm}
+\noindent You must give full reasons for your answer.
+
+\vspace{5cm}
+
+\begin{flushright}
+\answermarks{4}
+\end{flushright}
+\end{question}

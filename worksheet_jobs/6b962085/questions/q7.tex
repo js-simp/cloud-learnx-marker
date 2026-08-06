@@ -1,0 +1,47 @@
+\begin{question}
+\noindent A historian studying ancient astronomical instruments encounters a circular sundial engraved with a diagram used to mark key angles. Points $A$, $B$, $C$ and $D$ lie on the circumference of a circle with centre $O$. $TA$ is a tangent to the circle at $A$. $BOD$ is a straight line through the centre.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (O) at (0,0);
+    \coordinate (D) at (150:1);
+    \coordinate (B) at (-30:1);
+    \coordinate (A) at (250:1);
+    \coordinate (C) at (40:1);
+
+    \draw[name path=circ] (O) circle (1);
+    \draw (B) -- (O) -- (D);
+    \draw (A) -- (B);
+    \draw (A) -- (D);
+    \draw (A) -- (C);
+    \draw (B) -- (C);
+    \draw (C) -- (D);
+
+    % tangent at A: radius OA direction is 250 degrees, tangent perpendicular to it
+    \draw (A) -- ($(A)!1.3!(250-90:0.0001)+(A)$);
+    \draw ($(A)!1.6!160:(O)$) coordinate (T1) -- (A) -- ($(A)!1.6!-20:(O)$) coordinate (T2);
+
+    \node at (O) [above] {$O$};
+    \node at (D) [above left] {$D$};
+    \node at (B) [right] {$B$};
+    \node at (A) [below] {$A$};
+    \node at (C) [above right] {$C$};
+    \node at (T2) [below right] {$T$};
+
+    \pic [draw, angle radius=6mm, "$72^\circ$"] {angle = D--O--A};
+    \pic [draw, angle radius=6mm, "$x$"] {angle = T2--A--D};
+    \pic [draw, angle radius=5mm, "$y$"] {angle = B--C--D};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Given that $\angle DOA = 72^\circ$, show that $\angle BCD = 106^\circ$.
+
+You must show each step of your working and give a geometric reason at every stage.
+
+\vspace{7cm}
+
+\begin{flushright}
+\answermarks{6}
+\end{flushright}
+\end{question}

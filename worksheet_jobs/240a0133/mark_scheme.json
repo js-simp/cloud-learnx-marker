@@ -1,0 +1,64 @@
+{
+  "paper_title": "Transformations and Grid geometry Worksheet \u2014 Amy",
+  "subject": "Mathematics",
+  "generated_date": "2026-08-01",
+  "total_marks": 22,
+  "questions": [
+    {
+      "question_number": 1,
+      "topic_aspect": "Reflection in a horizontal or vertical line on a coordinate grid",
+      "total_marks": 2,
+      "correct_answer": "The reflected triangle has vertices at $A' = (7, 1)$, $B' = (7, 4)$, $C' = (5, 1)$.",
+      "mark_scheme": "M1 for reflecting at least one vertex correctly (maintaining perpendicular distance from the line $x=2$), or for a triangle of the correct size and orientation drawn the correct side of the mirror line.\nA1 for fully correct image with all three vertices at $A' = (7,1)$, $B' = (7,4)$, $C' = (5,1)$ (accept triangle drawn on grid without coordinates stated, provided vertices are in the correct position).\n\nCommon error (no credit if this appears uncorrected): reflecting horizontally as if the mirror line were $y = 2$ (i.e. flipping vertically instead of horizontally), which indicates confusion between the vertical line $x=2$ and a horizontal axis of symmetry.",
+      "misconception_targeted": "Confusing the line of reflection with the axis of symmetry direction"
+    },
+    {
+      "question_number": 2,
+      "topic_aspect": "Rotation of a shape about a given centre through 90\u00b0 or 180\u00b0",
+      "total_marks": 3,
+      "correct_answer": "A'=(0,0), B'=(2,0), C'=(0,-2) \u2014 triangle T' with vertices at these coordinates, correctly oriented for a 90\u00b0 clockwise rotation about (1,1).",
+      "mark_scheme": "M1 for a correct attempt to rotate the shape 90\u00b0 clockwise about (1,1), e.g. shown by correct rotation of at least one vertex or use of a correct method (tracing paper turn or coordinate transformation).\nA1 for at least two vertices of the image correctly plotted: A'=(0,0), B'=(2,0), C'=(0,-2).\nA1 for fully correct image triangle T' drawn and labelled with all three vertices correctly placed at A'=(0,0), B'=(2,0), C'=(0,-2), and correct orientation (not confused with anticlockwise rotation, which would give A'=(2,2)... i.e. wrong image).",
+      "misconception_targeted": "Rotating in the wrong direction (clockwise vs anticlockwise) or using the wrong centre"
+    },
+    {
+      "question_number": 3,
+      "topic_aspect": "Translation using a column vector",
+      "total_marks": 2,
+      "correct_answer": "Image of vertex A is at (1, -1). (Triangle T' has vertices A'=(1,-1), B'=(1,2), C'=(3,-1))",
+      "mark_scheme": "M1 for translating all three vertices of triangle T by 6 in the x-direction and -2 in the y-direction (correctly drawn triangle T', condone if only one vertex shown correctly translated with correct method implied)\nA1 for correctly stating the coordinates of the image of A as (1, -1) (accept correctly drawn triangle T' with vertices at (1,-1), (1,2), (3,-1) as evidence)\nCommon error (no credit): translating by -2 in x-direction and 6 in y-direction, giving A' = (-7, 7), due to reversing the order of the column vector components",
+      "misconception_targeted": "Reversing the order of x and y components in the column vector"
+    },
+    {
+      "question_number": 4,
+      "topic_aspect": "Describing a single transformation fully (type, angle/direction, and centre) \u2014 rotation",
+      "total_marks": 3,
+      "correct_answer": "Rotation of 90\u00b0 clockwise (equivalently 270\u00b0 anticlockwise), centre (1, -1)",
+      "mark_scheme": "B1 for stating \"rotation\"\nB1 for correct angle of rotation, 90\u00b0 (clockwise) or equivalently 270\u00b0 anticlockwise, with direction stated\nB1 for correct centre of rotation (1, -1)\n(All three elements must be given for full marks; naming \"rotation\" alone or omitting direction/centre scores only the marks for the elements actually stated correctly.)",
+      "misconception_targeted": "Giving an incomplete description, e.g. naming 'rotation' without stating angle, direction and centre"
+    },
+    {
+      "question_number": 5,
+      "topic_aspect": "Enlargement with a positive integer scale factor and given centre",
+      "total_marks": 4,
+      "correct_answer": "A' = (3,5), B' = (5,5), C' = (3,7) \u2014 triangle drawn on the grid with these vertices.",
+      "mark_scheme": "(a) For each vertex, find the vector from centre P to the vertex, then multiply by scale factor 2 and add back to P (i.e. image = P + 2(vertex - P)).\nM1 for a correct method shown for at least one vertex, e.g. finding vector PA = (1-(-1), 2-(-1)) = (2,3), then A' = P + 2(2,3) = (-1+4, -1+6) = (3,5) (or equivalent method using ray lines from P through each vertex extended to twice the distance).\nA1 for at least two correct image coordinates: A'=(3,5), B'=(5,5), C'=(3,7).\nA1 (all correct) for all three correct image coordinates: A'=(3,5), B'=(5,5), C'=(3,7).\n[Note: award M1 A0 if scale factor 2 applied to side lengths correctly but centre of enlargement ignored, i.e. answer obtained by simply doubling original coordinates rather than working from P \u2014 this is the common error and should score no more than M1.]\n\n(b) B1 for correctly drawing the enlarged triangle with vertices at (3,5), (5,5), (3,7) on the grid, positioned correctly relative to centre P (not merely correct in size/shape).",
+      "misconception_targeted": "Enlarging correctly in size but placing the image in the wrong position by ignoring the centre of enlargement"
+    },
+    {
+      "question_number": 6,
+      "topic_aspect": "Enlargement with fractional or negative scale factor",
+      "total_marks": 4,
+      "correct_answer": "A' = (-2, -2), B' = (-6, -2), C' = (-2, -4)",
+      "mark_scheme": "M1 for recognising that each coordinate must be multiplied by the scale factor $-2$ relative to the centre $(0,0)$ (i.e. new point = $-2 \\times$ old point, since centre is the origin)\nM1 for correctly applying the negative sign, producing an image on the opposite side of the centre to the original shape (inverted orientation), not simply doubled in the same position\nA1 for at least two correct vertices: e.g. $A' = (-2,-2)$ and $B' = (-6,-2)$\nA1 for all three vertices fully correct: $A' = (-2,-2)$, $B' = (-6,-2)$, $C' = (-2,-4)$\n\nNote: Award A0 (max 2 marks) if the student treats scale factor as $+2$ (ignoring the sign) giving $A'=(2,2)$, $B'=(6,2)$, $C'=(2,4)$, since this demonstrates the targeted misconception of ignoring the negative sign.\nAward A0 (max 2 marks) if the student treats scale factor $-2$ as making the shape smaller (e.g. as if it were $-\\frac{1}{2}$), demonstrating confusion between fractional and negative scale factor effects.",
+      "misconception_targeted": "Assuming a fractional scale factor makes the shape larger, or ignoring the sign for negative scale factors causing incorrect orientation"
+    },
+    {
+      "question_number": 7,
+      "topic_aspect": "Combined transformations in a real-world grid-mapping context (translation followed by reflection)",
+      "total_marks": 4,
+      "correct_answer": "Q = (1, -2); R = (-1, -2), confirming the given result.",
+      "mark_scheme": "(a) M1 for adding the vector (5,-3) to point P(-4,1), i.e. (-4+5, 1-3); A1 for correct coordinates Q = (1, -2).\n(b) M1 for reflecting Q(1,-2) in the line x=0, i.e. negating the x-coordinate to get (-1,-2); A1 for correctly showing R = (-1,-2) matches the given coordinate (with clear working shown, not just stating the answer).",
+      "misconception_targeted": "Performing combined transformations in the wrong order, affecting the final position of the image"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+\begin{question}
+\noindent A space agency uses a circular satellite dish, part of a tracking array, to monitor deep space signals. Points $A$, $B$ and $C$ lie on the circumference of the dish's circular rim, with centre $O$.
+
+\noindent The angle at the centre, $AOB$, is $100^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    %mark points on circle
+        \coordinate[] (O) at (0,0);
+        \coordinate[] (A) at (130:1);
+        \coordinate[] (B) at (-30:1);
+        \coordinate[] (C) at (260:1);
+
+    %draw chords and circle
+        \draw[name path=circ] (0,0) circle (1);
+        \fill[black] (0,0) circle (1pt);
+        \draw (A) -- (O);
+        \draw (O) -- (B);
+        \draw (A) -- (C);
+        \draw (C) -- (B);
+
+        \node[above left] at (A) {$A$};
+        \node[right] at (B) {$B$};
+        \node[below] at (C) {$C$};
+        \node[above] at (O) {$O$};
+
+        \pic [draw, "$100^\circ$", angle eccentricity=1.5, angle radius = 0.5cm] {angle = B--O--A};
+        \pic [draw, "$x$", angle eccentricity=1.4, angle radius = 0.5cm] {angle = B--C--A};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the size of angle $x$, the angle at the circumference subtended by the same arc $AB$.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}

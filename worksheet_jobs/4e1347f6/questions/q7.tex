@@ -1,0 +1,61 @@
+\begin{question}
+\noindent A space agency tracks a satellite moving around a circular orbit. Points $S$, $T$ and $U$ lie on the circular orbit path, with centre $O$ (the centre of the Earth's projected orbit plane). A ground station at point $G$ lies on the tangent to the orbit at $U$, so that $GU$ is a tangent to the circle at $U$.
+
+$STUO$... in the diagram below, $OSTU$ forms part of the configuration, where $O$ is the centre of the circle, $S$, $T$, $U$ lie on the circumference, and $STUG$ is completed by the tangent line at $U$ meeting the extended chord at $G$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    % centre
+    \coordinate[label=above:$O$] (O) at (0,0);
+
+    % points on circle
+    \coordinate (S) at (150:1);
+    \coordinate (T) at (60:1);
+    \coordinate (U) at (-90:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+
+    \draw (O) -- (S);
+    \draw (O) -- (T);
+    \draw (O) -- (U);
+    \draw (S) -- (T);
+    \draw (T) -- (U);
+    \draw (S) -- (U);
+
+    % tangent at U
+    \draw (U) -- ($(U)!1.6!-90:(O)$) coordinate (G);
+    \draw (U) -- ($(U)!0.8!90:(O)$) coordinate (Uext);
+
+    \node at (S) [anchor=south east] {$S$};
+    \node at (T) [anchor=south west] {$T$};
+    \node at (U) [anchor=north] {$U$};
+    \node at (G) [anchor=north] {$G$};
+
+    \pic [draw, "$142^\circ$", angle eccentricity=1.4, angle radius=0.5cm] {angle = S--O--T};
+    \pic [draw, "$x$", angle eccentricity=1.5, angle radius=0.6cm] {angle = T--U--Uext};
+    \pic [draw, "$y$", angle eccentricity=1.4, angle radius=0.7cm] {angle = S--T--U};
+    \pic [draw, "$z$", angle eccentricity=1.6, angle radius=0.4cm] {angle = U--G--S};
+
+    \tkzMarkRightAngle[size=0.15](Uext,U,O)
+\end{tikzpicture}
+\end{center}
+
+\noindent $O$ is the centre of the circular orbit. $S$, $T$ and $U$ are three satellite positions on the orbit. The angle at the centre, $\angle SOT = 142^\circ$. $GU$ is a tangent to the circle at $U$, and $G$, $U$, $S$ do not lie on a straight line through $O$. $STUG$ is arranged so that $SU$ extended does not pass through $G$; instead $\angle UGS = z$ is the angle between the tangent $GU$ and the chord $US$ extended to meet the tangent line at $G$ (assume $G$, $S$ and the relevant extended chord are positioned such that triangle $GUS$ is formed, with $GU$ tangent at $U$).
+
+\begin{enumerate}
+    \item[(a)] Find the size of angle $STU$ ($y$), the angle subtended by arc $SU$ at the circumference (not containing $T$, i.e. the angle in the major arc).
+
+    \vspace{3.5cm}
+    \answerequnit{y}{$^\circ$}{2}
+
+    \item[(b)] $OSTU$... $O$, $S$, $T$, $U$ together with the tangent do not form a cyclic quadrilateral directly; instead, consider quadrilateral $OSTU$ is not cyclic since $O$ is the centre. Using the fact that triangle $OST$ is isosceles (as $OS = OT$, both radii), find the angle $OST$.
+
+    \vspace{3.5cm}
+    \answerequnit{\angle OST}{$^\circ$}{2}
+
+    \item[(c)] Given that $OU$ is a radius and $GU$ is a tangent at $U$, and that triangle $OUS$ is isosceles with $OU = OS$, use the tangent--radius property together with your answers above to find the angle $z = \angle UGS$ between the tangent $GU$ and the chord $US$.
+
+    \vspace{4cm}
+    \answerequnit{z}{$^\circ$}{2}
+\end{enumerate}
+\end{question}

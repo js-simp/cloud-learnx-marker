@@ -1,0 +1,29 @@
+\begin{question}
+\noindent $P$, $Q$, $R$ and $S$ are points on the circumference of a circle, forming the cyclic quadrilateral $PQRS$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate[label=above left:$P$] (P) at (130:1);
+    \coordinate[label=below left:$S$] (S) at (215:1);
+    \draw[name path=circ] (0,0) circle (1);
+    \path[name path=PR] (P) -- ($(P)!1.5!66:(S)$);
+    \path[name path=SQ] (S) -- ($(S)!1.5!-50:(P)$);
+    \path[name intersections={of=circ and PR, by={[]K,R}}];
+    \path[name intersections={of=SQ and circ, by={[label=above right:$Q$]Q}}];
+    \draw[line join=bevel] (P) -- (Q) -- (R) -- (S) -- cycle;
+    \node at (R) [right] {$R$};
+
+    \pic [draw, "$2x$", angle eccentricity=1.4, angle radius = 0.5cm] {angle = S--P--Q};
+    \pic [draw, "$3x+10^\circ$", angle eccentricity=1.5, angle radius = 0.4cm] {angle = Q--R--S};
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $SPQ = 2x$ and angle $QRS = (3x + 10)^\circ$.
+
+Work out the size of angle $QRS$.
+
+\vspace{4cm}
+\begin{flushright}
+    \answerequnit{QRS}{$^\circ$}{3}
+\end{flushright}
+\end{question}

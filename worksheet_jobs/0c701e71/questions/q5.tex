@@ -1,0 +1,57 @@
+\begin{question}
+\noindent An engineering student is designing the support frame for a circular satellite dish.
+The dish's circular support ring has centre $O$. Two straight support cables are attached to the ring at points $C$ and $D$, and both cables meet at an external anchor point $P$, so that $PC$ and $PD$ are tangents to the circle at $C$ and $D$ respectively.
+
+\noindent The angle $COD$ at the centre of the ring is $126^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.8]
+    % Centre of circle
+    \coordinate (O) at (0,0);
+
+    % Points C and D on the circle, symmetric about vertical axis
+    % angle COD = 126 degrees, so each radius is 63 degrees from the downward vertical axis
+    \coordinate (C) at ($(O)+(-90-63:1cm)$);
+    \coordinate (D) at ($(O)+(-90+63:1cm)$);
+
+    % Draw circle
+    \draw[thick] (O) circle (1cm);
+    \fill[black] (O) circle (1pt);
+    \node[above] at (O) {$O$};
+
+    % Tangent lines at C and D, extended to meet at P below
+    \coordinate (P) at ($(O)+(-90:2.35cm)$);
+
+    \draw[thick] (C) -- (P);
+    \draw[thick] (D) -- (P);
+
+    % Radii
+    \draw[thick] (O) -- (C);
+    \draw[thick] (O) -- (D);
+
+    % Labels
+    \node[left] at (C) {$C$};
+    \node[right] at (D) {$D$};
+    \node[below] at (P) {$P$};
+
+    % Right angle marks at C and D
+    \tkzMarkRightAngle[size=.15](O,C,P);
+    \tkzMarkRightAngle[size=.15](P,D,O);
+
+    % Mark angle COD
+    \pic [draw, angle eccentricity=1.5, angle radius = 0.4cm, "$126^\circ$"] {angle = D--O--C};
+
+    % Mark angle CPD
+    \pic [draw, angle eccentricity=1.5, angle radius = 0.5cm] {angle = D--P--C};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the size of angle $CPD$, the angle between the two support cables at $P$.
+
+\vspace{5cm}
+
+\begin{flushright}
+\answerequnit{CPD}{$^\circ$}{3}
+\end{flushright}
+\end{question}

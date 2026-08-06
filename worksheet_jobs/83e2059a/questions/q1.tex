@@ -1,0 +1,46 @@
+\begin{question}
+\noindent Shape $T$ is drawn on the grid below. The line with equation $x = 2$ is also shown.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.7, transform shape]
+    % Define colours
+    \definecolor{borderColour}{HTML}{000000}
+    \definecolor{fillColour}{HTML}{D8D8D8}
+
+    % Define axis scale
+    \def\axisLimit{5}
+
+    % Draw grid
+    \draw[step=1cm,gray,very thin] (-\axisLimit,-\axisLimit) grid (\axisLimit,\axisLimit);
+
+    % Draw axes
+    \draw[thick,->] (-\axisLimit-0.5,0) -- (\axisLimit+0.5,0) node[anchor=north] {$x$};
+    \draw[thick,->] (0,-\axisLimit-0.5) -- (0,\axisLimit+0.5) node[anchor=east] {$y$};
+
+    % Label x-axis and y-axis
+    \foreach \x in {-\axisLimit,...,\axisLimit}
+        \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+    \foreach \y in {-\axisLimit,...,\axisLimit}
+        \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+
+    % Draw the mirror line x = 2
+    \draw[thick, dashed] (2,-5) -- (2,5) node[anchor=south] {$x=2$};
+
+    % Define coordinates for shape T (a right-angled triangle)
+    \coordinate (A) at (-3,1);
+    \coordinate (B) at (-3,3);
+    \coordinate (C) at (-1,1);
+
+    % Draw shape T
+    \filldraw[fill=fillColour, draw=borderColour, thick] (A) -- (B) -- (C) -- cycle;
+    \node at (-2.3,1.7) {$T$};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Reflect shape $T$ in the line $x = 2$.\\
+Label the image $T'$.
+
+\vspace{4cm}
+\answermarks{2}
+\end{question}

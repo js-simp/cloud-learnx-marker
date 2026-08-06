@@ -1,0 +1,33 @@
+\begin{question}
+\noindent Space engineers use circular cross-sections to model satellite dish reflectors. In the diagram below, $O$ is the centre of the circle, and $A$, $B$, $C$ are points on the circumference. The angle at the centre, $\angle AOB$, is $136^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (130:1);
+    \coordinate (B) at (-6:1);
+    \coordinate (C) at (250:1);
+
+    \draw[name path=circ, fill=blue!5] (0,0) circle (1);
+    \fill[black] (O) circle (0.4pt);
+    \node[below] at (O) {$O$};
+
+    \draw (A) -- (O);
+    \draw (O) -- (B);
+    \draw (A) -- (C);
+    \draw (C) -- (B);
+
+    \node[above left] at (A) {$A$};
+    \node[right] at (B) {$B$};
+    \node[below] at (C) {$C$};
+
+    \pic [draw, angle eccentricity=1.5, angle radius=0.5cm, "$136^\circ$"] {angle = A--O--B};
+    \pic [draw, angle eccentricity=1.5, angle radius=0.5cm, "$x$"] {angle = B--C--A};
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the size of angle $x$, marked at point $C$ on the circumference.
+
+\vspace{4cm}
+\answerequnit{x}{$^\circ$}{2}
+\end{question}

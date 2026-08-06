@@ -1,0 +1,52 @@
+\begin{question}
+\noindent Triangle $T$ has vertices $A(1,1)$, $B(3,1)$ and $C(1,2)$.
+
+Triangle $T$ is enlarged by scale factor $-2$, centre $(0,0)$, to give triangle $T'$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.6, transform shape]
+    \def\axisLimit{6}
+
+    \definecolor{borderColour}{HTML}{000000}
+    \definecolor{fillColour}{HTML}{D8D8D8}
+
+    % Draw grid
+    \draw[step=1cm,gray,very thin] (-\axisLimit,-\axisLimit) grid (\axisLimit,\axisLimit);
+
+    % Draw axes
+    \draw[thick,->] (-\axisLimit-0.5,0) -- (\axisLimit+0.5,0) node[anchor=north] {$x$};
+    \draw[thick,->] (0,-\axisLimit-0.5) -- (0,\axisLimit+0.5) node[anchor=east] {$y$};
+
+    % Label axes
+    \foreach \x in {-\axisLimit,...,\axisLimit}
+        \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+    \foreach \y in {-\axisLimit,...,\axisLimit}
+        \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+
+    % Centre of enlargement
+    \coordinate (COE) at (0,0);
+    \draw[red, thick] (COE) node[cross out, draw=red, inner sep=2pt, outer sep=0pt, line width=1pt] {};
+    \node[red, below left] at (COE) {$(0,0)$};
+
+    % Original triangle T
+    \coordinate (A) at (1,1);
+    \coordinate (B) at (3,1);
+    \coordinate (C) at (1,2);
+
+    \draw[fill=fillColour, draw=borderColour, line width=1pt] (A) -- (B) -- (C) -- cycle;
+    \node at (1,0.7) [below] {$A$};
+    \node at (3,0.7) [below] {$B$};
+    \node at (0.7,2) [left] {$C$};
+    \node at (1.8,1.4) {$T$};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Find the coordinates of the vertices of triangle $T'$, the image of $T$ after this enlargement.
+
+\vspace{5cm}
+
+\begin{flushright}
+\answerplain{4}
+\end{flushright}
+\end{question}

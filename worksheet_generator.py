@@ -41,8 +41,11 @@ load_dotenv()
 # ── Config ────────────────────────────────────────────────────────────────────
 TEMPLATE_DIR        = Path(__file__).parent / "template"
 JOBS_DIR            = Path(__file__).parent / "worksheet_jobs"
+PROMPTS_DIR         = Path(__file__).parent / "prompts"
+
 MAX_RETRIES         = 3
 JOBS_DIR.mkdir(exist_ok=True)
+PROMPTS_DIR.mkdir(exist_ok=True)
 
 EMBED_MODEL       = "gemini-embedding-001"
 EMBED_DIMENSIONS  = 768
@@ -62,202 +65,18 @@ def sanitize_latex(tex_code: str) -> str:
     tex_code = tex_code.replace(r"^\circ^\circ", r"^\circ")
     return tex_code
 
+# ── Helper: Load Prompt Files ────────────────────────────────────────────────
+def load_prompt(name: str) -> str:
+    return (PROMPTS_DIR / name).read_text()
+
+def load_prompt_dir(dirname: str) -> str:
+    files = sorted((PROMPTS_DIR / dirname).glob("*.tex"))
+    return "\n\n".join(f.read_text() for f in files)
 
 # ── Static reference content — these get cached, never change per-call ───────
-MACRO_REFERENCE = r"""
-AVAILABLE LATEX MACROS (use ONLY these for answer boxes):
-
-QUESTION STRUCTURE:
-  \begin{question} ... \end{question}     — wraps each question, auto-numbers, auto-totals marks
-  \partq{a}  \partq{b}  etc.             — sub-part labels inside a question
-
-ANSWER MACROS (always place at end of each part, right-aligned):
-  \answerplain{marks}                    — dotted line only         e.g. \answerplain{3}
-  \answerunit{unit}{marks}               — dotted line + unit       e.g. \answerunit{cm}{2}
-  \answerprefix{prefix}{marks}           — prefix + dotted line     e.g. \answerprefix{\$}{2}
-  \answereq{variable}{marks}             — x = dotted line          e.g. \answereq{x}{2}
-  \answerequnit{variable}{unit}{marks}   — x = dotted line + unit   e.g. \answerequnit{v}{\text{m/s}}{3}
-  \answerlines{num_lines}{marks}         — ruled lines for written explanation
-  \answercoord{marks}                    — coordinate pair ( . , . )
-  \answermarks{marks}                    — marks only, no answer line (use for show-that questions)
-  \answermcq{A}{B}{C}{D}{marks}          — 4-option MCQ with tickboxes
-
-CRITICAL MACRO RULE FOR UNITS:
-  The {unit} argument in \answerunit and \answerequnit is evaluated in TEXT MODE.
-  If your unit contains math symbols, superscripts, or subscripts (e.g. degrees, cm^2, m/s^2),
-  you MUST wrap the math elements inside $...$ delimiters.
-  - WRONG: \answerequnit{x}{^\circ}{3}   --> FAILS WITH COMPILATION ERROR!
-  - WRONG: \answerunit{cm^2}{2}          --> FAILS WITH COMPILATION ERROR!
-  - RIGHT: \answerequnit{x}{$^\circ$}{3}
-  - RIGHT: \answerunit{$\text{cm}^2$}{2}
-
-COLOR RULES FOR TIKZ:
-  Use ONLY standard xcolor names: red, blue, green, black, gray, lightgray, darkgray, cyan, magenta, yellow.
-  DO NOT use 'primaryGreen', 'lightYellow', or invent custom color names.
-
-TIKZ & PACKAGE RULES:
-1. DO NOT include \usetikzlibrary{...} or \usepackage{...} in your question code. All libraries are already pre-loaded in the document header.
-2. For tick marks or line decorations, use ONLY valid TikZ library syntax:
-   - Use 'decorations.markings' or 'decorations.pathreplacing' (NEVER 'decorations.pathmarking').
-   - For right angle arcs, use the standard 'angles' and 'quotes' libraries.
-3. For parallel lines or equal side tick marks:
-   - Use simple TikZ drawings like: \draw[thick] (A) -- (B); or standard TikZ markings.
-
-SPACING:
-  \vspace{Xcm}    — vertical space for working. Use generously (4cm minimum per part).
-
-MATHS:
-  Inline:  $...$   e.g. $x^2 + 3x - 2 = 0$
-  Display: \[ ... \]  for standalone equations
-
-TIKZ DIAGRAMS:
-  Use standard tikz. Available libraries: angles, quotes, calc, 3dplot.
-  Always wrap diagrams in \begin{center}...\end{center}.
-  Use [scale=0.8] or similar to ensure diagrams fit the page width.
-
-DO NOT invent new macros. DO NOT use \begin{exam} or similar — it does not exist.
-"""
-
-DIAGRAM_RULES = r"""
-TIKZ DIAGRAM RULES — MANDATORY. Violations cause wrong answers or student confusion.
-
-CRITICAL HARD RULES:
-1. NEVER write raw '°' symbols. Always write '$58^\circ$' or '$x^\circ$'.
-2. NEVER calculate raw arcs manually using \draw (...) arc (...).
-   ALWAYS use the `angles` and `quotes` libraries:
-   \pic [draw, angle radius=6mm, "$x$"] {angle = A--B--C};
-3. NEVER rely on implicit `intersection-2` or ambiguous intersection arrays.
-   Always explicitly define named intersections or single-point outputs:
-   name intersections={of=lineA and circleB, by={P1}}
-
-═══════════════════════════════════════════════════════
-RULE 1 — ANGLE ARC DIRECTION (CRITICAL)
-═══════════════════════════════════════════════════════
-The tikz `angles` library draws \pic{angle = A--V--B} COUNTER-CLOCKWISE from A to B around vertex V.
-- If going from A to B counter-clockwise goes around the EXTERIOR, it will draw a 300°+ reflex arc!
-- If your generated arc draws a reflex angle (>180°), you MUST swap A and B (e.g. change {angle = A--V--B} to {angle = B--V--A}).
-
-To mark an acute or obtuse angle correctly:
-  - Identify which direction from V gives the interior/minor angle.
-  - Order the points so the arc sweeps that direction COUNTER-CLOCKWISE.
-
-CORRECT pattern for marking angle at vertex B in a triangle ABC where A is left, C is right:
-  {angle = C--B--A}   ← sweeps from C to A counter-clockwise through the interior angle
-
-WRONG: {angle = A--B--C}  ← sweeps the exterior reflex arc!
-
-═══════════════════════════════════════════════════════
-RULE 2 — DIAGRAM COORDINATES MUST MATCH STATED DIMENSIONS
-═══════════════════════════════════════════════════════
-If a right triangle has legs stated as 3 cm and 4 cm, the tikz coordinates must reflect
-that ratio: e.g. (0,0), (4,0), (0,3) — NOT (0,0), (5,0), (0,3).
-
-NEVER assign tikz coordinates arbitrarily and then write different numbers in the text.
-ALWAYS compute coordinates proportionally from the given measurements.
-
-For triangles: place one vertex at origin, one along x-axis at the correct relative
-distance, compute the third using the actual given lengths/angles.
-
-═══════════════════════════════════════════════════════
-RULE 3 — GRID QUESTIONS: ALL SHAPES MUST STAY WITHIN THE GRID
-═══════════════════════════════════════════════════════
-When drawing transformations (rotations, reflections, enlargements) on a coordinate grid:
-  1. First COMPUTE all image vertices mathematically from the transformation.
-  2. Check EVERY image vertex is strictly inside the grid boundaries.
-  3. If any vertex falls outside, CHANGE the original shape's position/size,
-     or change the transformation parameters, until ALL vertices fit.
-
-═══════════════════════════════════════════════════════
-RULE 4 — PROPORTIONAL VISUAL ACCURACY
-═══════════════════════════════════════════════════════
-The visual size of sides in the diagram must be proportional to the stated measurements.
-A side labelled 15.6 m MUST appear longer than a side labelled 7.2 m in the diagram.
-
-═══════════════════════════════════════════════════════
-RULE 5 — FLOATING LABELS AND ALIGNMENT
-═══════════════════════════════════════════════════════
-Node labels must be positioned relative to their anchor point:
-  - Vertex labels: use [above left], [below right], etc. anchored to the vertex coordinate.
-  - Side labels: use node[midway, above] or node[midway, left] on the draw command.
-  - NEVER place labels at arbitrary coordinates disconnected from their referent geometry.
-"""
-
-SAMPLE_QUESTIONS = r"""
-EXAMPLE QUESTION FILES (study these for style and structure):
-
---- EXAMPLE: Geometry with tikz diagram (q1.tex style) ---
-\begin{question}
-\noindent The diagram shows two right-angled triangles, $ABD$ and $CDE$.
-$ADC$ and $BDE$ are straight lines intersecting at point $D$.
-
-\begin{center}
-\begin{tikzpicture}[scale=0.6]
-    \draw[thick] (-6, 0) node[below]{$A$} -- (8.5, 0) node[below]{$C$};
-    \draw[thick] (-6, 8) node[above]{$B$} -- (3, -4) node[below]{$E$};
-    \draw[thick] (-6, 0) -- (-6, 8);
-    \draw[thick] (3, -4) -- (8.33, 0);
-    \draw (-5.6, 0) -- (-5.6, 0.4) -- (-6, 0.4);
-    \draw (2.76, -3.68) -- (3.08, -3.44) -- (3.32, -3.76);
-    \node at (0.3, 0.4) {$D$};
-    \node at (-6.5, 4) {$8$ cm};
-    \node at (-3, -0.5) {$6$ cm};
-    \node at (5, 0.5) {$12.5$ cm};
-\end{tikzpicture}
-\end{center}
-
-\noindent $AB = 8$ cm, $AD = 6$ cm, $CD = 12.5$ cm.
-Work out the length of $CE$.
-
-\vspace{4.5cm}
-\begin{flushright}
-    \answerunit{cm}{3}
-\end{flushright}
-\end{question}
-
---- EXAMPLE: Multi-part algebra (q3.tex style) ---
-\begin{question}
-$y$ is inversely proportional to $x^n$, where $n$ is an integer.
-
-The table shows some values of $x$ and $y$.
-
-\begin{center}
-\begin{tabular}{c|ccc}
-$x$ & 3 & 6 & $q$ \\
-\hline
-$y$ & 40 & 5 & 0.625 \\
-\end{tabular}
-\end{center}
-
-\begin{enumerate}
-    \item[(a)] Find the value of $n$.
-
-    \vspace{4cm}
-    \answereq{n}{2}
-
-    \item[(b)] Find a formula for $y$ in terms of $x$.
-
-    \vspace{2cm}
-    \answereq{y}{2}
-
-    \item[(c)] Find the value of $q$.
-
-    \vspace{1.5cm}
-    \answereq{q}{2}
-\end{enumerate}
-\end{question}
-
---- EXAMPLE: Word problem (q4.tex style) ---
-\begin{question}
-A farmer buys 749 sheep for a total cost of $C$.\\
-He sells 700 of the sheep for $C$.\\
-The farmer then sells the remaining 49 sheep at the same price per sheep.\\
-Work out the percentage profit that the farmer makes.
-
-\vspace{4cm}
-\answerplain{2}
-\end{question}
-"""
-
+MACRO_REFERENCE  = load_prompt("macro_reference.md")
+DIAGRAM_RULES    = load_prompt("diagram_rules.md")
+SAMPLE_QUESTIONS = load_prompt_dir("sample_questions")
 
 # ============================================================================
 # SECTION 1 — PYDANTIC SCHEMAS
@@ -589,6 +408,7 @@ CONTEXT NATURALNESS:
 DO NOT SCAFFOLD AWAY THE CHALLENGE:
    - Do NOT provide the key equation the student must derive.
    - Do NOT state geometric properties that the student must identify.
+   - Do NOT state/suggest the theorem that the student must use.
    - The number of marks awarded must reflect the cognitive work actually required.
 
 tex_content must be valid LaTeX starting with \\begin{{question}} and ending with \\end{{question}}.

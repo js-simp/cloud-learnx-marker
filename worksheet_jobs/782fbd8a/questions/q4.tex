@@ -1,0 +1,35 @@
+\begin{question}
+\noindent $A$, $B$, $C$ and $D$ are four points on the circumference of a circle, forming the cyclic quadrilateral $ABCD$.
+
+\noindent Angle $DAB = (2x + 10)^\circ$ and angle $BCD = (3x - 5)^\circ$, as shown in the diagram below.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate[label=above left:$A$] (A) at (130:1);
+    \coordinate[label=below left:$D$] (D) at (215:1);
+    \draw[name path=circ] (0,0) circle (1);
+    \path[name path=DB] (D) -- ($(D)!1.6!68:(A)$);
+    \path[name path=AC] (A) -- ($(A)!1.6!-55:(D)$);
+    \path[name intersections={of=circ and DB, by={K,B}}];
+    \path[name intersections={of=AC and circ, by={C}}];
+    \draw[line join=bevel] (A) -- (D) -- (B) -- (C) -- cycle;
+    \node at (B) [right] {$B$};
+    \node at (C) [below right] {$C$};
+
+    \pic [draw, "$(2x+10)^\circ$", angle eccentricity=1.6, angle radius = 0.5cm] {angle = B--A--D};
+    \pic [draw, "$(3x-5)^\circ$", angle eccentricity=1.6, angle radius = 0.5cm] {angle = D--C--B};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item[(a)] Form an equation in $x$ and solve it to find the value of $x$.
+
+    \vspace{4cm}
+    \answereq{x}{2}
+
+    \item[(b)] Work out the size of angle $DAB$ and the size of angle $BCD$.
+
+    \vspace{3cm}
+    \answerplain{2}
+\end{enumerate}
+\end{question}

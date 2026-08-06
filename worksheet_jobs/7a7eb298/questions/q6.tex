@@ -1,0 +1,42 @@
+\begin{question}
+\noindent A logo designer is working on a circular badge icon in her UI design software. The badge has a straight edge $TC$ that is tangent to the circle at point $C$. Points $A$, $B$ and $C$ lie on the circle, and $AB$, $BC$ are chords, with $AC$ also drawn as a chord.
+
+The angle between the tangent $TC$ and the chord $CB$ is $52^\circ$, as shown.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    % mark points on circle
+        \coordinate (E) at (0,0);
+        \coordinate (C) at (-90:1);
+        \coordinate (A) at (95:1);
+
+    % draw circle
+        \draw[name path=circ] (0,0) circle (1);
+
+    % draw tangent at C
+        \draw (C) -- ($(C)!1.5!-90:(E)$) coordinate (L) node[below right] {$T$};
+        \draw (C) -- ($(C)!1.5!90:(E)$) coordinate (M);
+
+    % find B on circle such that angle L-C-B = 52 degrees direction
+        \path[name path=CB] (C) -- ($(C)!1.5!-40:(E)$);
+        \path[name intersections={of=CB and circ, by={temp,B}}];
+
+    \draw (C) -- (B) node[right] {$B$};
+    \draw (C) -- (A) node[above left] {$A$};
+    \draw (A) -- (B);
+    \node[below left] at (C) {$C$};
+
+    \pic [draw, "$52^\circ$", angle eccentricity=1.5, angle radius = 0.6cm] {angle = L--C--B};
+    \pic [draw, "$x$", angle eccentricity=1.4, angle radius = 0.5cm] {angle = B--A--C};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Find the size of angle $x$, marked at $A$ in the diagram, giving a reason for your answer.
+
+\vspace{4cm}
+
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{3}
+\end{flushright}
+\end{question}

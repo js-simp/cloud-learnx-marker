@@ -1,0 +1,39 @@
+\begin{question}
+\noindent A circular observation window on a space station is designed so that a triangular support brace $PQR$ is fitted inside it, with $PR$ as a diameter of the circle, as shown in the diagram.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (P) at (180:1);
+    \coordinate (R) at (0:1);
+    \coordinate (Q) at (35:1);
+
+    \draw[thick] (0,0) circle (1);
+    \fill[black] (0,0) circle (0.6pt);
+
+    \draw[thick] (P) -- (R);
+    \draw[thick] (P) -- (Q) -- (R);
+
+    \node[left] at (P) {$P$};
+    \node[right] at (R) {$R$};
+    \node[above right] at (Q) {$Q$};
+
+    \pic [draw, angle radius=6mm, "$$"] {angle = R--Q--P};
+    \node at (0.15,0.2) {$90^\circ$};
+
+    \pic [draw, angle radius=7mm, "$32^\circ$"] {angle = P--R--Q};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent $PR$ is a diameter of the circle.
+
+\noindent Angle $QRP = 32^\circ$.
+
+\noindent Find the size of angle $QPR$.
+
+\vspace{4cm}
+
+\begin{flushright}
+\answerequnit{QPR}{$^\circ$}{2}
+\end{flushright}
+\end{question}

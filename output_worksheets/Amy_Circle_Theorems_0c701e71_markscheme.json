@@ -1,0 +1,56 @@
+{
+  "paper_title": "Circle Theorems Worksheet \u2014 Amy",
+  "subject": "Mathematics",
+  "generated_date": "2026-08-06",
+  "total_marks": 17,
+  "questions": [
+    {
+      "question_number": 1,
+      "topic_aspect": "Circle Theorems: Angle in a semicircle (isosceles triangle radii)",
+      "total_marks": 2,
+      "correct_answer": "Angle ACB = 90\u00b0",
+      "mark_scheme": "B1: angle ACB = 90\u00b0\nB1: correct reason given \u2014 \"angle in a semicircle is 90\u00b0\" (or equivalent reference to AB being a diameter)",
+      "misconception_targeted": "Confusing angle at centre with angle at circumference"
+    },
+    {
+      "question_number": 2,
+      "topic_aspect": "Isosceles triangle from two radii",
+      "total_marks": 2,
+      "correct_answer": "Angle OAB = 70\u00b0",
+      "mark_scheme": "M1: Identify OA = OB (radii equal) so triangle OAB is isosceles, and use angle sum = 180\u00b0 with (180 \u2212 40)/2 or equivalent correct method\nA1: Angle OAB = 70\u00b0 (correct final answer)",
+      "misconception_targeted": "Not recognising two radii create an isosceles triangle"
+    },
+    {
+      "question_number": 3,
+      "topic_aspect": "Angle at the centre is twice the angle at the circumference",
+      "total_marks": 3,
+      "correct_answer": "Angle ACB = 68\u00b0",
+      "mark_scheme": "M1: State/use circle theorem \u2014 angle at centre = 2 \u00d7 angle at circumference (angle AOB = 2 \u00d7 angle ACB)\nM1: Correct equation formed: 136 = 2 \u00d7 angle ACB\nA1: Angle ACB = 68\u00b0 (correct final answer, halving not doubling)",
+      "misconception_targeted": "Halving instead of doubling, or applying to wrong arc"
+    },
+    {
+      "question_number": 4,
+      "topic_aspect": "Cyclic quadrilateral - opposite angles sum to 180",
+      "total_marks": 3,
+      "correct_answer": "x = 32; Angle A (BAD) = 96\u00b0, Angle C (BCD) = 84\u00b0",
+      "mark_scheme": "M1: Correct equation formed using opposite angles sum to 180\u00b0 (3x + x + 52 = 180)\nM1: Correct rearrangement/simplification to solve for x (4x = 128 or equivalent), leading to x = 32\nA1: Both correct final angles stated \u2014 angle BAD = 96\u00b0 and angle BCD = 84\u00b0 (ft from their x if equation method correct)",
+      "misconception_targeted": "Assuming opposite angles are equal rather than supplementary"
+    },
+    {
+      "question_number": 5,
+      "topic_aspect": "Tangent-radius perpendicularity and two tangents from a point, applied to a satellite dish support structure",
+      "total_marks": 3,
+      "correct_answer": "Angle CPD = 54\u00b0",
+      "mark_scheme": "M1: State/use tangent meets radius at 90\u00b0 for both OCP and ODP\nM1: Correct equation using quadrilateral angle sum (126 + 90 + 90 + angle CPD = 360) or equivalent triangle method\nA1: angle CPD = 54\u00b0 (cao)",
+      "misconception_targeted": "Forgetting tangent meets radius at 90 degrees"
+    },
+    {
+      "question_number": 6,
+      "topic_aspect": "Alternate segment theorem applied to a microscope lens diagram",
+      "total_marks": 4,
+      "correct_answer": "Angle BCA = 58\u00b0",
+      "mark_scheme": "B1: Correctly identify that chord TA (not TC) is the relevant chord paired with point B's segment\nM1: State Alternate Segment Theorem (tangent\u2013chord angle = angle in alternate segment)\nM1: Correctly match 58\u00b0 (angle PTA) to angle ABT, rejecting the 72\u00b0 distractor angle\nA1: x = angle ABT = 58\u00b0 (cao)",
+      "misconception_targeted": "Matching the wrong angle to the wrong segment"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+\begin{question}
+\noindent A satellite dish is modelled as a circle with centre $O$. A support strut $PT$ is attached to the rim so that it acts as a tangent to the circle at the point of contact $T$. A second strut connects $T$ to the centre $O$, and a third strut connects $O$ to a mounting point $P$ on the support tower.
+
+The angle between the strut $OP$ and the strut $PT$ is $34^\circ$, as shown in the diagram.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    % Circle with centre O
+    \coordinate (O) at (0,0);
+    \draw[thick] (O) circle (1);
+    \fill[black] (O) circle (0.6pt);
+    \node[below left] at (O) {$O$};
+
+    % Point of tangency T at top of circle
+    \coordinate (T) at (90:1);
+    \node[above] at (T) {$T$};
+
+    % Tangent line at T (horizontal)
+    \draw[thick] ($(T)+(-1.6,0)$) -- ($(T)+(1.6,0)$);
+
+    % Point P on the tangent line, to the right
+    \coordinate (P) at ($(T)+(1.5,0)$);
+    \node[right] at (P) {$P$};
+
+    % Draw radius OT
+    \draw[thick] (O) -- (T);
+
+    % Draw strut OP
+    \draw[thick] (O) -- (P);
+
+    % Right angle mark at T between OT and tangent
+    \draw ($(T)+(-0.12,0)$) -- ($(T)+(-0.12,-0.12)$) -- ($(T)+(0,-0.12)$);
+
+    % Angle at P between PT and PO
+    \pic [draw, angle eccentricity=1.5, angle radius=0.35cm, "$34^\circ$"] {angle = O--P--T};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Calculate the size of angle $TOP$, the angle between the two struts $OT$ and $OP$.
+State the circle theorem you use in your working.
+
+\vspace{4.5cm}
+
+\begin{flushright}
+    \answerequnit{TOP}{$^\circ$}{3}
+\end{flushright}
+\end{question}

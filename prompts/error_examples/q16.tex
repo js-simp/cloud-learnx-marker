@@ -1,0 +1,32 @@
+\begin{question}
+\noindent A space observatory, $O$, is tracking a satellite, $S$, as it passes overhead.
+The diagram shows the position of the satellite relative to the observatory, along with the north line at $O$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    % North line at O
+    \draw[thick,->] (0,0) -- (0,3.2) node[above] {N};
+
+    % Line from O to S
+    \draw[thick,->] (0,0) -- (3.7,-1.7) node[right] {$S$};
+
+    % Angle arc showing the bearing measured clockwise from North
+    \draw[thick] (0,2.2) arc (90:335:2.2);
+
+    % Angle label
+    \node at (1.5,1.6) [font=\small] {$155^\circ$};
+
+    % Point O
+    \filldraw (0,0) circle (1.5pt);
+    \node at (0,0) [below left, font=\small] {$O$};
+\end{tikzpicture}
+\end{center}
+
+\noindent The angle between the north line and the line $OS$, measured clockwise from North, is $155^\circ$.
+
+\noindent Write down the bearing of $S$ from $O$.
+\vspace{4cm}
+\begin{flushright}
+    \answerplain{2}
+\end{flushright}
+\end{question}

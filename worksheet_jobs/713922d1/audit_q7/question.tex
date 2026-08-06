@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage[active,tightpage]{preview}
+\setlength\PreviewBorder{12pt}
+
+% ===============================
+%   PROJECT-SPECIFIC ENVIRONMENT
+% ===============================
+\input{layout/packages}
+\input{config}
+\input{layout/macros}
+
+\begin{document}
+\begin{preview}
+\begin{question}
+\noindent A tracking station plots the ground position of a satellite as triangle $PQR$ on a coordinate grid, shown below.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.7, transform shape]
+    \def\axisLimit{6}
+
+    \definecolor{borderColour}{HTML}{000000}
+    \definecolor{fillColour}{HTML}{D8D8D8}
+
+    \draw[step=1cm,gray,very thin] (-\axisLimit,-\axisLimit) grid (\axisLimit,\axisLimit);
+
+    \draw[thick,->] (-\axisLimit-0.5,0) -- (\axisLimit+0.5,0) node[anchor=north] {$x$};
+    \draw[thick,->] (0,-\axisLimit-0.5) -- (0,\axisLimit+0.5) node[anchor=east] {$y$};
+
+    \foreach \x in {-\axisLimit,...,\axisLimit}
+        \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+    \foreach \y in {-\axisLimit,...,\axisLimit}
+        \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+
+    \coordinate (P) at (-5,1);
+    \coordinate (Q) at (-5,3);
+    \coordinate (R) at (-3,1);
+
+    \filldraw[fill=fillColour, draw=borderColour, line width=1pt, fill opacity=0.5] (P) -- (Q) -- (R) -- cycle;
+
+    \node[left] at (P) {$P$};
+    \node[left] at (Q) {$Q$};
+    \node[below] at (R) {$R$};
+\end{tikzpicture}
+\end{center}
+
+\noindent The vertices of triangle $PQR$ are $P(-5,1)$, $Q(-5,3)$ and $R(-3,1)$.
+
+\begin{enumerate}
+    \item[(a)] Triangle $PQR$ represents an orbital shift and is translated by the vector $\begin{pmatrix} 2 \\ 3 \end{pmatrix}$ to give triangle $P'Q'R'$.
+
+    Work out the coordinates of $P'$, $Q'$ and $R'$.
+
+    \vspace{4cm}
+    \answerplain{2}
+
+    \item[(b)] Triangle $P'Q'R'$ is then reflected in the line $x = 0$, representing a mirrored sensor reading, to give triangle $P''Q''R''$.
+
+    Calculate the coordinates of $P''$, $Q''$ and $R''$.
+
+    \vspace{4cm}
+    \answerplain{2}
+\end{enumerate}
+\end{question}
+
+\end{preview}
+\end{document}

@@ -1,0 +1,66 @@
+\begin{question}
+\noindent In the diagram, $O$ is the centre of a circle. $TA$ is a tangent to the circle at point $A$. $B$ and $C$ are points on the circumference, and $ABCT$ are positioned so that $OAT$ is a straight tangent-radius configuration, with $ABCD$ a cyclic quadrilateral (where $D$ lies on the circle such that $OD$ is also a radius).
+
+The angle between the tangent $TA$ and the chord $AB$ is $34^\circ$. The angle $BOD = 148^\circ$, where $O$ is the centre and $D$ is a point on the circumference such that $OBD$ forms a triangle with two radii $OB$ and $OD$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    % Circle centre O
+    \coordinate (O) at (0,0);
+    \draw (O) circle (1);
+    \fill (O) circle (0.4pt);
+    \node at (O) [above] {$O$};
+
+    % Points on circle
+    \coordinate (A) at (200:1);
+    \coordinate (B) at (100:1);
+    \coordinate (D) at (-40:1);
+    \coordinate (C) at (-110:1);
+
+    % Radii
+    \draw (O) -- (A);
+    \draw (O) -- (B);
+    \draw (O) -- (D);
+
+    % Chords forming cyclic quadrilateral ABCD
+    \draw (A) -- (B);
+    \draw (B) -- (C);
+    \draw (C) -- (D);
+    \draw (D) -- (A);
+    \draw (A) -- (C);
+
+    % Tangent line at A
+    \coordinate (T1) at ($(A)!1.6!90:(O)$);
+    \coordinate (T2) at ($(A)!1.6!-90:(O)$);
+    \draw (T1) -- (T2);
+    \node at (T2) [below left] {$T$};
+
+    % Right angle mark at A between OA and tangent
+    \tkzMarkRightAngle[size=.15](O,A,T2);
+
+    % Labels
+    \node at (A) [left] {$A$};
+    \node at (B) [above right] {$B$};
+    \node at (C) [below] {$C$};
+    \node at (D) [right] {$D$};
+
+    % Angle markings
+    \pic [draw, "$34^\circ$", angle eccentricity=1.5, angle radius=0.5cm] {angle = T2--A--B};
+    \pic [draw, "$148^\circ$", angle eccentricity=1.4, angle radius=0.6cm] {angle = B--O--D};
+
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item[(a)] Triangle $OBD$ is isosceles.\\
+    Show that angle $OBD = 16^\circ$, and state the reason why triangle $OBD$ is isosceles.
+
+    \vspace{4cm}
+    \answermarks{2}
+
+    \item[(b)] Calculate the size of angle $BCD$, giving reasons for your answer.
+
+    \vspace{4.5cm}
+    \answerequnit{BCD}{$^\circ$}{3}
+\end{enumerate}
+\end{question}

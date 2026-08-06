@@ -1,0 +1,45 @@
+\begin{question}
+\noindent $A$, $B$, $C$, $D$ and $E$ are five points on the circumference of a circle, centre $O$, in the order shown below.
+
+\noindent Chord $AB$ is drawn. Points $C$ and $D$ lie on the major arc, on the same side of $AB$. Point $E$ lies on the minor arc, on the opposite side of $AB$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (200:1);
+    \coordinate (B) at (-20:1);
+    \coordinate (E) at (270:1);
+    \coordinate (C) at (100:1);
+    \coordinate (D) at (55:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+    \fill[black] (O) circle (0.4pt);
+    \node[below] at (O) {$O$};
+
+    \draw (A) -- (B);
+    \draw (A) -- (C) -- (B);
+    \draw (A) -- (D) -- (B);
+    \draw (A) -- (E) -- (B);
+
+    \node[left] at (A) {$A$};
+    \node[right] at (B) {$B$};
+    \node[above left] at (C) {$C$};
+    \node[above right] at (D) {$D$};
+    \node[below] at (E) {$E$};
+
+    \pic [draw, angle eccentricity=1.5, angle radius = 0.35cm, "$41^\circ$"] {angle = B--C--A};
+    \pic [draw, angle eccentricity=1.5, angle radius = 0.35cm, "$?$"] {angle = A--D--B};
+    \pic [draw, angle eccentricity=1.5, angle radius = 0.3cm, "$75^\circ$"] {angle = A--E--B};
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $ACB = 41^\circ$ and angle $AEB = 75^\circ$.
+
+\noindent Find the size of angle $ADB$, giving a reason for your answer.
+
+\vspace{4cm}
+
+\begin{flushright}
+\answerequnit{ADB}{$^\circ$}{3}
+\end{flushright}
+\end{question}

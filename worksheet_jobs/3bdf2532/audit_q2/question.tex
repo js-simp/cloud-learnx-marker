@@ -1,0 +1,46 @@
+\documentclass[border=12pt]{standalone}
+\usepackage[varwidth=17cm]{varwidth}
+\usepackage{amsmath, amssymb}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{angles, quotes, calc, positioning, geometry, patterns, shapes.geometric}
+
+\begin{document}
+\begin{varwidth}{17cm}
+\begin{question}
+\noindent An engineer is analysing the circular cross-section of a satellite dish support frame. Points $A$, $B$ and $C$ lie on the circumference of the circle, where $AB$ is a diameter of the circle. A support strut runs along $AC$ and another along $CB$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (A) at (180:1);
+    \coordinate (B) at (0:1);
+    \coordinate (C) at (125:1);
+    \coordinate (O) at (0,0);
+
+    \draw[thick] (0,0) circle (1);
+    \fill[black] (O) circle (0.4pt);
+
+    \draw[thick] (A) -- (B);
+    \draw[thick] (A) -- (C);
+    \draw[thick] (C) -- (B);
+
+    \node[left] at (A) {$A$};
+    \node[right] at (B) {$B$};
+    \node[above] at (C) {$C$};
+
+    \pic [draw, angle radius=6mm, "$35^\circ$"] {angle = C--A--B};
+    \pic [draw, angle radius=5mm] {angle = B--C--A};
+\end{tikzpicture}
+\end{center}
+
+\noindent Given that angle $BAC = 35^\circ$, work out the size of angle $ACB$.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answerequnit{ACB}{$^\circ$}{2}
+\end{flushright}
+\end{question}
+
+\end{varwidth}
+\end{document}

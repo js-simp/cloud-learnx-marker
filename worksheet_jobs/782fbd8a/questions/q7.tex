@@ -1,0 +1,66 @@
+\begin{question}
+\noindent A circular calibration dial in a science lab's telescope mount has centre $O$. Points $A$, $B$, $C$ and $D$ lie on the circumference of the dial, forming a cyclic quadrilateral $ABCD$ used to align the telescope's mirror. A tangent line to the dial touches the circle at $C$, representing the edge of a fixed support bracket.
+
+The angle at the centre, $\angle BOD = 132^\circ$ (reflex angle on the major arc side, not shown), and $\angle BOD$ (marked, non-reflex) $=132^\circ$ where $B$ and $D$ are positioned so that $A$ lies on the major arc $BD$.
+
+The angle between the tangent at $C$ and the chord $CD$ is to be found using information given, and $\angle ADC = 118^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    % Circle centre O
+    \coordinate (O) at (0,0);
+    \fill (O) circle (1pt) node[below left]{$O$};
+    \draw[name path=circ] (O) circle (1cm);
+
+    % Points on circle
+    \coordinate (B) at (114:1cm);
+    \coordinate (D) at (-114:1cm);
+    \coordinate (A) at (180:1cm);
+    \coordinate (C) at (0:1cm);
+
+    % Draw quadrilateral ABCD
+    \draw (A) -- (B) -- (C) -- (D) -- cycle;
+
+    % Radii to B and D
+    \draw (O) -- (B);
+    \draw (O) -- (D);
+
+    % Tangent at C
+    \coordinate (T1) at ($(C)!1.3!90:(O)$);
+    \coordinate (T2) at ($(C)!1.3!-90:(O)$);
+    \draw (T1) -- (T2);
+
+    % Labels
+    \node at (A) [left] {$A$};
+    \node at (B) [above right] {$B$};
+    \node at (C) [right] {$C$};
+    \node at (D) [below right] {$D$};
+    \node at (T1) [above right] {$P$};
+    \node at (T2) [below right] {$Q$};
+
+    % Mark angle at O
+    \pic [draw, "$132^\circ$", angle eccentricity=1.5, angle radius=0.5cm] {angle = D--O--B};
+
+    % Mark angle ADC
+    \pic [draw, "$118^\circ$", angle eccentricity=1.4, angle radius=0.5cm] {angle = C--D--A};
+
+    % right angle mark between radius OC and tangent (not drawn OC, so omit)
+\end{tikzpicture}
+\end{center}
+
+\noindent \textbf{(a)} Find the size of $\angle BAD$, the angle at $A$ between chords $AB$ and $AD$. State the circle theorem you use.
+
+\vspace{3.5cm}
+\answerequnit{\angle BAD}{$^\circ$}{2}
+
+\noindent \textbf{(b)} Using your answer to part (a), find the size of $\angle BCD$, the angle at $C$ inside the cyclic quadrilateral. State the circle theorem you use.
+
+\vspace{3cm}
+\answerequnit{\angle BCD}{$^\circ$}{2}
+
+\noindent \textbf{(c)} The tangent $PQ$ touches the circle at $C$. Find the size of the angle between the tangent $CQ$ and the chord $CD$, i.e. $\angle QCD$. State the circle theorem you use.
+
+\vspace{3cm}
+\answerequnit{\angle QCD}{$^\circ$}{2}
+
+\end{question}

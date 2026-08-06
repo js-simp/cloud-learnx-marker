@@ -1,0 +1,58 @@
+\begin{question}
+\noindent A UI/UX designer is studying the optics of a circular lens used in a microscope, so she can render a realistic light-refraction effect in a digital art piece. The cross-section of the lens is modelled as a circle with centre $O$.
+
+\noindent A light ray travels along the straight line $PT$, which touches the circle at point $T$ (so $PT$ is a tangent to the circle at $T$). From $T$, two chords are drawn into the lens: chord $TA$ and chord $TC$. A third point $B$ lies on the circle, on the opposite side of chord $TA$ from $P$. Chords $TB$ and $AB$ are also drawn.
+
+\noindent The angle between the tangent $PT$ and chord $TA$ is $58^\circ$. The angle between the tangent $PT$ and chord $TC$ is $72^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.4]
+    % Point of tangency at bottom of circle
+    \coordinate (T) at (-90:1);
+
+    % circle
+    \draw[name path=circ] (0,0) circle (1);
+
+    % tangent line through T
+    \draw (T) -- ($(T)!1.6!-90:(0,0)$) coordinate (P);
+    \draw (T) -- ($(T)!0.5!90:(0,0)$) coordinate (Lup);
+
+    % chord directions from T: A near tangent side (58 deg from tangent), C at 72 deg, B on far side
+    \path[name path=TA] (T) -- ($(T)!1.6!58:(0,0)$);
+    \path[name path=TC] (T) -- ($(T)!1.6!108:(0,0)$);
+    \path[name path=TB] (T) -- ($(T)!1.6!190:(0,0)$);
+
+    \path[name intersections={of=TA and circ, by={A}}];
+    \path[name intersections={of=TC and circ, by={C}}];
+    \path[name intersections={of=TB and circ, by={B}}];
+
+    \draw (T) -- (A);
+    \draw (T) -- (C);
+    \draw (T) -- (B);
+    \draw (A) -- (B);
+
+    % labels
+    \node[below] at (T) {$T$};
+    \node[below left] at (P) {$P$};
+    \node[above right] at (A) {$A$};
+    \node[above] at (C) {$C$};
+    \node[left] at (B) {$B$};
+    \node[right] at (0,0) {$O$};
+    \fill (0,0) circle (0.7pt);
+
+    % angle labels
+    \pic [draw, "$58^\circ$", angle eccentricity=1.4, angle radius=0.55cm] {angle = P--T--A};
+    \pic [draw, "$72^\circ$", angle eccentricity=1.6, angle radius=0.8cm] {angle = P--T--C};
+    \pic [draw, "$x$", angle eccentricity=1.4, angle radius=0.5cm] {angle = T--B--A};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Find the size of angle $ABT$, marked $x$ on the diagram.
+
+\vspace{4cm}
+
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{4}
+\end{flushright}
+\end{question}

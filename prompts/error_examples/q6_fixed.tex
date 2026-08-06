@@ -1,0 +1,37 @@
+\begin{question}
+\noindent An engineer is analysing the circular cross-section of a satellite dish support frame.\\
+Points $A$, $B$ and $C$ lie on the circumference of the circle, where $AB$ is a diameter of the circle.\\ 
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (A) at (180:1);
+    \coordinate (B) at (0:1);
+    \coordinate (C) at (125:1);
+    \coordinate (O) at (0,0);
+
+    \draw[thick] (0,0) circle (1);
+    %marking center so that is clear and obvious
+    \fill[black] (O) circle (1pt);
+
+    \draw[thick] (A) -- (B);
+    \draw[thick] (A) -- (C);
+    \draw[thick] (C) -- (B);
+
+    \node[left] at (A) {$A$};
+    \node[right] at (B) {$B$};
+    \node[above] at (C) {$C$};
+    
+    %drawing arc in the order B--A--C to ensure interior angle is marked because angle is swept anticlockwise from B (at 0 to the horizontal) to A (at 180 to the horizontal)
+    \pic [draw, angle radius=0.75cm, "$35^\circ$"] {angle = B--A--C};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Given that angle $BAC = 35^\circ$, work out the size of angle $ABC$.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answerequnit{ABC}{$^\circ$}{2}
+\end{flushright}
+\end{question}

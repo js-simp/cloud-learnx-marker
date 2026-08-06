@@ -1,0 +1,37 @@
+\begin{question}
+\noindent An astronomer is studying a circular observation dome. Points $A$, $B$, $C$ and $D$ lie on the circumference of the circular base of the dome, as shown in the diagram below. Chords $AC$ and $BD$ are drawn, and lines $AD$ and $BC$ are also drawn.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.4]
+    \coordinate (A) at (150:1);
+    \coordinate (B) at (95:1);
+    \coordinate (C) at (-20:1);
+    \coordinate (D) at (-100:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+
+    \draw (A) -- (D);
+    \draw (B) -- (C);
+    \draw (A) -- (C);
+    \draw (B) -- (D);
+
+    \node at (A) [above left] {$A$};
+    \node at (B) [above right] {$B$};
+    \node at (C) [right] {$C$};
+    \node at (D) [below left] {$D$};
+
+    \pic [draw, "$41^\circ$", angle eccentricity=1.6, angle radius = 0.45cm] {angle = A--D--C};
+    \pic [draw, "$y$", angle eccentricity=1.6, angle radius = 0.45cm] {angle = A--B--C};
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $ADC = 41^\circ$.
+
+\noindent Find the value of $y$, giving a reason for your answer.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answereq{y}{3}
+\end{flushright}
+\end{question}

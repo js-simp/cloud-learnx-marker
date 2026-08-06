@@ -1,0 +1,57 @@
+\begin{question}
+\noindent A space engineer is studying a triangular support bracket $T$ on a control-panel schematic, drawn on a coordinate grid. She uses enlargements to model how the design changes when a scaled-down version is required for a satellite prototype (similar to how a microscope zooms out to shrink an image), and how a mirrored, inverted version is required for the opposite side of the panel.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.6, transform shape]
+    \definecolor{borderColour}{HTML}{000000}
+    \definecolor{fillColour}{HTML}{D8D8D8}
+
+    \def\axisLimit{6}
+
+    % Draw grid
+    \draw[step=1cm,gray,very thin] (-\axisLimit,-\axisLimit) grid (\axisLimit,\axisLimit);
+
+    % Draw axes
+    \draw[thick,->] (-\axisLimit-0.5,0) -- (\axisLimit+0.5,0) node[anchor=north] {$x$};
+    \draw[thick,->] (0,-\axisLimit-0.5) -- (0,\axisLimit+0.5) node[anchor=east] {$y$};
+
+    \foreach \x in {-6,...,-1,1,...,6}
+        \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+    \foreach \y in {-6,...,-1,1,...,6}
+        \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+
+    % Centre of enlargement
+    \coordinate (COE) at (0,0);
+    \draw[red, thick] (COE) node[cross out, draw=red, inner sep=2pt, outer sep=0pt] {};
+    \node[below left] at (COE) {$O$};
+
+    % Original triangle T
+    \coordinate (A) at (2,2);
+    \coordinate (B) at (2,4);
+    \coordinate (C) at (4,2);
+
+    \draw[fill=fillColour, draw=borderColour, line width=1pt] (A) -- (B) -- (C) -- cycle;
+    \node[below left] at (A) {$A$};
+    \node[above] at (B) {$B$};
+    \node[right] at (C) {$C$};
+    \node at (2.8,2.6) {$T$};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Triangle $T$ has vertices $A(2,2)$, $B(2,4)$, $C(4,2)$.
+
+\begin{enumerate}
+    \item[(a)] On a copy of the grid, enlarge triangle $T$ by scale factor $\dfrac{1}{2}$, centre $(0,0)$.\\
+    Label the image $T_1$.
+
+    \vspace{4cm}
+    \answermarks{2}
+
+    \item[(b)] On the same grid, enlarge the original triangle $T$ by scale factor $-1$, centre $(0,0)$.\\
+    Label the image $T_2$.
+
+    \vspace{4cm}
+    \answermarks{2}
+\end{enumerate}
+\end{question}

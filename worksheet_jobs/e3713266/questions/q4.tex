@@ -1,0 +1,44 @@
+\begin{question}
+\noindent $ABCD$ is a cyclic quadrilateral, with the points $A$, $B$, $C$ and $D$ lying on the circle in that order, as shown in the diagram.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (A) at (150:1);
+    \coordinate (B) at (70:1);
+    \coordinate (C) at (-20:1);
+    \coordinate (D) at (230:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+    \draw[line join=bevel] (A) -- (B) -- (C) -- (D) -- cycle;
+
+    \node at (A) [left] {$A$};
+    \node at (B) [above right] {$B$};
+    \node at (C) [right] {$C$};
+    \node at (D) [below left] {$D$};
+
+    \pic [draw, "$2x^\circ$", angle eccentricity=1.6, angle radius = 0.35cm] {angle = B--A--D};
+    \pic [draw, "$75^\circ$", angle eccentricity=1.6, angle radius = 0.35cm] {angle = C--B--A};
+    \pic [draw, "$(3x+10)^\circ$", angle eccentricity=1.5, angle radius = 0.3cm] {angle = D--C--B};
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $DAB = 2x$ degrees, angle $BCD = (3x + 10)$ degrees, and angle $ABC = 75^\circ$.
+
+\begin{enumerate}
+    \item[(a)] Form an equation in $x$ and solve it to find the value of $x$.
+
+    \vspace{4cm}
+    \answereq{x}{2}
+
+    \item[(b)] Work out the sizes of all four angles of the quadrilateral $ABCD$.
+
+    \vspace{4cm}
+    \begin{flushright}
+    Angle $DAB = $ \rule{2cm}{0.4pt}$^\circ$\\[0.3cm]
+    Angle $ABC = $ \rule{2cm}{0.4pt}$^\circ$\\[0.3cm]
+    Angle $BCD = $ \rule{2cm}{0.4pt}$^\circ$\\[0.3cm]
+    Angle $CDA = $ \rule{2cm}{0.4pt}$^\circ$
+    \end{flushright}
+    \answermarks{2}
+\end{enumerate}
+\end{question}

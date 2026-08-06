@@ -1,0 +1,40 @@
+\begin{question}
+\noindent Points $A$, $B$, $C$ and $D$ lie on the circumference of a circle, as shown in the diagram below. Chords $AC$ and $BD$ intersect inside the circle.
+
+Angles $ADB$ and $ACB$ are both subtended by the same arc $AB$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (A) at (160:1);
+    \coordinate (B) at (20:1);
+    \coordinate (C) at (-50:1);
+    \coordinate (D) at (250:1);
+
+    \draw[thick] (0,0) circle (1);
+
+    \draw[thick] (A) -- (B);
+    \draw[thick] (A) -- (C);
+    \draw[thick] (A) -- (D);
+    \draw[thick] (B) -- (C);
+    \draw[thick] (B) -- (D);
+
+    \node[above left] at (A) {$A$};
+    \node[above right] at (B) {$B$};
+    \node[below right] at (C) {$C$};
+    \node[below left] at (D) {$D$};
+
+    \pic [draw, angle eccentricity=1.5, angle radius = 0.35cm, "$38^\circ$"] {angle = B--D--A};
+    \pic [draw, angle eccentricity=1.5, angle radius = 0.35cm, "$y$"] {angle = A--C--B};
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $ADB = 38^\circ$.
+
+Find the value of $y$, giving a reason for your answer.
+
+\vspace{4.5cm}
+
+\begin{flushright}
+\answereq{y}{3}
+\end{flushright}
+\end{question}

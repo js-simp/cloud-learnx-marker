@@ -1,0 +1,46 @@
+\begin{question}
+\noindent Triangle $ABC$ is drawn on the grid below. Point $E$ marks the centre of enlargement.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.6, transform shape]
+    \def\axisLimit{6}
+
+    \definecolor{borderColour}{HTML}{000000}
+    \definecolor{fillColour}{HTML}{D8D8D8}
+
+    % Draw grid
+    \draw[step=1cm,gray,very thin] (-6,-6) grid (6,6);
+
+    % Draw axes
+    \draw[thick,->] (-6.5,0) -- (6.5,0) node[anchor=north] {$x$};
+    \draw[thick,->] (0,-6.5) -- (0,6.5) node[anchor=east] {$y$};
+
+    % Label x-axis and y-axis
+    \foreach \x in {-6,...,-1,1,2,...,6}
+        \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {\x};
+    \foreach \y in {-6,...,-1,1,2,...,6}
+        \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {\y};
+
+    % Centre of enlargement
+    \coordinate (E) at (-4,4);
+    \draw[red, thick] (E) node[cross out, draw=red, inner sep=2pt, outer sep=0pt] {};
+    \node at (-4.5,4.5) {$E$};
+
+    % Vertices of triangle ABC
+    \coordinate (A) at (0,4);
+    \coordinate (B) at (0,0);
+    \coordinate (C) at (2,0);
+
+    \draw[fill=fillColour, draw=borderColour, line width=1pt] (A) -- (B) -- (C) -- cycle;
+    \node at (0.3,4.3) {$A$};
+    \node at (-0.4,-0.2) {$B$};
+    \node at (2.4,-0.2) {$C$};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Find the coordinates of the image of triangle $ABC$ after an enlargement with scale factor $\dfrac{1}{2}$, centre $E(-4,4)$.
+
+\vspace{4cm}
+\answerplain{3}
+\end{question}

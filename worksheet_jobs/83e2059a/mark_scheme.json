@@ -1,0 +1,72 @@
+{
+  "paper_title": "Transformations and Similar shapes Worksheet \u2014 Kalan",
+  "subject": "Mathematics",
+  "generated_date": "2026-08-01",
+  "total_marks": 24,
+  "questions": [
+    {
+      "question_number": 1,
+      "topic_aspect": "Reflection in a given mirror line on a coordinate grid",
+      "total_marks": 2,
+      "correct_answer": "Image T' has vertices at (7,1), (7,3), (5,1) \u2014 the correct reflection of T in the line x = 2, with all vertices the same perpendicular distance from the mirror line as the corresponding original vertices, and correct (reversed) orientation.",
+      "mark_scheme": "M1 for at least one vertex of the image correctly reflected in the line x = 2 (i.e. correct perpendicular distance from mirror line, on opposite side), or for a fully correct triangle drawn in the wrong position/orientation showing correct method.\nA1 for fully correct image T' drawn with vertices at (7,1), (7,3), (5,1), correctly labelled, with correct orientation (mirror image, not a translation or rotation).",
+      "misconception_targeted": "Reflecting in the wrong line or reversing orientation incorrectly"
+    },
+    {
+      "question_number": 2,
+      "topic_aspect": "Rotation about a given centre by a stated angle and direction",
+      "total_marks": 2,
+      "correct_answer": "T' has vertices at (1,-1), (3,-1), (1,-3) \u2014 the correct rotation of T through 90\u00b0 clockwise about O(0,0).",
+      "mark_scheme": "M1 for a triangle drawn with vertices consistent with a 90\u00b0 rotation about O (clockwise or anticlockwise attempted, correct size and shape maintained). A1 for fully correct image T' with vertices at (1,-1), (3,-1), (1,-3), correctly labelled, in the correct clockwise sense (i.e. NOT the anticlockwise image which would have vertices at (-1,1), (-3,1), (-1,3)).",
+      "misconception_targeted": "Confusing clockwise and anticlockwise rotation direction"
+    },
+    {
+      "question_number": 3,
+      "topic_aspect": "Translation using a column vector",
+      "total_marks": 3,
+      "correct_answer": "Image S' has vertices at (-2,2), (-2,4), (0,4), (0,3), (-1,3), (-1,2) \u2014 i.e. shape S translated 3 units right and 2 units down, correctly plotted and labelled S'.",
+      "mark_scheme": "M1 for evidence of translating all vertices of S by +3 in the x-direction (regardless of y-direction error)\nM1 for evidence of translating all vertices of S by -2 in the y-direction (regardless of x-direction error)\nA1 for fully correct image drawn in the correct position (vertices at (-2,2), (-2,4), (0,4), (0,3), (-1,3), (-1,2)) and labelled S'\n\nNote: a common error is swapping the components, translating by (-2, 3) instead of (3, -2) \u2014 award at most M1 if this error is made consistently, since only one of the two translation directions would be correct depending on interpretation.",
+      "misconception_targeted": "Swapping x and y components of the vector"
+    },
+    {
+      "question_number": 4,
+      "topic_aspect": "Describing a single transformation fully (type, and required details) \u2014 rotation",
+      "total_marks": 3,
+      "correct_answer": "Rotation of $180^\\circ$ about the point $(0,0)$.",
+      "mark_scheme": "M1 for identifying the transformation as a rotation (must not also mention reflection/translation/enlargement as alternatives)\nA1 for correct angle and direction \u2014 $180^\\circ$ (direction not required for $180^\\circ$, but angle must be stated correctly, e.g. \"half turn\" or \"$180^\\circ$\")\nA1 for correct centre of rotation stated as $(0,0)$ (or origin)\n\nNote: full marks only awarded if ALL THREE details (type, angle, centre) are correctly and unambiguously stated. Stating \"rotation\" alone scores M1 only; stating \"rotation, $180^\\circ$\" without a centre scores M1A1 only (2 marks).",
+      "misconception_targeted": "Omitting key details e.g. not stating centre of rotation or scale factor"
+    },
+    {
+      "question_number": 5,
+      "topic_aspect": "Enlargement with a positive integer scale factor from a centre of enlargement",
+      "total_marks": 3,
+      "correct_answer": "Image $T'$ has vertices at $(2,4)$, $(2,8)$ and $(6,4)$ (i.e. shape $T$ enlarged by scale factor 2 from centre $(-6,-2)$).",
+      "mark_scheme": "M1 for identifying the centre of enlargement $C=(-6,-2)$ and finding the vector from $C$ to at least one vertex of $T$ (e.g. $C$ to $A(-4,1)$ is $(2,3)$).\nM1 for doubling the distance from $C$ to each vertex to find at least two correct new vertices (e.g. $A'=(-6,-2)+2(2,3)=(-2,4)$; correct new vertices are $A'=(-2,4)$, $B'=(-2,8)$, $D'=(2,4)$).\nA1 for fully correct enlarged triangle $T'$ drawn with vertices at $(-2,4)$, $(-2,8)$, $(2,4)$, each side parallel to and twice the length of the corresponding side of $T$, with correct orientation relative to $C$.\nNote: Award 0 for M1 if student only doubles the side lengths of $T$ in place without scaling distances from $C$ (common misconception).",
+      "misconception_targeted": "Not scaling distances from the centre correctly, only resizing shape in place"
+    },
+    {
+      "question_number": 6,
+      "topic_aspect": "Enlargement with fractional and negative scale factors",
+      "total_marks": 4,
+      "correct_answer": "(a) $T_1$ has vertices $(1,1)$, $(1,2)$, $(2,1)$ \u2014 a smaller triangle between the centre and the original, in the same orientation.\n(b) $T_2$ has vertices $(-2,-2)$, $(-2,-4)$, $(-4,-2)$ \u2014 same size as $T$ but rotated $180^\\circ$ (on the opposite side of $O$).",
+      "mark_scheme": "(a) M1 for at least two vertices of $T_1$ correctly plotted (or correct coordinates stated) using scale factor $\\tfrac{1}{2}$ from centre $(0,0)$, i.e. each coordinate of $A$, $B$, $C$ halved; A1 for fully correct triangle $T_1$ with vertices $(1,1)$, $(1,2)$, $(2,1)$, correctly positioned between $O$ and $T$ (not enlarged, not on wrong side).\n\n(b) M1 for at least two vertices of $T_2$ correctly plotted (or correct coordinates stated) using scale factor $-1$ from centre $(0,0)$, i.e. each coordinate of $A$, $B$, $C$ negated; A1 for fully correct triangle $T_2$ with vertices $(-2,-2)$, $(-2,-4)$, $(-4,-2)$, same size as $T$, on the opposite side of $O$ (180\u00b0 rotated position), not on the same side as $T$.\n\nAward 0 for M1 if scale factor $\\tfrac{1}{2}$ is applied as if it enlarges (vertices doubled instead of halved) in part (a), or if scale factor $-1$ image is drawn on the same side as $T$ (just reflected in place) in part (b) \u2014 these indicate the targeted misconceptions.",
+      "misconception_targeted": "Believing fractional scale factor enlarges the shape, or misplacing image with negative scale factor on wrong side of centre"
+    },
+    {
+      "question_number": 7,
+      "topic_aspect": "Similar shapes \u2014 finding an unknown side length using scale factor and ratios",
+      "total_marks": 3,
+      "correct_answer": "DF = 15 cm",
+      "mark_scheme": "M1 for identifying correct corresponding sides AB and DE (i.e. $17.5 \\div 7$) to find the scale factor\nM1 for correct scale factor $= 2.5$ (accept equivalent method using $EF \\div BC = 13 \\div 5.2 = 2.5$ as a check/alternative)\nA1 for $DF = 6 \\times 2.5 = 15$ cm\n\n(If candidate incorrectly uses BC and EF as corresponding to AC, giving scale factor from wrong pair, award at most M1 for a consistent but incorrect method; full marks require correct correspondence $AB \\leftrightarrow DE$, $BC \\leftrightarrow EF$, $AC \\leftrightarrow DF$.)",
+      "misconception_targeted": "Using the scale factor from the wrong pair of corresponding sides"
+    },
+    {
+      "question_number": 8,
+      "topic_aspect": "Similar shapes \u2014 proving similarity and forming/solving an algebraic ratio equation for an unknown side",
+      "total_marks": 4,
+      "correct_answer": "(a) Triangles PQR and STR are similar (AA: shared angle at R, both have a right angle at Q and T since PQ and ST are vertical and QR is horizontal). (b) x = 9.5",
+      "mark_scheme": "(a)\nM1 for identifying angle R is common to both triangles (shared/vertically opposite angle)\nA1 for identifying that angle PQR = angle STR = 90\u00b0 (both PQ and ST are vertical, perpendicular to the horizontal ground QR), and concluding triangles are similar by AA (two pairs of equal angles)\n\n(b)\nQR = QT + TR = 5.4 + 4.8 = 10.2 m\nM1 for setting up correct ratio equation using corresponding sides, e.g. (x+2)/3 = QR/TR = 10.2/4.8\nM1 for correct rearrangement: x + 2 = 3 \u00d7 (10.2/4.8) = 3 \u00d7 2.125 = 6.375... \n\n[Recompute cleanly: ratio = QR/TR = 10.2/4.8 = 2.125\nx + 2 = 3 \u00d7 2.125 = 6.375\nx = 4.375]\n\nNote: mark scheme accepts equivalent correct method using QT and TR ratio consistently; final numerical answer confirmed as x = 4.375 (accept awrt 4.38)\n\nA1 for correct equation: (x+2)/3 = 10.2/4.8\nA1 for x = 4.375 (accept 4.38 or exact fraction 35/8)",
+      "misconception_targeted": "Assuming shapes are similar without checking angle or ratio conditions; incorrect algebraic setup of the ratio equation"
+    }
+  ]
+}

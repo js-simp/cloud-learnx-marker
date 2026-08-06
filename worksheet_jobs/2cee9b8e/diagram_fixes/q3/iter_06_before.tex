@@ -1,0 +1,36 @@
+\begin{question}
+\noindent Points $A$, $B$, $C$ and $D$ lie on the circumference of a circle, as shown in the diagram. Chord $AD$ is drawn, and points $B$ and $C$ lie on the same side of $AD$.
+
+Angle $ABD = 38^\circ$ and angle $BDC = 24^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.4]
+    \coordinate (A) at (200:1);
+    \coordinate (D) at (-20:1);
+    \coordinate (B) at (100:1);
+    \coordinate (C) at (60:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+
+    \draw (A) -- (D);
+    \draw (A) -- (B) -- (D);
+    \draw (A) -- (C) -- (D);
+
+    \node[left] at (A) {$A$};
+    \node[right] at (D) {$D$};
+    \node[above] at (B) {$B$};
+    \node[above right] at (C) {$C$};
+
+    \pic [draw, angle eccentricity=1.5, angle radius = 0.35cm, "$38^\circ$"] {angle = D--B--A};
+    \pic [draw, angle eccentricity=1.5, angle radius = 0.3cm, "$24^\circ$"] {angle = C--D--B};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Given that angle $ABD = 38^\circ$ and angle $BDC = 24^\circ$, find the size of angle $ACD$, giving reasons for your answer.
+
+\vspace{4cm}
+\begin{flushright}
+    \answerequnit{ACD}{$^\circ$}{3}
+\end{flushright}
+\end{question}

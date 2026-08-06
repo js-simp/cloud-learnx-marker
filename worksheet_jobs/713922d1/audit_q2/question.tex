@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage[active,tightpage]{preview}
+\setlength\PreviewBorder{12pt}
+
+% ===============================
+%   PROJECT-SPECIFIC ENVIRONMENT
+% ===============================
+\input{layout/packages}
+\input{config}
+\input{layout/macros}
+
+\begin{document}
+\begin{preview}
+\begin{question}
+\noindent Quadrilateral $ABCD$ is shown on the grid below.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.6, transform shape]
+    % Define axis scale
+    \def\axisLimit{5}
+
+    \definecolor{borderColour}{HTML}{000000}
+    \definecolor{fillColour}{HTML}{D8D8D8}
+
+    % Draw grid
+    \draw[step=1cm,gray,very thin] (-\axisLimit,-\axisLimit) grid (\axisLimit,\axisLimit);
+
+    % Draw axes
+    \draw[thick,->] (-\axisLimit-0.5,0) -- (\axisLimit+0.5,0) node[anchor=north] {$x$};
+    \draw[thick,->] (0,-\axisLimit-0.5) -- (0,\axisLimit+0.5) node[anchor=east] {$y$};
+
+    % Label x-axis and y-axis
+    \foreach \x in {-\axisLimit,...,\axisLimit}
+        \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+    \foreach \y in {-\axisLimit,...,\axisLimit}
+        \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+
+    % Define coordinates for quadrilateral ABCD
+    \coordinate (A) at (1,1);
+    \coordinate (B) at (3,1);
+    \coordinate (C) at (3,3);
+    \coordinate (D) at (1,2);
+
+    % Draw the quadrilateral
+    \filldraw[fill=fillColour, draw=borderColour, line width=1pt] (A) -- (B) -- (C) -- (D) -- cycle;
+
+    % Labels for vertices
+    \node at (0.7,0.7) {$A$};
+    \node at (3.3,0.7) {$B$};
+    \node at (3.3,3.3) {$C$};
+    \node at (0.7,2.2) {$D$};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Rotate quadrilateral $ABCD$ by $90^\circ$ clockwise about the origin $O$.
+
+\noindent Write down the coordinates of the image of each vertex.
+
+\vspace{4cm}
+\begin{flushright}
+    \answerplain{3}
+\end{flushright}
+\end{question}
+
+\end{preview}
+\end{document}

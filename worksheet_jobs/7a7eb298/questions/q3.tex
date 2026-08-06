@@ -1,0 +1,38 @@
+\begin{question}
+\noindent $A$, $B$, $C$ and $D$ are points on the circumference of a circle, with centre $O$ not shown.
+$AC$ and $BD$ are chords, and $BC$ is also a chord shared by triangles $ABC$ and $DBC$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.4]
+    \coordinate (A) at (150:1);
+    \coordinate (B) at (200:1);
+    \coordinate (C) at (-20:1);
+    \coordinate (D) at (60:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+
+    \draw[thick] (A) -- (B);
+    \draw[thick] (A) -- (C);
+    \draw[thick] (B) -- (C);
+    \draw[thick] (D) -- (B);
+    \draw[thick] (D) -- (C);
+
+    \node[left] at (A) {$A$};
+    \node[left] at (B) {$B$};
+    \node[right] at (C) {$C$};
+    \node[above] at (D) {$D$};
+
+    \pic [draw, "$35^\circ$", angle eccentricity=1.5, angle radius=0.45cm] {angle = C--A--B};
+    \pic [draw, "$x$", angle eccentricity=1.6, angle radius=0.45cm] {angle = C--D--B};
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $BAC = 35^\circ$.
+
+\noindent Find the value of $x$, the angle $BDC$.
+
+\vspace{4cm}
+\begin{flushright}
+    \answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}

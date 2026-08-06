@@ -1,0 +1,45 @@
+\begin{question}
+\noindent A circular support ring, centre $O$, holds a satellite dish in place. A rigid tangent strut touches the ring at point $T$. A support cable runs from $T$ to a fixed point $R$ on the ring, and a second cable connects $R$ to point $S$, where $TS$ is a diameter of the ring.
+
+The angle between the tangent strut and the cable $TR$ is $58^\circ$, as shown.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    % Circle centre O
+    \coordinate (O) at (0,0);
+    \coordinate (T) at (-90:1);
+    \coordinate (S) at (90:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+    \fill (O) circle (0.3pt) node[right]{$O$};
+
+    % tangent line at T
+    \draw (T) -- ($(T)!1.6!-90:(O)$) coordinate (L);
+    \draw (T) -- ($(T)!1.6!90:(O)$) coordinate (M);
+
+    % locate R on circle so angle between tangent and TR is 58 degrees
+    \path[name path=TR] (T) -- ($(T)!1.5!32:(O)$);
+    \path[name intersections={of=TR and circ, by={temp,R}}];
+
+    \node at (T) [below] {$T$};
+    \node at (S) [above] {$S$};
+    \node at (R) [right] {$R$};
+
+    \draw (T) -- (S);
+    \draw (T) -- (R);
+    \draw (S) -- (R);
+
+    \pic [draw, "$58^\circ$", angle eccentricity=1.5, angle radius=0.6cm] {angle = R--T--L};
+    \tkzMarkRightAngle[size=0.15](T,S,R);
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the size of angle $TRS$, giving reasons for each step of your working.
+
+\vspace{5cm}
+
+\begin{flushright}
+\answerequnit{TRS}{$^\circ$}{4}
+\end{flushright}
+\end{question}

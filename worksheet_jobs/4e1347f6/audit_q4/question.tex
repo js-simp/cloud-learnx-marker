@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage[active,tightpage]{preview}
+\setlength\PreviewBorder{12pt}
+
+% ===============================
+%   PROJECT-SPECIFIC ENVIRONMENT
+% ===============================
+\input{template/layout/packages}
+\input{template/layout/macros}
+
+\begin{document}
+\begin{preview}
+\begin{question}
+\noindent $A$, $B$, $C$ and $D$ are four points on the circumference of a circle, forming the cyclic quadrilateral $ABCD$.
+
+\noindent Angle $DAB = 2x$ and angle $BCD = 3x + 10$, as shown in the diagram.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate[label=left:$A$] (A) at (160:1);
+    \coordinate[label=above right:$B$] (B) at (60:1);
+    \coordinate[label=below right:$C$] (C) at (-40:1);
+    \coordinate[label=below left:$D$] (D) at (220:1);
+
+    \draw (0,0) circle (1);
+    \draw[line join=bevel] (A) -- (B) -- (C) -- (D) -- cycle;
+
+    \pic [draw, "$2x$", angle eccentricity=1.4, angle radius = 0.5cm] {angle = D--A--B};
+    \pic [draw, "$3x+10$", angle eccentricity=1.4, angle radius = 0.5cm] {angle = B--C--D};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item[(a)] Form an equation in terms of $x$, and use it to find the value of $x$.
+
+    \vspace{4cm}
+    \answereq{x}{2}
+
+    \item[(b)] Work out the size of angle $DAB$ and angle $BCD$.
+
+    \vspace{3cm}
+    \answerplain{2}
+\end{enumerate}
+\end{question}
+
+\end{preview}
+\end{document}

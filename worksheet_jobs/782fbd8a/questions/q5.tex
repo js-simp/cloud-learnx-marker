@@ -1,0 +1,52 @@
+\begin{question}
+\noindent A UI/UX designer is creating a circular badge icon for a Model United Nations conference app. Two straight edges of a decorative frame are drawn as tangents from an external point $P$ to the circular badge, touching the circle at points $S$ and $T$, with centre $O$.
+
+The angle between the two tangents at $P$ is $58^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    % Centre of circle
+    \coordinate (O) at (0,0);
+    \draw (O) circle (1);
+    \fill[black] (O) circle (0.5pt);
+    \node[below left] at (O) {$O$};
+
+    % Points of tangency, symmetric about the vertical axis through O and P
+    \coordinate (S) at (-29:1);
+    \coordinate (T) at (209:1);
+
+    % External point P, found using tangent construction
+    \coordinate (P) at ($(S)!3.4!90:(O)$);
+
+    % Draw tangent lines from P through S and T
+    \draw (P) -- ($(S)!1.6!(P)$);
+    \draw (P) -- ($(T)!1.6!(P)$);
+
+    % Draw radii
+    \draw (O) -- (S);
+    \draw (O) -- (T);
+    % Draw OP
+    \draw (O) -- (P);
+
+    % Labels
+    \node[right] at (S) {$S$};
+    \node[left] at (T) {$T$};
+    \node[right] at (P) {$P$};
+
+    % Right angle marks at S and T
+    \tkzMarkRightAngle[size=0.15](O,S,P);
+    \tkzMarkRightAngle[size=0.15](O,T,P);
+
+    % Angle at P
+    \pic [draw, angle eccentricity=1.4, angle radius=0.35cm, "$58^\circ$"] {angle = S--P--T};
+\end{tikzpicture}
+\end{center}
+
+\noindent Show that triangle $OSP$ is a right-angled triangle, and hence find the size of angle $SOP$.
+
+\vspace{5cm}
+
+\begin{flushright}
+\answermarks{3}
+\end{flushright}
+\end{question}

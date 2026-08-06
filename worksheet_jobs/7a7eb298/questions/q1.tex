@@ -1,0 +1,37 @@
+\begin{question}
+\noindent $A$, $B$ and $C$ are points on the circumference of a circle with centre $O$.
+
+\noindent Angle $AOC = 80^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (130:1);
+    \coordinate (C) at (50:1);
+    \coordinate (B) at (250:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+    \fill[black] (0,0) circle (0.4pt);
+
+    \draw (O) -- (A);
+    \draw (O) -- (C);
+    \draw (A) -- (B);
+    \draw (B) -- (C);
+
+    \node[above left] at (A) {$A$};
+    \node[above right] at (C) {$C$};
+    \node[below] at (B) {$B$};
+    \node[above] at (O) {$O$};
+
+    \pic [draw, angle eccentricity=1.6, angle radius = 0.5cm, "$80^\circ$"] {angle = C--O--A};
+    \pic [draw, angle eccentricity=1.5, angle radius = 0.4cm, "$x$"] {angle = C--B--A};
+\end{tikzpicture}
+\end{center}
+
+\noindent Find the size of angle $x$, the angle at the circumference.
+
+\vspace{4cm}
+\begin{flushright}
+    \answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}

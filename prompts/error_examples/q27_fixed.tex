@@ -1,0 +1,48 @@
+\begin{question}
+\noindent A circular Valorant-themed drone light show display has its controller drone hovering at point $T$ on the edge of a circular flight boundary, centre $O$. A signal tower is positioned at external point $P$, and the line $PT$ is a tangent to the circular boundary at $T$.
+
+The radius $OT$ is drawn, and $OP$ is drawn. The angle between the signal line $PT$ and $OP$ is $34^\circ$, as shown in the diagram.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    % centre and tangent point
+    \coordinate (O) at (0,0);
+    \coordinate (T) at (-90:1);
+
+    % draw circle
+    \draw (0,0) circle (1);
+    \fill[black] (0,0) circle (0.6pt);
+
+    % radius
+    \draw (O) -- (T);
+
+    % tangent line at T, extended to point P
+    \coordinate (P) at ($(T)!2.6!90:(O)$);
+    \draw (T) -- (P);
+
+    % line OP
+    \draw (O) -- (P);
+
+
+    % angle at P
+    \pic [draw, angle eccentricity=1.5, angle radius=0.8cm, "$34^\circ$"] {angle = T--P--O};
+
+    % labels
+    \node at (O) [above] {$O$};
+    \node at (T) [below left] {$T$};
+    \node at (P) [left] {$P$};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item[(a)] Write down the size of angle $OTP$, giving a reason for your answer.
+
+    \vspace{2.5cm}
+    \answerequnit{OTP}{$^\circ$}{1}
+
+    \item[(b)] Work out the size of angle $TOP$.
+
+    \vspace{3cm}
+    \answerequnit{TOP}{$^\circ$}{2}
+\end{enumerate}
+\end{question}

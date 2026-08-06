@@ -1,0 +1,33 @@
+\begin{question}
+\noindent A space agency is designing a triangular support strut for a satellite, modelled as a right-angled triangle $ABC$, right-angled at $B$.
+
+\noindent $AB = 7.2$ m and $BC = 15.6$ m, as shown in the diagram.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9, transform shape]
+    \coordinate (A) at (0,0);
+    %using 1:2 proportion for AB to BC to maintain approximate proportions of side AB and BC
+    \coordinate (B) at (0,3);
+    \coordinate (C) at (6,3);
+
+    \draw (A) -- (B) -- (C) -- cycle;
+
+    \draw pic[draw, angle radius=2.5mm] {right angle=A--B--C};
+
+    \node at (A) [below left, font=\small] {A};
+    \node at (B) [above left, font=\small] {B};
+    \node at (C) [right, font=\small] {C};
+
+    \draw (A) -- (B) node[midway, left, font=\small] {$7.2$ m};
+    \draw (B) -- (C) node[midway, above, font=\small] {$15.6$ m};
+\end{tikzpicture}
+\end{center}
+
+\noindent Calculate the size of angle $BCA$.
+
+\noindent Give your answer correct to 1 decimal place.
+\vspace{4cm}
+\begin{flushright}
+\answerequnit{BCA}{$^\circ$}{3}
+\end{flushright}
+\end{question}

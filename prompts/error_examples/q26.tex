@@ -1,0 +1,45 @@
+\begin{question}
+\noindent $A$, $B$, $C$ and $D$ are four points on the circumference of a circle, forming the cyclic quadrilateral $ABCD$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (A) at (150:1);
+    \coordinate (B) at (60:1);
+    \coordinate (C) at (-20:1);
+    \coordinate (D) at (230:1);
+
+    \draw[name path=circ, fill=blue!5] (0,0) circle (1);
+    \draw[thick] (A) -- (B) -- (C) -- (D) -- cycle;
+    \draw[thick] (B) -- (D);
+
+    \node[above left] at (A) {$A$};
+    \node[above right] at (B) {$B$};
+    \node[below right] at (C) {$C$};
+    \node[below left] at (D) {$D$};
+
+    \pic [draw, "$112^\circ$", angle eccentricity=1.5, angle radius=0.35cm] {angle = A--B--C};
+    \pic [draw, "$y$", angle eccentricity=1.6, angle radius=0.3cm] {angle = A--D--B};
+    \pic [draw, "$35^\circ$", angle eccentricity=1.6, angle radius=0.3cm] {angle = A--C--B};
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $ABC = 112^\circ$ and angle $ACB = 35^\circ$.
+
+\begin{enumerate}
+    \item[(a)] Work out the size of angle $ADC$.
+
+    Give a reason for your answer.
+
+    \vspace{3.5cm}
+    \answerequnit{ADC}{$^\circ$}{2}
+
+    \item[(b)] Angle $ADB$ (labelled $y$ in the diagram) is subtended by the same chord as angle $ACB$.
+
+    Work out the size of angle $y$.
+
+    Give a reason for your answer.
+
+    \vspace{3.5cm}
+    \answerequnit{y}{$^\circ$}{2}
+\end{enumerate}
+\end{question}

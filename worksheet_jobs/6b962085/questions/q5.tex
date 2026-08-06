@@ -1,0 +1,64 @@
+\begin{question}
+\noindent A satellite dish tracking station is represented by the external point $P$, from which two signal paths $PA$ and $PB$ are drawn tangent to a circular exclusion zone with centre $O$, touching the circle at points $A$ and $B$.
+
+The angle $AOB = 148^\circ$, as shown in the diagram.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.6]
+    % Define the center of the circle
+    \coordinate (O) at (0,0);
+
+    % Draw the circle
+    \draw[fill=blue!10] (O) circle (2cm);
+    \fill[black] (O) circle (2pt) node[below left]{$O$};
+
+    % Place points A and B on the circumference symmetric about the vertical axis
+    % Angle AOB = 148 degrees, so each is 74 degrees from the vertical (90 degrees)
+    \coordinate (A) at ($(O) + (90+74:2cm)$);
+    \coordinate (B) at ($(O) + (90-74:2cm)$);
+
+    % Tangent directions at A and B (perpendicular to OA and OB)
+    \coordinate (T1) at ($(A)!4!-90:(O)$);
+    \coordinate (T2) at ($(B)!4!90:(O)$);
+
+    \coordinate (E1) at ($(A)!1!90:(O)$);
+    \draw (A) -- (E1);
+    \coordinate (E2) at ($(B)!1!-90:(O)$);
+    \draw (B) -- (E2);
+
+    % Find intersection point P
+    \path [name path=line1] (A) -- (T1);
+    \path [name path=line2] (B) -- (T2);
+    \path [name intersections={of=line1 and line2,by={P}}];
+
+    % Draw tangent lines from P
+    \draw (A) -- (P) -- (B);
+
+    % Draw radii
+    \draw (O) -- (A);
+    \draw (O) -- (B);
+    \draw (O) -- (P);
+
+    % Labels
+    \node[above left] at (A) {$A$};
+    \node[below left] at (B) {$B$};
+    \node[right] at (P) {$P$};
+
+    % Mark right angles
+    \tkzMarkRightAngle[size=.25](O,A,P);
+    \tkzMarkRightAngle[size=.25](P,B,O);
+
+    % Mark angle at O
+    \pic [draw, angle eccentricity=1.4, angle radius = 0.6cm, "$148^\circ$"] {angle = B--O--A};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Calculate the size of angle $APB$.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answerequnit{\angle APB}{$^\circ$}{3}
+\end{flushright}
+\end{question}

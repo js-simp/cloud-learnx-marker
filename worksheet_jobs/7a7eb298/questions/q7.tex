@@ -1,0 +1,45 @@
+\begin{question}
+\noindent A circular telescope lens mount has centre $O$. Points $A$, $B$, $C$ and $D$ lie on the circumference of the mount, forming a cyclic quadrilateral $ABCD$ used to position support brackets. The radii $OA$ and $OB$ are shown, and angle $OAB = 28^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (152:1);
+    \coordinate (B) at (28:1);
+    \coordinate (C) at (-40:1);
+    \coordinate (D) at (-135:1);
+
+    \draw[name path=circ, fill=orange!10] (0,0) circle (1);
+    \fill[black] (O) circle (0.6pt);
+
+    \draw (O) -- (A);
+    \draw (O) -- (B);
+    \draw[thick] (A) -- (B) -- (C) -- (D) -- cycle;
+
+    \node[above left] at (A) {$A$};
+    \node[above right] at (B) {$B$};
+    \node[right] at (C) {$C$};
+    \node[below left] at (D) {$D$};
+    \node[below right] at (O) {$O$};
+
+    \pic [draw, angle eccentricity=1.5, angle radius=0.5cm, "$28^\circ$"] {angle = B--A--O};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item[(a)] Find the size of angle $AOB$.
+
+    \vspace{3.5cm}
+    \answerequnit{AOB}{$^\circ$}{2}
+
+    \item[(b)] Work out the size of angle $ACB$, the angle subtended by $AB$ at the circumference at $C$.
+
+    \vspace{3cm}
+    \answerequnit{ACB}{$^\circ$}{1}
+
+    \item[(c)] Given that angle $ADC = 100^\circ$, work out the size of angle $ABC$.
+
+    \vspace{3cm}
+    \answerequnit{ABC}{$^\circ$}{1}
+\end{enumerate}
+\end{question}

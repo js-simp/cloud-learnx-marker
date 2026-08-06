@@ -1,0 +1,35 @@
+\begin{question}
+\noindent An archaeologist is studying the circular floor plan of an ancient observatory once used to track the movement of stars. Four marker stones $A$, $B$, $C$ and $D$ lie on the circular boundary wall, forming a cyclic quadrilateral $ABCD$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate[label=above left:$A$] (A) at (130:1);
+    \coordinate[label=below left:$D$] (D) at (215:1);
+    \draw[name path=circ] (0,0) circle (1);
+    \path[name path=AC] (A) -- ($(A)!1.5!66:(D)$);
+    \path[name path=DB] (D) -- ($(D)!1.5!-50:(A)$);
+    \path[name intersections={of=circ and AC, by={[]K,C}}];
+    \path[name intersections={of=DB and circ, by={B}}];
+    \draw[line join=bevel] (A) -- (B) -- (C) -- (D) -- cycle;
+    \node at (B) [right] {$B$};
+    \node at (C) [below right] {$C$};
+
+    \pic [draw, "$3x$", angle eccentricity=1.4, angle radius = 0.45cm] {angle = D--A--B};
+    \pic [draw, "$(x+20)^\circ$", angle eccentricity=1.4, angle radius = 0.5cm] {angle = B--C--D};
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $DAB = 3x^\circ$ and angle $BCD = (x+20)^\circ$.
+
+\begin{enumerate}
+    \item[(a)] Form an equation in $x$ and solve it to find the value of $x$.
+
+    \vspace{4cm}
+    \answereq{x}{2}
+
+    \item[(b)] Work out the size of angle $DAB$.
+
+    \vspace{3cm}
+    \answerequnit{DAB}{$^\circ$}{2}
+\end{enumerate}
+\end{question}

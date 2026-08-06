@@ -1,0 +1,45 @@
+\begin{question}
+\noindent A satellite dish support ring has a circular cross-section. A signal receiver arm is bolted to the ring at point $C$, running along the tangent line $LM$ to the circle at that point. Two internal struts, $CA$ and $CB$, are fixed as chords from $C$ to two other mounting points, $A$ and $B$, on the ring, with strut $AB$ completing a triangular brace inside the dish.
+
+\noindent The angle between the tangent (receiver arm) $LM$ and the chord (strut) $CB$ is $58^\circ$, as shown.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    % mark points on circle
+        \coordinate (E) at (0,0);
+        \coordinate[label=below:$C$] (C) at (-90:1);
+        \coordinate[label=above:$A$] (A) at (100:1);
+
+    % draw circle
+        \draw[name path=circ] (0,0) circle (1);
+
+    % draw tangent
+        \draw (C) -- ($(C)!1.5!-90:(E)$) coordinate (L);
+        \draw (C) -- ($(C)!1.5!90:(E)$) coordinate (M);
+
+    % construct B using the 58 degree tangent-chord angle
+        \path[name path=CB] (C) -- ($(C)!1.5!58:(E)$);
+        \path[name intersections={of=CB and circ, by={temp,B}}];
+
+    \draw (C) -- (B);
+    \node at (B) [anchor=south west] {$B$};
+
+    \draw (A) -- (C);
+    \draw (A) -- (B);
+
+    \pic [draw, "$58^\circ$", angle eccentricity=1.4, angle radius=0.6cm] {angle = B--C--L};
+    \pic [draw, "$x$", angle eccentricity=1.5, angle radius=0.5cm] {angle = C--A--B};
+
+    \node at (L) [below] {$L$};
+    \node at (M) [above] {$M$};
+\end{tikzpicture}
+\end{center}
+
+\noindent Using the alternate segment theorem, find the size of angle $x$, the internal support angle at $A$ between struts $AC$ and $AB$.
+
+\vspace{5cm}
+
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{4}
+\end{flushright}
+\end{question}

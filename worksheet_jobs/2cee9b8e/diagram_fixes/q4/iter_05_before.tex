@@ -1,0 +1,31 @@
+\begin{question}
+\noindent An archaeologist is studying the circular floor plan of an ancient observatory once used to track the stars. Four support pillars, at points $A$, $B$, $C$ and $D$, lie on the circular boundary wall, forming the cyclic quadrilateral $ABCD$ shown below.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate[label=left:$A$] (A) at (160:1);
+    \coordinate[label=above:$B$] (B) at (70:1);
+    \coordinate[label=right:$C$] (C) at (-20:1);
+    \coordinate[label=below:$D$] (D) at (230:1);
+    \draw[name path=circ] (0,0) circle (1);
+    \draw[line join=bevel] (A) -- (B) -- (C) -- (D) -- cycle;
+
+    \pic [draw, "$(2x+10)^\circ$", angle eccentricity=1.6, angle radius = 0.45cm] {angle = D--A--B};
+    \pic [draw, "$(3x-5)^\circ$", angle eccentricity=1.5, angle radius = 0.45cm] {angle = D--C--B};
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $DAB = (2x+10)^\circ$ and angle $DCB = (3x-5)^\circ$.
+
+\begin{enumerate}
+    \item[(a)] Form an equation in $x$ and solve it to find the value of $x$.
+
+    \vspace{4cm}
+    \answereq{x}{2}
+
+    \item[(b)] Work out the size of angle $DAB$ and the size of angle $DCB$, giving a reason for your method.
+
+    \vspace{4cm}
+    \answerlines{3}{2}
+\end{enumerate}
+\end{question}

@@ -1,0 +1,54 @@
+\begin{question}
+\noindent An esports arena uses a large circular satellite dish, centre $O$, to receive a live broadcast signal for an international Valorant tournament. The signal travels along a straight line $PT$ which touches the circular dish at point $T$, where $PT$ is a tangent to the circle.
+
+\noindent $OP$ is a straight support cable from the centre $O$ to a fixing point $P$ outside the dish. The angle between the support cable $OP$ and the tangent line $OT$ extended... 
+
+\noindent More precisely: $O$ is the centre of the dish, $T$ is the point where the signal line touches the edge of the dish, and $P$ is a point where the signal line meets a second support cable from $O$. Angle $OPT = 24^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    % Centre of circle
+    \coordinate (O) at (0,0);
+    \fill[black] (O) circle (0.4pt);
+    \node[above] at (O) {$O$};
+
+    % Circle (the dish)
+    \draw[thick] (O) circle (1);
+
+    % Point of tangency T
+    \coordinate (T) at (-90:1);
+    \node[below left] at (T) {$T$};
+
+    % Draw radius OT
+    \draw[thick] (O) -- (T);
+
+    % Tangent line at T (perpendicular to OT), extended to P
+    \coordinate (P) at ($(T) + (2.4,0)$);
+    \draw[thick] (T) -- (P) node[right] {$P$};
+
+    % Right angle mark between radius and tangent
+    \draw (-0.92,-1) -- (-0.92,-0.92) -- (-1,-0.92);
+
+    % Line from O to P (support cable)
+    \draw[thick] (O) -- (P);
+
+    % Mark angle OPT = 24 degrees
+    \pic [draw, angle eccentricity=1.4, angle radius=0.6cm, "$24^\circ$"] {angle = O--P--T};
+
+    % Mark angle to find at O (angle TOP = x)
+    \node at (-0.35,-0.55) {$x^\circ$};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent $T$ is the point where the tangent line touches the circle, and $O$ is the centre of the dish.\\
+Angle $OPT = 24^\circ$.
+
+\noindent Work out the size of angle $TOP$, marked $x^\circ$ on the diagram. Give a reason for each stage of your working.
+
+\vspace{5cm}
+
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{4}
+\end{flushright}
+\end{question}

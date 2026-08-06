@@ -1,0 +1,36 @@
+\begin{question}
+\noindent $A$, $B$ and $C$ are points on the circumference of a circle with centre $O$.
+
+\noindent Angle $AOC = 136^\circ$, where $O$ is the centre of the circle.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (112:1);
+    \coordinate (C) at (-24:1);
+    \coordinate (B) at (200:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+    \fill[black] (O) circle (0.5pt);
+
+    \draw (A) -- (O) -- (C);
+    \draw (A) -- (B) -- (C);
+
+    \node at (O) [below right] {$O$};
+    \node at (A) [above] {$A$};
+    \node at (B) [left] {$B$};
+    \node at (C) [right] {$C$};
+
+    \pic [draw, angle eccentricity=1.5, angle radius = 0.5cm, "$136^\circ$"] {angle = A--O--C};
+    \pic [draw, angle eccentricity=1.4, angle radius = 0.5cm, "$x$"] {angle = C--B--A};
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the size of angle $x$, marked at point $B$ on the circumference.
+
+\vspace{4cm}
+
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}

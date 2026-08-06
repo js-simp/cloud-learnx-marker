@@ -1,0 +1,57 @@
+\begin{question}
+\noindent A space engineer is modelling the signal range of a satellite dish. The circular boundary of the signal, centre $O$, has two straight-line signal paths $PA$ and $PB$ drawn from the receiver at point $P$ (outside the circle) to points $A$ and $B$ on the edge of the boundary. Each signal path just touches the circle, so $PA$ and $PB$ are tangents to the circle at $A$ and $B$ respectively.
+
+Angle $APB = 46^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    % Define the center of the circle
+    \coordinate (O) at (0,0);
+
+    % Draw the circle
+    \draw[fill=lightgray!30] (O) circle (1cm);
+    \fill[black] (O) circle (0.5pt);
+    \node at (0.15,0.05) {$O$};
+
+    % Place points A and B on the circumference
+    \coordinate (A) at ($(O) + (113:1cm)$);
+    \coordinate (B) at ($(O) + (247:1cm)$);
+
+    % Calculate tangent directions and find external point P
+    \coordinate (T1) at ($(A)!4!-90:(O)$);
+    \coordinate (T2) at ($(B)!4!90:(O)$);
+
+    \path [name path=line1] (A) -- (T1);
+    \path [name path=line2] (B) -- (T2);
+    \path [name intersections={of=line1 and line2,by={P}}];
+
+    % Draw tangent lines
+    \draw (A) -- (P) -- (B);
+
+    % Draw radii
+    \draw (O) -- (A);
+    \draw (O) -- (B);
+
+    % Labels
+    \node at (A) [above right] {$A$};
+    \node at (B) [below right] {$B$};
+    \node at (P) [right] {$P$};
+
+    % Mark right angles
+    \tkzMarkRightAngle[size=.2](O,A,P);
+    \tkzMarkRightAngle[size=.2](P,B,O);
+
+    % Mark the angle at P
+    \pic [draw, angle eccentricity=1.4, angle radius = 0.4cm, "$46^\circ$"] {angle = A--P--B};
+
+\end{tikzpicture}
+\end{center}
+
+Find the size of angle $AOB$, the angle at the centre of the circle between the two radii $OA$ and $OB$.
+
+\vspace{5cm}
+
+\begin{flushright}
+\answerequnit{AOB}{$^\circ$}{4}
+\end{flushright}
+\end{question}

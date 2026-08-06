@@ -1,0 +1,258 @@
+\documentclass[border=12pt]{standalone}
+\usepackage[varwidth=17cm]{varwidth}
+\usepackage{amsmath, amssymb, xcolor, enumitem, tcolorbox}
+\usepackage{tikz, pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{angles, quotes, calc, positioning, geometry, patterns, shapes.geometric}
+
+% --- CONDITIONAL BORDER LOGIC ---
+\newbool{drawborder}
+\boolfalse{drawborder} % Default is OFF (for the cover)
+
+\usepackage{background}
+\usepackage{amssymb} % Required if using \square or \Box
+
+\backgroundsetup{
+  scale=1,
+  angle=0,
+  opacity=1,
+  contents={
+    \ifbool{drawborder}{% Only draw if the switch is ON
+      \begin{tikzpicture}[remember picture,overlay]
+        \draw [line width=1.5pt, color=gray!60, rounded corners=4mm] 
+          ($(current page.north west) + (0.5in,-0.5in)$ ) 
+          rectangle 
+          ($(current page.south east) + (-0.5in,0.5in)$);
+      \end{tikzpicture}
+    }{} % Else draw nothing
+  }
+}
+
+% ---- HEADER BOX ----------------------------------------
+\newcommand{\firstpageheader}[1]{%
+    \begin{center}
+        \begin{tcolorbox}[
+            colback=white,
+            colframe=white,
+            width=0.8\textwidth,
+            boxrule=1pt,
+            halign=center,
+            top=3mm, bottom=3mm
+        ]
+            \textbf{Answer ALL #1 questions.} \\[1mm]
+            \textbf{Write your answers in the spaces provided.} \\[1mm]
+            \textbf{You must write down all the stages in your working.}
+        \end{tcolorbox}
+    \end{center}
+    \vspace{4mm}
+}
+
+% Continuous exam box with internal dividers
+\newcommand{\examboxes}[1]{%
+\begin{tikzpicture}[baseline=(current bounding box.center)]
+    % dimensions
+    \def\boxwidth{0.9}   % width of each small box
+    \def\boxheight{1}  % height
+    \def\totalwidth{#1*\boxwidth}
+    
+    % outer rounded rectangle
+    \draw[line width=2pt, rounded corners=3pt, color=black!60]
+        (0,0) rectangle (\totalwidth,\boxheight);
+    
+    % internal vertical lines
+    \foreach \i in {1,...,#1} {
+        \ifnum\i<#1
+            \draw[line width=2pt, color=black!60]
+            (\i*\boxwidth,0) -- (\i*\boxwidth,\boxheight);
+        \fi
+    }
+\end{tikzpicture}
+}
+
+
+% --- Custom Question Environment ---
+\newenvironment{question}{%
+    \refstepcounter{questionNum}
+    \setcounter{questionmarks}{0}
+    \vspace{4mm}
+    \begin{list}{}%
+    {
+        \setlength{\leftmargin}{0.5cm}
+        \setlength{\labelwidth}{1.2cm}
+        \setlength{\labelsep}{0.2cm}
+        \setlength{\itemindent}{0cm}
+        \setlength{\listparindent}{0cm}
+        \setlength{\topsep}{0pt}
+        \setlength{\partopsep}{0pt}
+    }
+    \item[\textbf{\thequestionNum}]
+}{%
+    \end{list}
+    \vspace{2mm}
+    \noindent\hfill
+    \textbf{(Total for Question \thequestionNum\ is \thequestionmarks\ marks)}
+    \par\vspace{3mm}
+    \hrule
+}
+
+% Command to add parts of questions
+\newcommand{\partq}[1]{%
+    \vspace{3mm}
+    \par
+    \hangindent=1cm
+    \hangafter=1
+    \makebox[1cm][l]{(#1)}
+}
+
+% answer marks
+\newlength{\answerwidth}
+\setlength{\answerwidth}{3cm}
+% Core right-aligned answer block
+\newcommand{\answerbox}[3]{%
+    % #1 = prefix
+    % #2 = suffix
+    % #3 = marks
+    \vspace{2mm}
+    \noindent\hfill
+    \begin{minipage}{4.5cm}
+        \raggedleft
+        #1\makebox[\answerwidth]{\dotfill}#2
+        \vspace{1mm}
+        
+        \hfill\makebox[\answerwidth][c]{\textbf{(#3)}}
+    \end{minipage}
+    \addtocounter{questionmarks}{#3}
+    \addtocounter{totalmarks}{#3}
+}
+
+% 1) Just dotted line
+\newcommand{\answerplain}[1]{%
+    \answerbox{}{}{#1}
+}
+
+% 2) Dotted line + unit after
+\newcommand{\answerunit}[2]{%
+    \answerbox{}{\,#1}{#2}
+}
+
+% 3) Unit before dotted line
+\newcommand{\answerprefix}[2]{%
+    \answerbox{#1\,}{}{#2}
+}
+
+% 4) Variable before dotted line (e.g. x = )
+\newcommand{\answereq}[2]{%
+    \answerbox{$#1 =$\,}{}{#2}
+}
+
+% 5) Variable + unit
+\newcommand{\answerequnit}[3]{%
+    \answerbox{$#1 =$\,}{\,#2}{#3}
+}
+
+% Explanation / reasoning space
+\newcommand{\answerlines}[2]{%
+    % #1 = number of lines
+    % #2 = marks
+    
+    \vspace{2mm}
+    
+    \noindent
+    \begin{minipage}{\linewidth}
+        \foreach \i in {1,...,#1} {
+            \noindent\hdashrule[0.5ex]{\linewidth}{0.5pt}{2pt}\\[3mm]
+        }
+        
+        \vspace{1mm}
+        \noindent\hfill\textbf{(#2)}
+    \end{minipage}
+    
+    \addtocounter{questionmarks}{#2}
+    \addtocounter{totalmarks}{#2}
+}
+
+% Coordinate answer box
+\newcommand{\answercoord}[1]{%
+    \vspace{2mm}
+    \noindent\hfill
+    \begin{minipage}{4.5cm}
+        \centering
+        $\left(\makebox[1.5cm]{\dotfill},\;\makebox[1.5cm]{\dotfill}\right)$
+        \vspace{1mm}
+        
+        \makebox[3cm][c]{\textbf{(#1)}}
+    \end{minipage}
+    \addtocounter{questionmarks}{#1}
+    \addtocounter{totalmarks}{#1}
+}
+
+% Marks only (no dotted line)
+\newcommand{\answermarks}[1]{%
+    \vspace{2mm}
+    \noindent\hfill
+    \textbf{(#1)}
+    \addtocounter{questionmarks}{#1}
+    \addtocounter{totalmarks}{#1}
+}
+
+% Macro for 4-option MCQ
+\newcommand{\answermcq}[5]{
+    \vspace{0.5cm}
+    \begin{center}
+        \renewcommand{\arraystretch}{1.5}
+        \begin{tabular*}{0.8\textwidth}{@{\extracolsep{\fill}} c c c c }
+            #1 & #2 & #3 & #4 \\
+            \framebox[15pt]{\rule{0pt}{15pt}} & \framebox[15pt]{\rule{0pt}{15pt}} & \framebox[15pt]{\rule{0pt}{15pt}} & \framebox[15pt]{\rule{0pt}{15pt}} 
+        \end{tabular*}
+    \end{center}
+    \vspace{0.25cm}
+    \answermarks{#5}
+}
+
+\newcommand{\paperTotal}{%
+    \vspace{10mm}
+    {\color{gray}\hrule height 3pt} % Soft gray rule to match the specimen
+    \vspace{1.5mm}
+    \noindent\hfill
+    \textbf{TOTAL FOR PAPER IS \total{totalmarks}\ MARKS}
+}
+
+\begin{document}
+\begin{varwidth}{17cm}
+\begin{question}
+\noindent A designer is creating a circular logo for an e-sports team. Points $P$, $Q$ and $R$ lie on the circumference of the circle, and $PR$ is a diameter of the circle.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate (P) at (180:1);
+    \coordinate (R) at (0:1);
+    \coordinate (Q) at (55:1);
+
+    \draw[thick] (0,0) circle (1);
+    \fill[black] (0,0) circle (0.6pt);
+
+    \draw[thick] (P) -- (R);
+    \draw[thick] (P) -- (Q);
+    \draw[thick] (Q) -- (R);
+
+    \node[left] at (P) {$P$};
+    \node[right] at (R) {$R$};
+    \node[above] at (Q) {$Q$};
+
+    \pic [draw, angle radius=6mm, "$35^\circ$"] {angle = R--P--Q};
+    \pic [draw, angle radius=5mm, "$x$"] {angle = P--R--Q};
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $QPR = 35^\circ$.
+
+\noindent Work out the size of angle $x$, giving a reason for your answer.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}
+\end{varwidth}
+\end{document}

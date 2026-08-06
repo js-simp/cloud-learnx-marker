@@ -1,0 +1,48 @@
+\begin{question}
+\noindent Triangle $T$ is shown on the grid below.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.6, transform shape]
+    % Define colours
+    \definecolor{borderColour}{HTML}{000000}
+    \definecolor{fillColour}{HTML}{D8D8D8}
+
+    % Define axis scale. The coordinates of image would be A'(6,1), B'(4,1) and C'(6,4). So to prevent clipping let's use 7 as axis upper limit
+    \def\axisLimit{7}
+
+    % Draw grid
+    \draw[step=1cm,gray,very thin] (-\axisLimit,-\axisLimit) grid (\axisLimit,\axisLimit);
+
+    % Draw axes
+    \draw[thick,->] (-\axisLimit-0.5,0) -- (\axisLimit+0.5,0) node[anchor=north] {$x$};
+    \draw[thick,->] (0,-\axisLimit-0.5) -- (0,\axisLimit+0.5) node[anchor=east] {$y$};
+
+    % Label x-axis and y-axis
+    \foreach \x in {-\axisLimit,...,\axisLimit}
+        \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+    \foreach \y in {-\axisLimit,...,\axisLimit}
+        \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+
+    % Define coordinates for the vertices of triangle T
+    \coordinate (A) at (-4,1);
+    \coordinate (B) at (-2,1);
+    \coordinate (C) at (-4,4);
+
+    % Draw the original triangle
+    \filldraw[fill=fillColour, draw=borderColour, line width=1pt, fill opacity=0.5] (A) -- (B) -- (C) -- cycle;
+
+    % Label the vertices of the original triangle
+    \node[below] at (A) {$A$};
+    \node[below] at (B) {$B$};
+    \node[above] at (C) {$C$};
+    \node at (-3.3,2) {$T$};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Reflect triangle $T$ in the line $x = 1$.\\
+Label the image $T'$.
+
+\vspace{4cm}
+\answermarks{2}
+\end{question}

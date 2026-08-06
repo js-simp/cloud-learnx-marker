@@ -1,0 +1,52 @@
+\begin{question}
+\noindent $TAP$ is a tangent to the circle at the point $A$. $B$ and $C$ are points on the circle, and $AB$, $AC$ and $BC$ are chords such that triangle $ABC$ is formed inside the circle.
+
+\noindent Angle $BAP = 48^\circ$ and angle $ABC = 85^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.6]
+    % Circle centred at origin, radius 1
+    \draw[name path=circ] (0,0) circle (1);
+
+    % Point of tangency A at bottom of circle
+    \coordinate (A) at (-90:1);
+
+    % Tangent line through A (horizontal)
+    \draw (A) -- ++(-1.3,0) coordinate (T);
+    \draw (A) -- ++(1.3,0) coordinate (P);
+
+    % Points B and C on circle
+    \coordinate (B) at (200:1);
+    \coordinate (C) at (10:1);
+
+    % Draw chords to form triangle ABC
+    \draw[thick] (A) -- (B);
+    \draw[thick] (A) -- (C);
+    \draw[thick] (B) -- (C);
+
+    % Labels
+    \node[left] at (T) {$T$};
+    \node[right] at (P) {$P$};
+    \node[below] at (A) {$A$};
+    \node[left] at (B) {$B$};
+    \node[above right] at (C) {$C$};
+
+    % Angle BAP (between tangent AP and chord AB)
+    \pic [draw, angle eccentricity=1.4, angle radius=0.55cm, "$48^\circ$"] {angle = B--A--P};
+
+    % Angle ABC at vertex B
+    \pic [draw, angle eccentricity=1.4, angle radius=0.45cm, "$85^\circ$"] {angle = C--B--A};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Show that angle $ACB = 47^\circ$.
+
+\noindent You must give a reason for each stage of your working.
+
+\vspace{5cm}
+
+\begin{flushright}
+\answermarks{4}
+\end{flushright}
+\end{question}

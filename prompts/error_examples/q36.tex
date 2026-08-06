@@ -1,0 +1,45 @@
+\begin{question}
+\noindent As part of a space research project, two research drones, $P$ and $Q$, are launched simultaneously from a base station $B$ on a remote desert test site to record atmospheric data.
+
+\begin{itemize}
+    \item Drone $P$ flies on a bearing of $050^\circ$ from $B$ and travels a distance of $12$ km before hovering.
+    \item Drone $Q$ flies on a bearing of $140^\circ$ from $B$ and travels a distance of $9$ km before hovering.
+\end{itemize}
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    \coordinate (B) at (0,0);
+    \coordinate (P) at (3.2,5.7);
+    \coordinate (Q) at (5.6,-2.1);
+
+    % North line at B
+    \draw[dashed] (B) -- (0,4) node[above]{N};
+
+    % Bearings arcs
+    \pic [draw, -, angle radius=0.9cm, "$50^{\circ}$", angle eccentricity=1.4] {angle=P--B--Q};
+    \draw[dashed] (0,4) arc (90:{90-50}:4);
+
+    % Draw the triangle sides
+    \draw[thick] (B) -- (P);
+    \draw[thick] (B) -- (Q);
+    \draw[thick] (P) -- (Q);
+
+    % Labels
+    \node at (B) [below,font=\small] {$B$};
+    \node at (P) [above,font=\small] {$P$};
+    \node at (Q) [right,font=\small] {$Q$};
+
+    \node at (1.3,3.1) [font=\small] {$12$ km};
+    \node at (2.7,-1.3) [font=\small] {$9$ km};
+    \node at (4.6,2.0) [font=\small] {$x$ km};
+\end{tikzpicture}
+\end{center}
+
+\noindent Calculate the distance $PQ$ between the two drones, giving your answer to 3 significant figures.
+
+\vspace{5cm}
+
+\begin{flushright}
+\answerunit{$\text{km}$}{4}
+\end{flushright}
+\end{question}

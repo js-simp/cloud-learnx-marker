@@ -1,0 +1,46 @@
+\begin{question}
+\noindent $A$, $B$, $C$ and $D$ are four points on the circumference of a circle, forming the cyclic quadrilateral $ABCD$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (A) at (150:1);
+    %Assuming 110 for ABC for ease of working while maintaining proportions and visual accuracy. angle AOC reflex would be 220 (twice of ABC). AOC obtuse would be 140, hence if A is 150 to horizontal C has to be 10 anticlockwise.
+    \coordinate (C) at (10:1);
+    %ACB is 35, and OCA is 20 (isosceles) hence OCB is 55. This gives COB is 70 degrees. This gives B is 80 degrees to the horizontal
+    \coordinate (B) at (80:1);
+    \coordinate (D) at (230:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+    \draw[thick] (A) -- (C);
+    \draw[thick] (A) -- (B) -- (C) -- (D) -- cycle;
+    \draw[thick] (B) -- (D);
+
+    \node[above left] at (A) {$A$};
+    \node[above right] at (B) {$B$};
+    \node[below right] at (C) {$C$};
+    \node[below left] at (D) {$D$};
+
+    \pic [draw, "$112^\circ$", angle eccentricity=1.5, angle radius=0.35cm] {angle = A--B--C};
+    \pic [draw, "$y$", angle eccentricity=1.5, angle radius=0.7cm] {angle = B--D--A};
+    \pic [draw, "$35^\circ$", angle eccentricity=1.6, angle radius=0.7cm] {angle = B--C--A};
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $ABC = 112^\circ$ and angle $ACB = 35^\circ$.
+
+\begin{enumerate}
+    \item[(a)] Work out the size of angle $ADC$.
+
+    Give a reason for your answer.
+
+    \vspace{3.5cm}
+    \answerequnit{ADC}{$^\circ$}{2}
+
+    \item[(b)] Work out the size of angle $y$.
+
+    Give a reason for your answer.
+
+    \vspace{3.5cm}
+    \answerequnit{y}{$^\circ$}{2}
+\end{enumerate}
+\end{question}

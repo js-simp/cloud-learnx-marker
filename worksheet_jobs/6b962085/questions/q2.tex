@@ -1,0 +1,33 @@
+\begin{question}
+\noindent A team of space engineers is designing a circular viewing window for a satellite. $AB$ is a diameter of the circular window, and $C$ is a point on the circumference where a support strut meets the glass, forming triangle $ABC$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (A) at (180:1);
+    \coordinate (B) at (0:1);
+    \coordinate (C) at (125:1);
+    \coordinate (O) at (0,0);
+
+    \draw[thick] (0,0) circle (1);
+    \fill[black] (O) circle (0.4pt);
+
+    \draw[thick] (A) -- (B);
+    \draw[thick] (A) -- (C);
+    \draw[thick] (C) -- (B);
+
+    \node[left] at (A) {$A$};
+    \node[right] at (B) {$B$};
+    \node[above] at (C) {$C$};
+
+    \pic [draw, angle radius=6mm, "$32^\circ$"] {angle = B--A--C};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent $AB$ is a diameter of the circle. Angle $BAC = 32^\circ$.
+
+\noindent Work out the size of angle $ACB$, marked $x$ on the diagram, giving a reason for your answer.
+
+\vspace{4cm}
+\answerequnit{x}{$^\circ$}{2}
+\end{question}

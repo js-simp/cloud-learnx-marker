@@ -1,0 +1,36 @@
+\begin{question}
+\noindent An astronomer plots the positions of a satellite's dish reflector and two ground observation stations on a circular diagram representing the horizon, with points $A$, $B$, $C$ and $D$ marked on the circle. Chord $AB$ is shared by triangles $ACB$ and $ADB$, where $C$ and $D$ lie on the same arc on the same side of $AB$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (A) at (200:1);
+    \coordinate (B) at (-20:1);
+    \coordinate (C) at (100:1);
+    \coordinate (D) at (60:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+
+    \draw[thick] (A) -- (B);
+    \draw[thick] (A) -- (C) -- (B);
+    \draw[thick] (A) -- (D) -- (B);
+
+    \node[left] at (A) {$A$};
+    \node[right] at (B) {$B$};
+    \node[above] at (C) {$C$};
+    \node[above] at (D) {$D$};
+
+    \pic [draw, "$35^\circ$", angle eccentricity=1.6, angle radius=0.35cm] {angle = B--C--A};
+    \pic [draw, "$x$", angle eccentricity=1.6, angle radius=0.45cm] {angle = B--D--A};
+\end{tikzpicture}
+\end{center}
+
+\noindent Points $A$, $B$, $C$ and $D$ lie on the circle. Angle $ACB = 35^\circ$.
+
+Find the size of angle $x$, giving a reason for your answer.
+
+\vspace{4.5cm}
+
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{3}
+\end{flushright}
+\end{question}
