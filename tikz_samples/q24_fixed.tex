@@ -1,0 +1,53 @@
+\usetikzlibrary{angles,quotes}
+\begin{question}
+\noindent A team of space scientists is running a desert expedition to test equipment for a future Mars mission. They set up three camps, $P$, $Q$ and $R$.
+
+\noindent Camp $Q$ is 14.6 km from Camp $P$, on a bearing of $072^{\circ}$ from $P$.\\
+Camp $R$ is 21.3 km from Camp $P$.\\
+The distance between Camp $Q$ and Camp $R$ is 18.9 km.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9, transform shape]
+    \coordinate (P) at (0,0);
+    %considering bearing as 70 for ease while preserving visual accuracy, therefore angle of Q with horizontal is 20 degrees anticlockwise from P
+    \coordinate (Q) at (20:7);
+    %for the given dimensions in the question angle P=60, angle Q=78. try to place R to be relatively accurate. Since Angle of P is 60, angle of PR to horizontal has to be 40 clockwise
+    \coordinate (R) at (-40:11);
+
+    % North line at P
+    \draw[dashed] (P) -- (0,3.5);
+    \draw[->] (0,3.2) -- (0,3.5);
+    \node at (0,3.7) [font=\small] {N};
+
+    \coordinate (J) at (0,3.5);
+    % Bearing angle at P
+    \pic [draw,-, angle radius=1cm,"$72^{\circ}$",angle eccentricity=1.4] {angle=Q--P--J};
+
+    % Triangle
+    \draw (P) -- (Q) -- (R) -- cycle;
+
+    % Angle at Q
+    \pic [draw, -, angle radius=0.6cm, "$x^{\circ}$", angle eccentricity=1.6] {angle=P--Q--R};
+
+    \node at (P) [below,font=\small] {$P$};
+    \node at (Q) [above,font=\small] {$Q$};
+    \node at (R) [right,font=\small] {$R$};
+
+    \draw (P) -- (Q) node[midway, above left, font=\small] {$14.6$ km};
+    \draw (Q) -- (R) node[midway, right, font=\small] {$18.9$ km};
+    \draw (P) -- (R) node[midway, below, font=\small] {$21.3$ km};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item[(a)] Calculate the size of angle $PQR$, marked $x^{\circ}$ on the diagram.
+    
+    \vspace{4.5cm}
+    \answereq{x}{2}
+
+    \item[(b)] Hence work out the bearing of Camp $R$ from Camp $Q$.
+    
+    \vspace{4cm}
+    \answerplain{2}
+\end{enumerate}
+\end{question}

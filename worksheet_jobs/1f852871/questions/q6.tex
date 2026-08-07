@@ -1,0 +1,53 @@
+\begin{question}
+\noindent $A$ is a point on a circle with centre $O$. The line $TA$ is a tangent to the circle at $A$, and $B$ is a point on the circumference such that $OB$ is a radius.
+
+$C$ is the point where the straight line $OBT$... 
+
+\noindent In the diagram below, $TA$ is a tangent to the circle at $A$, and $OAT$ is a triangle where $O$ is the centre of the circle. $OB$ is a radius drawn to a point $B$ on the circle, and angle $ABO = 31^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.4]
+    \coordinate (O) at (0,0);
+    \draw[name path=circ] (0,0) circle (1);
+    \fill[black] (O) circle (1pt);
+    \node[below right] at (O) {$O$};
+
+    % A at angle 0 (rightmost point of circle) so tangent is vertical
+    \coordinate (A) at (0:1);
+    \node[right] at (A) {$A$};
+
+    % B placed so that angle ABO = 31 degrees (isosceles triangle OAB, OA=OB=radius)
+    % triangle OAB isosceles with OA=OB, base angle at A and B equal = 31 deg, so angle AOB = 180-62=118
+    \coordinate (B) at (118:1);
+    \node[above left] at (B) {$B$};
+
+    \draw (O) -- (A);
+    \draw (O) -- (B);
+    \draw (A) -- (B);
+
+    % Tangent line at A, vertical line through A since A is at angle 0
+    \draw (A) -- ++(0,1.4) coordinate (T);
+    \draw (A) -- ++(0,-0.6) coordinate (Tlow);
+    \node[above] at (T) {$T$};
+
+    % mark right angle between OA and tangent
+    \tkzMarkRightAngle[size=.25](O,A,T);
+
+    % mark angle ABO = 31 degrees
+    \pic [draw, "$31^\circ$", angle eccentricity=1.5, angle radius=0.4cm] {angle = O--B--A};
+
+    % mark equal radii
+    \tkzMarkSegment[pos=.5,mark=|](O,A);
+    \tkzMarkSegment[pos=.5,mark=|](O,B);
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Given that angle $ABO = 31^\circ$, work out the size of angle $OAT$, and hence find the size of angle $BAT$.
+
+\vspace{4.5cm}
+
+\begin{flushright}
+\answerequnit{BAT}{$^\circ$}{3}
+\end{flushright}
+\end{question}

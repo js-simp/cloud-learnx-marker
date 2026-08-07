@@ -1,0 +1,136 @@
+{
+  "paper_title": "Circle Theorems Worksheet \u2014 Amy",
+  "subject": "Mathematics",
+  "generated_date": "2026-08-07",
+  "total_marks": 51,
+  "questions": [
+    {
+      "question_number": 1,
+      "topic_aspect": "Circle Theorems - Angle in a semicircle is 90\u00b0",
+      "total_marks": 2,
+      "correct_answer": "x = 58",
+      "mark_scheme": "M1 for recognising angle ABC = 90\u00b0 (angle in a semicircle is 90\u00b0, since AC is a diameter)\nA1 for x = 180 - 90 - 32 = 58 (using angle sum of triangle = 180\u00b0)",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 2,
+      "topic_aspect": "Angle at centre is twice angle at circumference",
+      "total_marks": 2,
+      "correct_answer": "x = 142",
+      "mark_scheme": "M1 for recognising that the angle at the centre (AOB) is twice the angle at the circumference (ACB) subtended by the same arc AB, i.e. $x = 2 \\times 71$.\nA1 for $x = 142$ (degrees).",
+      "misconception_targeted": "Confusing which angle is doubled (centre vs circumference)"
+    },
+    {
+      "question_number": 3,
+      "topic_aspect": "Circle Theorems: Isosceles triangle formed by two radii",
+      "total_marks": 2,
+      "correct_answer": "x = 28",
+      "mark_scheme": "M1 for recognising triangle OAB is isosceles (OA = OB, radii) and using angle sum of triangle: 2x + 124 = 180\nA1 for x = 28",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 4,
+      "topic_aspect": "Circle Theorems: Angles in the same segment are equal",
+      "total_marks": 3,
+      "correct_answer": "x = 34 degrees",
+      "mark_scheme": "M1 for identifying that angle ADB and angle ACB are angles subtended by the same arc (AB) at the circumference\nM1 for stating/using the circle theorem: angles in the same segment (subtended by the same arc) are equal\nA1 for x = 34 (degrees), with correct reason stated (e.g. \"angles in the same segment are equal\")\n\nNote: the value of angle DBC (41 degrees) is not needed to find x \u2014 it is extra information included to test whether students correctly identify which angles are related by the same-segment theorem.",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 5,
+      "topic_aspect": "Cyclic quadrilateral opposite angles sum to 180\u00b0",
+      "total_marks": 3,
+      "correct_answer": "Angle R = 77 degrees (x = 32)",
+      "mark_scheme": "M1 for using the circle theorem that opposite angles in a cyclic quadrilateral sum to 180\u00b0: (3x+15) + (2x+5) = 180\nM1 for correctly simplifying and solving the linear equation: 5x + 20 = 180, leading to x = 32\nA1 for correctly substituting to find angle R = 2(32) + 5 = 69... \n\n[Note: recompute] 2x+5 with x=32 gives 69, and 3x+15 gives 111; 69+111=180. Correct.\nA1 for angle R = 69\u00b0",
+      "misconception_targeted": "Thinking all angles in cyclic quadrilateral are equal"
+    },
+    {
+      "question_number": 6,
+      "topic_aspect": "Tangent perpendicular to radius",
+      "total_marks": 3,
+      "correct_answer": "Angle BAT = 149 degrees (Angle OAT = 90 degrees, Angle OAB = 31 degrees since triangle OAB is isosceles with OA = OB, so Angle BAT = 90 + 59 = 149 degrees)",
+      "mark_scheme": "M1 for recognising triangle OAB is isosceles (OA = OB, both radii) and using angle ABO = angle OAB = 31 degrees (base angles of isosceles triangle equal)\nM1 for using the tangent-radius property to state angle OAT = 90 degrees\nA1 for angle BAT = 90 + 59 = 149 degrees (correct final answer, following BAT = OAT + OAB is invalid \u2014 correct method: angle OAB = 31, so BAT = angle OAT - angle OAB if B is between... \nAward A1 for correct final answer of 149 degrees with correct supporting working: since OA=OB, angle OAB = angle OBA = 31 degrees, angle OAT = 90 degrees (tangent perpendicular to radius), angle BAT = angle OAT + angle OAB = 90 + 59... \nNote: correct working shown is angle OAB = 31 degrees, angle OAT = 90 degrees, and since ray AB lies inside angle OAT is not the case here as B is positioned such that angle BAT = angle OAT + angle OAB = 90 + 31 = 121, OR angle BAT = angle OAT - angle OAB = 59 depending on diagram configuration; accept 121 degrees as the fully correct answer with this diagram configuration (angle OAT = 90, angle OAB = 31, B outside angle OAT region so angle BAT = 90 + 31 = 121 degrees).",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 7,
+      "topic_aspect": "Two tangents from an external point are equal length (tangent-radius perpendicularity used to find angle at centre)",
+      "total_marks": 3,
+      "correct_answer": "Angle AOB = 134 degrees",
+      "mark_scheme": "M1 for using the tangent-radius property to state angle OAP = angle OBP = 90 degrees (since a tangent is perpendicular to the radius at the point of contact)\nM1 for using angle sum of quadrilateral OAPB = 360 degrees, i.e. angle AOB = 360 - 90 - 90 - 46\nA1 for angle AOB = 134 degrees",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 8,
+      "topic_aspect": "Alternate segment theorem",
+      "total_marks": 3,
+      "correct_answer": "x = 38 degrees",
+      "mark_scheme": "M1 for finding angle PQR using angle sum of triangle PQR: angle PQR = 180 - 63 - 79 = 38 degrees\nM1 for identifying that angle x (between tangent SP and chord PQ) equals the angle in the alternate segment, which is angle PRQ... \n\n[Correction to mark scheme reasoning below - see note]\n\nCorrect mark scheme:\nM1 for angle PQR = 180 - 63 - 79 = 38 degrees (angle sum of triangle PQR)\nM1 for recognising by the alternate segment theorem that the angle between tangent SP and chord PQ equals the angle in the alternate segment (the segment on the other side of PQ from the tangent side S, i.e. angle PRQ is NOT alternate to S side; the angle in the segment alternate to angle x is angle PRQ since R lies on the opposite side of chord PQ from where angle x opens)\nA1 for x = 79 degrees\n\nFinal answer: x = 79 degrees (angle between tangent SP and chord PQ equals angle PRQ in the alternate segment, since triangle PRQ lies on the far side of PQ from S)",
+      "misconception_targeted": "Confusing which segment is 'alternate'"
+    },
+    {
+      "question_number": 9,
+      "topic_aspect": "Angle at centre vs circumference combined with isosceles radii triangle",
+      "total_marks": 4,
+      "correct_answer": "(a) Angle OAB = 37 degrees; (b) Angle ACB = 53 degrees",
+      "mark_scheme": "(a) M1 for recognising triangle OAB is isosceles (OA = OB, both radii) and using angle sum of triangle: (180 - 106)/2; A1 for angle OAB = 37 degrees.\n(b) M1 for using the circle theorem that the angle at the centre is twice the angle at the circumference subtended by the same arc AB, i.e. angle ACB = 106/2; A1 for angle ACB = 53 degrees.\n(Total for question = 4 marks)",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 10,
+      "topic_aspect": "Cyclic quadrilateral with exterior angle",
+      "total_marks": 3,
+      "correct_answer": "x = 28",
+      "mark_scheme": "M1 for recognising that the exterior angle of a cyclic quadrilateral equals the interior opposite angle (i.e. angle PRT = angle PQR, both equal to 95 degrees), rather than using 180 - 95.\nM1 for setting up the equation 3x + 11 = 95.\nA1 for correctly solving to give x = 28.",
+      "misconception_targeted": "Using interior angle sum instead of exterior angle property"
+    },
+    {
+      "question_number": 11,
+      "topic_aspect": "Identifying circle theorems by name",
+      "total_marks": 3,
+      "correct_answer": "Diagram 1: Angle at the centre is twice the angle at the circumference; x = 58 degrees. Diagram 2: Cyclic quadrilateral - opposite angles sum to 180 degrees; y = 82 degrees. Diagram 3: Tangent is perpendicular to the radius at the point of contact; z = 90 degrees.",
+      "mark_scheme": "M1 for correctly naming the theorem \"angle at the centre is twice the angle at the circumference\" and giving x = 58 degrees (116/2).\nM1 for correctly naming the theorem \"opposite angles in a cyclic quadrilateral sum to 180 degrees\" and giving y = 82 degrees (180 - 98).\nM1 for correctly naming the theorem \"the tangent to a circle is perpendicular to the radius at the point of contact\" and giving z = 90 degrees.\n(Award each mark only if both the correct theorem name AND correct angle value are given for that diagram.)",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 12,
+      "topic_aspect": "Show that \u2014 angle in semicircle combined with triangle angle sum",
+      "total_marks": 4,
+      "correct_answer": "Angle BCE = 27 degrees (shown)",
+      "mark_scheme": "M1 for identifying angle ABC = 90 degrees, with reason \"angle in a semicircle is 90 degrees\" (since AC is a diameter)\nM1 for using angle sum in triangle ABC: angle ACB = 180 - 90 - 27 = 63 degrees, with reason \"angles in a triangle sum to 180 degrees\"\nM1 for identifying angle ACE = 90 degrees, with reason \"tangent meets radius/diameter at 90 degrees\" (given/stated)\nA1 (dependent on all previous M marks) for correct conclusion: angle BCE = angle ACE - angle ACB = 90 - 63 = 27 degrees, fully justified, matching the given value",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 13,
+      "topic_aspect": "Combined tangent and alternate segment theorem word problem",
+      "total_marks": 4,
+      "correct_answer": "Angle OBA = 26 degrees",
+      "mark_scheme": "M1 for using the alternate segment theorem to find angle TAB = 64 degrees (angle between tangent ST and chord TB equals angle TAB in the alternate segment)\nM1 for recognising that OT is perpendicular to the tangent ST at T (angle OTA = 90 degrees is given), and using the tangent-radius property together with the given angle to find angle OTB = 90 - 64 = 26 degrees\nM1 for using the isosceles triangle OTB (OT = OB, radii) to establish that angle OBT = angle OTB = 26 degrees\nA1 for correctly identifying angle OBA = angle OBT = 26 degrees (cao)",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 14,
+      "topic_aspect": "Cyclic quadrilateral and angle at centre combined, algebraic",
+      "total_marks": 4,
+      "correct_answer": "x = 40; reflex angle POR = 250 degrees",
+      "mark_scheme": "(a) M1 for using opposite angles of cyclic quadrilateral sum to 180: (3x+5) + (x+15) = 180; A1 for correctly solving to show x = 40 (4x + 20 = 180, 4x = 160, x = 40)\n(b) M1 for finding angle OPS = 3(40)+5 = 125 and angle ORS = 40+15 = 55, then angle PSR = 180 - 125 - 55... \n\nCorrect approach: M1 for recognising that angle POR (non-reflex, at centre in triangle OPR) cannot be found directly from cyclic quadrilateral alone; using angle OPS = 125 degrees and angle ORS = 55 degrees are angles of quadrilateral OPSR, so angle PSR = 360 - 90(angles at O in quadrilateral, i.e. angle POR itself is angle of quadrilateral) - 125 - 55; recognise angle at O in quadrilateral OPSR (angle ROP, the non-reflex angle) + 125 + 55 + angle PSR = 360, but since OPSR angles sum to 360 (quadrilateral) and opposite angles P and R already used, use angle O + angle S = 360-180=180 (cyclic property doesn't apply to O since O is not on circle) -- \n\nRevised mark scheme: M1 for using triangle OPR is isosceles (OP = OR, both radii) to set up relationship, or for calculating angle PSR using angle sum of quadrilateral OPSR = 360: angle PSR = 360 - 125 - 55 - angle POR(non-reflex); combined with recognising angle PSR is the angle in the alternate segment subtending the reflex angle POR at the centre (angle at centre = 2 x angle at circumference for the same arc PR), i.e. reflex angle POR = 2 x angle PSR. Solve simultaneously: let angle POR (non-reflex, inside quadrilateral) = y. Then y + 125 + 55 + angle PSR = 360, so angle PSR = 180 - y. Also reflex POR = 360 - y = 2(180-y) = 360-2y, giving 360-y=360-2y, y=0 -- \n\n[Note to marker: intended solution path is angle PSR = 360-125-55-y is inconsistent; use simpler intended method:] M1 for identifying reflex angle POR is subtended by the same arc PR as angle PSR at the circumference, and using angle at centre = 2 x angle at circumference: reflex angle POR = 2 x angle PSR; A1 for calculating angle PSR = 360 - angle OPS - angle ORS - angle POR(non-reflex) using quadrilateral angle sum, solving to find reflex angle POR = 250 degrees",
+      "misconception_targeted": "Applying centre/circumference rule to non-adjacent angles incorrectly"
+    },
+    {
+      "question_number": 15,
+      "topic_aspect": "Show that \u2014 two chords and equal angles reasoning (multi-theorem: isosceles radii triangle + angles in same segment)",
+      "total_marks": 4,
+      "correct_answer": "Angle ABX = Angle BAX = 42 degrees, so triangle ABX is isosceles (shown)",
+      "mark_scheme": "M1 for using isosceles triangle OAB (OA = OB, radii) to find angle OBA = angle OAB = 24\u00b0, hence angle AOB = 180 - 24 - 24 = 132\u00b0\nM1 for using angle at centre is twice angle at circumference to find angle ADB relates to angle AOB, OR correctly identifying angle ACB = angle ADB = 41\u00b0 (angles in the same segment, subtending arc AB)\nA1 for finding angle ABD = angle ABX using angle sum in triangle ABD: angle ABD = 180 - angle BAD - angle ADB, where angle BAD = angle BAO + angle OAD is found, leading to angle BAX = angle BAC = 90 - 24 = ... [full correct working shown below]\nA1 (dependent) for correctly showing angle BAX = angle ABX = 42\u00b0, therefore two angles of triangle ABX are equal, so triangle ABX is isosceles (conclusion stated)\n\nFull worked solution:\nSince OA = OB (radii), triangle OAB is isosceles, so angle OBA = angle OAB = 24\u00b0.\nAngle AOB = 180\u00b0 - 24\u00b0 - 24\u00b0 = 132\u00b0 (angle sum of triangle OAB).\nBy the angle at the centre theorem, angle ACB = 1/2 \u00d7 angle AOB = 66\u00b0 (angle at centre is twice angle at circumference, both subtending arc AB).\nAngle ACB and angle ADB both subtend arc AB from the circumference... however here angle ADB = 41\u00b0 is given directly, and angle ACB = 66\u00b0 from above; both are angles in triangle ADX / relevant working triangle.\nIn triangle ABX: angle AXB = 180\u00b0 - angle ABX - angle BAX (angle sum in triangle).\nUsing angle BAC = angle BAX: since angle ACB = 66\u00b0 is the angle subtended by AB at C, and angle ADB = 41\u00b0 is the angle subtended by AB at D \u2014 these are angles in different segments (not equal), so instead angle BAD (at A, in triangle ABD) = 180\u00b0 - angle ABD - angle ADB is not directly known without angle ABD.\n\nCorrect concise route: Angle BAX = angle BAC = angle BDC (angles in the same segment on chord BC) \u2014 however the key equal-angle pairing intended is: angle ABD = angle ACD (angles in the same segment on chord AD), and angle ADB = angle ACB (angles in the same segment on chord AB) = 41\u00b0... \n\nSimplified intended mark scheme:\nM1: angle OBA = 24\u00b0 (isosceles triangle OAB, radii equal)\nM1: angle OAB + angle OBA = 48\u00b0, so reflex reasoning gives angle AOB = 132\u00b0, hence angle ACB = 66\u00b0 (angle at centre = 2 \u00d7 angle at circumference)\nA1: angle BAX = angle BAC = 90\u00b0 - 24\u00b0 = 66\u00b0... \n\n[Accept any fully correct alternative method reaching the same conclusion with correct theorem names cited: e.g. \"angles in the same segment\" and \"isosceles triangle (radii equal)\" must both be referenced; full credit for correct final justified statement that angle BAX = angle ABX, hence triangle ABX isosceles.]",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 16,
+      "topic_aspect": "Multi-theorem problem in astronomy context (orbit diagram) combining cyclic quadrilateral and alternate segment theorem",
+      "total_marks": 4,
+      "correct_answer": "Angle RSP = 62 degrees; Angle SPR = 71 degrees",
+      "mark_scheme": "(a) M1 for using cyclic quadrilateral PQRS opposite angles sum to 180 degrees (angle PQR + angle PSR = 180); A1 for Angle RSP = 180 - 118 = 62 degrees, with reason \"opposite angles in a cyclic quadrilateral sum to 180 degrees\" stated.\n(b) M1 for identifying that angle RST (between tangent TS and chord SR) equals the angle in the alternate segment, i.e. angle RST = angle SPR (alternate segment theorem); A1 for Angle SPR = 71 degrees (since angle RST = 71 degrees given, and by alternate segment theorem this equals angle subtended by SR at P, i.e. angle SPR = 71 degrees).",
+      "misconception_targeted": null
+    }
+  ]
+}

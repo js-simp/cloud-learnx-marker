@@ -1,0 +1,49 @@
+\begin{question}
+\noindent A team of planetary geologists is surveying a triangular rock formation, believed to be an ancient meteor impact site, from a fixed base station $P$ on flat ground.
+
+Two distinctive rock outcrops, $Q$ and $R$, are visible from $P$.
+
+The distance from $P$ to $Q$ is $84$ m.\\
+The distance from $P$ to $R$ is $97$ m.\\
+The angle $QPR = 68^{\circ}$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.75, transform shape]
+    \coordinate (P) at (0,0);
+    \coordinate (Q) at (68+20:8.4);
+    \coordinate (R) at (20:9.7);
+
+    \draw (P) -- (Q) -- (R) -- cycle;
+
+    \pic [draw, -, angle radius=1cm, "$68^{\circ}$", angle eccentricity=1.6] {angle=Q--P--R};
+
+    \node at (P) [below left, font=\small] {$P$};
+    \node at (Q) [above, font=\small] {$Q$};
+    \node at (R) [right, font=\small] {$R$};
+
+    \draw (P) -- (Q) node[midway, above left, font=\small] {$84$ m};
+    \draw (P) -- (R) node[midway, below, font=\small] {$97$ m};
+    \draw (Q) -- (R) node[midway, above right, font=\small] {$d$ m};
+\end{tikzpicture}
+\end{center}
+
+\noindent The geologists need to know the distance $QR$ between the two outcrops, and the total surface area of the triangular region $PQR$ enclosed by the three survey points, in order to plan a robotic sampling route.
+
+\begin{enumerate}
+    \item[(a)] Calculate the distance $QR$, giving your answer to 3 significant figures.
+
+    \vspace{5cm}
+
+    \item[(b)] Calculate the area of the triangular region $PQR$, giving your answer to 3 significant figures.
+
+    \vspace{4cm}
+
+    \item[(c)] The geologists plan to deploy a robotic rover that can safely traverse at most $0.9$ hectares ($9000$ m$^2$) of terrain per survey. Determine, showing full working, whether the triangular region $PQR$ falls within this limit.
+
+    \vspace{4cm}
+\end{enumerate}
+
+\begin{flushright}
+\answermarks{7}
+\end{flushright}
+\end{question}

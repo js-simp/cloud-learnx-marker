@@ -1,0 +1,33 @@
+\begin{question}
+\noindent At a Model United Nations conference, delegates sit around a circular table. Four delegates, $A$, $B$, $C$ and $D$, are seated at points on the edge of the circular table, in that order, so that $ABCD$ is a cyclic quadrilateral.
+
+Angle $DAB = (2x + 15)^\circ$ and angle $DCB = (3x - 35)^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (A) at (150:1);
+    \coordinate (B) at (60:1);
+    \coordinate (C) at (-30:1);
+    \coordinate (D) at (200:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+    \draw[thick] (A) -- (B) -- (C) -- (D) -- cycle;
+
+    \node[above left] at (A) {$A$};
+    \node[above right] at (B) {$B$};
+    \node[below right] at (C) {$C$};
+    \node[below left] at (D) {$D$};
+
+    \pic [draw, "$(2x+15)^\circ$", angle eccentricity=1.6, angle radius=0.4cm] {angle = B--A--D};
+    \pic [draw, "$(3x-35)^\circ$", angle eccentricity=1.6, angle radius=0.5cm] {angle = D--C--B};
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the size of angle $DAB$.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answerequnit{DAB}{$^\circ$}{3}
+\end{flushright}
+\end{question}

@@ -1,0 +1,42 @@
+\begin{question}
+\noindent A space agency uses a satellite tracking station to observe a rocket launch. The tracking station is at ground level, at point $S$.
+
+\noindent A weather balloon released to monitor atmospheric conditions is directly above a point $G$ on the ground, where $G$ is 850 m horizontally from the tracking station $S$. The balloon, at point $B$, is at a height of 620 m above the ground.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9, transform shape]
+    \coordinate (S) at (0,0);
+    \coordinate (G) at (8.5,0);
+    \coordinate (B) at (8.5,6.2);
+
+    % Ground line
+    \draw[thick] (S) -- (G);
+    % Vertical line to balloon
+    \draw[thick] (G) -- (B);
+    % Line of sight
+    \draw[thick] (S) -- (B);
+
+    % Right angle at G
+    \draw pic[draw, angle radius=3mm] {right angle=B--G--S};
+
+    % Angle of elevation at S
+    \pic [draw, "$x^{\circ}$", angle eccentricity=1.6, angle radius=0.8cm] {angle = G--S--B};
+
+    % Labels
+    \node at (S) [below left, font=\small] {$S$};
+    \node at (G) [below right, font=\small] {$G$};
+    \node at (B) [above right, font=\small] {$B$};
+
+    \draw (S) -- (G) node[midway, below, font=\small] {$850$ m};
+    \draw (G) -- (B) node[midway, right, font=\small] {$620$ m};
+\end{tikzpicture}
+\end{center}
+
+\noindent Calculate the angle of elevation, marked $x^{\circ}$ on the diagram, of the balloon $B$ from the tracking station $S$.
+
+\vspace{5cm}
+
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{4}
+\end{flushright}
+\end{question}

@@ -1,0 +1,58 @@
+\begin{question}
+\noindent A satellite dish tracking station is represented by the external point $P$, from which two signal paths $PA$ and $PB$ are drawn tangent to a circular exclusion zone with centre $O$, touching the circle at points $A$ and $B$.
+
+The angle $AOB = 148^\circ$, as shown in the diagram.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.6]
+    % Define the center of the circle
+    \coordinate (O) at (0,0);
+
+    % Draw the circle
+    \draw (O) circle (2cm);
+    \fill[black] (O) circle (2pt) node[below right]{$O$};
+
+    \coordinate (A) at (240:2);
+    % Angle AOB = 148 degrees, so B would make 240-148 = 92 with the horizontal
+    \coordinate (B) at (92:2);
+
+    % Tangent directions at A and B (perpendicular to OA and OB)
+    \coordinate (T1) at ($(A)!1!240:(O)$);
+    \coordinate (T2) at ($(B)!1!92:(O)$);
+
+    %Drawing tanents from A and B, slightly longer that the actual tangent length, so that we can ensure an intersection, i.e obtain P. The length of tangent will be tan74*2(radius) = 6.97.. about 7cm
+    \coordinate (E1) at ($(A)!7cm!90:(O)$);
+    \coordinate (E2) at ($(B)!7cm!-90:(O)$);
+
+    % Find intersection point P
+    \path [name path=line1] (A) -- (E1);
+    \path [name path=line2] (B) -- (E2);
+    \path [name intersections={of=line1 and line2,by={P}}];
+
+    % Draw tangent lines from P
+    \draw (A) -- (P) -- (B);
+
+    % Draw radii
+    \draw (O) -- (A);
+    \draw (O) -- (B);
+    \draw (O) -- (P);
+
+    % Labels
+    \node[below left] at (A) {$A$};
+    \node[above left] at (B) {$B$};
+    \node[above] at (P) {$P$};
+
+    % Mark angle at O
+    \pic [draw, angle eccentricity=1.4, angle radius = 0.6cm, "$148^\circ$"] {angle = B--O--A};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Calculate the size of angle $APB$.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answerequnit{\angle APB}{$^\circ$}{3}
+\end{flushright}
+\end{question}

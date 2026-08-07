@@ -1,0 +1,46 @@
+\begin{question}
+\noindent Triangle $E$ has vertices at $(1,1)$, $(1,4)$ and $(3,1)$, as shown on the grid below.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.75, transform shape]
+    \def\axisLimit{5}
+
+    \definecolor{borderColour}{HTML}{000000}
+    \definecolor{fillColourE}{HTML}{BFD9FF}
+
+    % Draw grid
+    \draw[step=1cm,gray,very thin] (-\axisLimit,-\axisLimit) grid (\axisLimit,\axisLimit);
+
+    % Draw axes
+    \draw[thick,->] (-\axisLimit-0.5,0) -- (\axisLimit+0.5,0) node[anchor=north] {$x$};
+    \draw[thick,->] (0,-\axisLimit-0.5) -- (0,\axisLimit+0.5) node[anchor=east] {$y$};
+
+    % Label x-axis and y-axis
+    \foreach \x in {-\axisLimit,...,\axisLimit}
+        \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+    \foreach \y in {-\axisLimit,...,\axisLimit}
+        \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+
+    % Triangle E: (1,1), (1,4), (3,1)
+    \coordinate (A) at (1,1);
+    \coordinate (B) at (1,4);
+    \coordinate (C) at (3,1);
+    \filldraw[fill=fillColourE, draw=borderColour, line width=1pt] (A) -- (B) -- (C) -- cycle;
+
+    \node[below left] at (A) {$A$};
+    \node[above left] at (B) {$B$};
+    \node[below right] at (C) {$C$};
+    \node at (1.7,1.7) {$E$};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Rotate triangle $E$ by $90^\circ$ clockwise about the origin.\\
+Draw and label the image triangle $E'$ on the grid, showing the coordinates of each vertex.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answerplain{2}
+\end{flushright}
+\end{question}

@@ -1,0 +1,58 @@
+\begin{question}
+\noindent $P$, $Q$ and $R$ are points on the circumference of a circle. The line $TPS$ is a tangent to the circle at $P$.
+
+\noindent Chord $PQ$ and chord $PR$ are drawn, and chord $QR$ is drawn to complete triangle $PQR$.
+
+\noindent Angle $QPR = 63^\circ$ and angle $PRQ = 79^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    % draw circle
+        \draw[name path=circ] (0,0) circle (1);
+
+    % mark point P on circle
+        \coordinate[] (P) at (-90:1);
+
+    % draw tangent through P
+        \draw (P) -- ($(P)!1.5!-90:(0,0)$) coordinate (S) coordinate[pos=0.15, yshift=0.2cm] (SL);
+        \draw (P) -- ($(P)!1.5!90:(0,0)$) coordinate (T) coordinate[pos=0.85, yshift=-0.2cm] (TL);
+
+    % angle QPR = 63 degrees, so place Q and R symmetric-ish around bottom
+    % angle PRQ = 79 degrees; angle PQR = 180 - 63 - 79 = 38 degrees
+    % arc PQ (not containing R) subtends angle PRQ=79 at circumference, so arc PQ = 158 degrees at centre
+    % arc PR (not containing Q) subtends angle PQR=38 at circumference, so arc PR = 76 degrees at centre
+    % Place P at -90. Going anticlockwise from P by 76 degrees gives R at -90+76 = -14
+    % Going clockwise from P by 158 degrees gives Q at -90-158 = -248 = 112 (mod 360)
+        \coordinate (R) at (-14:1);
+        \coordinate (Q) at (112:1);
+
+    % Draw chords
+        \draw (P) -- (Q);
+        \draw (P) -- (R);
+        \draw (Q) -- (R);
+
+    % labels
+        \node[below] at (P) {$P$};
+        \node[above left] at (Q) {$Q$};
+        \node[right] at (R) {$R$};
+        \node[below left] at (S) {$S$};
+        \node[above right] at (T) {$T$};
+
+    % mark given angles
+        \pic [draw, "$63^\circ$", angle eccentricity=1.6, angle radius=0.45cm] {angle = R--P--Q};
+        \pic [draw, "$79^\circ$", angle eccentricity=1.6, angle radius=0.45cm] {angle = Q--R--P};
+
+    % mark angle to find: between tangent TP and chord PQ (on the S side, alternate segment containing R)
+        \pic [draw, "$x$", angle eccentricity=1.5, angle radius=0.7cm] {angle = Q--P--S};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the size of angle $x$, the angle between the tangent $SP$ and the chord $PQ$.
+
+\vspace{4.5cm}
+
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{3}
+\end{flushright}
+\end{question}

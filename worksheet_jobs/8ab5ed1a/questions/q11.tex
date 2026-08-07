@@ -1,0 +1,40 @@
+\begin{question}
+\noindent An e-sports tournament organiser is setting up a live-streaming drone to film players arriving at a venue. The drone launch point is at $L$. A sponsor's booth is at $S$, which is $340$ m due east of $L$. The main stage is at $M$, which is $260$ m due north of $S$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9, transform shape]
+    \coordinate (L) at (0,0);
+    \coordinate (S) at (5.1,0);
+    \coordinate (M) at (5.1,3.9);
+    \coordinate (N) at (0,3);
+
+    % North line at L
+    \draw[dashed] (L) -- (N);
+    \draw[->] (0,2.7) -- (N);
+    \node at (0,3.3) [font=\small] {N};
+
+    % Right angle at S
+    \draw pic[draw, angle radius=3mm] {right angle=M--S--L};
+
+    % Triangle sides
+    \draw[thick] (L) -- (S) node[midway, below, font=\small] {$340$ m};
+    \draw[thick] (S) -- (M) node[midway, right, font=\small] {$260$ m};
+    \draw[thick] (L) -- (M);
+
+    % Bearing angle at L
+    \pic [draw, angle radius=1.2cm, "$\theta$"] {angle = N--L--M};
+
+    \node at (L) [below left, font=\small] {$L$};
+    \node at (S) [below right, font=\small] {$S$};
+    \node at (M) [above right, font=\small] {$M$};
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the bearing of the main stage $M$ from the drone launch point $L$.
+
+\vspace{5cm}
+
+\begin{flushright}
+    \answerequnit{\theta}{$^\circ$}{4}
+\end{flushright}
+\end{question}

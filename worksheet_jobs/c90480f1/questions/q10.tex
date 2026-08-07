@@ -1,0 +1,31 @@
+\begin{question}
+\noindent A historian is studying the triangular layout of an ancient observation site, thought to have been used for tracking celestial events. Archaeologists have measured the distances between the three marker stones, $A$, $B$ and $C$, as shown in the diagram.
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    \coordinate (A) at (-2,-2);
+    \coordinate (B) at (4.2,-1.4);
+    \coordinate (C) at (1.6,3.4);
+
+    \draw[thick] (A) -- (B) -- (C) -- cycle;
+
+    \node at (A) [below left, font=\small] {$A$};
+    \node at (B) [below right, font=\small] {$B$};
+    \node at (C) [above, font=\small] {$C$};
+
+    \draw (A) -- (B) node[midway, below] {$14.8$ m};
+    \draw (B) -- (C) node[midway, right] {$8.6$ m};
+    \draw (A) -- (C) node[midway, left] {$9.3$ m};
+\end{tikzpicture}
+\end{center}
+
+\noindent $AB = 14.8$ m, $BC = 8.6$ m and $AC = 9.3$ m.
+
+\noindent Calculate the size of the largest angle in the triangle.
+
+\vspace{5cm}
+
+\begin{flushright}
+\answerequnit{angle}{$^\circ$}{4}
+\end{flushright}
+\end{question}

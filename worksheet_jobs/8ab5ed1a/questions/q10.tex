@@ -1,0 +1,44 @@
+\begin{question}
+\noindent Two science monitoring stations, $A$ and $B$, are used to track weather balloons. Station $B$ is due East of station $A$. A weather balloon, $W$, is released and is tracked so that it lies due North of station $B$.
+
+The bearing of the balloon $W$ from station $A$ is $062^\circ$, and the distance $AB = 14$ km.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9, transform shape]
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (7,0);
+    \coordinate (W) at (7,13.16);
+    \coordinate (N) at (0,4.5);
+    \coordinate (E) at (4.5,0);
+
+    % North line at A
+    \draw[dashed] (A) -- (N);
+    \draw[->] (0,4.2) -- (0,4.5);
+    \node at (0,4.7) [font=\small] {N};
+
+    % Bearing angle at A
+    \pic [draw, angle radius=1.3cm, "$62^\circ$"] {angle = E--A--W};
+
+    % Triangle sides
+    \draw[thick] (A) -- (B) node[midway, below] {$14$ km};
+    \draw[thick] (B) -- (W) node[midway, right] {$d$ km};
+    \draw[thick] (A) -- (W);
+
+    % Right angle at B
+    \draw pic[draw, angle radius=3mm] {right angle=A--B--W};
+
+    % Points
+    \filldraw (A) circle (1.2pt) node[below left]{$A$};
+    \filldraw (B) circle (1.2pt) node[below right]{$B$};
+    \filldraw (W) circle (1.2pt) node[above right]{$W$};
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the distance $BW$, the height of the balloon's position above the line $AB$, giving your answer correct to 3 significant figures.
+
+\vspace{4.5cm}
+
+\begin{flushright}
+\answerunit{km}{4}
+\end{flushright}
+\end{question}

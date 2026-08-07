@@ -1,0 +1,50 @@
+\begin{question}
+\noindent A research ship sets sail from a harbour $H$ and travels in a straight line to a buoy $B$, a distance of $15.4$ km, on a bearing of $048^\circ$. From the buoy, the ship then sails in a straight line to a research station $S$. The distance $BS$ is $22.6$ km, and the angle $HBS$ formed at the buoy is $109^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.85, transform shape]
+    \coordinate (H) at (0,0);
+    % Bearing of B from H is 48 degrees, so angle from horizontal (East) is 90-48=42
+    \coordinate (B) at (42:6.4);
+
+    % Direction from B to H (reverse bearing) has angle from horizontal (East) of 42-180=-138
+    % angle HBS = 109 degrees, measured from BH round to BS. Place S so that going from H-direction to S-direction anticlockwise sweeps 109 degrees for correct pic drawing
+    % Angle of BH from horizontal at B is -138. Adding 109 anticlockwise gives angle of BS from horizontal = -138+109 = -29
+    \coordinate (S) at ($(B) + (-29:9.4)$);
+
+    % North line at H
+    \draw[dashed] (H) -- (0,3.2);
+    \draw[->] (0,2.9) -- (0,3.2);
+    \node at (0,3.5) [font=\small] {N};
+
+    % North line at B
+    \draw[dashed] (B) -- ($(B)+(0,2.4)$);
+    \draw[->] ($(B)+(0,2.1)$) -- ($(B)+(0,2.4)$);
+    \node at ($(B)+(0,2.7)$) [font=\small] {N};
+
+    % Bearing angle at H
+    \pic [draw, angle radius=1cm, "$48^\circ$", angle eccentricity=1.4] {angle = B--H--(0,3.2)};
+
+    % Triangle
+    \draw[thick] (H) -- (B) -- (S) -- cycle;
+
+    % Angle at B (HBS)
+    \pic [draw, angle radius=0.9cm, "$109^\circ$", angle eccentricity=1.5] {angle = H--B--S};
+
+    \node at (H) [below left,font=\small] {$H$};
+    \node at (B) [above,font=\small] {$B$};
+    \node at (S) [right,font=\small] {$S$};
+
+    \draw (H) -- (B) node[midway, left, font=\small] {$15.4$ km};
+    \draw (B) -- (S) node[midway, right, font=\small] {$22.6$ km};
+\end{tikzpicture}
+\end{center}
+
+\noindent Calculate the bearing of $S$ from $H$.
+
+\vspace{6cm}
+
+\begin{flushright}
+    \answerequnit{}{$^\circ$}{4}
+\end{flushright}
+\end{question}

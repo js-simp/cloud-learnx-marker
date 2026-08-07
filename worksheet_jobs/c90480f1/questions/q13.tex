@@ -1,0 +1,27 @@
+\begin{question}
+\noindent A museum is designing a triangular display case to hold a scale model of a meteorite fragment. The triangular base $ABC$ of the case has $AB = 8$ cm, $AC = (4+4\sqrt{3})$ cm, and angle $BAC = 45^{\circ}$, as shown in the diagram (not drawn to scale).
+
+\begin{center}
+\begin{tikzpicture}[scale=0.55, transform shape]
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (8,0);
+    \coordinate (C) at ({(4+4*sqrt(3))*cos(45)},{(4+4*sqrt(3))*sin(45)});
+
+    \draw (A) -- (B) -- (C) -- cycle;
+
+    \pic [draw, "$45^{\circ}$", angle eccentricity=1.6, angle radius=0.9cm] {angle = C--A--B};
+
+    \node at (A) [below left,font=\small] {$A$};
+    \node at (B) [below right,font=\small] {$B$};
+    \node at (C) [above,font=\small] {$C$};
+
+    \draw (A) -- (B) node[midway, below] {$8$ cm};
+    \draw (A) -- (C) node[midway, above left] {$(4+4\sqrt{3})$ cm};
+\end{tikzpicture}
+\end{center}
+
+\noindent Show that the exact area of triangle $ABC$ can be written in the form $(a + b\sqrt{3})$ cm$^2$, where $a$ and $b$ are integers to be found.
+
+\vspace{5cm}
+\answermarks{5}
+\end{question}

@@ -1,0 +1,35 @@
+\begin{question}
+\noindent Three research stations, $A$, $B$ and $C$, are located in Antarctica.
+
+Station $B$ is 42 km from station $A$, on a bearing of $065^\circ$ from $A$.\\
+Station $C$ is 35 km from station $A$, on a bearing of $138^\circ$ from $A$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.11]
+    \coordinate (A) at (0,0);
+    \coordinate (B) at ({42*sin(65)}, {42*cos(65)});
+    \coordinate (C) at ({35*sin(138)}, {35*cos(138)});
+
+    % North line at A
+    \draw[dashed] (A) -- (0, 48) node[above]{N};
+
+    % North line at A used for angle marking (bearing arcs)
+    \draw[thick] (A) -- (B) node[right]{$B$};
+    \draw[thick] (A) -- (C) node[below]{$C$};
+    \draw[thick] (B) -- (C);
+
+    \node[below left] at (A) {$A$};
+
+    \pic [draw, angle radius=10mm, "$65^\circ$"] {angle = (0,48)--(A)--(B)};
+    \pic [draw, angle radius=14mm, "$138^\circ$"] {angle = (0,48)--(A)--(C)};
+
+    \node at ({42*sin(65)/2 - 3}, {42*cos(65)/2 + 3}) {$42$ km};
+    \node[below] at ({35*sin(138)/2}, {35*cos(138)/2 - 2}) {$35$ km};
+\end{tikzpicture}
+\end{center}
+
+\noindent Calculate the distance $BC$, giving your answer to 3 significant figures.
+
+\vspace{5cm}
+\answerunit{km}{4}
+\end{question}

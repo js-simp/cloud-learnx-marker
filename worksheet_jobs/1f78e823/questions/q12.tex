@@ -1,0 +1,36 @@
+\begin{question}
+\noindent A marine science research base, $S$, sits on the coast. A research ship sails from $S$ on a bearing of $118^\circ$ to reach a monitoring buoy at point $M$, where it collects water samples.
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+    \coordinate (S) at (0,0);
+    % bearing 118 degrees means angle from horizontal (measuring anticlockwise) is 90-118 = -28 degrees
+    \coordinate (M) at (-28:6);
+
+    % North line at S
+    \draw[dashed] (S) -- (0,3.5);
+    \draw[->] (0,3.2) -- (0,3.5);
+    \node at (0,3.8) [font=\small] {N};
+
+    \coordinate (J) at (0,3.5);
+    % Bearing angle at S, sweeping clockwise from North to M, i.e. anticlockwise from M to J
+    \pic [draw, -, angle radius=1cm, "$118^\circ$", angle eccentricity=1.4] {angle=M--S--J};
+
+    \draw[thick] (S) -- (M);
+
+    \node at (S) [below left, font=\small] {$S$};
+    \node at (M) [right, font=\small] {$M$};
+
+    \fill (S) circle (1.5pt);
+    \fill (M) circle (1.5pt);
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the bearing of the marine science base $S$ from the buoy $M$.
+
+\vspace{4.5cm}
+
+\begin{flushright}
+    \answerplain{3}
+\end{flushright}
+\end{question}

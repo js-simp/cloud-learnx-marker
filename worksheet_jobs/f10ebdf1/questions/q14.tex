@@ -1,0 +1,58 @@
+\begin{question}
+\noindent Points $A$, $B$ and $C$ lie on a circle with centre $O$. The line $TCS$ is a tangent to the circle at $C$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.3]
+    % Centre and circle
+    \coordinate (O) at (0,0);
+    \draw[name path=circ] (0,0) circle (1);
+    \fill[black] (0,0) circle (0.4pt);
+    \node[below left] at (O) {$O$};
+
+    % Points on circle
+    % C at bottom
+    \coordinate (C) at (-90:1);
+    % A placed so that angle TCA (tangent-chord angle) = 58 degrees, meaning arc/angle relationships work out
+    \coordinate (A) at (150:1);
+    % B placed at top right, arbitrary point for angle AOB (central angle) to be found
+    \coordinate (B) at (32:1);
+
+    \node[above left] at (A) {$A$};
+    \node[above right] at (B) {$B$};
+    \node[below] at (C) {$C$};
+
+    % radii
+    \draw (O) -- (A);
+    \draw (O) -- (B);
+
+    % chords
+    \draw (A) -- (C);
+    \draw (C) -- (B);
+    \draw (A) -- (B);
+
+    % tangent at C
+    \draw (C) -- ($(C)!1.5!-90:(O)$) coordinate (S) node[below right]{$S$};
+    \draw (C) -- ($(C)!1.5!90:(O)$) coordinate (T) node[above left]{$T$};
+
+    % angle labels: tangent-chord angle at C between tangent TCS and chord CA
+    \pic [draw, "$58^\circ$", angle eccentricity=1.6, angle radius=0.55cm] {angle = S--C--A};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent The angle between the tangent $TCS$ and the chord $CA$ is $58^\circ$, as shown.
+
+\begin{enumerate}
+    \item[(a)] Work out the size of angle $ABC$.\\
+    Give a reason for your answer.
+
+    \vspace{4cm}
+    \answerequnit{ABC}{$^\circ$}{2}
+
+    \item[(b)] Hence work out the size of angle $AOB$, where $O$ is the centre of the circle.\\
+    Give a reason for your answer.
+
+    \vspace{4cm}
+    \answerequnit{AOB}{$^\circ$}{2}
+\end{enumerate}
+\end{question}

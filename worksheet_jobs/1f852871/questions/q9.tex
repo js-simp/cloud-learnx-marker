@@ -1,0 +1,39 @@
+\begin{question}
+\noindent $A$ and $B$ are points on the circumference of a circle with centre $O$. $C$ is also a point on the circumference. $OA$ and $OB$ are radii of the circle, and angle $AOB = 106^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (O) at (0,0);
+    \draw[name path=circ] (0,0) circle (1);
+    \fill[black] (O) circle (0.8pt);
+    \node[below] at (O) {$O$};
+
+    \coordinate (A) at (127:1);
+    \coordinate (B) at (21:1);
+    \coordinate (C) at (250:1);
+
+    \node[above left] at (A) {$A$};
+    \node[right] at (B) {$B$};
+    \node[below] at (C) {$C$};
+
+    \draw (O) -- (A);
+    \draw (O) -- (B);
+    \draw (A) -- (C);
+    \draw (B) -- (C);
+
+    \pic [draw, "$106^\circ$", angle eccentricity=1.5, angle radius=0.5cm] {angle = B--O--A};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item[(a)] Work out the size of angle $OAB$.
+
+    \vspace{4cm}
+    \answerequnit{OAB}{$^\circ$}{2}
+
+    \item[(b)] Work out the size of angle $ACB$.
+
+    \vspace{4cm}
+    \answerequnit{ACB}{$^\circ$}{2}
+\end{enumerate}
+\end{question}

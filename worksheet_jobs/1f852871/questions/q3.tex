@@ -1,0 +1,33 @@
+\begin{question}
+\noindent $A$ and $B$ are points on the circumference of a circle with centre $O$.
+$OA$ and $OB$ are radii of the circle.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (150:1);
+    \coordinate (B) at (30:1);
+
+    \draw[fill=orange!30] (0,0) circle (1);
+    \draw[fill=orange] (A) -- (O) -- (B) -- cycle;
+    \fill[black] (O) circle (1pt);
+
+    \node[left] at (A) {$A$};
+    \node[right] at (B) {$B$};
+    \node[below] at (O) {$O$};
+
+    \pic [draw, angle eccentricity=1.5, angle radius=0.5cm, "$124^\circ$"] {angle = A--O--B};
+    \pic [draw, angle eccentricity=1.6, angle radius=0.35cm, "$x^\circ$"] {angle = O--B--A};
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $AOB = 124^\circ$.
+
+Find the value of $x$.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answereq{x}{2}
+\end{flushright}
+\end{question}

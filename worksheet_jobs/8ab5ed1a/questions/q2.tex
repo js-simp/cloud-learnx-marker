@@ -1,0 +1,36 @@
+\begin{question}
+\noindent An e-sports event organiser is setting up a competition venue. Point $A$ marks the location of the main stage, and point $B$ marks the location of a spectator viewing tower. The diagram shows the North direction at $A$ and the direction from $A$ to $B$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    \coordinate (A) at (0,0);
+    % Bearing of B from A is 065 degrees, so angle from horizontal is 90-65=25
+    \coordinate (B) at (25:5);
+    \coordinate (N) at (0,3.2);
+
+    % North line at A
+    \draw[thick, ->] (A) -- (N) node[above]{N};
+
+    % Line from A to B
+    \draw[thick] (A) -- (B);
+
+    % Angle arc at A between north line and AB, measured clockwise from north
+    \pic [draw, ->, angle radius=1.2cm, "$x^\circ$", angle eccentricity=1.5] {angle = B--A--N};
+
+    % Points
+    \filldraw (A) circle (1.5pt) node[below left]{$A$};
+    \filldraw (B) circle (1.5pt) node[above right]{$B$};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent The angle marked $x^\circ$ is $65^\circ$.
+
+\noindent Write down the bearing of $B$ from $A$.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answerequnit{\text{Bearing of } B \text{ from } A}{$^\circ$}{2}
+\end{flushright}
+\end{question}

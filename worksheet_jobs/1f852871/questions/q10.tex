@@ -1,0 +1,42 @@
+\begin{question}
+\noindent $P$, $Q$, $R$ and $S$ are points on the circumference of a circle. The side $QR$ is extended to point $T$, so that $SRT$ is a straight line.
+
+$\angle PQR = 95^\circ$.
+$\angle PSR = 3x + 11$ (degrees).
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (P) at (150:1);
+    \coordinate (Q) at (75:1);
+    \coordinate (S) at (200:1);
+    \coordinate (R) at (-20:1);
+
+    \draw[thick] (0,0) circle (1);
+
+    \draw[thick] (P) -- (Q);
+    \draw[thick] (Q) -- (R);
+    \draw[thick] (R) -- (S);
+    \draw[thick] (S) -- (P);
+
+    % extend SR beyond R to T
+    \coordinate (T) at ($(S)!1.6!(R)$);
+    \draw[thick] (S) -- (T);
+
+    \node[above left] at (P) {$P$};
+    \node[above right] at (Q) {$Q$};
+    \node[below left] at (S) {$S$};
+    \node[below right] at (R) {$R$};
+    \node[right] at (T) {$T$};
+
+    \pic [draw, angle radius=6mm, "$95^\circ$"] {angle = P--Q--R};
+    \pic [draw, angle radius=6mm, "$3x+11$"] {angle = P--S--R};
+\end{tikzpicture}
+\end{center}
+
+\noindent Note: $\angle PRT$ is the exterior angle of the cyclic quadrilateral $PQRS$ at vertex $R$.
+
+Find the value of $x$.
+
+\vspace{4cm}
+\answereq{x}{3}
+\end{question}

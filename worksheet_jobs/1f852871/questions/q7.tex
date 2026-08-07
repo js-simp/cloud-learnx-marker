@@ -1,0 +1,50 @@
+\begin{question}
+\noindent A satellite dish is held in place by two straight metal support struts, $PA$ and $PB$, which run from a fixed anchor point $P$ on a pole and touch the circular rim of the dish at points $A$ and $B$. Each strut is tangent to the circular rim.
+
+$O$ is the centre of the circular rim. The angle between the two struts at $P$ is $46^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    % Centre of circle
+    \coordinate (O) at (0,0);
+    \draw[fill=lightgray!20] (O) circle (1);
+    \fill[black] (O) circle (0.8pt);
+    \node[below left] at (O) {$O$};
+
+    % Points A and B on circle, symmetric about vertical axis
+    % Angle APB = 46 degrees, so half-angle = 23 degrees at P
+    % OA perpendicular to PA, OB perpendicular to PB
+    % Place A and B symmetric about the line OP (vertical)
+    \coordinate (A) at (113:1);
+    \coordinate (B) at (67:1);
+
+    % External point P below, on the axis of symmetry
+    \coordinate (P) at (90:2.869);
+
+    \draw[thick] (P) -- (A);
+    \draw[thick] (P) -- (B);
+    \draw[thick] (O) -- (A);
+    \draw[thick] (O) -- (B);
+    \draw[thick, dashed] (O) -- (P);
+
+    \node[above left] at (A) {$A$};
+    \node[above right] at (B) {$B$};
+    \node[above] at (P) {$P$};
+
+    % Right angle marks
+    \tkzMarkRightAngle[size=.15](O,A,P);
+    \tkzMarkRightAngle[size=.15](P,B,O);
+
+    % Angle at P
+    \pic [draw, angle radius=6mm, "$46^\circ$"] {angle = B--P--A};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Given that $OA$ and $OB$ are radii of the dish's rim, work out the size of angle $AOB$.
+
+\vspace{4.5cm}
+\begin{flushright}
+\answerequnit{AOB}{$^\circ$}{3}
+\end{flushright}
+\end{question}

@@ -1,0 +1,53 @@
+\begin{question}
+\noindent Shape $L$ is drawn on the grid below. A designer wants to create a logo $L'$ by enlarging $L$ with scale factor $-2$, using centre of enlargement $(0,1)$.
+
+\begin{center}
+\scalebox{0.75}{%
+\begin{tikzpicture}
+    \definecolor{borderColour}{HTML}{000000}
+    \definecolor{fillColourL}{HTML}{BFD8FF}
+
+    \def\axisLimit{8}
+
+    % Draw grid
+    \draw[step=1cm,gray,very thin] (-\axisLimit,-\axisLimit) grid (\axisLimit,\axisLimit);
+
+    % Draw axes
+    \draw[thick,->] (-\axisLimit-0.5,0) -- (\axisLimit+0.5,0) node[anchor=north] {$x$};
+    \draw[thick,->] (0,-\axisLimit-0.5) -- (0,\axisLimit+0.5) node[anchor=east] {$y$};
+
+    % Label x-axis and y-axis
+    \foreach \x in {-\axisLimit,...,-1,1,2,...,\axisLimit}
+        \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+    \foreach \y in {-\axisLimit,...,-1,1,2,...,\axisLimit}
+        \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+
+    % Mark centre of enlargement
+    \coordinate (centre) at (0,1);
+    \draw[red, thick] (centre) node[cross out, draw=red, inner sep=2pt, outer sep=0pt, line width=1pt] {};
+    \node[below right] at (centre) {$(0,1)$};
+
+    % Define vertices of L: A(1,2), B(1,4), C(3,4), D(3,2)
+    \coordinate (A) at (1,2);
+    \coordinate (B) at (1,4);
+    \coordinate (C) at (3,4);
+    \coordinate (D) at (3,2);
+
+    % Draw L
+    \draw[fill=fillColourL, draw=borderColour, line width=1pt] (A) -- (B) -- (C) -- (D) -- cycle;
+    \node[below right] at (2,3) {$L$};
+
+\end{tikzpicture}%
+}
+\end{center}
+
+\noindent The vertices of shape $L$ are $A(1,2)$, $B(1,4)$, $C(3,4)$ and $D(3,2)$.
+
+\noindent On squared paper, the coordinates of shape $L$ have been given above (no grid drawing required for your answer). Work out the coordinates of the vertices $A'$, $B'$, $C'$ and $D'$ of the image $L'$ after this enlargement.
+
+\vspace{5cm}
+
+\begin{flushright}
+    \answerplain{4}
+\end{flushright}
+\end{question}

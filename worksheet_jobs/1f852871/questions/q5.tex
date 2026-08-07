@@ -1,0 +1,33 @@
+\begin{question}
+\noindent $P$, $Q$, $R$ and $S$ are points on the circumference of a circle, forming the cyclic quadrilateral $PQRS$.
+
+\noindent Angle $P = (3x + 15)^\circ$ and angle $R = (2x + 5)^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate (P) at (150:1);
+    \coordinate (Q) at (60:1);
+    \coordinate (R) at (-30:1);
+    \coordinate (S) at (220:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+    \draw[line join=bevel] (P) -- (Q) -- (R) -- (S) -- cycle;
+
+    \node[above left] at (P) {$P$};
+    \node[above right] at (Q) {$Q$};
+    \node[below right] at (R) {$R$};
+    \node[below left] at (S) {$S$};
+
+    \pic [draw, "$3x+15$", angle eccentricity=1.6, angle radius=0.4cm] {angle = S--P--Q};
+    \pic [draw, "$2x+5$", angle eccentricity=1.6, angle radius=0.4cm] {angle = Q--R--S};
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the size of angle $R$.
+
+\vspace{4.5cm}
+
+\begin{flushright}
+\answerequnit{R}{$^\circ$}{3}
+\end{flushright}
+\end{question}

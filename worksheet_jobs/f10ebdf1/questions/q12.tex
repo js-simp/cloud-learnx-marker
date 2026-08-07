@@ -1,0 +1,52 @@
+\begin{question}
+\noindent A satellite dish has a circular cross-section with centre $O$ and radius $OT$. A support strut is bolted to the rim of the dish at point $T$, where the strut lies along the tangent to the circle at $T$. The strut runs from $T$ to a fixing point $P$ on the mounting pole, and a support cable connects $O$ directly to $P$.
+
+The support cable $OP = 6.5$ m and the radius $OT = 2.5$ m.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.1]
+    % Centre of circle
+    \coordinate (O) at (0,0);
+    \fill[black] (O) circle (1.5pt);
+    \node[above] at (O) {$O$};
+
+    % Circle (the dish), radius 2.5 -> draw as unit circle scaled
+    \draw[thick] (O) circle (1.923); % radius scaled to keep OP length proportional (6.5/2.5 * scale factor below)
+
+    % Point of tangency T
+    \coordinate (T) at (-90:1.923);
+    \node[below] at (T) {$T$};
+
+    % Draw radius OT
+    \draw[thick] (O) -- (T);
+
+    % Tangent line at T (perpendicular to OT), extended to P
+    % OP = 6.5, OT = 2.5, so TP = sqrt(6.5^2-2.5^2) = 6 m; scale factor used is 1.923/2.5 = 0.7692
+    \coordinate (P) at ($(T) + (4.615,0)$); % 6*0.7692 = 4.615
+
+    \draw[thick] (T) -- (P) node[right] {$P$};
+
+    % Line from O to P (support cable)
+    \draw[thick] (O) -- (P);
+
+    % Right angle mark at T
+    \draw ($(T)+(-0.15,0)$) -- ($(T)+(-0.15,0.15)$) -- ($(T)+(0,0.15)$);
+
+    % Mark angle to find at O (angle TOP = x)
+    \pic [draw, angle eccentricity=1.5, angle radius=0.6cm, "$x^\circ$"] {angle = P--O--T};
+
+    % Labels for lengths
+    \node[left] at (-0.35,0.9) {$2.5$ m};
+    \node[above right] at (2.3,0) {$6.5$ m};
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the size of angle $TOP$, marked $x$ on the diagram.\\
+Give your answer correct to 1 decimal place.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answerequnit{x}{$^\circ$}{3}
+\end{flushright}
+\end{question}

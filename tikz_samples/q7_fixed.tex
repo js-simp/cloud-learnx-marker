@@ -1,0 +1,48 @@
+\begin{question}
+\noindent Below is a circle with centre $O$.\\
+\noindent $T$ is the point where the tangent line touches the circle.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    % Centre of circle
+    \coordinate (O) at (0,0);
+    \fill[black] (O) circle (1pt);
+    \node[above] at (O) {$O$};
+
+    % Circle (the dish)
+    \draw[thick] (O) circle (1);
+
+    % Point of tangency T
+    \coordinate (T) at (-90:1);
+    \node[below left] at (T) {$T$};
+
+    % Draw radius OT
+    \draw[thick] (O) -- (T);
+
+    % Tangent line at T (perpendicular to OT), extended to P
+    \coordinate (P) at ($(T) + (2.4,0)$);
+    \draw[thick] (T) -- (P) node[right] {$P$};
+
+    % Line from O to P (support cable)
+    \draw[thick] (O) -- (P);
+
+    % Mark angle OPT = 24 degrees
+    \pic [draw, angle eccentricity=1.4, angle radius=0.75cm, "$24^\circ$"] {angle = O--P--T};
+
+    % Mark angle to find at O (angle TOP = x)
+    \pic [draw, angle eccentricity=1.4, angle radius = 0.75cm, "$x^\circ$"] {angle = T--O--P};
+
+\end{tikzpicture}
+\end{center}
+
+
+Angle $OPT = 24^\circ$.
+
+\noindent Work out the size of angle $TOP$, marked $x^\circ$ on the diagram. Give a reason for each stage of your working.
+
+\vspace{3cm}
+
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}

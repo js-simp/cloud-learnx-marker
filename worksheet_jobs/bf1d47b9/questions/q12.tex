@@ -1,0 +1,43 @@
+\begin{question}
+\noindent At a Model United Nations conference, two delegation venues, $A$ and $B$, are shown on a site map.
+
+\noindent The bearing of $B$ from $A$ is $118^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.3]
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (28:4);
+    \coordinate (N) at (0,2.6);
+
+    % North line at A
+    \draw[dashed] (A) -- (N);
+    \draw[->] (0,2.3) -- (0,2.6);
+    \node at (0,2.8) [font=\small] {N};
+
+    % North line at B
+    \draw[dashed] (B) -- ($(B)+(0,2.6)$);
+    \draw[->] ($(B)+(0,2.3)$) -- ($(B)+(0,2.6)$);
+    \node at ($(B)+(0,2.8)$) [font=\small] {N};
+
+    % Line AB
+    \draw[thick] (A) -- (B);
+
+    % Bearing angle at A (from North line clockwise to AB)
+    \pic [draw, angle radius=1cm, "$118^\circ$", angle eccentricity=1.5] {angle = N--A--B};
+
+    % Angle at B between AB extended (dashed) and B's north line, for reasoning
+    \draw[dashed] (B) -- ($(A)+(28:-1.5)$);
+
+    \node at (A) [below left, font=\small] {$A$};
+    \node at (B) [above right, font=\small] {$B$};
+\end{tikzpicture}
+\end{center}
+
+\noindent Show that the bearing of $A$ from $B$ is $298^\circ$.
+
+\vspace{5cm}
+
+\begin{flushright}
+\answermarks{3}
+\end{flushright}
+\end{question}

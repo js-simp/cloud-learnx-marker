@@ -1,0 +1,51 @@
+\begin{question}
+\noindent Astronomers estimating the height of a crater rim use a vertical measuring pole and the shadow it casts, compared with the shadow cast by the rim itself, to model the situation using similar triangles.
+
+\noindent In the diagram, $PQ$ represents the crater rim and $ST$ represents the measuring pole. The Sun's rays are parallel, so $PR$ and $SR$ lie along the same straight line, and $QR$ and $TR$ lie along the same straight line.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.55]
+    % Large triangle PQR
+    \coordinate (Q) at (0,0);
+    \coordinate (R) at (12,0);
+    \coordinate (P) at (0,9);
+
+    % Small triangle STR (S,T on the same lines as P,Q)
+    \coordinate (T) at (7.2,0);
+    %to maintain proportion we have TR = 12-7.2=4.8 , by similar triangles scale factor is 4.8/12 = 0.4, therefore TS should be 3.6 in height.
+    \coordinate (S) at (7.2,3.6);
+
+    \draw[thick] (P) -- (Q) -- (R) -- cycle;
+    \draw[thick] (S) -- (T);
+
+    \draw (0.4,0) -- (0.4,0.4) -- (0,0.4);
+    \draw (7.6,0) -- (7.6,0.4) -- (7.2,0.4);
+
+    \node at (Q) [anchor = north east] {$Q$};
+    \node at (R) [anchor = north west] {$R$};
+    \node at (P) [anchor = south east] {$P$};
+    \node at (T) [anchor = north] {$T$};
+    \node at (S) [anchor = south west] {$S$};
+
+    \node at (0,4.5) [anchor=east] {$x+2$ m};
+    \node at (7.2,1.35) [anchor=west] {$3$ m};
+    \node at (3.6,0) [anchor=north] {$5.4$ m};
+    \node at (9.6,0) [anchor=north] {$4.8$ m};
+\end{tikzpicture}
+\end{center}
+
+\noindent $PQ = (x+2)$ m is the height of the crater rim, $ST = 3$ m is the height of the pole.\\
+$QT = 5.4$ m and $TR = 4.8$ m.
+
+\begin{enumerate}
+    \item[(a)] Show that triangles $PQR$ and $STR$ are similar.
+
+    \vspace{3.5cm}
+    \answermarks{2}
+
+    \item[(b)] Use similar triangles to find the value of $x$.
+
+    \vspace{4cm}
+    \answereq{x}{2}
+\end{enumerate}
+\end{question}

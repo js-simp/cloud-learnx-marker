@@ -1,0 +1,47 @@
+\begin{question}
+\noindent A circular badminton club logo is designed with points $A$, $B$ and $C$ on the circumference of a circle with centre $O$, where $AC$ is a diameter of the circle.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+
+    \coordinate (O) at (0,0);
+    \draw[name path=circ] (O) circle (1);
+
+    \coordinate (A) at (180:1);
+    \coordinate (C) at (0:1);
+    \coordinate (B) at (145:1);
+
+    \fill[black] (O) circle (0.8pt);
+
+    % Diameter AC
+    \draw[thick] (A) -- (C);
+
+    % Chords AB and BC
+    \draw[thick] (A) -- (B);
+    \draw[thick] (B) -- (C);
+
+    % Labels
+    \node[left] at (A) {$A$};
+    \node[above] at (B) {$B$};
+    \node[right] at (C) {$C$};
+    \node[below] at (O) {$O$};
+
+    % angle BAC = 27 degrees marked at A, swept C--A--B (anticlockwise)
+    \pic [draw, angle eccentricity=1.5, angle radius=0.6cm, "$27^\circ$"] {angle = C--A--B};
+
+    % angle BCA = x, marked at C, swept A--C--B (anticlockwise)
+    \pic [draw, angle eccentricity=1.6, angle radius=0.5cm, "$x$"] {angle = A--C--B};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $BAC = 27^\circ$.
+
+\noindent Find the size of angle $x$.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}

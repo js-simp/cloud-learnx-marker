@@ -1,0 +1,36 @@
+\begin{question}
+\noindent A wildlife research team has a research base at point $R$ and a remote tracking station at point $T$. The scale drawing below shows their positions, where $1$ cm on the diagram represents $4$ km in real life.
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    \coordinate (R) at (0,0);
+    % Bearing of T from R is 128 degrees, so angle from horizontal (east) is 90-128 = -38
+    \coordinate (T) at (-38:5.2);
+    \coordinate (N) at (0,3);
+
+    % North line at R
+    \draw[thick, ->] (R) -- (N) node[above]{N};
+
+    % Line from R to T
+    \draw[thick] (R) -- (T);
+
+    % Angle arc at R between north line and RT, measured clockwise from north
+    \pic [draw, ->, angle radius=1.2cm, "$128^\circ$", angle eccentricity=1.4] {angle = T--R--N};
+
+    % Points
+    \filldraw (R) circle (1.5pt) node[below left]{$R$};
+    \filldraw (T) circle (1.5pt) node[below right]{$T$};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent The diagram is drawn accurately, using a scale of $1$ cm to $4$ km. On the diagram, the distance $RT = 5.2$ cm.
+
+\noindent Find the bearing of $T$ from $R$, and work out the actual distance between the research base and the tracking station.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answerplain{3}
+\end{flushright}
+\end{question}

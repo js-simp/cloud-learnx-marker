@@ -1,0 +1,47 @@
+\begin{question}
+\noindent $A$, $B$, $C$ and $D$ are points on the circumference of a circle. Chords $AC$ and $BD$ intersect inside the circle at point $E$.
+
+\noindent Angle $ADB = 34^\circ$ and angle $DBC = 41^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (A) at (150:1);
+    \coordinate (D) at (95:1);
+    \coordinate (B) at (250:1);
+    \coordinate (C) at (10:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+
+    \draw (A) -- (C);
+    \draw (B) -- (D);
+    \draw (A) -- (D);
+    \draw (A) -- (B);
+    \draw (D) -- (C);
+    \draw (B) -- (C);
+
+    \path[name path=AC] (A) -- (C);
+    \path[name path=BD] (B) -- (D);
+    \path[name intersections={of=AC and BD, by={E}}];
+
+    \node[above left] at (A) {$A$};
+    \node[above right] at (D) {$D$};
+    \node[below left] at (B) {$B$};
+    \node[right] at (C) {$C$};
+    \node[below right] at (E) {$E$};
+
+    \pic [draw, "$34^\circ$", angle eccentricity=1.6, angle radius=0.45cm] {angle = A--D--B};
+    \pic [draw, "$41^\circ$", angle eccentricity=1.6, angle radius=0.45cm] {angle = D--B--C};
+    \pic [draw, "$x$", angle eccentricity=1.5, angle radius=0.4cm] {angle = A--C--B};
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $ADB$ is the angle subtended by arc $AB$ at $D$, and angle $ACB$ is the angle subtended by the same arc $AB$ at $C$.
+
+\noindent Work out the size of angle $x$, marked at point $C$, giving a reason for your answer.
+
+\vspace{4.5cm}
+
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{3}
+\end{flushright}
+\end{question}

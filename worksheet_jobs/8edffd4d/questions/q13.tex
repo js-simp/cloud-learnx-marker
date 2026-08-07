@@ -1,0 +1,36 @@
+\begin{question}
+\noindent A research vessel is monitoring three ocean buoys, $A$, $B$ and $C$, that measure water temperature and salinity.
+
+\noindent The vessel sails from Buoy $A$ to Buoy $B$ on a bearing of $072^{\circ}$.\\
+At Buoy $B$, it changes course and sails to Buoy $C$ on a bearing of $138^{\circ}$.
+
+\noindent The diagram below shows the north line at $B$ and the directions of $A$ and $C$ from $B$ (not drawn to scale).
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    \coordinate (B) at (0,0);
+    \coordinate (N) at (0,3.5);
+    % A is on bearing 072 from B means B to A is at bearing 072+180=252 from B... 
+    % but we draw direction FROM B TO A which is reverse of A-to-B bearing (072), so bearing of A from B = 252
+    \coordinate (A) at (198:4.2);
+    % C is on bearing 138 from B (direct)
+    \coordinate (C) at (48:4.5);
+
+    \draw[thick,->] (B) -- (N) node[above]{N};
+    \draw[thick,->] (B) -- (A) node[below left]{$A$};
+    \draw[thick,->] (B) -- (C) node[above right]{$C$};
+
+    \pic [draw, ->, angle radius=0.9cm, "$138^{\circ}$", angle eccentricity=1.6] {angle = C--B--N};
+    \pic [draw, ->, angle radius=1.4cm, "$$", angle eccentricity=1.5] {angle = N--B--A};
+
+    \filldraw (B) circle (1.5pt) node[below]{$B$};
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the bearing of $A$ from $C$.
+
+\vspace{6cm}
+\begin{flushright}
+    \answerequnit{\text{Bearing}}{$^\circ$}{4}
+\end{flushright}
+\end{question}

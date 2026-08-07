@@ -1,0 +1,33 @@
+\begin{question}
+\noindent $A$, $B$ and $C$ are points on the circumference of a circle with centre $O$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (O) at (0,0);
+    \draw[name path=circ] (0,0) circle (1);
+    \fill[black] (O) circle (0.6pt);
+    \node[below right] at (O) {$O$};
+
+    \coordinate (A) at (150:1);
+    \coordinate (B) at (30:1);
+    \coordinate (C) at (-90:1);
+
+    \node[above left] at (A) {$A$};
+    \node[above right] at (B) {$B$};
+    \node[below] at (C) {$C$};
+
+    \draw (A) -- (O) -- (B);
+    \draw (A) -- (C) -- (B);
+
+    \pic [draw, "$71^\circ$", angle eccentricity=1.5, angle radius=0.5cm] {angle = B--C--A};
+    \pic [draw, "$x$", angle eccentricity=1.4, angle radius=0.4cm] {angle = A--O--B};
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $ACB = 71^\circ$.
+
+Work out the size of angle $AOB$, marked $x$ on the diagram.
+
+\vspace{4cm}
+\answerequnit{x}{$^\circ$}{2}
+\end{question}

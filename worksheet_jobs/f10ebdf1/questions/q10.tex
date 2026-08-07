@@ -1,0 +1,44 @@
+\begin{question}
+\noindent A UI/UX designer is creating a circular badge icon for an app. The badge is modelled as a circle with centre $O$ and radius $10$ cm. A straight decorative bar is drawn across the badge as a chord $AB$. The designer draws a line from $O$ perpendicular to $AB$, meeting the chord at point $M$, where $AM = 8$ cm.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (O) at (0,0);
+    \draw[name path=circ] (O) circle (1);
+    \fill[black] (O) circle (0.8pt);
+    \node[below] at (O) {$O$};
+
+    % Chord AB horizontal, radius 1, half-chord = 0.8 (scaled from 8/10)
+    \coordinate (A) at (-0.8,0.6);
+    \coordinate (B) at (0.8,0.6);
+    \coordinate (M) at (0,0.6);
+
+    \draw[thick] (A) -- (B);
+    \draw[thick] (O) -- (M);
+    \draw[thick] (O) -- (A);
+
+    \node[left] at (A) {$A$};
+    \node[right] at (B) {$B$};
+    \node[below] at (M) {$M$};
+
+    % right angle at M
+    \draw (M) ++(-0.08,0) -- ++(0,0.08) -- ++(0.08,0) ;
+
+    % tick marks for equal segments AM, MB
+    \draw ($(A)!0.5!(M) - (0,0.03)$) -- ($(A)!0.5!(M) + (0,0.03)$);
+    \draw ($(M)!0.5!(B) - (0,0.03)$) -- ($(M)!0.5!(B) + (0,0.03)$);
+
+    \node[above right] at ($(O)!0.5!(A)$) {$10$ cm};
+    \node[below] at ($(A)!0.5!(M)$) {$8$ cm};
+\end{tikzpicture}
+\end{center}
+
+\noindent Calculate the length of $OM$, the perpendicular distance from the centre $O$ to the chord $AB$.
+Give your answer correct to $3$ significant figures.
+
+\vspace{4.5cm}
+
+\begin{flushright}
+    \answerequnit{OM}{$\text{cm}$}{3}
+\end{flushright}
+\end{question}

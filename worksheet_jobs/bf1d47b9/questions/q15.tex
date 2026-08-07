@@ -1,0 +1,48 @@
+\begin{question}
+\noindent A satellite tracking station $S$ and an observation post $O$ are both used to monitor a weather balloon at point $W$.
+
+\noindent The observation post $O$ is due east of the tracking station $S$, and $SO = 6.4$ km.
+
+\noindent The balloon $W$ is due north of the observation post $O$, so that angle $SOW = 90^\circ$.
+
+\noindent The bearing of the balloon $W$ from the tracking station $S$ is $058^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9, transform shape]
+    \coordinate (S) at (0,0);
+    \coordinate (O) at (6.4,0);
+    % angle SOW = 90 so W is directly above O
+    % angle WSO = 90-58 = 32 degrees, so OW = SO*tan(58) = 6.4*tan(58) = 10.24
+    \coordinate (W) at (6.4,10.24);
+
+    % North line at S
+    \draw[dashed] (S) -- (0,4);
+    \draw[->] (0,3.6) -- (0,4);
+    \node at (0,4.3) [font=\small] {N};
+
+    \coordinate (NS) at (0,4);
+
+    % bearing angle at S between North and W
+    \pic [draw, -, angle radius=1cm, "$58^\circ$", angle eccentricity=1.5] {angle=W--S--NS};
+
+    % right angle at O
+    \draw[thick] (S) -- (O) -- (W) -- cycle;
+    \draw (5.9,0) -- (5.9,0.5) -- (6.4,0.5);
+
+    \node at (S) [below left, font=\small] {$S$};
+    \node at (O) [below right, font=\small] {$O$};
+    \node at (W) [above right, font=\small] {$W$};
+
+    \node at (3.2,-0.4) [font=\small] {$6.4$ km};
+    \node at (7.0,5.1) [font=\small] {$OW$};
+\end{tikzpicture}
+\end{center}
+
+\noindent Calculate the distance $OW$, giving your answer to 3 significant figures.
+
+\vspace{5.5cm}
+
+\begin{flushright}
+    \answerunit{km}{4}
+\end{flushright}
+\end{question}

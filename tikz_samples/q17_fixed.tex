@@ -1,0 +1,33 @@
+\begin{question}
+\noindent The diagram shows the positions of two points, $A$ and $B$. The line $NA$ points due north from $A$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    % Points A and B
+    \coordinate (A) at (0,0);
+    %angle from North to B is 68 degrees, approx 70 for ease while preserving visual accuracy. Therefore angle of B from horizontal is 90 -70 =20
+    \coordinate (B) at (20:5);
+    \coordinate (N) at (0,3);
+
+    % North line at A (dashed arrow pointing up)
+    \draw[thick, ->] (A) -- (N) node[above]{N};
+
+    % Line from A to B
+    \draw[thick] (A) -- (B);
+
+    % Angle arc at A between north line and AB, measured clockwise from north
+    \pic [draw, ->, angle radius=1.2cm, "$68^{\circ}$", angle eccentricity=1.4] {angle = B--A--N};
+
+    % Points
+    \filldraw (A) circle (1.5pt) node[below left]{$A$};
+    \filldraw (B) circle (1.5pt) node[above right]{$B$};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Write down the bearing of $A$ from $B$.
+\vspace{3cm}
+\begin{flushright}
+    \answerequnit{Bearing}{$^\circ$}{2}
+\end{flushright}
+\end{question}

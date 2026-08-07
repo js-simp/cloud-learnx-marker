@@ -1,0 +1,35 @@
+\begin{question}
+\noindent An e-sports tournament organiser is setting up two venue tents, $A$ and $B$, on a large outdoor site so that competitors can walk between the gaming hub and the broadcast studio. The bearing of tent $B$ from tent $A$ is $118^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    \coordinate (A) at (0,0);
+    %bearing of B from A is 118, angle from horizontal is 90-118 = -28
+    \coordinate (B) at (-28:6);
+
+    % North line at A
+    \draw[thick,->] (A) -- (0,3) node[above]{N};
+
+    % North line at B (parallel to line at A)
+    \draw[thick,->] (B) -- ($(B)+(0,3)$) node[above]{N};
+
+    % Line joining A and B
+    \draw[thick] (A) -- (B);
+
+    % Angle at A between North and AB
+    \pic [draw, ->, angle radius=1cm, "$118^\circ$", angle eccentricity=1.5] {angle = B--A--N};
+
+    \filldraw (A) circle (1.5pt) node[below left]{$A$};
+    \filldraw (B) circle (1.5pt) node[below right]{$B$};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the bearing of tent $A$ from tent $B$.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answerequnit{}{$^\circ$}{3}
+\end{flushright}
+\end{question}

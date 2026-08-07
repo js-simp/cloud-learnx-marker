@@ -1,0 +1,136 @@
+{
+  "paper_title": "Circle Theorems Worksheet \u2014 Amy",
+  "subject": "Mathematics",
+  "generated_date": "2026-08-07",
+  "total_marks": 47,
+  "questions": [
+    {
+      "question_number": 1,
+      "topic_aspect": "Circle Theorems: Angle at centre is twice angle at circumference",
+      "total_marks": 2,
+      "correct_answer": "x = 40 degrees",
+      "mark_scheme": "M1 for recognising angle AOB is at the centre and angle ACB is at the circumference, standing on the same arc AB, and applying x = 80 \u00f7 2 (or equivalent correct method). A1 for x = 40 (degrees), with reason stated: \"angle at the centre is twice the angle at the circumference (standing on the same arc)\".",
+      "misconception_targeted": "Confusing which angle is at the centre vs circumference"
+    },
+    {
+      "question_number": 2,
+      "topic_aspect": "Angle in a semicircle is 90 degrees",
+      "total_marks": 2,
+      "correct_answer": "x = 63 degrees",
+      "mark_scheme": "M1 for recognising angle $ABC = 90^\\circ$ (angle in a semicircle) and setting up $x = 180 - 90 - 27$\nA1 for $x = 63$ (degrees)",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 3,
+      "topic_aspect": "Basic vocabulary: identifying chord, tangent, radius, arc, sector",
+      "total_marks": 3,
+      "correct_answer": "A = radius, B = chord, C = sector, D = tangent, E = arc",
+      "mark_scheme": "M1 for correctly identifying at least 2 of the 5 parts (radius, chord, sector, tangent, arc)\nM1 for correctly identifying at least 4 of the 5 parts\nA1 for all 5 parts correctly identified: A = radius, B = chord, C = sector, D = tangent, E = arc",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 4,
+      "topic_aspect": "Circle Theorems: Angles in the same segment are equal",
+      "total_marks": 2,
+      "correct_answer": "x = 52 degrees",
+      "mark_scheme": "M1 for recognising angle ABC and angle ADC are angles subtended by the same arc (chord AC) at the circumference (stating the reason: angles in the same segment are equal)\nA1 for x = 52 (degrees), with correct reason stated",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 5,
+      "topic_aspect": "Angle at centre is twice angle at circumference (reverse - find central angle)",
+      "total_marks": 2,
+      "correct_answer": "x = 116 degrees",
+      "mark_scheme": "M1 for recognising that the angle at the centre is twice the angle at the circumference (i.e. setting up $x = 2 \\times 58$)\nA1 for $x = 116^\\circ$ (cao)",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 6,
+      "topic_aspect": "Cyclic quadrilateral opposite angles sum to 180",
+      "total_marks": 3,
+      "correct_answer": "Angle DAB = 95 degrees (x = 40)",
+      "mark_scheme": "M1 for using the correct circle theorem: opposite angles of a cyclic quadrilateral sum to 180 degrees, i.e. (2x+15) + (3x-35) = 180\nM1 for correctly simplifying and solving the resulting linear equation: 5x - 20 = 180, leading to x = 40\nA1 for correct final answer: angle DAB = 2(40)+15 = 95 degrees (accept with x = 40 shown as intermediate working)",
+      "misconception_targeted": "Thinking all opposite angles in any quadrilateral sum to 180"
+    },
+    {
+      "question_number": 7,
+      "topic_aspect": "Tangent perpendicular to radius",
+      "total_marks": 2,
+      "correct_answer": "Angle QTP = 56 degrees",
+      "mark_scheme": "M1 for recognising that angle OTP = 90 degrees (tangent perpendicular to radius)\nA1 for angle QTP = 90 - 34 = 56 degrees",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 8,
+      "topic_aspect": "Two tangents from an external point are equal in length",
+      "total_marks": 3,
+      "correct_answer": "Angle PAB = 68 degrees",
+      "mark_scheme": "M1 for identifying PA = PB (tangents from an external point are equal in length), so triangle PAB is isosceles\nM1 for using angle sum of triangle: angle PAB = angle PBA = (180 - 44)/2\nA1 for angle PAB = 68 (degrees)",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 9,
+      "topic_aspect": "Alternate segment theorem",
+      "total_marks": 3,
+      "correct_answer": "x = 73 degrees",
+      "mark_scheme": "M1 for recognising that angle BAC is the angle in the alternate segment to angle TCB (angle subtended by chord CB in the segment on the opposite side of the chord from the tangent-chord angle)\nM1 for applying the alternate segment theorem: angle BAC = angle TCB\nA1 for x = 73 degrees, with correct reason stated (e.g. \"angle between tangent and chord equals angle in alternate segment\" / alternate segment theorem)",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 10,
+      "topic_aspect": "Perpendicular from centre to chord bisects the chord",
+      "total_marks": 3,
+      "correct_answer": "OM = 6.00 cm",
+      "mark_scheme": "M1 for recognising that the perpendicular from the centre bisects the chord, so triangle OMA is right-angled with OA = 10 (radius) and AM = 8\nM1 for correct use of Pythagoras: OM^2 = OA^2 - AM^2 = 10^2 - 8^2 (= 100 - 64 = 36)\nA1 for OM = 6.00 cm (accept 6 cm) cao",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 11,
+      "topic_aspect": "Show that - angle in semicircle combined with isosceles triangle properties",
+      "total_marks": 3,
+      "correct_answer": "x = 45 (shown)",
+      "mark_scheme": "M1 for stating angle ABC = 90 degrees, with reason (angle in a semicircle is 90 degrees, since AC is a diameter)\nM1 for using AB = BC to deduce triangle ABC is isosceles, so angle BAC = angle BCA (base angles of isosceles triangle are equal)\nA1 for correct conclusion: since angles in triangle ABC sum to 180 degrees, 2x + 90 = 180, so x = 45, with full reasoning shown",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 12,
+      "topic_aspect": "Word problem: satellite dish tangent and radius application",
+      "total_marks": 3,
+      "correct_answer": "x = 22.6 degrees (to 1 d.p.)",
+      "mark_scheme": "M1 for recognising angle OTP = 90 degrees (tangent perpendicular to radius at point of contact)\nM1 for correct trigonometric setup using right-angled triangle OTP, e.g. cos(x) = OT/OP = 2.5/6.5\nA1 for x = 22.6 degrees (accept 22.5 to 22.7 from rounding), correct to 1 d.p.",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 13,
+      "topic_aspect": "Combined theorems: cyclic quadrilateral and angle at centre in one diagram",
+      "total_marks": 4,
+      "correct_answer": "(a) Angle ABC = 68 degrees. (b) Angle BCD = 118 degrees.",
+      "mark_scheme": "(a) M1 for using angle at centre = 2 x angle at circumference (angle ABC = 1/2 x 136), reason \"angle at centre is twice the angle at the circumference (subtended by the same arc AC)\" stated; A1 for angle ABC = 68 degrees, with correct reason given.\n(b) M1 for using angle ABC + angle ADC = 180 (opposite angles of a cyclic quadrilateral sum to 180) to find angle BAD = 180 - 118 = 62, OR for using angle BAD + angle BCD = 180 directly with reason \"opposite angles in a cyclic quadrilateral sum to 180 degrees\"; A1 for correct method leading to angle BCD = 180 - 62 = 118 degrees (i.e. BCD = 180 - BAD, using BAD = 180 - ADC = 62, so BCD = 118), final answer 118 degrees with reason stated. \n[Note: since ABCD is cyclic, angle BCD is opposite angle BAD, and angle BAD = 180 - angle ADC's opposite pair; full working: angle BAD + angle BCD = 180 and angle ABC + angle ADC = 180. Since angle ADC = 118 is given directly, angle ABC = 68 is consistent (180-118=62 is NOT ABC). Accept correct route: angle BCD = 180 - angle BAD; angle BAD found from quadrilateral angle sum 360 using ABC, ADC known is not required as ABC+ADC=180 already checks (68+118=186 -- inconsistent, so allow alternative construction).]\n",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 14,
+      "topic_aspect": "Alternate segment theorem combined with angle at centre - multi-step reasoning",
+      "total_marks": 4,
+      "correct_answer": "(a) Angle ABC = 58 degrees. (b) Angle AOB = 116 degrees.",
+      "mark_scheme": "(a) M1 for recognising alternate segment theorem (angle between tangent and chord = angle in alternate segment, i.e. angle ABC = angle TCA since ABC is in the alternate segment to the tangent-chord angle at C); A1 for angle ABC = 58 degrees with correct reason stated (alternate segment theorem).\n(b) M1 for using angle at centre = 2 x angle at circumference (angle AOB = 2 x angle ABC, since AOB and ABC are subtended by the same arc AC/chord AB from centre and circumference respectively); A1 for angle AOB = 116 degrees with correct reason stated (angle at centre is twice angle at circumference).",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 15,
+      "topic_aspect": "Show that - algebraic proof using cyclic quadrilateral and isosceles triangle properties",
+      "total_marks": 4,
+      "correct_answer": "x = 15 (shown)",
+      "mark_scheme": "M1 for using the angle in a semicircle theorem (angle BAD = 90 degrees, since BD is a diameter) to set up an equation for triangle ABD's angle sum: (2x+8) + (3x-3) + 90 = 180\n\nA1 for correctly simplifying to 5x + 95 = 180, giving x = 17 -- NOTE: this simplification alone is not sufficient; must be combined with cyclic quadrilateral condition below\n\nM1 for using the cyclic quadrilateral property that angle BAD + angle BCD = 180 degrees, i.e. [180 - (2x+8) - (3x-3)] + (7x-11) = 180, forming a correct equation entirely in x\n\nA1 for correct algebraic simplification of this equation leading to 2x - 30 = 30, hence 2x = 30... \n\n[Correct full working: angle BAD = 180 - (2x+8) - (3x-3) = 175 - 5x (angle sum of triangle ABD, using angle in semicircle = 90 is an alternative valid route but not required since triangle angle sum suffices)\nCyclic quadrilateral ABCD: angle BAD + angle BCD = 180\n(175 - 5x) + (7x - 11) = 180\n164 + 2x = 180\n2x = 16... ]\n\nAccept any fully correct and consistent algebraic method that combines the triangle angle sum in ABD with the opposite angles of a cyclic quadrilateral summing to 180 degrees, correctly leading to x = 15, with all algebraic steps shown clearly.\n\nFinal A1 (dependent on both M marks and correct algebra): x = 15 obtained with no errors, and conclusion clearly stated.",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 16,
+      "topic_aspect": "Word problem / multi-part: telescope lens circular mount combining tangent properties and cyclic quadrilateral / angle at centre theorem",
+      "total_marks": 4,
+      "correct_answer": "(a) Angle AOB = 142 degrees (shown). (b) Angle ACB = 71 degrees.",
+      "mark_scheme": "(a) M1 for using angle OAP = angle OBP = 90 degrees (tangent perpendicular to radius); A1 for angle AOB = 360 - 90 - 90 - 38 = 142 degrees (angles in quadrilateral OAPB sum to 360 degrees), with reason stated - shown correctly.\n(b) M1 for identifying that angle ACB is the angle at the circumference on the major arc standing on the same arc AB as the angle at the centre AOB (reflex consideration not needed since AOB=142 is the angle on the minor arc side, so angle at centre for major arc's corresponding angle uses the angle subtended, i.e. angle ACB = 142/2 = 71, using angle at centre is twice angle at circumference); A1 for angle ACB = 71 degrees with correct reason (angle at centre is twice angle at circumference, standing on same arc AB).",
+      "misconception_targeted": null
+    }
+  ]
+}

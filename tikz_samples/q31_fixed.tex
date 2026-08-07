@@ -1,0 +1,33 @@
+\begin{question}
+\noindent $A$, $B$, $C$ and $D$ are four points on the circumference of a circle.
+
+\noindent The angle at $A$ is $(2x+10)^\circ$ and the angle at $C$ is $(3x-30)^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate[label=above left:$B$] (B) at (120:1);
+    \coordinate[label=below left:$A$] (A) at (200:1);
+    \coordinate[label=below right:$D$] (D) at (320:1);
+    \coordinate[label=above right:$C$] (C) at (40:1);
+    \draw[name path=circ] (0,0) circle (1);
+    \draw[line join=bevel] (A) -- (B) -- (C) -- (D) -- cycle;
+
+    \pic [draw, "$2x+10^\circ$", angle eccentricity=1.8, angle radius = 0.75cm] {angle = D--A--B};
+    \pic [draw, "$3x-30^\circ$", angle eccentricity=1.6, angle radius = 0.7cm] {angle = B--C--D};
+\end{tikzpicture}
+\end{center}
+
+\noindent A historian studying the astrolabe used by medieval astronomers notices that its main dial is divided by a quadrilateral marked exactly like this one, and wants to check the calibration is correct.
+
+\begin{enumerate}
+    \item[(a)] Show that $x = 40$.
+
+    \vspace{4cm}
+    \answermarks{2}
+
+    \item[(b)] Find the size of each of the four angles of the cyclic quadrilateral $ABCD$.
+
+    \vspace{5cm}
+    \answerplain{2}
+\end{enumerate}
+\end{question}

@@ -1,0 +1,55 @@
+\begin{question}
+\noindent A UI/UX designer is creating a circular badge icon for a Model United Nations app. The designer sketches the construction lines of the circle below, labelling five features $A$, $B$, $C$, $D$ and $E$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.4]
+    % Centre of circle
+    \coordinate (O) at (0,0);
+    \draw[name path=circ] (O) circle (1);
+    \fill[black] (O) circle (0.6pt);
+
+    % Points on circumference
+    \coordinate (P1) at (150:1); % end of radius A
+    \coordinate (P2) at (60:1);  % end of chord B (with P3)
+    \coordinate (P3) at (10:1);
+    \coordinate (P4) at (-60:1); % tangent point for D
+    \coordinate (P5) at (-150:1); % arc E endpoint start
+    \coordinate (P6) at (-100:1); % arc E endpoint end
+
+    % A: radius from O to P1
+    \draw[thick] (O) -- (P1);
+    \node at (0.5,0.75) {$A$};
+
+    % B: chord between P2 and P3
+    \draw[thick] (P2) -- (P3);
+    \node at (0.85,0.55) {$B$};
+
+    % C: sector between two radii, shaded
+    \coordinate (S1) at (-20:1);
+    \coordinate (S2) at (20:1);
+    \fill[gray!30] (O) -- (S1) arc (-20:20:1) -- cycle;
+    \draw[thick] (O) -- (S1);
+    \draw[thick] (O) -- (S2);
+    \node at (0,0.35) {$C$};
+
+    % D: tangent line at P4
+    \draw[thick] (P4) -- ($(P4)!0.6!90:(O)$) coordinate (T1);
+    \draw[thick] (P4) -- ($(P4)!0.6!-90:(O)$) coordinate (T2);
+    \node[below right] at (T2) {$D$};
+
+    % E: arc between P5 and P6, thickened
+    \draw[thick, red, line width=1.5pt] (P5) arc (210:260:1);
+    \node[below left] at (-125:1.15) {$E$};
+
+    % Labels for reference points (small, optional)
+    \node[above left] at (P1) {};
+\end{tikzpicture}
+\end{center}
+
+\noindent Using the diagram, write down the mathematical name for each of the labelled parts $A$, $B$, $C$, $D$ and $E$.
+
+\vspace{4cm}
+\begin{flushright}
+    \answerlines{5}{3}
+\end{flushright}
+\end{question}

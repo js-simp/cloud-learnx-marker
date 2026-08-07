@@ -1,0 +1,57 @@
+\begin{question}
+\noindent Two radio observatories, $P$ and $Q$, are used to triangulate the position of a distant signal source, $S$, detected during a deep-space scan.
+
+$Q$ is due east of $P$, and the distance $PQ = 40$ km.
+From observatory $P$, the bearing of the signal source $S$ is $065^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.7, transform shape]
+    \coordinate (P) at (0,0);
+    \coordinate (Q) at (7,0);
+    \coordinate (S) at (65:9.5);
+
+    % North lines
+    \draw[dashed] (P) -- (0,3.5) node[above] {N};
+    \draw[dashed] (Q) -- (7,3.5) node[above] {N};
+
+    % Baseline PQ
+    \draw[thick] (P) -- (Q);
+
+    % Lines to S
+    \draw[thick] (P) -- (S);
+    \draw[thick] (Q) -- (S);
+
+    % Angle at P between North and PS
+    \pic [draw, angle radius=0.9cm, "$65^\circ$", angle eccentricity=1.5] {angle = S--P--Q};
+    \node at (0.6,1.6) [font=\small] {};
+
+    % Points
+    \filldraw (P) circle (1.5pt) node[below left]{$P$};
+    \filldraw (Q) circle (1.5pt) node[below right]{$Q$};
+    \filldraw (S) circle (1.5pt) node[above]{$S$};
+
+    \draw (P) -- (Q) node[midway, below] {$40$ km};
+\end{tikzpicture}
+\end{center}
+
+\noindent (Diagram not drawn accurately.)
+
+\begin{enumerate}
+    \item[(a)] Write down the bearing of $Q$ from $P$.
+
+    \vspace{2.5cm}
+    \answerequnit{\theta}{$^\circ$}{1}
+
+    \item[(b)] Find the bearing of $P$ from $Q$.
+
+    \vspace{3cm}
+    \answerequnit{\theta}{$^\circ$}{1}
+
+    \item[(c)] The bearing of $S$ from $Q$ is $310^\circ$.
+
+    Calculate the size of angle $PSQ$, the angle between the two lines of sight to the signal source measured at $S$.
+
+    \vspace{5cm}
+    \answerequnit{\theta}{$^\circ$}{2}
+\end{enumerate}
+\end{question}

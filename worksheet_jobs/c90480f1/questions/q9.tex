@@ -1,0 +1,34 @@
+\begin{question}
+\noindent A space agency is tracking two ground stations, $A$ and $B$, that both observe a weather balloon at point $C$ as it rises through the atmosphere.
+
+The distance from station $A$ to the balloon is $AC = 14.5$ km, and the distance from station $B$ to the balloon is $BC = 9.8$ km. The angle between these two lines of sight, $\angle ACB$, is $107^{\circ}$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    \coordinate (A) at (-3,-2);
+    \coordinate (B) at (3,-1);
+    \coordinate (C) at (0.5,4.2);
+
+    \draw (A) -- (B) -- (C) -- cycle;
+
+    \pic [draw, -, angle radius=0.6cm, "$107^{\circ}$", angle eccentricity=1.6] {angle=A--C--B};
+
+    \node at (A) [left,font=\small] {$A$};
+    \node at (B) [right,font=\small] {$B$};
+    \node at (C) [above,font=\small] {$C$};
+
+    \draw (A) -- (C) node[midway, left] {$14.5$ km};
+    \draw (B) -- (C) node[midway, right] {$9.8$ km};
+    \draw (A) -- (B) node[midway, below] {$x$ km};
+\end{tikzpicture}
+\end{center}
+
+\noindent Calculate the distance $AB$ between the two ground stations.
+Give your answer correct to 3 significant figures.
+
+\vspace{5cm}
+
+\begin{flushright}
+    \answerequnit{AB}{\text{km}}{4}
+\end{flushright}
+\end{question}

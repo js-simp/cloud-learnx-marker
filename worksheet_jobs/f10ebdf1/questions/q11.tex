@@ -1,0 +1,37 @@
+\begin{question}
+\noindent A UI/UX designer is creating a circular logo badge for a Model United Nations conference. The badge is modelled as a circle with centre $O$, where $AC$ is a diameter. A decorative triangle $ABC$ is drawn inside the circle, with point $B$ on the circumference. To make the design symmetric, the designer ensures that $AB = BC$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.4]
+
+    \coordinate (O) at (0,0);
+    \draw[name path=circ] (O) circle (1);
+
+    \coordinate (A) at (180:1);
+    \coordinate (C) at (0:1);
+    \coordinate (B) at (90:1);
+
+    \fill[black] (O) circle (0.8pt);
+
+    \draw[thick] (A) -- (C);
+    \draw[thick] (A) -- (B);
+    \draw[thick] (B) -- (C);
+
+    \node[left] at (A) {$A$};
+    \node[above] at (B) {$B$};
+    \node[right] at (C) {$C$};
+    \node[below] at (O) {$O$};
+
+    \pic [draw, angle eccentricity=1.5, angle radius=0.6cm, "$x$"] {angle = C--A--B};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Given that $AB = BC$, show that $x = 45$.\\
+Give reasons for each stage of your working.
+
+\vspace{4cm}
+
+\answermarks{3}
+
+\end{question}

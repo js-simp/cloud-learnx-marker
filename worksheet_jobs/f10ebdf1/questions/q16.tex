@@ -1,0 +1,64 @@
+\begin{question}
+\noindent A telescope's circular lens mount, with centre $O$, is held in place by two straight support brackets, $PA$ and $PB$, which are tangential to the circular mount at points $A$ and $B$. The brackets meet at an external mounting bracket point $P$.
+
+A third fixing point $C$ lies on the circumference of the mount, such that $A$, $B$ and $C$ form a triangle inscribed in the circle, with $P$, $A$, $C$ and $B$ arranged so that $ACBP$ is a quadrilateral (i.e. $C$ lies on the major arc $AB$, on the opposite side of the circle from $P$).
+
+Angle $APB = 38^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.9]
+    % Centre of circle
+    \coordinate (O) at (0,0);
+    \fill[black] (O) circle (1pt);
+    \node[below] at (O) {$O$};
+
+    \draw (O) circle (2cm);
+
+    % A and B placed symmetric about vertical axis, angle AOB = 180-38 = 142
+    \coordinate (A) at (161:2);
+    \coordinate (B) at (19:2);
+
+    % tangent directions at A and B (perpendicular to radius)
+    \coordinate (T1) at ($(A)!1!161:(O)$);
+    \coordinate (T2) at ($(B)!1!19:(O)$);
+
+    % long tangent lines to find intersection P
+    \coordinate (E1) at ($(A)!7cm!90:(O)$);
+    \coordinate (E2) at ($(B)!7cm!-90:(O)$);
+
+    \path [name path=line1] (A) -- (E1);
+    \path [name path=line2] (B) -- (E2);
+    \path [name intersections={of=line1 and line2, by={P}}];
+
+    \draw (A) -- (P) -- (B);
+    \draw (O) -- (A);
+    \draw (O) -- (B);
+
+    % Point C on major arc AB, opposite side from P (P is above, so C is below)
+    \coordinate (C) at (-90:2);
+
+    \draw (A) -- (C);
+    \draw (C) -- (B);
+
+    \node[above left] at (A) {$A$};
+    \node[above right] at (B) {$B$};
+    \node[above] at (P) {$P$};
+    \node[below] at (C) {$C$};
+
+    \pic [draw, angle eccentricity=1.5, angle radius=0.5cm, "$38^\circ$"] {angle = A--P--B};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item[(a)] Show that angle $AOB = 142^\circ$, giving reasons for each stage of your working.
+
+    \vspace{4cm}
+    \answermarks{2}
+
+    \item[(b)] Calculate the size of angle $ACB$, where $C$ is a fixing point on the major arc $AB$ (the arc on the opposite side of the circle from $P$).\\
+    Give a reason for your answer.
+
+    \vspace{4cm}
+    \answerequnit{ACB}{$^\circ$}{2}
+\end{enumerate}
+\end{question}

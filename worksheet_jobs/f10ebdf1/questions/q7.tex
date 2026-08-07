@@ -1,0 +1,53 @@
+\begin{question}
+\noindent A UI/UX designer is creating a circular badge icon for a badminton tournament app. The icon consists of a circle with centre $O$, a point $T$ on the circumference where a straight edge (tangent) $PT$ just touches the circle, and a chord $TQ$ drawn from $T$ to another point $Q$ on the circle.
+
+$O$, $Q$ and $T$ are positioned so that triangle $OQT$ is isosceles, with $OQ = OT$ (both radii). Angle $OTQ = 34^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (O) at (0,0);
+    \draw (O) circle (1);
+    \fill[black] (O) circle (0.8pt);
+
+    % T at angle -90 (bottom of circle)
+    \coordinate (T) at (-90:1);
+
+    % Q positioned so angle OTQ = 34 degrees; angle OQT = 34 degrees too (isosceles)
+    % place Q at angle 148 degrees (chosen so triangle looks right and angle OTQ = 34)
+    \coordinate (Q) at (148:1);
+
+    % Draw radius OT and OQ
+    \draw (O) -- (T);
+    \draw (O) -- (Q);
+
+    % Draw chord TQ
+    \draw (T) -- (Q);
+
+    % Draw tangent at T, perpendicular to OT (OT is vertical, so tangent is horizontal)
+    \coordinate (P) at ($(T)+(-1.4,0)$);
+    \coordinate (Pright) at ($(T)+(1.4,0)$);
+    \draw (P) -- (Pright);
+
+    % Labels
+    \node[below] at (T) {$T$};
+    \node[above left] at (Q) {$Q$};
+    \node[above] at (O) {$O$};
+    \node[left] at (P) {$P$};
+
+    % Mark angle OTQ = 34 degrees at T, sweeping from Q to O (interior angle)
+    \pic [draw, angle eccentricity=1.6, angle radius=0.5cm, "$34^\circ$"] {angle = Q--T--O};
+
+    % Mark right angle between tangent PT and radius OT
+    \tkzMarkRightAngle[size=.25](O,T,Pright);
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Find the size of angle $QTP$, the angle between the chord $TQ$ and the tangent $PT$.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answerequnit{QTP}{$^\circ$}{2}
+\end{flushright}
+\end{question}

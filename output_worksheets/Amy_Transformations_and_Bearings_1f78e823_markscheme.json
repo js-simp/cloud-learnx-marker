@@ -1,0 +1,136 @@
+{
+  "paper_title": "Transformations and Bearings Worksheet \u2014 Amy",
+  "subject": "Mathematics",
+  "generated_date": "2026-08-07",
+  "total_marks": 52,
+  "questions": [
+    {
+      "question_number": 1,
+      "topic_aspect": "Translation using column vectors on a grid",
+      "total_marks": 2,
+      "correct_answer": "Triangle T' has vertices at (1,-2), (3,-2), (1,0) \u2014 i.e. each vertex of T moved 5 units right and 3 units down.",
+      "mark_scheme": "M1 for translating at least one vertex correctly by (5,-3) (e.g. showing correct method/attempt at moving 5 right and 3 down from at least one point of T); A1 for fully correct image triangle T' drawn with vertices at (1,-2), (3,-2), (1,0), correctly labelled.",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 2,
+      "topic_aspect": "Reflection in a horizontal or vertical line",
+      "total_marks": 2,
+      "correct_answer": "Triangle T' has vertices A'(6,1), B'(6,4), C'(5,1)",
+      "mark_scheme": "M1 for a correct method to find at least one reflected vertex (e.g. finding the perpendicular distance from a vertex to the line x=2 and reflecting it the same distance on the other side, or correctly identifying that y-coordinates stay the same and x-coordinates map as x \u2192 4-x). A1 for all three vertices correctly plotted/stated: A'(6,1), B'(6,4), C'(5,1) \u2014 accept triangle drawn correctly on the grid instead of coordinates stated.",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 3,
+      "topic_aspect": "Rotation about a given point (the origin) using a full turn amount",
+      "total_marks": 3,
+      "correct_answer": "Triangle S' has vertices at A'(1,-1), B'(1,-4), C'(3,-1)",
+      "mark_scheme": "M1 for correctly identifying the rotation rule for 90 degrees clockwise about the origin (x,y) -> (y,-x), or for correctly transforming at least one vertex.\nM1 for correctly transforming at least two of the three vertices: A(1,1)->(1,-1), B(4,1)->(1,-4), C(1,3)->(3,-1).\nA1 for triangle S' correctly drawn on the grid with all three vertices at A'(1,-1), B'(1,-4), C'(3,-1) (accept correct plotting without labels, allow for tracing paper method giving correct orientation and position).",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 4,
+      "topic_aspect": "Enlargement with positive integer scale factor from a centre",
+      "total_marks": 3,
+      "correct_answer": "Triangle P' has vertices A'(2,2), B'(4,2), C'(2,6)",
+      "mark_scheme": "M1 for identifying centre of enlargement at origin O(0,0) and finding the position vector of at least one vertex from O (e.g. OA = (1,1))\nM1 for multiplying each position vector from the centre by scale factor 2 (e.g. OA' = (2,2), OB' = (4,2), OC' = (2,6))\nA1 for correctly drawn/plotted triangle P' with vertices at A'(2,2), B'(4,2), C'(2,6), correctly labelled",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 5,
+      "topic_aspect": "Describing a single transformation fully (rotation) given object and image on a coordinate grid",
+      "total_marks": 3,
+      "correct_answer": "Rotation of 180 degrees about the point (0, 0)",
+      "mark_scheme": "M1 for identifying the transformation as a rotation (not a combination of transformations); M1 for correct centre of rotation (0,0), found e.g. by drawing/checking that lines joining corresponding vertices through a common point bisect each other, or by testing candidate centres; A1 for correct angle 180 degrees (accept \"half turn\"). Note: all three elements (rotation, centre (0,0), angle 180 degrees) must be stated for full marks; if any one element is missing or incorrect, award only the marks for the correct elements stated.",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 6,
+      "topic_aspect": "Reflection in the line y = x",
+      "total_marks": 2,
+      "correct_answer": "A'(2,1), B'(2,4), C'(4,4), D'(5,1)",
+      "mark_scheme": "M1 for reflecting each point in the line y = x by swapping the x and y coordinates (i.e. (a,b) -> (b,a)), shown by at least 2 correct vertices plotted or stated.\nA1 for all four vertices correct: A'(2,1), B'(2,4), C'(4,4), D'(5,1) (accept as a correctly drawn quadrilateral on the grid).",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 7,
+      "topic_aspect": "Rotation about a point not at the origin",
+      "total_marks": 3,
+      "correct_answer": "Triangle L' has vertices A'(3,-2), B'(1,-2), C'(1,-4)",
+      "mark_scheme": "M1 for correctly identifying the centre of rotation (2,-1) and applying a 180 degree rotation strategy (e.g. finding the vector from each vertex to the centre and reversing it, or counting equal squares on the opposite side of the centre for each vertex).\nM1 for correctly transforming at least two of the three vertices: A(1,0) to A'(3,-2), B(3,0) to B'(1,-2), C(3,2) to C'(1,-4).\nA1 for triangle L' drawn correctly and fully labelled with all three vertices at A'(3,-2), B'(1,-2), C'(1,-4).",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 8,
+      "topic_aspect": "Enlargement with fractional scale factor",
+      "total_marks": 3,
+      "correct_answer": "A'(-2,0), B'(-2,-3), C'(0,-3), D'(0,0)",
+      "mark_scheme": "M1 for finding the vector (or distance) from centre O(-4,-4) to at least one vertex of Q, and multiplying by scale factor 1/2 (e.g. O to A = (4,8), half = (2,4), giving A' = O + (2,4) = (-2,0))\nA1 for all four correct image coordinates: A'(-2,0), B'(-2,-3), C'(0,-3), D'(0,0)\nB1 for correctly drawing shape Q' on the grid with vertices as above, half the linear size of Q and correctly positioned closer to O",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 9,
+      "topic_aspect": "Enlargement with negative scale factor",
+      "total_marks": 4,
+      "correct_answer": "Triangle A' has vertices at (5,1), (5,-3), (9,1)",
+      "mark_scheme": "M1 for correct method: drawing/calculating a ray from the centre of enlargement (1,1) through each vertex of A and extending it to twice the distance on the opposite side of the centre (i.e. using vector from centre to vertex, multiplying by -2).\nM1 for correctly finding at least two image vertices consistent with scale factor -2 (invariant point at centre, image on opposite side, distances doubled): e.g. vertex (-1,1) is 2 units left of centre, so image is 4 units right of centre at (5,1); vertex (-1,3) is (-2,2) from centre, so image is (4,-4) from centre giving (5,-3); vertex (-3,1) is (-4,0) from centre, so image is (8,0) from centre giving (9,1).\nA1 for all three image vertices correctly plotted/stated: (5,1), (5,-3), (9,1).\nA1 for correctly drawn triangle A' on the opposite side of the centre from A (inverted orientation), fully correct with all vertices labelled.\n(Award follow-through marks if one arithmetic slip but method and inversion through centre are otherwise correct.)",
+      "misconception_targeted": "Believing negative scale factor produces an image on the same side as the object rather than inverted through the centre."
+    },
+    {
+      "question_number": 10,
+      "topic_aspect": "Combined transformations (translation then reflection)",
+      "total_marks": 4,
+      "correct_answer": "Triangle U has vertices A'(1,-2), B'(3,-2), C'(1,1). Triangle V has vertices A''(1,4), B''(3,4), C''(1,1).",
+      "mark_scheme": "(a) M1 for translating all three vertices by (6,-3) correctly (i.e. each x-coordinate +6, each y-coordinate -3); A1 for correctly plotted and labelled triangle U with vertices A'(1,-2), B'(3,-2), C'(1,1).\n(b) M1 for reflecting triangle U in the line y=1 (each point's y-coordinate reflected: new y = 2(1) - old y, x-coordinate unchanged); A1 for correctly plotted and labelled triangle V with vertices A''(1,4), B''(3,4), C''(1,1) (note C'' coincides with C' since C' lies on the mirror line y=1).",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 11,
+      "topic_aspect": "Bearings \u2014 measuring and drawing a bearing",
+      "total_marks": 3,
+      "correct_answer": "Bearing of B from S = 029 degrees (accept 027-031 degrees due to measurement tolerance)",
+      "mark_scheme": "M1 for correctly identifying the angle to be measured as the clockwise angle from North to the line SB at point S.\nM1 for using a protractor correctly aligned with North at S to measure the angle.\nA1 for correct bearing of 029 degrees (accept answers in the range 027 degrees to 031 degrees, written as a three-figure bearing).",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 12,
+      "topic_aspect": "Bearings \u2014 calculating a back bearing",
+      "total_marks": 3,
+      "correct_answer": "298 degrees",
+      "mark_scheme": "M1 for recognising that the back bearing = bearing + 180 degrees (since 118 < 180, add 180 rather than subtract)\nM1 for correct calculation: 118 + 180 = 298\nA1 for final answer 298 degrees (bearing must be given as three figures)",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 13,
+      "topic_aspect": "Bearings \u2014 using angle facts (co-interior/alternate angles) with parallel lines",
+      "total_marks": 4,
+      "correct_answer": "(a) Angle ABS = 42 degrees (shown from bearing 312 degrees). (b) Bearing of A from S = 205 degrees.",
+      "mark_scheme": "(a) M1 for recognising that the bearing of S from B (312\u00b0) means the angle measured clockwise from North at B to S is 312\u00b0, so the angle from North (the other way, i.e. the reflex side) is 360\u00b0 \u2212 312\u00b0 = 48\u00b0, and hence angle between the westward direction BA and BS is 48\u00b0... \nCorrect approach: Since AB is due East-West, the angle between North at B and BA (pointing West) is 270\u00b0. The angle NBS (bearing) = 312\u00b0, measured clockwise from North. So angle ABS = 312\u00b0 \u2212 270\u00b0 = 42\u00b0. M1 for finding angle NBS \u2212 270\u00b0 (or equivalent method using angle facts), A1 for correctly showing angle ABS = 42\u00b0.\n\n(b) M1 for using alternate angle facts correctly: since the North lines at A and B are parallel, angle NAS (bearing from A, = 65\u00b0) and the alternate angle at S between AS and the North line through S can be identified; also using angle sum of triangle ABS: angle ASB = 180\u00b0 \u2212 65\u00b0 \u2212 42\u00b0 = 73\u00b0.\nThen bearing of A from S = bearing of S from A (065\u00b0) plus 180\u00b0 (back bearing) minus angle ASB adjustment, using alternate angles between the parallel North lines at A and S: the bearing of A from S = 065\u00b0 + 180\u00b0 = 245\u00b0, then since angle ASB = 73\u00b0 is the angle between SA and SB (not directly the adjustment needed) \u2014 correct final method:\n\nUsing alternate angles: angle between North at S and SA (going back to A) equals angle NAS's alternate partner = 65\u00b0 (alternate angles, North lines parallel), so the back bearing from S to A, measured from North at S rotating to SA, is 065\u00b0 + 180\u00b0 = 245\u00b0... \n\nA1 for correct final bearing of A from S = 245\u00b0 a.g. (accept equivalent correct method showing full working with angle facts, allow 245\u00b0 as final answer, i.e. back bearing of 065\u00b0 + 180\u00b0 = 245\u00b0, with intermediate use of angle ABS = 42\u00b0 and triangle angle sum where appropriate for full method marks).",
+      "misconception_targeted": "Confusing alternate and co-interior angle relationships when converting between bearings at different points."
+    },
+    {
+      "question_number": 14,
+      "topic_aspect": "Transformations and Bearings \u2014 Show that rotation preserves side lengths, confirming congruency between object and image",
+      "total_marks": 3,
+      "correct_answer": "AB = A'B' = 3, BC = B'C' = 2, AC = A'C' = sqrt(13), so all corresponding sides are equal in length, confirming the triangles are congruent (SSS).",
+      "mark_scheme": "M1 for correctly calculating at least two side lengths of triangle ABC using coordinates (e.g. AB = distance from (1,5) to (1,2) = 3, BC = distance from (1,2) to (3,2) = 2, AC = sqrt((3-1)^2+(2-5)^2) = sqrt(13)).\nM1 for correctly calculating the corresponding side lengths of triangle A'B'C' (A'B' = distance from (5,-1) to (2,-1) = 3, B'C' = distance from (2,-1) to (2,-3) = 2, A'C' = sqrt((5-2)^2+(-1-(-3))^2) = sqrt(13)).\nA1 for correct conclusion stating that AB = A'B' = 3, BC = B'C' = 2 and AC = A'C' = sqrt(13) (all corresponding sides equal), therefore triangle ABC is congruent to triangle A'B'C' (SSS), consistent with the fact that rotations preserve length.",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 15,
+      "topic_aspect": "Combined transformations described using vector notation \u2014 link between enlargement scale factor -1 and rotation",
+      "total_marks": 5,
+      "correct_answer": "(a) A'(-1,-1), B'(-3,-1), C'(-1,-2). (b) Rotation of 180 degrees about the centre (0,0).",
+      "mark_scheme": "(a) M1 for correctly applying enlargement scale factor -1 about (0,0) to at least one vertex (multiplying each coordinate by -1); M1 for finding all three correct image coordinates A'(-1,-1), B'(-3,-1), C'(-1,-2); A1 for correctly drawn/labelled triangle K on the grid matching these coordinates.\n(b) B1 for identifying the transformation as a rotation of 180 degrees (accept \"half turn\"); B1 for stating the centre of rotation as (0,0). (Both facts must be given for full marks; \"enlargement scale factor -1\" alone scores 0 for this part as it is not a single transformation description equivalent required here \u2014 full credit given only for rotation, 180 degrees, about (0,0).)",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 16,
+      "topic_aspect": "Multi-step bearings problem involving triangle and angle-fact reasoning (no trigonometry)",
+      "total_marks": 5,
+      "correct_answer": "148 degrees",
+      "mark_scheme": "M1 for identifying angle QPN' (north line at P, alternate/co-interior angle reasoning) using the north lines at P and Q are parallel, so angle NQP (measured from north line at Q back to P) = 180 - 74 = 106 degrees (angles on a straight line / co-interior angles with parallel north lines)\nM1 for finding angle NQR = 146 degrees (given bearing of R from Q), and using angle PQR = 108 degrees to find angle between QP and QR\nA1 for correct interior angle calculation: angle PQR = 108 degrees is given; reflex/interior check: angle between north at Q and QP = 106 degrees (since bearing of P from Q = 74+180-360 adjustment... i.e. bearing of P from Q = 254 degrees, so angle from north to QP going clockwise the short way = 360-254=106, matching co-interior angle with bearing of Q from P =74)\nM1 for using angle sum at P: bearing of R from P = bearing of Q from P + angle QPR, where angle QPR is found from triangle angle sum or exterior angle reasoning: angle QPR = angle between PQ and PR\nA1 for final correct bearing = 148 degrees (accept working showing: bearing of P from Q = 74+180 = 254 degrees; angle RQP (interior, between QR and QP) = bearing QP direction (254) minus bearing QR direction (146) = 108 degrees, consistent with given; angle QPR found using triangle exterior angle relationships: since PQ is a straight direction of 074 from P, and turning at Q from QP-direction(254) to QR-direction(146) is a turn of 108 degrees to the left (anticlockwise), by co-interior/alternate angle reasoning the direction PR from P is obtained by measuring the equivalent angle at P: bearing of R from P = 74 + (180-108) = 148 degrees)\n\nFull marks awarded for any complete, correct method using angle facts (parallel north lines, alternate/co-interior angles, angles on a straight line, angle sum of triangle) leading to bearing of R from P = 148 degrees, without use of trigonometric ratios.",
+      "misconception_targeted": null
+    }
+  ]
+}

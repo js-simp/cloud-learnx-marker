@@ -1,0 +1,34 @@
+\begin{question}
+\noindent An archivist is examining an old wooden book stand, which is designed as a right-angled triangular support, $ABC$, used to prop open a large historical manuscript.
+
+\noindent The base $AB$ of the stand is 24 cm long, and the vertical support $BC$ is 10 cm long, with the right angle at $B$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.5, transform shape]
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (24,0);
+    \coordinate (C) at (24,10);
+
+    \draw[thick] (A) -- (B) -- (C) -- cycle;
+
+    \draw pic[draw, angle radius=4mm] {right angle=C--B--A};
+    \pic [draw, "$x^{\circ}$", angle eccentricity=1.6, angle radius=1.2cm] {angle = C--A--B};
+
+    \node at (A) [below left, font=\small] {$A$};
+    \node at (B) [below right, font=\small] {$B$};
+    \node at (C) [above right, font=\small] {$C$};
+
+    \draw (A) -- (B) node[midway, below, font=\small] {$24$ cm};
+    \draw (B) -- (C) node[midway, right, font=\small] {$10$ cm};
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the size of angle $x$, the angle between the base $AB$ and the sloping edge $AC$.
+Give your answer correct to 1 decimal place.
+
+\vspace{4.5cm}
+
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{3}
+\end{flushright}
+\end{question}

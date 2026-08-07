@@ -1,0 +1,33 @@
+\begin{question}
+\noindent A historian is studying an old survey map of a triangular plot of land, $ABC$, marked out around the ruins of a Roman observatory once used to track celestial events.
+
+The surveyor recorded that $BC = 24$ m, angle $BAC = 52^{\circ}$, and angle $ACB = 71^{\circ}$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    \coordinate (A) at (-2,-1);
+    \coordinate (B) at (2.5,-2);
+    \coordinate (C) at (0.3,3.2);
+
+    \draw (A) -- (B) -- (C) -- cycle;
+
+    \pic [draw, -, angle radius=0.5cm, "$52^{\circ}$", angle eccentricity=1.6] {angle=C--A--B};
+    \pic [draw, -, angle radius=0.5cm, "$71^{\circ}$", angle eccentricity=1.6] {angle=B--C--A};
+
+    \node at (A) [left,font=\small] {$A$};
+    \node at (B) [right,font=\small] {$B$};
+    \node at (C) [above,font=\small] {$C$};
+
+    \draw (B) -- (C) node[midway, right] {$24$m};
+\end{tikzpicture}
+\end{center}
+
+\noindent Calculate the length of $AB$.
+Give your answer correct to 3 significant figures.
+
+\vspace{4.5cm}
+
+\begin{flushright}
+\answerunit{m}{4}
+\end{flushright}
+\end{question}

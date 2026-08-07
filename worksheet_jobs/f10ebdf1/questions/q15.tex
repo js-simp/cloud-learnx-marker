@@ -1,0 +1,49 @@
+\begin{question}
+\noindent $A$, $B$, $C$ and $D$ are four points on the circumference of a circle, with centre $O$, in that order around the circle. $BD$ is a diameter of the circle.
+
+$O$ is joined to $A$ and to $C$.
+
+Angle $ABD = (2x+8)^\circ$ and angle $ADB = (3x-3)^\circ$.
+
+Angle $BCD = (7x-11)^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.4]
+    \coordinate (O) at (0,0);
+    \draw[name path=circ] (0,0) circle (1);
+    \fill[black] (O) circle (0.6pt);
+    \node[below right] at (O) {$O$};
+
+    % B and D are ends of a diameter
+    \coordinate (B) at (160:1);
+    \coordinate (D) at (-20:1);
+
+    % A above the diameter BD, C below the diameter BD
+    \coordinate (A) at (95:1);
+    \coordinate (C) at (-80:1);
+
+    \draw[thick] (B) -- (D);
+    \draw[thick] (A) -- (B);
+    \draw[thick] (A) -- (D);
+    \draw[thick] (B) -- (C);
+    \draw[thick] (C) -- (D);
+    \draw[thick] (O) -- (A);
+    \draw[thick] (O) -- (C);
+
+    \node[above left] at (A) {$A$};
+    \node[left] at (B) {$B$};
+    \node[below right] at (C) {$C$};
+    \node[right] at (D) {$D$};
+
+    \pic [draw, "$2x+8^\circ$", angle eccentricity=1.6, angle radius=0.5cm] {angle = D--B--A};
+    \pic [draw, "$3x-3^\circ$", angle eccentricity=1.7, angle radius=0.35cm] {angle = A--D--B};
+    \pic [draw, "$7x-11^\circ$", angle eccentricity=1.5, angle radius=0.5cm] {angle = D--C--B};
+\end{tikzpicture}
+\end{center}
+
+\noindent Show that $x = 15$.
+
+\vspace{6cm}
+
+\answermarks{4}
+\end{question}

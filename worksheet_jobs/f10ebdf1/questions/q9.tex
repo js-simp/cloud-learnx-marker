@@ -1,0 +1,55 @@
+\begin{question}
+\noindent A circular badminton court marking is being designed using a compass and straightedge tool in a UI/UX prototyping app. Points $A$, $B$ and $C$ lie on the circumference of a circle, and $ST$ is a tangent to the circle at point $C$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+
+    % draw circle
+    \draw[name path=circ] (0,0) circle (1);
+
+    % mark point of tangency
+    \coordinate (C) at (-90:1);
+
+    % draw tangent line through C
+    \draw (C) -- ($(C)!1.5!-90:(0,0)$) coordinate (S);
+    \draw (C) -- ($(C)!1.5!90:(0,0)$) coordinate (T);
+
+    % Using 73 as angle TCB for ease while preserving visual accuracy
+    % angle subtended by CB at centre would be 146, so angle of B from horizontal anticlockwise is 90 - (180-146) = 56
+    \coordinate (B) at (56:1);
+
+    % A is another point on the circumference, positioned to form a clear triangle
+    \coordinate (A) at (160:1);
+
+    % Draw chords
+    \draw (C) -- (B);
+    \draw (A) -- (C);
+    \draw (A) -- (B);
+
+    % Labels
+    \node[below] at (C) {$C$};
+    \node[right] at (B) {$B$};
+    \node[above left] at (A) {$A$};
+    \node[below] at (S) {$S$};
+    \node[above] at (T) {$T$};
+
+    % angle between tangent and chord CB (at C, between T and B)
+    \pic [draw, "$73^\circ$", angle eccentricity=1.5, angle radius=0.55cm] {angle = T--C--B};
+
+    % angle in alternate segment, angle BAC
+    \pic [draw, "$x$", angle eccentricity=1.6, angle radius=0.45cm] {angle = B--A--C};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $TCB = 73^\circ$, where $TCB$ is the angle between the tangent $ST$ and the chord $CB$.
+
+\noindent Find the size of angle $BAC$, marked $x$ on the diagram.\\
+Give a reason for your answer.
+
+\vspace{4.5cm}
+
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{3}
+\end{flushright}
+\end{question}

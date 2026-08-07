@@ -1,0 +1,82 @@
+\begin{question}
+\noindent For each diagram below, $O$ marks the centre of the circle where shown. Name the circle theorem that lets you find the marked angle, and state the value of that angle.
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Diagram} & \textbf{Theorem name and marked angle} \\
+\hline
+&\\
+\begin{tikzpicture}[scale=1.1]
+    \coordinate (O) at (0,0);
+    \draw (0,0) circle (1);
+    \fill[black] (O) circle (0.6pt);
+    \node at (0.12,-0.12) {$O$};
+
+    \coordinate (A) at (200:1);
+    \coordinate (B) at (0:1);
+    \coordinate (C) at (100:1);
+
+    \node[left] at (A) {$A$};
+    \node[right] at (B) {$B$};
+    \node[above] at (C) {$C$};
+
+    \draw (A) -- (O) -- (B);
+    \draw (A) -- (C) -- (B);
+
+    \pic [draw, angle radius=0.35cm, "$116^\circ$"] {angle = B--O--A};
+    \pic [draw, angle radius=0.3cm, "$x$"] {angle = B--C--A};
+\end{tikzpicture}
+&
+\\[2.2cm]
+\hline
+&\\
+\begin{tikzpicture}[scale=1.1]
+    \coordinate (A) at (150:1);
+    \coordinate (B) at (30:1);
+    \coordinate (C) at (-60:1);
+    \coordinate (D) at (-140:1);
+
+    \draw (0,0) circle (1);
+    \node[above left] at (A) {$A$};
+    \node[above right] at (B) {$B$};
+    \node[below right] at (C) {$C$};
+    \node[below left] at (D) {$D$};
+
+    \draw (A) -- (B) -- (C) -- (D) -- cycle;
+
+    \pic [draw, angle radius=0.3cm, "$98^\circ$"] {angle = A--B--C};
+    \pic [draw, angle radius=0.3cm, "$y$"] {angle = B--C--D};
+\end{tikzpicture}
+&
+\\[2.2cm]
+\hline
+&\\
+\begin{tikzpicture}[scale=1.1]
+    \coordinate (O) at (0,0);
+    \draw (0,0) circle (1);
+    \fill[black] (O) circle (0.6pt);
+    \node at (0.12,0.15) {$O$};
+
+    \coordinate (P) at (90:1);
+    \coordinate (T) at (90:2);
+
+    \draw (P) -- (O);
+    \draw ($(P)+(-1.5,0)$) -- ($(P)+(1.5,0)$);
+    \node[above] at (P) {$P$};
+    \node[left] at ($(P)+(-1.2,0)$) {$S$};
+    \node[right] at ($(P)+(1.2,0)$) {$Q$};
+
+    \pic [draw, angle radius=0.35cm, "$z$"] {angle = Q--P--O};
+\end{tikzpicture}
+&
+\\[2cm]
+\hline
+\end{tabular}
+\end{center}
+
+\noindent Write down the name of the theorem and the value of the marked angle for each of the three diagrams.
+
+\vspace{0.3cm}
+\answerlines{6}{3}
+\end{question}

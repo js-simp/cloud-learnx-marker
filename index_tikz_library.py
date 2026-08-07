@@ -1,4 +1,3 @@
-# index_tikz_library.py
 import os
 import re
 from pathlib import Path
@@ -17,49 +16,58 @@ TIKZ_DIR = Path("tikz_samples")
 
 def split_into_diagrams(content: str):
     """
-    Extract each \\begin{tikzpicture}...\\end{tikzpicture} block separately.
-    Falls back to treating the whole file as one block if no tikzpicture
-    environment is found (e.g. a file using a different drawing method).
+    Extract each \begin{tikzpicture}...\end{tikzpicture} block separately.
+    Discards non-TikZ question wrappers (e.g., \begin{question}).
     """
     blocks = re.findall(r'\\begin\{tikzpicture\}.*?\\end\{tikzpicture\}', content, re.DOTALL)
-    return blocks if blocks else [content]
+    return blocks  # Returns empty list if no valid tikzpicture environment exists
 
 
 for tex_file in TIKZ_DIR.glob("*.tex"):
     content  = tex_file.read_text()
     diagrams = split_into_diagrams(content)
 
+    if not diagrams:
+        print(f"⚠️  Skipping {tex_file.name} — no \\begin{{tikzpicture}} block found.")
+        continue
+
     if len(diagrams) > 1:
         print(f"📄 {tex_file.stem} — {len(diagrams)} diagrams found, indexing separately")
 
     for i, diagram_tex in enumerate(diagrams, start=1):
-        # Give each diagram a unique name — e.g. "2d_shapes_1", "2d_shapes_2"
-        # Single-diagram files just get "_1" appended, which is fine.
         diagram_name = f"{tex_file.stem}_{i}"
 
-        # Skip if already indexed — makes it safe to re-run after a crash
+        # Skip if already indexed
         existing = supabase.table("tikz_library").select("id").eq("filename", diagram_name).execute()
         if existing.data:
             print(f"⏭️  Skipping {diagram_name} — already indexed")
             continue
 
-        # Ask Gemini to describe THIS specific diagram, not the whole file
+        # Generate a descriptive mathematical summary for vector search
+        desc_prompt = (
+            "Analyze this TikZ code and give a clear 1-sentence description of the mathematical diagram "
+            "it represents (include topic/key geometry features, e.g., 'Right-angled triangle with hypotenuse labeling' "
+            "or 'Circle theorem showing central angle and inscribed angle' or 'Circle theorem with intersecting tangents'):\n\n"
+            f"{diagram_tex}"
+        )
         desc_response = client.models.generate_content(
             model="gemini-3.1-flash-lite",
-            contents=f"In one sentence, describe what mathematical diagram this tikz code draws:\n{diagram_tex}"
+            contents=desc_prompt
         )
         description = desc_response.text.strip()
 
-        # Generate embedding from the description + name
-        # gemini-embedding-001 replaces the deprecated text-embedding-004
+        # Generate embedding with RETRIEVAL_DOCUMENT task type
         embed_response = client.models.embed_content(
             model="gemini-embedding-001",
-            contents=f"{diagram_name}: {description}",
-            config=types.EmbedContentConfig(output_dimensionality=768)
+            contents=f"{diagram_name}: {description}\n\n{diagram_tex}",
+            config=types.EmbedContentConfig(
+                output_dimensionality=768,
+                task_type="RETRIEVAL_DOCUMENT"
+            )
         )
         embedding = embed_response.embeddings[0].values
 
-        # Store in Supabase — one row per diagram, not per file
+        # Store in Supabase
         supabase.table("tikz_library").insert({
             "filename":    diagram_name,
             "description": description,

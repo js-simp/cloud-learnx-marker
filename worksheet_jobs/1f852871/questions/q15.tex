@@ -1,0 +1,46 @@
+\begin{question}
+\noindent $A$, $B$, $C$ and $D$ are four points on the circumference of a circle with centre $O$.
+$AC$ and $BD$ are chords which intersect at point $X$ inside the circle.
+
+$OA = OB$ (both are radii), and angle $OAB = 24^\circ$.
+Angle $ADB = 41^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.4]
+    \coordinate (O) at (0,0);
+    \draw[name path=circ] (0,0) circle (1);
+    \fill[black] (O) circle (0.8pt);
+    \node[below right] at (O) {$O$};
+
+    \coordinate (A) at (132:1);
+    \coordinate (B) at (48:1);
+    \coordinate (D) at (250:1);
+    \coordinate (C) at (340:1);
+
+    \node[above left] at (A) {$A$};
+    \node[above right] at (B) {$B$};
+    \node[below left] at (D) {$D$};
+    \node[below right] at (C) {$C$};
+
+    \draw (A) -- (B);
+    \draw (A) -- (O);
+    \draw (B) -- (O);
+    \draw (A) -- (C);
+    \draw (B) -- (D);
+    \draw (A) -- (D);
+
+    \path[name path=AC] (A) -- (C);
+    \path[name path=BD] (B) -- (D);
+    \path[name intersections={of=AC and BD, by={X}}];
+    \node[below right] at (X) {$X$};
+
+    \pic [draw, "$24^\circ$", angle eccentricity=1.6, angle radius=0.35cm] {angle = B--A--O};
+    \pic [draw, "$41^\circ$", angle eccentricity=1.7, angle radius=0.3cm] {angle = B--D--A};
+\end{tikzpicture}
+\end{center}
+
+\noindent Show that triangle $ABX$ is isosceles.
+
+\vspace{5cm}
+\answermarks{4}
+\end{question}

@@ -1,0 +1,56 @@
+\begin{question}
+\noindent A weather research station, $S$, launches a monitoring drone to collect atmospheric data.
+
+\noindent The drone flies from $S$ on a bearing of $048^\circ$ for a distance of $12$ km to a point $A$.\\
+It then changes course and flies on a bearing of $138^\circ$ for a distance of $9$ km to a point $B$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.55, transform shape]
+    \coordinate (S) at (0,0);
+    % Bearing 048 from S: angle from North (clockwise) = 48, so angle from East (standard) = 90-48=42
+    \coordinate (A) at (42:12);
+    % At A, bearing 138 from A. North line at A is vertical through A.
+    % Angle from North (clockwise) = 138, standard angle from East = 90-138 = -48
+    \coordinate (B) at ($(A) + (-48:9)$);
+    \coordinate (N_S) at (0,6.5);
+    \coordinate (N_A) at ($(A)+(0,5)$);
+
+    % North line at S
+    \draw[dashed] (S) -- (N_S);
+    \draw[->] (0,6.2) -- (0,6.5);
+    \node at (0,6.8) [font=\small] {N};
+
+    % North line at A
+    \draw[dashed] (A) -- (N_A);
+    \draw[->] ($(A)+(0,4.7)$) -- ($(A)+(0,5)$);
+    \node at ($(A)+(0,5.3)$) [font=\small] {N};
+
+    % Angle at S between North and SA
+    \pic [draw, angle radius=1cm, "$48^{\circ}$", angle eccentricity=1.5] {angle=A--S--N_S};
+
+    % Angle at A between North and AB
+    \pic [draw, angle radius=0.8cm, "$138^{\circ}$", angle eccentricity=1.6] {angle=B--A--N_A};
+
+    \draw[thick] (S) -- (A) -- (B);
+
+    \node at (S) [below left, font=\small] {$S$};
+    \node at (A) [above right, font=\small] {$A$};
+    \node at (B) [right, font=\small] {$B$};
+
+    \draw (S) -- (A) node[midway, below right, font=\small] {$12$ km};
+    \draw (A) -- (B) node[midway, above right, font=\small] {$9$ km};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item[(a)] Show that angle $SAB = 90^\circ$.
+
+    \vspace{3.5cm}
+    \answermarks{2}
+
+    \item[(b)] Work out the bearing of $B$ from $S$.
+
+    \vspace{4.5cm}
+    \answerequnit{}{$^\circ$}{2}
+\end{enumerate}
+\end{question}

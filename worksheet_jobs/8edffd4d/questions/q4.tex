@@ -1,0 +1,41 @@
+\begin{question}
+\noindent An esports tournament organiser is setting up outdoor broadcast vans at two locations, station $A$ and weather station $B$, to check signal conditions before a live event.
+
+\noindent The bearing of weather station $B$ from station $A$ is $065^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.1, transform shape]
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (65:4);
+
+    % North line at A
+    \draw[dashed] (A) -- (0,3);
+    \draw[->] (0,2.7) -- (0,3);
+    \node at (0,3.3) [font=\small] {N};
+
+    % North line at B
+    \draw[dashed] (B) -- ($(B)+(0,2)$);
+    \draw[->] (B)++(0,1.7) -- ($(B)+(0,2)$);
+    \node at ($(B)+(0,2.3)$) [font=\small] {N};
+
+    \coordinate (J) at (0,3);
+
+    % Bearing angle at A
+    \pic [draw, -, angle radius=1cm, "$65^\circ$", angle eccentricity=1.5] {angle=B--A--J};
+
+    % Line joining A and B
+    \draw[thick] (A) -- (B);
+
+    \node at (A) [below,font=\small] {$A$};
+    \node at (B) [above right,font=\small] {$B$};
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the bearing of station $A$ from weather station $B$.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answerequnit{}{$^\circ$}{3}
+\end{flushright}
+\end{question}

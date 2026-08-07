@@ -1,0 +1,43 @@
+\begin{question}
+\noindent $A$, $B$, $C$ and $O$ are points on and inside a circle, where $O$ is the centre. $A$, $B$ and $D$ lie on the circumference, with $AOD$ a straight line through the centre.
+
+\noindent The angle at $B$ in quadrilateral $OABC$... 
+
+\noindent Points $P$, $Q$, $R$ lie on the circumference of a circle with centre $O$. $S$ is also a point on the circumference, so that $OPSR$ is a cyclic quadrilateral (i.e. $O$, $P$, $S$ and $R$ all lie on a circle).
+
+\noindent The angle at $P$ is $(3x+5)^\circ$ and the angle at $R$ is $(x+15)^\circ$, as shown in the diagram.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \coordinate (O) at (0,0);
+    \coordinate (P) at (150:1);
+    \coordinate (S) at (250:1);
+    \coordinate (R) at (330:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+    \fill[black] (O) circle (1pt);
+
+    \draw[line join=bevel] (O) -- (P) -- (S) -- (R) -- cycle;
+
+    \node[above left] at (P) {$P$};
+    \node[below left] at (S) {$S$};
+    \node[below right] at (R) {$R$};
+    \node[above right] at (O) {$O$};
+
+    \pic [draw, "$(3x+5)^\circ$", angle eccentricity=1.6, angle radius=0.5cm] {angle = O--P--S};
+    \pic [draw, "$(x+15)^\circ$", angle eccentricity=1.6, angle radius=0.5cm] {angle = S--R--O};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item[(a)] Show that $x = 40$.
+
+    \vspace{4.5cm}
+    \answermarks{2}
+
+    \item[(b)] Work out the size of the angle at the centre, angle $POR$, reflex.
+
+    \vspace{4.5cm}
+    \answerequnit{POR}{$^\circ$}{2}
+\end{enumerate}
+\end{question}

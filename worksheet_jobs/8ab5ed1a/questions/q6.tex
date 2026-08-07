@@ -1,0 +1,41 @@
+\begin{question}
+\noindent An e-sports tournament organiser is setting up a live broadcast link between two venues, $A$ and $B$. Venue $B$ is on a bearing of $118^\circ$ from venue $A$.
+
+The diagram shows the North direction drawn at both $A$ and $B$. The two North lines are parallel.
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    \coordinate (A) at (0,0);
+    \coordinate (N_A) at (0,3);
+    % bearing of B from A is 118 degrees, so angle from horizontal is 90-118 = -28
+    \coordinate (B) at (-28:6);
+    \coordinate (N_B) at ($(B)+(0,3)$);
+
+    % North line at A
+    \draw[thick, ->] (A) -- (N_A) node[above] {N};
+
+    % North line at B (parallel to North at A)
+    \draw[thick, ->] (B) -- (N_B) node[above] {N};
+
+    % Line AB
+    \draw[thick] (A) -- (B);
+
+    % Angle at A between North and AB (bearing of B from A)
+    \pic [draw, angle radius=1cm, "$118^\circ$"] {angle = B--A--N_A};
+
+    % Mark the alternate angle at B (angle between AB and the North line at B, on the side towards A)
+    \pic [draw, angle radius=1cm, "$x^\circ$"] {angle = N_B--B--A};
+
+    \filldraw (A) circle (1.5pt) node[below left] {$A$};
+    \filldraw (B) circle (1.5pt) node[below right] {$B$};
+\end{tikzpicture}
+\end{center}
+
+\noindent The bearing of $A$ from $B$ (the \textbf{back bearing}) is required for the return signal.
+
+\noindent Show that the bearing of $A$ from $B$ is $298^\circ$.
+
+\vspace{4cm}
+
+\answermarks{3}
+\end{question}

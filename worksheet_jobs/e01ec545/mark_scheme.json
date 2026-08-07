@@ -1,0 +1,136 @@
+{
+  "paper_title": "Transformations Worksheet \u2014 Kalan",
+  "subject": "Mathematics",
+  "generated_date": "2026-08-08",
+  "total_marks": 47,
+  "questions": [
+    {
+      "question_number": 1,
+      "topic_aspect": "Reflection in a horizontal/vertical line on a grid",
+      "total_marks": 2,
+      "correct_answer": "Image B has vertices P'(1,-1), Q'(1,-4), R'(3,-4), S'(3,-1) \u2014 i.e. the rectangle reflected below the x-axis, directly opposite shape A, with each point the same perpendicular distance from the x-axis as the corresponding original point.",
+      "mark_scheme": "M1 for correctly reflecting at least one vertex (or reflecting the shape into the correct region, below the x-axis, with correct orientation)\nA1 for fully correct image B with vertices at (1,-1), (1,-4), (3,-4), (3,-1), correctly labelled",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 2,
+      "topic_aspect": "Reflection in y-axis",
+      "total_marks": 2,
+      "correct_answer": "Image E' has vertices X'(-1,1), Y'(-1,4), Z'(-4,1)",
+      "mark_scheme": "M1 for correctly reflecting at least two vertices in the y-axis (correct method: same y-coordinate, x-coordinate negated), or for a fully correct triangle drawn with one vertex labelling error.\nA1 for correct triangle E' drawn and labelled with all three vertices correctly at X'(-1,1), Y'(-1,4), Z'(-4,1).",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 3,
+      "topic_aspect": "Translation using a column vector",
+      "total_marks": 2,
+      "correct_answer": "Image R' has vertices A'(-1,-1), B'(-1,1), C'(1,1), D'(1,-1)",
+      "mark_scheme": "M1 for translating at least 3 of the 4 vertices correctly by adding 3 to each x-coordinate and subtracting 4 from each y-coordinate (allow correct vectors drawn/indicated on grid even if not all vertices labelled).\nA1 for fully correct image R' drawn with vertices at A'(-1,-1), B'(-1,1), C'(1,1), D'(1,-1), correctly labelled.",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 4,
+      "topic_aspect": "Rotation about the origin (90\u00b0, 180\u00b0)",
+      "total_marks": 3,
+      "correct_answer": "A'(1,-1), B'(4,-1), C'(1,-3)",
+      "mark_scheme": "M1 for correctly identifying/applying the rule that a 90\u00b0 clockwise rotation about the origin maps (x,y) to (y,-x) (may be shown by attempting to plot at least one correctly transformed vertex or equivalent working)\nM1 for a triangle drawn in the correct orientation (rotated 90\u00b0 clockwise relative to T, same size and shape) with vertices in approximately correct quadrant\nA1 for all three vertices correctly given as A'(1,-1), B'(4,-1), C'(1,-3) (fully correct diagram/coordinates)",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 5,
+      "topic_aspect": "Enlargement with positive integer scale factor from a given centre",
+      "total_marks": 3,
+      "correct_answer": "Image L' has vertices A'(2,2), B'(2,6), C'(4,2)",
+      "mark_scheme": "M1 for a correct method: drawing (or using) rays from O through each vertex of L, or calculating the vector from O to each vertex and doubling it (e.g. O to A is (2,2), so O to A' is (4,4), giving A' = O + (4,4) = (2,2))\nM1 for at least two of the three image vertices correctly plotted/stated: A'(2,2), B'(2,6), C'(4,2)\nA1 for fully correct triangle L' drawn with all three vertices correct: A'(2,2), B'(2,6), C'(4,2), and correctly labelled",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 6,
+      "topic_aspect": "Describing a single reflection fully (identifying mirror line equation, including diagonal lines y=x or y=-x)",
+      "total_marks": 2,
+      "correct_answer": "Reflection in the line y = -x",
+      "mark_scheme": "M1 for identifying the transformation as a reflection (stating \"reflection\")\nA1 for correctly stating the mirror line as y = -x (fully correct equation)\nNote: award full marks (M1A1) if candidate states \"reflection in y = -x\" with no other qualifying statement needed. If candidate states reflection but gives incorrect or no line equation, award M1A0.",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 7,
+      "topic_aspect": "Describing a rotation fully (centre, angle, direction)",
+      "total_marks": 3,
+      "correct_answer": "Rotation of 90\u00b0 clockwise (i.e. 270\u00b0 anticlockwise) about the centre (1, -1)",
+      "mark_scheme": "M1 for identifying that the transformation is a rotation (with correct sense that it is a single transformation, not a combination) \\\\\nM1 for finding the correct centre of rotation (1, -1), e.g. by using perpendicular bisector construction of at least one pair of corresponding points, or by trial \\\\\nA1 for fully correct description: rotation, 90\u00b0 clockwise (or equivalently 270\u00b0 anticlockwise), centre (1, -1) \u2014 all three elements required for the final mark",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 8,
+      "topic_aspect": "Describing a translation using vector notation",
+      "total_marks": 2,
+      "correct_answer": "Translation by vector $\\begin{pmatrix}9\\\\-7\\end{pmatrix}$",
+      "mark_scheme": "M1 for identifying the transformation as a translation and finding the correct horizontal or vertical component (e.g. stating 9 right or 7 down, or an otherwise correct vector with one component correct). A1 for fully correct vector $\\begin{pmatrix}9\\\\-7\\end{pmatrix}$ (accept \"translation 9 right and 7 down\" stated in words, with vector notation preferred).",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 9,
+      "topic_aspect": "Enlargement with fractional scale factor",
+      "total_marks": 3,
+      "correct_answer": "Image M' has vertices A'(-6,4), B'(-6,6), C'(-4,4)",
+      "mark_scheme": "M1 for identifying the correct distance from centre (-6,6) to each vertex of M (e.g. centre to A = 4 units down; centre to C = 4 units down, 4 units right)\nM1 for halving each of these distances from the centre of enlargement (-6,6) to locate at least two correct image vertices (e.g. A' at (-6,4), C' at (-4,4))\nA1 for fully correct triangle M' drawn with vertices at A'(-6,4), B'(-6,6), C'(-4,4)",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 10,
+      "topic_aspect": "Enlargement \u2014 describing fully including centre and scale factor",
+      "total_marks": 3,
+      "correct_answer": "Enlargement with scale factor 3, centre of enlargement (0, -1)",
+      "mark_scheme": "M1 for drawing/identifying two or more rays through corresponding vertices of $M$ and $M'$ to locate the centre of enlargement, or for correctly finding the ratio of corresponding side lengths (e.g. $A'B' \\div AB = 6 \\div 2 = 3$)\nA1 for correct scale factor of 3\nA1 for correct centre of enlargement at $(0,-1)$\n(Answer must state \"enlargement\", scale factor 3, AND centre (0,-1) for full marks; if any element missing or incorrect, award marks as earned above)",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 11,
+      "topic_aspect": "Word problem: enlargement scale factor applied to microscope magnification",
+      "total_marks": 3,
+      "correct_answer": "25.6 mm^2",
+      "mark_scheme": "M1 for finding the scale factor of enlargement: 6.4 \u00f7 0.8 (= 8)\nM1 for finding the new (shorter) side length using this scale factor: 0.5 \u00d7 8 (= 4)\nA1 for correct final area: 6.4 \u00d7 4 = 25.6 mm^2 (accept full correct alternative method, e.g. scaling area by (scale factor)^2: 0.8 \u00d7 0.5 \u00d7 8^2 = 25.6)",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 12,
+      "topic_aspect": "Show that a point is invariant under a given transformation (reflection in the line y = x)",
+      "total_marks": 3,
+      "correct_answer": "P(3,3) maps to itself, i.e. P' = (3,3), since P lies on the mirror line y = x.",
+      "mark_scheme": "M1 for stating/using the rule that reflection in the line y = x swaps the x and y coordinates, i.e. (x,y) -> (y,x)\nM1 for applying this rule to P(3,3): swapping coordinates gives (3,3)\nA1 for concluding P' = (3,3) = P, so P is invariant (unchanged) under the reflection, with correct reasoning that any point on the mirror line maps to itself",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 13,
+      "topic_aspect": "Enlargement with negative scale factor",
+      "total_marks": 4,
+      "correct_answer": "A'(-7,-9), B'(-7,-5), C'(-9,-5)",
+      "mark_scheme": "M1 for a correct method to find the vector from the centre of enlargement to at least one vertex, e.g. finding $A - centre = (1-(-1), 3-(-1)) = (2,4)$ (or equivalent for B or C).\nM1 for multiplying the vector(s) from the centre to each original vertex by $-2$, e.g. $(2,4) \\times -2 = (-4,-8)$, showing understanding that the image lies on the opposite side of the centre (negative scale factor reverses direction).\nA1 for at least two correct image vertices found by adding the scaled vector to the centre, e.g. $A' = (-1,-1) + (-4,-8) = (-5,-9)$ [allow method marks even if final coordinates have arithmetic slip].\nA1 for fully correct image triangle $T'$ with vertices $A'(-7,-9)$, $B'(-7,-5)$, $C'(-9,-5)$, correctly drawn on the diagram on the opposite side of the centre of enlargement to $T$, inverted (rotated 180\u00b0) relative to $T$, with sides twice the length of the corresponding sides of $T$.\n\nNote: award full marks for correct coordinates even without a fully accurate drawing, provided the triangle drawn is inverted and on the opposite side of the centre from $T$. Award no more than 2 marks total if the image is drawn on the same side as $T$ (not inverted), as this indicates the common misconception that negative scale factors act like positive ones.",
+      "misconception_targeted": "Students often forget the image inverts and is on the opposite side of the centre with negative scale factors."
+    },
+    {
+      "question_number": 14,
+      "topic_aspect": "Combined transformations: describe single transformation equivalent to a reflection followed by a reflection (resulting in rotation/translation)",
+      "total_marks": 4,
+      "correct_answer": "Triangle T2 has vertices A''(-1,-1), B''(-3,-1), C''(-1,-2). The single transformation mapping T onto T2 is a rotation of 90\u00b0 clockwise (i.e. 270\u00b0 anticlockwise) about the origin (0,0).",
+      "mark_scheme": "(a) \nM1 for correctly reflecting T in x=0 to get T1: A1(-1,1), B1(-1,3), C1(-2,1)\nA1 for correctly reflecting T1 in y=-x to get T2: A''(-1,-1), B''(-3,-1), C''(-1,-2) (all three vertices correct)\n\n(b)\nM1 for identifying the combined transformation is a rotation about the origin (0,0), stating centre correctly (may be shown by correct working/checking that origin is invariant point, or by correct vertex matching)\nA1 for fully correct description: rotation of 90\u00b0 clockwise about (0,0) (equivalently 270\u00b0 anticlockwise) \u2014 must include angle, direction and centre of rotation for the mark; also accept if scale/other details of transformation are omitted since this is a pure rotation.\n\nNote: Reflecting in two lines that intersect at angle \u03b8 produces a rotation of 2\u03b8 about the point of intersection. Here x=0 and y=-x intersect at the origin at 45\u00b0, giving a rotation of 90\u00b0; the direction (clockwise) is determined by the order of reflections and confirmed by checking image coordinates.",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 15,
+      "topic_aspect": "Word problem: tracking a satellite's path using translation and rotation on a coordinate grid",
+      "total_marks": 4,
+      "correct_answer": "(a) S'(5,-3)  (b) S''(-3,-5)  (c) No \u2014 a single rotation about the origin cannot combine with a translation to produce the overall effect, because a translation moves every point by the same vector whereas the combined transformation does not fix the origin's relative position correctly for it to be a pure rotation (the composite is not equivalent to any single rotation about O).",
+      "mark_scheme": "(a) M1 for adding the translation vector (3,-4) to S(2,1); A1 for correct coordinates S'(5,-3).\n(b) M1 for correct method: rotating S'(5,-3) by 90\u00b0 clockwise about the origin using the rule (x,y) -> (y,-x); A1 for S''(-3,-5) (dependent on correct or consistent S' from part (a)).\n(c) B1 for stating the analyst is incorrect, with valid reasoning (e.g. the combined transformation is a translation followed by a rotation, and in general this composite is not a pure rotation about O since the translation shifts the centre of rotation; only in special cases would this reduce to a single rotation). Accept any answer showing correct understanding that a translation + rotation is not generally equivalent to a single rotation about a fixed centre.",
+      "misconception_targeted": null
+    },
+    {
+      "question_number": 16,
+      "topic_aspect": "Multi-part: apply and then describe combination of enlargement and translation",
+      "total_marks": 4,
+      "correct_answer": "(a) A'(3,3), B'(3,9), C'(6,3)  (b) A''(1,8), B''(1,14), C''(4,8)  (c) C'' = (4,8)",
+      "mark_scheme": "(a) M1 for multiplying each coordinate of A, B, C by scale factor 3 (or for at least two correct enlarged vertices); A1 for all three correct: A'(3,3), B'(3,9), C'(6,3)\n(b) M1/A1 for adding the vector (-2,5) to each vertex of S' to give A''(1,8), B''(1,14), C''(4,8) \u2014 award A1 for all three correct (allow if consistent with candidate's part (a))\n(c) B1 for correct coordinates of C'' = (4,8), consistent with working in parts (a) and (b)",
+      "misconception_targeted": null
+    }
+  ]
+}

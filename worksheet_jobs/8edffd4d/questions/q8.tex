@@ -1,0 +1,48 @@
+\begin{question}
+\noindent Two e-sports arenas, $A$ and $B$, are connected by a straight fibre-optic cable that runs directly between them, allowing low-latency data transfer for a Valorant tournament server link.
+
+\noindent The bearing of $B$ from $A$ is $118^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.3]
+    \coordinate (A) at (0,0);
+    \coordinate (N_A) at (0,2.2);
+    \coordinate (B) at (-28:5);
+    \coordinate (N_B) at ($(B)+(0,2.2)$);
+
+    % North line at A
+    \draw[dashed] (A) -- (N_A);
+    \draw[->] (0,1.9) -- (N_A);
+    \node[above] at (N_A) {N};
+
+    % North line at B (parallel)
+    \draw[dashed] (B) -- (N_B);
+    \draw[->] ($(B)+(0,1.9)$) -- (N_B);
+    \node[above] at (N_B) {N};
+
+    % cable between A and B
+    \draw[thick] (A) -- (B);
+
+    % angle at A between north and AB
+    \pic [draw, angle radius=1cm, "$118^\circ$", angle eccentricity=1.4] {angle = B--A--N_A};
+
+    % angle at B between north line and BA (marked x)
+    \pic [draw, angle radius=0.8cm, "$x$", angle eccentricity=1.6] {angle = A--B--N_B};
+
+    \node[below left] at (A) {$A$};
+    \node[right] at (B) {$B$};
+\end{tikzpicture}
+\end{center}
+
+\noindent The dashed lines at $A$ and $B$ both point due north and are parallel to each other.
+
+\noindent Work out the bearing of $A$ from $B$, marked $x$ on the diagram.
+
+\noindent Give reasons for each step of your working.
+
+\vspace{5cm}
+
+\begin{flushright}
+\answerequnit{x}{$^\circ$}{4}
+\end{flushright}
+\end{question}

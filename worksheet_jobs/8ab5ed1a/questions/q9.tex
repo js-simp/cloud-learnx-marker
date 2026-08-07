@@ -1,0 +1,56 @@
+\begin{question}
+\noindent A weather balloon is launched from a site $L$. It first travels to a tracking buoy $M$ on a bearing of $062^\circ$ from $L$, a distance of $14$ km. The balloon then changes direction and travels to a second tracking buoy $N$ on a bearing of $130^\circ$ from $M$, a distance of $9$ km.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.7, transform shape]
+    \coordinate (L) at (0,0);
+    % Bearing of M from L is 62 degrees, so angle from horizontal (east) is 90-62=28
+    \coordinate (M) at (28:14);
+    % Bearing of N from M is 130 degrees, so angle from horizontal (east) is 90-130=-40
+    \coordinate (N) at ([shift=(-40:9)]M);
+    
+    % North reference point at L
+    \coordinate (NorthL) at (0,5.5);
+    % North reference point at M
+    \coordinate (NorthM) at ([shift={(0,4)}]M);
+
+    % North line at L
+    \draw[dashed] (L) -- (NorthL);
+    \draw[->] (0,5.2) -- (0,5.5);
+    \node at (0,5.7) [font=\small] {N};
+
+    % North line at M
+    \draw[dashed] (M) -- (NorthM);
+    \draw[->] ([shift={(0,3.7)}]M) -- ([shift={(0,4)}]M);
+    \node at ([shift={(0,4.2)}]M) [font=\small] {N};
+
+    % Draw the journey
+    \draw[thick] (L) -- (M) node[midway, left, font=\small] {$14$ km};
+    \draw[thick] (M) -- (N) node[midway, right, font=\small] {$9$ km};
+
+    % Bearing angle at L
+    \pic [draw, angle radius=1cm, "$062^\circ$", angle eccentricity=1.4] {angle = M--L--NorthL};
+
+    % Bearing angle at M
+    \pic [draw, angle radius=1cm, "$130^\circ$", angle eccentricity=1.5] {angle = N--M--NorthM};
+
+    % Points
+    \filldraw (L) circle (1.5pt) node[below left, font=\small]{$L$};
+    \filldraw (M) circle (1.5pt) node[above, font=\small]{$M$};
+    \filldraw (N) circle (1.5pt) node[below right, font=\small]{$N$};
+
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item[(a)] Work out the bearing of $L$ from $M$ (the back bearing of the first leg).
+
+    \vspace{3cm}
+    \answerequnit{}{$^\circ$}{2}
+
+    \item[(b)] Work out the bearing of $M$ from $N$ (the back bearing of the second leg).
+
+    \vspace{3cm}
+    \answerequnit{}{$^\circ$}{2}
+\end{enumerate}
+\end{question}

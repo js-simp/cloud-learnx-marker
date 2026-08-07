@@ -1,0 +1,31 @@
+\begin{question}
+\noindent A space telescope's support strut $AC$ is fixed to a vertical antenna mast $AB$. The strut makes an angle of $38^{\circ}$ with the ground at $C$, and the foot of the mast $B$ is $9$ m from the base of the strut $C$, as shown in the diagram below.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.6, transform shape]
+    \coordinate (A) at (0,7.03);
+    \coordinate (B) at (0,0);
+    \coordinate (C) at (9,0);
+
+    \draw (A) -- (B) -- (C) -- cycle;
+
+    \draw pic[draw, angle radius=3mm] {right angle=C--B--A};
+    \pic [draw, "$38^{\circ}$", angle eccentricity=1.6, angle radius=0.7cm] {angle = A--C--B};
+
+    \node at (A) [above,font=\small] {$A$};
+    \node at (B) [below left,font=\small] {$B$};
+    \node at (C) [below right,font=\small] {$C$};
+
+    \draw (B) -- (C) node[midway, below] {$9$ m};
+    \node at (0.7,3.4) [right,font=\small] {$x$ m};
+\end{tikzpicture}
+\end{center}
+
+\noindent Calculate the length $AB$, marked $x$ on the diagram, giving your answer correct to 3 significant figures.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answerunit{m}{3}
+\end{flushright}
+\end{question}

@@ -1,0 +1,44 @@
+\begin{question}
+\noindent Three monitoring stations, $P$, $Q$ and $R$, are set up by a science field team to track wildlife movement across a nature reserve. The stations form a triangle, as shown in the diagram (not drawn accurately).
+
+\noindent The bearing of $Q$ from $P$ is $074^{\circ}$.\\
+The bearing of $R$ from $Q$ is $146^{\circ}$.\\
+Angle $PQR = 108^{\circ}$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    \coordinate (P) at (0,0);
+    \coordinate (Q) at (74:6);
+    \coordinate (R) at ($(Q) + (146-180+108:4.5)$);
+    \coordinate (Nnorth) at (0,2.2);
+    \coordinate (Qnorth) at ($(Q) + (0,2.2)$);
+
+    \draw[thick] (P) -- (Q) -- (R);
+
+    % North lines (dashed) at P and Q
+    \draw[dashed, ->] (P) -- (Nnorth) node[above]{N};
+    \draw[dashed, ->] (Q) -- (Qnorth) node[above]{N};
+
+    % Bearing angle at P between north and PQ
+    \pic [draw, angle radius=1cm, "$74^{\circ}$", angle eccentricity=1.5] {angle = Q--P--Nnorth};
+
+    % Bearing angle at Q between north and QR
+    \pic [draw, angle radius=0.9cm, "$146^{\circ}$", angle eccentricity=1.6] {angle = R--Q--Qnorth};
+
+    % Interior angle at Q (PQR)
+    \pic [draw, angle radius=1.6cm, "$108^{\circ}$", angle eccentricity=1.35] {angle = P--Q--R};
+
+    \filldraw (P) circle (1.5pt) node[below left]{$P$};
+    \filldraw (Q) circle (1.5pt) node[above right]{$Q$};
+    \filldraw (R) circle (1.5pt) node[below right]{$R$};
+\end{tikzpicture}
+\end{center}
+
+\noindent Calculate the bearing of $R$ from $P$.
+
+\vspace{6cm}
+
+\begin{flushright}
+    \answerequnit{\theta}{$^\circ$}{5}
+\end{flushright}
+\end{question}

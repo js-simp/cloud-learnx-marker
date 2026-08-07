@@ -51,6 +51,10 @@ EMBED_MODEL       = "gemini-embedding-001"
 EMBED_DIMENSIONS  = 768
 TIKZ_MATCH_COUNT  = 4          # how many diagrams to retrieve per question
 
+ERROR_MATCH_COUNT    = 3       # how many reviewed error/fix examples to retrieve per question
+ERROR_MIN_SIMILARITY = 0.55    # floor below which a match is considered irrelevant noise
+                                # (small pool of ~36 examples — don't force in weak matches)
+
 _gemini_client   = genai.Client()
 _supabase_client = create_client(os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_SERVICE_ROLE_KEY"))
 
@@ -104,15 +108,8 @@ class GeneratedQuestion(BaseModel):
     number:       Optional[int] = None
     tex_content:  str  = Field(description="Complete LaTeX content for this question, ready to \\input{}")
     marks:        int
-    answer:       str  = Field(description="The correct final answer(s), stated plainly (e.g. 'x = 4' or '12.5 cm') — no explanation.")
-    mark_scheme:  str  = Field(description="TERSE examiner mark scheme ONLY — for a tutor who already knows the topic, not a student. "
-        "One short line per mark, Edexcel-style abbreviations (M1/A1/B1/ft), stating WHAT earns the mark, "
-        "not why or how. No prose explanations, no restated theorems, no step-by-step narrative — "
-        "that reasoning belongs in worked_solution, not here. "
-        "Good example: 'M1: correct substitution into cosine rule\\nA1: x = 7.2 (±0.1)'. "
-        "Bad example (too verbose — do NOT do this): 'M1: The student must substitute the given values "
-        "into the cosine rule formula a² = b² + c² - 2bc·cos(A), which is used to find missing sides in "
-        "non-right-angled triangles when two sides and the included angle are known...'")
+    answer:       str  = Field(description="The correct final answer(s)")
+    mark_scheme:  str  = Field(description="Mark scheme in Edexcel format: M1 for..., A1 for..., etc.")
     topic_aspect: str
 
 
@@ -263,7 +260,6 @@ def retrieve_tikz_diagrams(query: str, n: int = TIKZ_MATCH_COUNT) -> str:
         print(f"    ⚠️  Tikz retrieval failed: {e} — proceeding without diagram references")
         return ""
 
-
 # ============================================================================
 # SECTION 4 — AI PLANNING PASS
 # ============================================================================
@@ -304,15 +300,15 @@ def plan_worksheet(student_profile: dict, topic: str) -> WorksheetPlan:
     {curriculum_block}
 
     WORKSHEET PLANNING RULES:
-    - Minimum 2 questions. For Year 10+, aim for 5-7 questions.
-    - Start with 1-2 confidence-building easy questions.
+    - Minimum 12 questions. For Year 10+, aim for 14-18 questions.
+    - Start with 2-3 confidence-building easy questions.
     - Build up through medium questions that test core method.
-    - Include 2-3 challenging questions that stretch the student.
+    - Include 2-4 challenging questions that stretch the student.
     - Include multi-part questions for complex topics.
     - If student has interests (e.g. robotics, space, gaming), weave them naturally into word problems.
     - Respect frustration triggers (e.g., if "avoid dense word problems" is specified, keep scenarios concise).
     - Vary question types: diagrams, tables, word problems, show-that, algebraic manipulation.
-    - Total marks should be proportional to difficulty — typically 20-40 marks.
+    - Total marks should be proportional to difficulty — typically 40-70 marks.
 
     Plan the complete worksheet using the tool provided.
     """
@@ -335,10 +331,10 @@ def plan_worksheet(student_profile: dict, topic: str) -> WorksheetPlan:
 # ============================================================================
 
 def generate_question(
-    q_plan:          QuestionPlan,
-    topic:           str,
+    q_plan:         QuestionPlan,
+    topic:          str,
     student_profile: dict,
-    prev_questions:  List[str] = None,
+    prev_questions: List[str] = None,
 ) -> GeneratedQuestion:
     prev_questions = prev_questions or []
     year = student_profile.get("year", 10)
@@ -370,15 +366,13 @@ def generate_question(
         cached_block(DIAGRAM_RULES),
         cached_block(SAMPLE_QUESTIONS),
     ]
-    if curriculum_block and curriculum_block.strip():
+    if curriculum_block:
         system_blocks.append(cached_block(curriculum_block))
 
     tikz_context = ""
     if q_plan.has_diagram:
         query = f"{topic} — {q_plan.topic_aspect}"
-        retrieved = retrieve_tikz_diagrams(query, n=TIKZ_MATCH_COUNT)
-        if retrieved and retrieved.strip():
-            tikz_context = f"\nTIKZ DIAGRAM REFERENCE EXAMPLES:\n{retrieved}\n"
+        tikz_context = retrieve_tikz_diagrams(query, n=TIKZ_MATCH_COUNT)
 
     user_message = f"""
 Generate Question {q_plan.number} for a Year {year} student on the topic: {topic}
@@ -397,6 +391,7 @@ QUESTION SPECIFICATION:
 - Notes: {q_plan.notes or 'None'}
 
 {tikz_context}
+
 YOUR TASK:
 1. Choose concrete, realistic numbers/scenario for this question (clean numbers where possible).
 2. Actually SOLVE it step by step, exactly as a student would have to work through it.
@@ -408,7 +403,7 @@ YOUR TASK:
    - Does solving it actually require the misconception/method targeted, if one was specified?
 4. If ANY of the above checks fail, make necessary adjustments to the numbers, scenario, or question 
    wording until it is a valid, solvable, non-trivial question.
-5. If the question has a diagram, calculate key_values with EVERY concrete fact needed to reproduce this 
+5. If the finalized question has a diagram, calculate key_values with EVERY concrete fact needed to reproduce this 
    diagram accurately — labeled points/vertices, exact side lengths, exact angle values, exact coordinates, etc.
    Do not leave anything implicit when allocating axis limits, points on circles, length of tangents, or node directions.
    Ensure all label nodes use explicit anchor offsets (e.g., [above left], [below right]) to prevent text clipping.
@@ -416,8 +411,7 @@ YOUR TASK:
 7. Use ONLY the macros listed in AVAILABLE LATEX MACROS.
 8. Follow the CRITICAL MACRO RULE FOR UNITS (math units must be wrapped in $...$).
 9. Include generous \\vspace{{Xcm}} for working space.
-10. If the question has a diagram, adopt one of the TIKZ DIAGRAM REFERENCE EXAMPLES above,
-    and follow ALL rules in TIKZ DIAGRAM RULES strictly.
+10. If the question has a diagram follow ALL rules in TIKZ DIAGRAM RULES strictly.
 11. For multi-part questions, use \\begin{{enumerate}} with \\item[(a)] etc.
 12. Provide the final answer plainly and a mark scheme in Edexcel format (M1 for..., A1 for...).
 
@@ -441,7 +435,7 @@ DO NOT SCAFFOLD AWAY THE CHALLENGE:
         output_model=GeneratedQuestion,
         tool_name="submit_question",
         model=MODEL_SONNET,
-        max_tokens=8192,
+        max_tokens=4096,
     )
     q.number = q_plan.number
     q.tex_content = sanitize_latex(q.tex_content)
@@ -507,24 +501,24 @@ def extract_latex_errors(log: str) -> str:
 
 def fix_question_tex(q_number: int, bad_tex: str, error_log: str) -> str:
     user_message = f"""
-The LaTeX for Question {q_number} caused a compilation error.
+    The LaTeX for Question {q_number} caused a compilation error.
 
-COMPILE ERROR:
-{error_log}
+    COMPILE ERROR:
+    {error_log}
 
-BROKEN TEX CONTENT:
-{bad_tex}
+    BROKEN TEX CONTENT:
+    {bad_tex}
 
-Fix the LaTeX so it compiles correctly.
-Common fixes:
-1. Unit arguments in macros like \\answerunit and \\answerequnit must have math symbols (e.g. ^\\circ or ^2) inside $...$ mode.
-2. TikZ angle arcs must use valid points.
-3. Ensure all environments (\\begin{{enumerate}}, \\begin{{tikzpicture}}) are properly closed with \\end{{...}}.
+    Fix the LaTeX so it compiles correctly.
+    Common fixes:
+    1. Unit arguments in macros like \\answerunit and \\answerequnit must have math symbols (e.g. ^\\circ or ^2) inside $...$ mode.
+    2. TikZ angle arcs must use valid points.
+    3. Ensure all environments (\\begin{{enumerate}}, \\begin{{tikzpicture}}) are properly closed with \\end{{...}}.
 
-Return ONLY the corrected LaTeX content for this question
-(starting with \\begin{{question}} and ending with \\end{{question}}).
-No explanation — only the fixed LaTeX.
-"""
+    Return ONLY the corrected LaTeX content for this question
+    (starting with \\begin{{question}} and ending with \\end{{question}}).
+    No explanation — only the fixed LaTeX.
+    """
     fixed = generate_text(
         system_blocks=[cached_block(MACRO_REFERENCE), cached_block(DIAGRAM_RULES)],
         user_message=user_message,
@@ -537,46 +531,58 @@ No explanation — only the fixed LaTeX.
     return sanitize_latex(fixed.strip())
 
 
-def compile_with_fix_loop(job_dir: Path, questions: List[GeneratedQuestion]) -> bool:
-    for attempt in range(MAX_RETRIES):
-        print(f"  🔨 Compile attempt {attempt + 1}/{MAX_RETRIES}...")
-        success, error_log = compile_latex(str(job_dir))
-        if success:
-            print(f"  ✅ Compiled successfully")
-            return True
+from pathlib import Path
+from typing import List, Set
 
-        print(f"  ❌ Compile failed on attempt {attempt + 1}")
-        if attempt == MAX_RETRIES - 1:
-            return False
+def compile_with_fix_loop(job_dir: Path, questions: List[GeneratedQuestion]) -> bool:
+    max_retries_per_q = 2
+    q_attempts: Dict[int, int] = {q.number: 0 for q in questions}
+
+    while questions:
+        print(f" 🔨 Compiling document with {len(questions)} question(s)...")
+        success, error_log = compile_latex(str(job_dir))
+        
+        if success:
+            print(f" ✅ Compiled successfully with {len(questions)} question(s).")
+            return True
 
         failed_q_num = extract_failed_question_num(error_log)
         snippet_errors = extract_latex_errors(error_log)
 
         if failed_q_num:
-            print(f"  🎯 Target identified: Q{failed_q_num} caused the compilation failure.")
-            target_qs = [q for q in questions if q.number == failed_q_num]
-        else:
-            print("  ⚠️ Could not isolate single broken question, checking all generated questions...")
-            target_qs = questions
+            target_q = next((q for q in questions if q.number == failed_q_num), None)
+            
+            if target_q:
+                q_attempts[target_q.number] += 1
+                q_file = job_dir / "questions" / f"q{target_q.number}.tex"
+                
+                # Check if we still have fix attempts left for THIS specific question
+                if q_attempts[target_q.number] <= max_retries_per_q:
+                    q_tex = q_file.read_text()
+                    print(f" 🔧 Haiku repair attempt {q_attempts[target_q.number]}/{max_retries_per_q} for Q{target_q.number}...")
+                    
+                    fixed_tex = fix_question_tex(target_q.number, q_tex, snippet_errors)
+                    
+                    if fixed_tex and fixed_tex != q_tex:
+                        q_file.write_text(fixed_tex)
+                        target_q.tex_content = fixed_tex
+                        continue  # Try compiling again with fixed question
 
-        fixed_any = False
-        for q in target_qs:
-            q_file = job_dir / "questions" / f"q{q.number}.tex"
-            if not q_file.exists():
-                continue
-            q_tex = q_file.read_text()
-            print(f"  🔧 Requesting Haiku repair for Q{q.number}...")
+                # --- DROPPING THE QUESTION ---
+                print(f" 🗑️ Question {target_q.number} failed repairs. Dropping from document...")
+                questions.remove(target_q)
+                
+                # Option A: Blank out the file so \input{questions/qX.tex} imports nothing
+                q_file.write_text("% Question dropped due to compilation failure")
+                
+                # Option B (Recommended if you re-generate main.tex): 
+                # rebuild_main_tex(job_dir, questions)
+                
+                continue  # Retry compilation without the broken question
 
-            fixed_tex = fix_question_tex(q.number, q_tex, snippet_errors)
-            if fixed_tex and fixed_tex != q_tex:
-                q_file.write_text(fixed_tex)
-                q.tex_content = fixed_tex
-                fixed_any = True
-                print(f"  🔧 Q{q.number} rewritten. Retrying full compilation...")
-                break
-
-        if not fixed_any:
-            print("  ⚠️ Could not rewrite the target question — retrying compilation")
+        # If error couldn't be mapped to any question (e.g., main preamble error)
+        print(" ⚠️ Preamble or global LaTeX error detected. Cannot resolve by dropping questions.")
+        break
 
     return False
 

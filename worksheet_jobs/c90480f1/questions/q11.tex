@@ -1,0 +1,33 @@
+\begin{question}
+\noindent A history museum is designing a triangular display plinth to hold a scale model of a triangular sail from an early solar-sail spacecraft concept.
+
+The plinth is triangular in shape, with $PQ = 8.4$ m and $PR = 6.5$ m, and the angle between these two sides, angle $QPR$, is $112^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    \coordinate (P) at (-2,-1);
+    \coordinate (Q) at (3.5,-1.6);
+    \coordinate (R) at (-0.5,3.2);
+
+    \draw (P) -- (Q) -- (R) -- cycle;
+
+    \pic [draw, -, angle radius=0.7cm, "$112^{\circ}$", angle eccentricity=1.6] {angle=Q--P--R};
+
+    \node at (P) [below left,font=\small] {$P$};
+    \node at (Q) [below right,font=\small] {$Q$};
+    \node at (R) [above,font=\small] {$R$};
+
+    \draw (P) -- (Q) node[midway, below,font=\small] {$8.4$ m};
+    \draw (P) -- (R) node[midway, left,font=\small] {$6.5$ m};
+\end{tikzpicture}
+\end{center}
+
+\noindent Calculate the area of the triangular plinth $PQR$.
+Give your answer correct to 3 significant figures.
+
+\vspace{4.5cm}
+
+\begin{flushright}
+    \answerunit{$\text{m}^2$}{3}
+\end{flushright}
+\end{question}

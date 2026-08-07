@@ -1,0 +1,47 @@
+\begin{question}
+\noindent A marine research team launches two research vessels, $X$ and $Y$, from a harbour $H$ to collect ocean temperature data.
+
+Vessel $X$ sails from $H$ on a bearing of $038^\circ$ for a distance of $16$ km.
+
+Vessel $Y$ sails from $H$ on a bearing of $124^\circ$ for a distance of $23$ km.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.85, transform shape]
+    \coordinate (H) at (0,0);
+    % Bearing of X is 38 degrees, so angle from horizontal (east) = 90-38 = 52
+    \coordinate (X) at (52:5.2);
+    % Bearing of Y is 124 degrees, so angle from horizontal (east) = 90-124 = -34
+    \coordinate (Y) at (-34:7.5);
+
+    % North line at H
+    \draw[thick] (H) -- (0,3.2);
+    \draw[->] (0,3.2) -- (0,3.6);
+    \node at (0,3.8) [font=\small] {N};
+
+    \coordinate (Ntop) at (0,3.2);
+
+    % Bearing angles at H
+    \pic [draw, angle radius=1cm, "$38^\circ$", angle eccentricity=1.5] {angle = X--H--Ntop};
+    \pic [draw, angle radius=1.6cm, "$124^\circ$", angle eccentricity=1.35] {angle = Y--H--Ntop};
+
+    % Triangle sides
+    \draw[thick] (H) -- (X) node[midway, left, font=\small] {$16$ km};
+    \draw[thick] (H) -- (Y) node[midway, below right, font=\small] {$23$ km};
+    \draw[thick] (X) -- (Y) node[midway, right, font=\small] {$d$ km};
+
+    % Point labels
+    \node at (H) [below, font=\small] {$H$};
+    \node at (X) [above, font=\small] {$X$};
+    \node at (Y) [right, font=\small] {$Y$};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the distance $XY$ between the two research vessels, giving your answer correct to 3 significant figures.
+
+\vspace{5cm}
+
+\begin{flushright}
+    \answerequnit{XY}{$\text{km}$}{4}
+\end{flushright}
+\end{question}

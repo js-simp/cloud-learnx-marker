@@ -1,0 +1,41 @@
+\begin{question}
+\noindent A weather station, $S$, is tracking a weather balloon, $B$, using radar.
+
+\noindent The scale diagram below shows the position of the weather station $S$ and the position of the balloon $B$, using a scale of 1 cm : 5 km. North is shown at $S$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    \coordinate (S) at (0,0);
+    \coordinate (B) at (2.6,4.77);
+
+    % North line at S
+    \draw[dashed] (S) -- (0,6);
+    \draw[->] (0,5.7) -- (0,6);
+    \node at (0,6.3) [font=\small] {N};
+
+    \coordinate (N) at (0,6);
+
+    % Bearing angle at S (measured clockwise from North to B)
+    \pic [draw, -, angle radius=1.3cm, "$\theta$", angle eccentricity=1.5] {angle=B--S--N};
+
+    % Line from S to B
+    \draw[thick] (S) -- (B);
+
+    \node at (S) [below, font=\small] {$S$};
+    \node at (B) [above right, font=\small] {$B$};
+
+    \fill (S) circle (2pt);
+    \fill (B) circle (2pt);
+\end{tikzpicture}
+\end{center}
+
+\noindent Measure the bearing of the balloon $B$ from the weather station $S$.
+
+\noindent Give your answer to the nearest degree.
+
+\vspace{4.5cm}
+
+\begin{flushright}
+    \answerequnit{\theta}{$^\circ$}{3}
+\end{flushright}
+\end{question}

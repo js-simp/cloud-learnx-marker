@@ -1,0 +1,39 @@
+\begin{question}
+\noindent $A$, $B$ and $C$ are points on the circumference of a circle with centre $O$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (140:1);
+    % obtuse angle A--O--B should be 80 degrees, so angle between horizontal and OB is 140-80=60
+    \coordinate (B) at (60:1);
+    \coordinate (C) at (260:1);
+
+    \draw (0,0) circle (1);
+    \fill[black] (O) circle (0.6pt);
+
+    \draw (A) -- (O) -- (B);
+    \draw (A) -- (C) -- (B);
+
+    \node[left] at (A) {$A$};
+    \node[above right] at (B) {$B$};
+    \node[below] at (C) {$C$};
+    \node[below left] at (O) {$O$};
+
+    % A--O--B swept anticlockwise gives the 80 degree angle at the centre
+    \pic [draw, angle eccentricity=1.6, angle radius=0.5cm, "$80^\circ$"] {angle = A--O--B};
+    % A--C--B swept anticlockwise gives the interior angle at the circumference
+    \pic [draw, angle eccentricity=1.6, angle radius=0.4cm, "$x$"] {angle = A--C--B};
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $AOB = 80^\circ$.
+
+\noindent Find the size of angle $x$, giving a reason for your answer.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}

@@ -1,0 +1,39 @@
+\begin{question}
+\noindent At a Model United Nations conference, delegates sit around a circular table with centre $O$. Four seats, $A$, $B$, $C$ and $D$, are positioned on the edge of the table, in that order around the circle. Delegate lines of sight from $B$ and $D$ to the podium markers at $A$ and $C$ are shown below.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.4]
+    \coordinate (A) at (100:1);
+    %considering ABC as 52 for ease while maintaining visual accuracy, hence angle with horizontal at B is 100-52=48
+    \coordinate (C) at (20:1);
+    \coordinate (B) at (48:1);
+    \coordinate (D) at (-150:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+
+    \draw (A) -- (B);
+    \draw (B) -- (C);
+    \draw (A) -- (D);
+    \draw (D) -- (C);
+
+    \node at (A) [above left] {$A$};
+    \node at (B) [above right] {$B$};
+    \node at (C) [right] {$C$};
+    \node at (D) [below left] {$D$};
+
+    %using A--B--C to sweep angle anticlockwise (interior angle)
+    \pic [draw, "$52^\circ$", angle eccentricity=1.6, angle radius = 0.5cm] {angle = A--B--C};
+    \pic [draw, "$x$", angle eccentricity=1.6, angle radius = 0.7cm] {angle = C--D--A};
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $ABC = 52^\circ$.
+
+\noindent Find the size of angle $x$, giving a reason for your answer.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}

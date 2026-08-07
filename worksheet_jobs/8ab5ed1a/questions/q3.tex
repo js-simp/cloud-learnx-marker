@@ -1,0 +1,40 @@
+\begin{question}
+\noindent An e-sports arena is positioned at point $A$. A signal tower is located at point $B$ on a bearing from $A$ that is shown in the diagram below, measured clockwise from North.
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    \coordinate (A) at (0,0);
+    \coordinate (N) at (0,3);
+    \coordinate (S) at (0,-3);
+    %angle from North (clockwise) to B is 236 degrees. Measuring anticlockwise from North to B is 360-236=124, so angle of B from horizontal (east) is 90-124=-34, i.e. 34 below horizontal on the left side... 
+    %Simpler: bearing 236 means B is South-West-ish. Angle from North measured clockwise 236 -> direction angle from positive x-axis (East) = 90 - 236 = -146, equivalent to 214 degrees standard position.
+    \coordinate (B) at (214:3.5);
+
+    % North-South line at A
+    \draw[thick,->] (S) -- (N) node[above] {N};
+
+    % Line from A to B
+    \draw[thick] (A) -- (B);
+
+    % Angle arc showing the reflex bearing measured clockwise from North to B
+    \pic [draw, angle eccentricity=1.3, angle radius=1cm, "$x^\circ$"] {angle = B--A--S};
+
+    % Points
+    \filldraw (A) circle (1.5pt) node[below right]{$A$};
+    \filldraw (B) circle (1.5pt) node[left]{$B$};
+
+    % Mark the known angle between South line and AB
+    \node at (0.75,-1.5) [font=\small] {$56^\circ$};
+\end{tikzpicture}
+\end{center}
+
+\noindent The diagram shows the angle between the \textbf{South} direction at $A$ and the line $AB$ is $56^\circ$, as marked.
+
+\noindent Work out the bearing of $B$ from $A$.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}

@@ -1,0 +1,34 @@
+\begin{question}
+\noindent An e-sports tournament organiser is setting up two venue tents, $A$ and $B$, on a large field. The diagram shows the position of tent $B$ relative to tent $A$, with the north direction marked at $A$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+    % North line at A
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (3.06, -3.83);
+    \coordinate (N) at (0,3);
+
+    % North arrow
+    \draw[thick, ->] (A) -- (N) node[above] {N};
+
+    % Line from A to B
+    \draw[thick, ->] (A) -- (B);
+
+    % Angle arc from North line to AB, measured clockwise
+    \pic [draw, angle radius=10mm, "$\theta$"] {angle = N--A--B};
+
+    % Labels
+    \node[left] at (A) {$A$};
+    \node[below right] at (B) {$B$};
+\end{tikzpicture}
+\end{center}
+
+\noindent The bearing of $B$ from $A$ is measured using a protractor as $128^\circ$ clockwise from north.
+
+\noindent State the bearing of $B$ from $A$.
+
+\vspace{4cm}
+\begin{flushright}
+    \answerplain{2}
+\end{flushright}
+\end{question}

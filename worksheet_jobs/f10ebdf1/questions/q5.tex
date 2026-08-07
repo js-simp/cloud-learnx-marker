@@ -1,0 +1,40 @@
+\begin{question}
+\noindent A stage designer for a Model United Nations conference is planning a circular seating arrangement with a central podium point $O$. Delegates sit at points $A$, $B$ and $C$ on the circular boundary, with $O$ at the centre of the circle.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (150:1);
+    \coordinate (B) at (-10:1);
+    \coordinate (C) at (250:1);
+
+    \draw[name path=circ] (0,0) circle (1);
+    \fill[black] (O) circle (0.6pt);
+
+    \draw (A) -- (O) -- (B);
+    \draw (A) -- (C) -- (B);
+
+    \node at (O) [below right] {$O$};
+    \node at (A) [above left] {$A$};
+    \node at (B) [right] {$B$};
+    \node at (C) [below] {$C$};
+
+    %angle ACB = 58, marked sweeping anticlockwise from B to A at vertex C
+    \pic [draw, angle eccentricity=1.5, angle radius=0.4cm, "$58^\circ$"] {angle = B--C--A};
+    %central angle x, marked sweeping anticlockwise from B to A at vertex O (same side as C's angle, reflex avoided)
+    \pic [draw, angle eccentricity=1.6, angle radius=0.5cm, "$x$"] {angle = B--O--A};
+\end{tikzpicture}
+\end{center}
+
+\noindent $A$, $B$ and $C$ lie on the circumference of the circle, and $O$ is the centre.
+
+Angle $ACB = 58^\circ$.
+
+Work out the size of angle $x$, the angle $AOB$ at the centre.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answerequnit{x}{$^\circ$}{2}
+\end{flushright}
+\end{question}

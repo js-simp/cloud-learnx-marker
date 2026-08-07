@@ -1,0 +1,38 @@
+\begin{question}
+\noindent A UI/UX design student is mapping out the layout of an outdoor badminton complex for a Model United Nations sports event. Point $A$ is the reception desk, and point $B$ is the main court.
+
+\noindent The diagram shows the positions of $A$ and $B$, with the north direction marked at $A$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+    \coordinate (A) at (0,0);
+    % Bearing of B from A is 128 degrees clockwise from North.
+    % Angle from horizontal (east) anticlockwise = 90 - 128 = -38 degrees
+    \coordinate (B) at (-38:5.5);
+
+    % North line at A
+    \draw[dashed] (A) -- (0,3.5);
+    \draw[->] (0,3.2) -- (0,3.5);
+    \node at (0,3.8) [font=\small] {N};
+
+    \coordinate (J) at (0,3.5);
+
+    % Bearing angle at A, from North (J) clockwise to B
+    % Sweeping anticlockwise from B to J gives the correct (non-reflex) angle
+    \pic [draw, angle radius=1.2cm, "$x^\circ$", angle eccentricity=1.4] {angle=B--A--J};
+
+    \draw[thick] (A) -- (B);
+
+    \node at (A) [below left, font=\small] {$A$};
+    \node at (B) [right, font=\small] {$B$};
+\end{tikzpicture}
+\end{center}
+
+\noindent Write down the bearing of $B$ from $A$.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answerplain{2}
+\end{flushright}
+\end{question}

@@ -1,0 +1,56 @@
+\begin{question}
+\noindent An e-sports arena has a rotating stage logo shaped like a regular hexagon, used as the map-select icon in a Valorant tournament broadcast. The graphic designer draws the hexagonal logo on a coordinate grid centred at the origin $O$, as shown below.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.1]
+    \coordinate (O) at (0,0);
+    \def\R{3}
+
+    % Regular hexagon vertices, one vertex pointing right along positive x-axis
+    \coordinate (V1) at (0:\R);
+    \coordinate (V2) at (60:\R);
+    \coordinate (V3) at (120:\R);
+    \coordinate (V4) at (180:\R);
+    \coordinate (V5) at (240:\R);
+    \coordinate (V6) at (300:\R);
+
+    \draw[thick, fill=cyan!15] (V1) -- (V2) -- (V3) -- (V4) -- (V5) -- (V6) -- cycle;
+
+    \fill[black] (O) circle (1.5pt);
+    \node[below left] at (O) {$O$};
+
+    \node[right] at (V1) {$A$};
+    \node[above right] at (V2) {$B$};
+    \node[above left] at (V3) {$C$};
+    \node[left] at (V4) {$D$};
+    \node[below left] at (V5) {$E$};
+    \node[below right] at (V6) {$F$};
+
+    % dashed lines from centre to two adjacent vertices to show rotation angle
+    \draw[dashed] (O) -- (V1);
+    \draw[dashed] (O) -- (V2);
+
+    \pic [draw, angle radius=0.7cm, "$x^\circ$"] {angle = V1--O--V2};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent The logo $ABCDEF$ is a regular hexagon with centre $O$. During the broadcast animation, the logo is rotated repeatedly about $O$ so that it always lands back exactly on top of itself (vertex meeting vertex).
+
+\begin{enumerate}
+    \item[(a)] Work out the smallest angle $x$, marked on the diagram, through which the logo must be rotated about $O$ so that it maps onto itself.
+
+    \vspace{2.5cm}
+    \answerequnit{x}{$^\circ$}{1}
+
+    \item[(b)] State the order of rotational symmetry of the hexagonal logo.
+
+    \vspace{2cm}
+    \answerplain{1}
+
+    \item[(c)] The animation designer instead wants the logo to complete a sequence of rotations that brings vertex $A$ to the position currently occupied by vertex $D$, using the \textbf{smallest possible number of equal individual rotation steps} (each step being one of the symmetry rotations found in part (a)), and each step must be in the \textbf{same direction}. Work out the number of individual rotation steps needed, and state the direction (clockwise or anticlockwise) that requires the fewest steps.
+
+    \vspace{3.5cm}
+    \answerplain{1}
+\end{enumerate}
+\end{question}

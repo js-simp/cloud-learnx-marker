@@ -1,0 +1,50 @@
+\begin{question}
+\noindent $A$, $B$ and $C$ are points on the circumference of a circle with centre $O$, where $AC$ is a diameter of the circle. $D$ is also a point on the circumference such that $B$, $O$ and $D$ are \emph{not} collinear, and $BD$ is a chord.
+
+\noindent The line $AB$ is extended to meet the tangent at $C$ at the point $E$, so that angle $ACE = 90^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.3]
+    \coordinate (O) at (0,0);
+    \draw[name path=circ] (O) circle (1);
+    \fill[black] (O) circle (1pt);
+
+    \coordinate (A) at (180:1);
+    \coordinate (C) at (0:1);
+    \coordinate (B) at (140:1);
+
+    \draw[thick] (A) -- (C);
+    \draw[thick] (A) -- (B);
+    \draw[thick] (B) -- (C);
+
+    % tangent at C, perpendicular to AC
+    \draw[thick] (C) -- ++(90:0.9) coordinate (Etop);
+    \draw[thick] (C) -- ++(-90:0.4) coordinate (Ebot);
+
+    % extend AB to meet tangent at E
+    \path[name path=lineAB] (A) -- ($(A)!2.6!(B)$);
+    \path[name path=tangent] (C) -- ++(90:0.9);
+    \path[name intersections={of=lineAB and tangent, by={E}}];
+    \draw[thick] (B) -- (E);
+
+    \node[left] at (A) {$A$};
+    \node[above left] at (B) {$B$};
+    \node[right] at (C) {$C$};
+    \node[below] at (O) {$O$};
+    \node[above right] at (E) {$E$};
+
+    \tkzMarkRightAngle[size=0.18](A,C,Etop);
+
+    \pic [draw, angle eccentricity=1.5, angle radius=0.55cm, "$27^\circ$"] {angle = C--A--B};
+\end{tikzpicture}
+\end{center}
+
+\noindent Angle $BAC = 27^\circ$.
+
+\noindent Show that angle $BCE = 27^\circ$, giving a reason for each stage of your working.
+
+\vspace{5cm}
+
+\answermarks{4}
+
+\end{question}

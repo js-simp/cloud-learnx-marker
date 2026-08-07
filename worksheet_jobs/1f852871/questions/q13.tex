@@ -1,0 +1,56 @@
+\begin{question}
+\noindent A radio telescope dish has a circular support ring, centre $O$. A signal cable runs along $ST$, a tangent to the ring at point $T$. Two receiver mounts, $A$ and $B$, lie on the ring, connected to $T$ by struts $TA$ and $TB$, and to each other by strut $AB$. The centre $O$ is also connected to mount $B$ by a support rod $OB$.
+
+\noindent The angle between the tangent $ST$ and the strut $TB$ is $64^\circ$. Angle $OTA = 90^\circ$ (the rod $OT$ meets the tangent at right angles, but $OT$ is not drawn).
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    % draw circle centre O
+    \coordinate (O) at (0,0);
+    \draw[name path=circ] (O) circle (1);
+    \fill[black] (O) circle (1pt);
+    \node[below left] at (O) {$O$};
+
+    % point T on circle
+    \coordinate[label=below:$T$] (T) at (-90:1);
+
+    % tangent line at T (horizontal)
+    \draw[thick] (T) -- ($(T)!1.6!-90:(O)$) coordinate (S);
+    \draw[thick] (T) -- ($(T)!1.6!90:(O)$) coordinate (M);
+    \node[below left] at (S) {$S$};
+
+    % point B constructed using 64 degree tangent-chord angle
+    % angle at horizontal from T is measured anticlockwise from S--T direction
+    % S direction is at angle 180 (pointing left along tangent), so B at 180-64=116 relative... 
+    % T is at -90 on circle; tangent line is horizontal through T.
+    % angle STB = 64 means chord TB makes 64 degrees with tangent ray TS (pointing left, i.e. 180 degrees)
+    % so TB direction from T is at 180-64 = 116 degrees (measured from positive x-axis at T's local frame)
+    % Using standard construction: point B on circle at angle (180+64) - 180 = ... simplified: B at 26 degrees on circle (matches tangent-chord angle rule geometry)
+    \coordinate (B) at (26:1);
+    \node[above right] at (B) {$B$};
+
+    % point A on circle, placed for a clear non-overlapping triangle
+    \coordinate (A) at (154:1);
+    \node[above left] at (A) {$A$};
+
+    % draw struts and rod
+    \draw[thick] (T) -- (B);
+    \draw[thick] (T) -- (A);
+    \draw[thick] (A) -- (B);
+    \draw[thick] (O) -- (B);
+
+    % mark the 64 degree tangent-chord angle at T, between S and B, swept anticlockwise from S to B
+    \pic [draw, "$64^\circ$", angle eccentricity=1.4, angle radius=0.6cm] {angle = S--T--B};
+
+    % mark angle OTA = 90 degrees is given in text, not marked on diagram to avoid clutter/scaffolding
+\end{tikzpicture}
+\end{center}
+
+\noindent Given that angle $OTA = 90^\circ$, find the size of angle $OBA$, the angle at mount $B$ between rod $OB$ and strut $BA$.
+
+\vspace{6cm}
+
+\begin{flushright}
+\answerequnit{OBA}{$^\circ$}{4}
+\end{flushright}
+\end{question}

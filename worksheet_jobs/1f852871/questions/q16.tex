@@ -1,0 +1,47 @@
+\begin{question}
+\noindent Four tracking stations $P$, $Q$, $R$ and $S$ observe a satellite that moves along a circular orbit path with centre $O$. The stations $P$, $Q$, $R$ and $S$ all lie on the orbit circle, in that order around the circle. A ground antenna at $T$ lies outside the orbit, and the line $TS$ is a tangent to the orbit circle at $S$.
+
+Angle $PQR = 118^\circ$. Angle $RST = 71^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.3]
+    \coordinate (O) at (0,0);
+    \draw[name path=circ] (0,0) circle (1);
+    \fill[black] (O) circle (1pt);
+    \node[below right] at (O) {$O$};
+
+    % Points placed so that arcs/angles are visually consistent
+    \coordinate (P) at (150:1);
+    \coordinate (Q) at (230:1);
+    \coordinate (R) at (330:1);
+    \coordinate (S) at (70:1);
+
+    \node[above left] at (P) {$P$};
+    \node[below left] at (Q) {$Q$};
+    \node[below right] at (R) {$R$};
+    \node[above right] at (S) {$S$};
+
+    \draw (P) -- (Q) -- (R) -- (S) -- cycle;
+
+    % tangent line at S, perpendicular to OS
+    \coordinate (T) at ($(S)!1.6cm!90:(O)$);
+    \draw (S) -- (T);
+    \node[above right] at (T) {$T$};
+
+    \pic [draw, "$118^\circ$", angle eccentricity=1.4, angle radius=0.35cm] {angle = P--Q--R};
+    \pic [draw, "$71^\circ$", angle eccentricity=1.5, angle radius=0.4cm] {angle = R--S--T};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item[(a)] Work out the size of angle $RSP$, giving a reason for your answer.
+
+    \vspace{3.5cm}
+    \answerequnit{RSP}{$^\circ$}{2}
+
+    \item[(b)] Hence work out the size of angle $PSR$'s neighbouring angle $PST$, using the tangent $TS$ and the alternate segment theorem where appropriate, to find the size of angle $SPR$.
+
+    \vspace{4cm}
+    \answerequnit{SPR}{$^\circ$}{2}
+\end{enumerate}
+\end{question}

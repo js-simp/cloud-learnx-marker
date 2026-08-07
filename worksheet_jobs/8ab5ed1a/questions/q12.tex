@@ -1,0 +1,47 @@
+\begin{question}
+\noindent An e-sports events company uses two research drones, $P$ and $Q$, to film a Valorant tournament arena from the air. Both drones launch from the same base point $B$ at the same time.
+
+Drone $P$ flies on a bearing of $038^\circ$ for $16$ km before hovering to film.
+Drone $Q$ flies on a bearing of $115^\circ$ for $21$ km before hovering to film.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.85, transform shape]
+    \coordinate (B) at (0,0);
+    % bearing of P is 38, angle from vertical (North) is 38, so angle from horizontal is 90-38=52
+    \coordinate (P) at (52:8);
+    % bearing of Q is 115, angle from horizontal is 90-115=-25
+    \coordinate (Q) at (-25:10.5);
+    \coordinate (N) at (0,6);
+
+    % North line at B
+    \draw[thick] (B) -- (N);
+    \draw[->] (N) -- (0,6.5);
+    \node at (0,6.8) [font=\small] {N};
+
+    % Bearing angle for P
+    \pic [draw, angle radius=1.3cm, "$38^\circ$", angle eccentricity=1.4] {angle = P--B--N};
+
+    % Bearing angle for Q
+    \pic [draw, angle radius=1.9cm, "$115^\circ$", angle eccentricity=1.25] {angle = N--B--Q};
+
+    % Draw the triangle sides
+    \draw[thick] (B) -- (P) node[midway, above left, font=\small] {$16$ km};
+    \draw[thick] (B) -- (Q) node[midway, below right, font=\small] {$21$ km};
+    \draw[thick] (P) -- (Q) node[midway, right, font=\small] {$x$ km};
+
+    % Labels
+    \node at (B) [below, font=\small] {$B$};
+    \node at (P) [above, font=\small] {$P$};
+    \node at (Q) [right, font=\small] {$Q$};
+\end{tikzpicture}
+\end{center}
+
+\noindent Work out the distance $PQ$ between the two drones.
+Give your answer correct to $3$ significant figures.
+
+\vspace{5cm}
+
+\begin{flushright}
+\answerunit{km}{4}
+\end{flushright}
+\end{question}

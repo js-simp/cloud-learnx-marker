@@ -1,0 +1,60 @@
+\begin{question}
+\noindent A badminton club is designing a circular logo for its court banner. Two straight support cables, $PA$ and $PB$, are attached to a circular hoop with centre $O$, touching the circle only at points $A$ and $B$. The cables meet at an external point $P$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.6]
+    % Define the center of the circle
+    \coordinate (O) at (0,0);
+
+    % Draw the circle, radius 2cm
+    \draw (O) circle (2cm);
+    \fill[black] (O) circle (1.5pt) node[below right]{$O$};
+
+    % Points A and B on circle such that angle APB = 44 degrees
+    % By symmetry about vertical axis through O and P, place A and B symmetric about the vertical
+    % Angle OAP = Angle OBP = 90 degrees, and angle AOB = 180 - 44 = 136 degrees
+    % Place A at angle (90+68)=158 degrees, B at angle (90-68)=22 degrees, symmetric about 90 degrees (vertical)
+    \coordinate (A) at (158:2);
+    \coordinate (B) at (22:2);
+
+    % Tangent directions at A and B (perpendicular to OA and OB)
+    \coordinate (E1) at ($(A)!5cm!90:(O)$);
+    \coordinate (E2) at ($(B)!5cm!-90:(O)$);
+
+    % Find intersection point P
+    \path [name path=line1] (A) -- (E1);
+    \path [name path=line2] (B) -- (E2);
+    \path [name intersections={of=line1 and line2,by={P}}];
+
+    % Draw tangent lines from P
+    \draw (A) -- (P) -- (B);
+
+    % Draw radii
+    \draw (O) -- (A);
+    \draw (O) -- (B);
+
+    % Labels
+    \node[above left] at (A) {$A$};
+    \node[above right] at (B) {$B$};
+    \node[above] at (P) {$P$};
+
+    % Right angle marks at A and B
+    \tkzMarkRightAngle[size=.25](O,A,P);
+    \tkzMarkRightAngle[size=.25](P,B,O);
+
+    % Mark angle at P
+    \pic [draw, angle eccentricity=1.5, angle radius = 0.5cm, "$44^\circ$"] {angle = A--P--B};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent $PA$ and $PB$ are tangents to the circle. Angle $APB = 44^\circ$.
+
+\noindent Work out the size of angle $PAB$.
+
+\vspace{4cm}
+
+\begin{flushright}
+    \answerequnit{PAB}{$^\circ$}{3}
+\end{flushright}
+\end{question}

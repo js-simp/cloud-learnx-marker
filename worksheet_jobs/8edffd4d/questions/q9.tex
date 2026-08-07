@@ -1,0 +1,42 @@
+\begin{question}
+\noindent A ground control station, $G$, tracks a satellite as it passes overhead. At the moment of closest approach, the satellite's ground-track position, $S$, is on a bearing of $074^\circ$ from $G$, at a distance of $340$ km.
+
+The satellite then continues along its ground track in a straight line to point $T$, on a bearing of $164^\circ$ from $S$, a further distance of $210$ km.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8, transform shape]
+    \coordinate (G) at (0,0);
+    \coordinate (S) at (3.263, 9.397);
+    \coordinate (T) at (8.075, 7.376);
+
+    % North lines (dashed)
+    \draw[dashed] (G) -- (0,4);
+    \draw[dashed] (S) -- (3.263, 13.397);
+
+    % Main path
+    \draw[thick, ->] (G) -- (S);
+    \draw[thick, ->] (S) -- (T);
+
+    % Angle arcs
+    \pic [draw, angle radius=8mm, "$74^\circ$"] {angle = (0,4)--(G)--(S)};
+    \pic [draw, angle radius=8mm, "$164^\circ$"] {angle = (S)--(3.263,13.397)--(T)};
+
+    % Labels
+    \node at (G) [below left] {$G$};
+    \node at (S) [above] {$S$};
+    \node at (T) [right] {$T$};
+    \node at (0,4.3) [left] {N};
+    \node at (3.263,13.7) [left] {N};
+
+    \node at (1.5, 5) [left] {$340$ km};
+    \node at (5.7, 8.7) [above] {$210$ km};
+\end{tikzpicture}
+\end{center}
+
+Ground control needs to send a repositioning signal directly from $T$ back to $G$.
+
+Work out the bearing of $G$ from $T$.
+
+\vspace{5cm}
+\answerequnit{}{$^\circ$}{4}
+\end{question}

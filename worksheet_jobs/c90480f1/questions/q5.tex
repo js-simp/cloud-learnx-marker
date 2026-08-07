@@ -1,0 +1,44 @@
+\begin{question}
+\noindent An astronomer sets up a telescope tracking tower, modelled by the two right-angled triangles $ABD$ and $BCD$ shown below. $ABC$ is a straight vertical line, and $D$ is a fixed observation post on the ground.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.7, transform shape]
+    \coordinate (A) at (0,9.6);
+    \coordinate (B) at (0,4);
+    \coordinate (C) at (0,0);
+    \coordinate (D) at (7.5,0);
+
+    \draw (A) -- (D);
+    \draw (A) -- (C);
+    \draw (B) -- (D);
+
+    \draw pic[draw, angle radius=2.5mm] {right angle=A--C--D};
+    \pic [draw, "$58^{\circ}$", angle eccentricity=1.6, angle radius=0.7cm] {angle = A--D--C};
+    \pic [draw, "$34^{\circ}$", angle eccentricity=1.4, angle radius=0.5cm] {angle = C--D--B};
+
+    \node at (A) [above,font=\small] {$A$};
+    \node at (B) [left,font=\small] {$B$};
+    \node at (C) [below left,font=\small] {$C$};
+    \node at (D) [below right,font=\small] {$D$};
+
+    \draw (C) -- (D) node[midway, below] {$12$ m};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent $C$ is the base of the tower, $D$ is the observation post on the ground, and $CD = 12$ m.
+The angle of elevation of $A$ (the top of the tower) from $D$ is $58^{\circ}$.
+$B$ is a point on the tower, and the angle of elevation of $B$ from $D$ is $34^{\circ}$.
+
+\begin{enumerate}
+    \item[(a)] Calculate the height $AC$ of the tower.
+
+    \vspace{4cm}
+    \answerequnit{AC}{$\text{m}$}{3}
+
+    \item[(b)] Calculate the length $AB$, the distance between the observation platform $B$ and the top of the tower $A$.
+
+    \vspace{4cm}
+    \answerequnit{AB}{$\text{m}$}{2}
+\end{enumerate}
+\end{question}

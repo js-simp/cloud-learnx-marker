@@ -1,0 +1,51 @@
+\begin{question}
+\noindent A space agency is testing a circular parabolic mirror segment for a new orbital telescope. During calibration, a laser guide beam is fired so that it just grazes the edge of the circular mirror rim at point $C$, touching it at exactly one point.
+
+Points $A$, $B$ and $C$ lie on the circumference of the mirror's circular cross-section.
+The engineers measure the angle between the laser beam and strut $CB$ to be $64^\circ$ and angle ABC is $60^\circ$.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+
+    % draw circle
+        \draw[name path=circ] (0,0) circle (1);
+        
+    % mark points on circle
+        \coordinate (E) at (0,0);
+        \coordinate (C) at (-90:1);
+        %BAC is 64 (according to alternate segment theorem), thereofre BEC (angle at center) must be 128, therefore angle made by B with the horizontal anticlockwise is 128-90 = 38
+        \coordinate (B) at (38:1);
+        
+        %If BCA is 82
+        \coordinate (A) at (150:1);
+
+    % draw tangent line through C
+        \draw (C) -- ($(C)!1.6!-90:(E)$) coordinate (M);
+        \draw (C) -- ($(C)!1.6!90:(E)$) coordinate (T);
+
+    \draw (C) -- (B);
+    \draw (C) -- (A);
+    \draw (A) -- (B);
+    \draw (A) -- (C);
+
+    % Labels
+    \node at (A) [anchor=east] {$A$};
+    \node at (B) [anchor=west] {$B$};
+    \node at (C) [anchor=north] {$C$};
+    \node at (M) [anchor=north] {$M$};
+    \node at (T) [anchor=south] {$T$};
+
+    \pic [draw, "$64^\circ$", angle eccentricity=1.5, angle radius = 0.6cm] {angle = M--C--B};
+    \pic [draw, "$60^\circ$", angle eccentricity=1.5, angle radius = 0.5cm] {angle = A--B--C};
+
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item[(a)] Calculate the size of angle $BCA$.
+    
+    \vspace{4cm}
+    \answereq{\angle BCA}{3}
+
+\end{enumerate}
+\end{question}

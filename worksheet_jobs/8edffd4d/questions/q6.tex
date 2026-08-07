@@ -1,0 +1,51 @@
+\begin{question}
+\noindent Shape $A$ is rotated to give shape $B$, as shown on the grid below.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.55, transform shape]
+    \def\axisLimit{6}
+
+    \definecolor{borderColour}{HTML}{000000}
+    \definecolor{fillColourA}{HTML}{D8D8D8}
+    \definecolor{fillColourB}{HTML}{AACCEE}
+
+    % Draw grid
+    \draw[step=1cm,gray,very thin] (-\axisLimit,-\axisLimit) grid (\axisLimit,\axisLimit);
+
+    % Draw axes
+    \draw[thick,->] (-\axisLimit-0.5,0) -- (\axisLimit+0.5,0) node[anchor=north] {$x$};
+    \draw[thick,->] (0,-\axisLimit-0.5) -- (0,\axisLimit+0.5) node[anchor=east] {$y$};
+
+    % Label x-axis and y-axis
+    \foreach \x in {-\axisLimit,...,\axisLimit}
+        \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+    \foreach \y in {-\axisLimit,...,\axisLimit}
+        \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+
+    % Shape A: right-angled triangle with vertices (1,1), (4,1), (4,3)
+    \coordinate (A1) at (1,1);
+    \coordinate (A2) at (4,1);
+    \coordinate (A3) at (4,3);
+    \filldraw[fill=fillColourA, draw=borderColour, line width=1pt] (A1) -- (A2) -- (A3) -- cycle;
+    \node at (2.3,1.5) {$A$};
+
+    % Shape B: image after 90 degree clockwise rotation about (1,-1)
+    % Rotating (1,1),(4,1),(4,3) by -90 degrees about centre (1,-1)
+    \coordinate (B1) at (1,-1);
+    \coordinate (B2) at (1,-4);
+    \coordinate (B3) at (-1,-4);
+    \filldraw[fill=fillColourB, draw=borderColour, line width=1pt] (B1) -- (B2) -- (B3) -- cycle;
+    \node at (0.3,-3) {$B$};
+
+    % Mark centre of rotation
+    \filldraw[black] (1,-1) circle (2.5pt);
+    \node at (1.4,-1.4) {$(1,-1)$};
+
+\end{tikzpicture}
+\end{center}
+
+\noindent Describe fully the single transformation that maps shape $A$ onto shape $B$.
+
+\vspace{4cm}
+\answerlines{4}{4}
+\end{question}
