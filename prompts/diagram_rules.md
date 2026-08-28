@@ -8,6 +8,11 @@ CRITICAL HARD RULES:
 3. NEVER rely on implicit `intersection-2` or ambiguous intersection arrays.
    Always explicitly define named intersections or single-point outputs:
    name intersections={of=lineA and circleB, by={P1}}
+4. Solve first, draw second
+   - Identify every geometric constraint stated in the problem (tangent, diameter, collinear points, concyclic points, equal circles, transformation rule, etc.).
+   - Solve for exact coordinates algebraically — never estimate/eyeball coordinates.
+   - Only write TikZ once numeric coordinates are confirmed.
+
 
 ═══════════════════════════════════════════════════════
 RULE 1 — ANGLE ARC DIRECTION (CRITICAL)

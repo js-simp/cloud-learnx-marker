@@ -50,10 +50,8 @@ PROMPTS_DIR.mkdir(exist_ok=True)
 EMBED_MODEL       = "gemini-embedding-001"
 EMBED_DIMENSIONS  = 768
 TIKZ_MATCH_COUNT  = 4          # how many diagrams to retrieve per question
-
-ERROR_MATCH_COUNT    = 3       # how many reviewed error/fix examples to retrieve per question
-ERROR_MIN_SIMILARITY = 0.55    # floor below which a match is considered irrelevant noise
-                                # (small pool of ~36 examples — don't force in weak matches)
+TIKZ_FETCH_COUNT  = 10         # how many candidates to pull from Supabase before filtering
+TIKZ_MIN_SIMILARITY   = 0.55   # floor below which a match is considered irrelevant noise
 
 _gemini_client   = genai.Client()
 _supabase_client = create_client(os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_SERVICE_ROLE_KEY"))
@@ -227,7 +225,7 @@ def assemble_latex_project(job_dir, meta, student_name, generated_qs, worksheet_
 # ============================================================================
 
 def retrieve_tikz_diagrams(query: str, n: int = TIKZ_MATCH_COUNT) -> str:
-    try:
+     try:
         embed_response = _gemini_client.models.embed_content(
             model=EMBED_MODEL,
             contents=query,
@@ -237,25 +235,38 @@ def retrieve_tikz_diagrams(query: str, n: int = TIKZ_MATCH_COUNT) -> str:
             ),
         )
         query_embedding = embed_response.embeddings[0].values
-
+ 
+        # Over-fetch, then filter client-side for similarity floor.
         results = _supabase_client.rpc("match_tikz_library", {
             "query_embedding": query_embedding,
-            "match_count": n,
+            "match_count": TIKZ_FETCH_COUNT,
         }).execute()
-
+ 
         if not results.data:
             print(f"    ⚠️  No tikz matches found for: '{query}'")
             return ""
-
+ 
+        candidates = sorted(results.data, key=lambda r: r["similarity"], reverse=True)
+        selected = [r for r in candidates if r["similarity"] >= TIKZ_MIN_SIMILARITY][:n]
+        dropped_low_sim = len(candidates) - len(selected)
+ 
+        if not selected:
+            print(f"    ⚠️  No tikz matches cleared similarity ≥{TIKZ_MIN_SIMILARITY} for: '{query}' "
+                  f"(best available: {candidates[0]['similarity']:.2f}) — proceeding without diagram references")
+            return ""
+ 
         context = "TIKZ DIAGRAM REFERENCE EXAMPLES (study these for style — pick the closest match and adapt, or compose a new one in the same style):\n"
-        for r in results.data:
+        for r in selected:
             context += f"\n--- {r['filename']} (similarity {r['similarity']:.2f}) ---\n"
             context += f"% {r['description']}\n"
             context += r['tex_content'] + "\n"
-
-        print(f"    📐 Retrieved {len(results.data)} tikz reference(s) for: '{query}'")
+ 
+        note = f"    📐 Retrieved {len(selected)} tikz reference(s) for: '{query}'"
+        if dropped_low_sim:
+            note += f" (filtered out {dropped_low_sim} below similarity floor)"
+        print(note)
         return context
-
+ 
     except Exception as e:
         print(f"    ⚠️  Tikz retrieval failed: {e} — proceeding without diagram references")
         return ""
