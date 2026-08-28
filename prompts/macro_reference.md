@@ -44,7 +44,7 @@ MATHS:
   Display: \[ ... \]  for standalone equations
 
 TIKZ DIAGRAMS:
-  Use standard tikz. Available libraries: angles, quotes, calc, 3dplot.
+  Pre-loaded libraries (do NOT \usetikzlibrary these yourself): angles, quotes, shapes.misc, calc, decorations.pathreplacing, decorations.markings, patterns, intersections. Also available: tikz-3dplot (3D diagrams), tkz-euclide (compass/straightedge-style geometric constructions).
   Always wrap diagrams in \begin{center}...\end{center}.
   Use [scale=0.8] or similar to ensure diagrams fit the page width.
 
