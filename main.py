@@ -9,6 +9,7 @@ from fastapi import FastAPI, UploadFile, File, BackgroundTasks, HTTPException, F
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from supabase import create_client, Client
+from typing import Optional
 
 load_dotenv()
 
@@ -22,6 +23,8 @@ BASE_URL                = os.getenv("BASE_URL", "http://localhost:8000")
 supabase_admin: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 from pipeline import run_pipeline
+from worksheet_generator import generate_worksheet
+from adapter import normalize_student_profile
 
 # ── App Configuration ────────────────────────────────────────────────────────
 app = FastAPI(
@@ -37,10 +40,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-UPLOAD_DIR  = "temp_uploads"
-REPORTS_DIR = "reports"
+UPLOAD_DIR      = "temp_uploads"
+REPORTS_DIR     = "reports"
+WORKSHEETS_DIR  = "generated_worksheets"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 os.makedirs(REPORTS_DIR, exist_ok=True)
+os.makedirs(WORKSHEETS_DIR, exist_ok=True)
 
 # In-memory job store (move to Redis/DB for multi-server production)
 jobs = {}
@@ -117,6 +122,69 @@ def process_grading_job(
         for path in [student_pdf_path, scheme_pdf_path]:
             if os.path.exists(path):
                 os.remove(path)
+
+
+# ── Background Task: Worksheet Generation ────────────────────────────────────
+
+def process_worksheet_job(
+    job_id:              str,
+    student_id:          str,
+    topic:                str,
+    curriculum_override: Optional[str],
+    user_id:              str,
+):
+    """Runs the worksheet generator in the background and updates job status."""
+    try:
+        jobs[job_id]["status"] = "Processing"
+
+        profile_res = supabase_admin.table("student_profiles") \
+            .select("profile_data, student_name") \
+            .eq("id", student_id) \
+            .single().execute()
+
+        if not profile_res.data:
+            raise ValueError(f"No student profile found for id='{student_id}'")
+
+        raw_profile = profile_res.data["profile_data"]
+        profile     = normalize_student_profile(raw_profile, topic=topic)
+
+        # Manual curriculum override — falls back to whatever the student's own
+        # profile carries (via CURRICULUM_MAP) if left blank. Safe either way:
+        # curriculum_loader.py returns gracefully (no crash) if the id has no
+        # matching file in curricula/, it just skips curriculum constraints.
+        if curriculum_override:
+            profile["curriculum_id"] = curriculum_override
+
+        result = generate_worksheet(
+            student_profile=profile,
+            topic=topic,
+            output_dir=WORKSHEETS_DIR,
+        )
+
+        if not result["success"]:
+            raise RuntimeError(result["error"] or "Worksheet generation failed")
+
+        # Only deduct credit AFTER successful completion — same pattern as grading
+        credit_profile = supabase_admin.table("profiles").select("credits").eq("id", user_id).single().execute()
+        current = credit_profile.data.get("credits", 0)
+        supabase_admin.table("profiles").update({"credits": current - 1}).eq("id", user_id).execute()
+
+        mark_scheme = result["mark_scheme"] or {}
+
+        jobs[job_id]["status"]   = "Completed"
+        jobs[job_id]["pdf_path"] = result["pdf_path"]
+        jobs[job_id]["user_id"]  = user_id
+        jobs[job_id]["summary"]  = {
+            "student_name":  profile.get("name"),
+            "topic":         topic,
+            "num_questions": len(mark_scheme.get("questions", [])),
+            "total_marks":   mark_scheme.get("total_marks"),
+        }
+
+    except Exception as e:
+        print(f"🚨 Worksheet job {job_id} failed:\n{traceback.format_exc()}")
+        jobs[job_id]["status"] = "Failed"
+        jobs[job_id]["error"]  = str(e)
 
 
 # ── API Endpoints ─────────────────────────────────────────────────────────────
@@ -209,6 +277,86 @@ async def check_status(job_id: str):
     if job_id not in jobs:
         raise HTTPException(status_code=404, detail="Job not found.")
     return {"job_id": job_id, "details": jobs[job_id]}
+
+
+@app.get("/api/v1/students")
+async def list_students(request: Request):
+    """Returns existing student profiles for the worksheet-generator dropdown."""
+    token    = request.headers.get("Authorization", "").replace("Bearer ", "")
+    user_res = supabase_admin.auth.get_user(token)
+    if not user_res or not user_res.user:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+
+    res = supabase_admin.table("student_profiles") \
+        .select("id, student_name, year_group") \
+        .order("student_name") \
+        .execute()
+
+    return {"students": res.data or []}
+
+
+@app.post("/api/v1/generate-worksheet")
+async def generate_worksheet_endpoint(
+    background_tasks: BackgroundTasks,
+    student_id:        str           = Form(...),
+    topic:              str           = Form(...),
+    curriculum_id:      Optional[str] = Form(None),
+    token:              str           = Form(...),
+):
+    # 1. Verify user
+    user_res = supabase_admin.auth.get_user(token)
+    if not user_res or not user_res.user:
+        raise HTTPException(status_code=401, detail="Invalid authentication token.")
+    user_id = user_res.user.id
+
+    # 2. Check credits (do NOT deduct yet — deduct only on success)
+    profile = supabase_admin.table("profiles").select("credits").eq("id", user_id).single().execute()
+    credits = profile.data.get("credits", 0)
+    if credits < 1:
+        raise HTTPException(status_code=402, detail="Insufficient credits. Please top up.")
+
+    # 3. Validate inputs
+    if not student_id.strip() or not topic.strip():
+        raise HTTPException(status_code=400, detail="Student and topic are required.")
+
+    # 4. Register job
+    job_id = str(uuid.uuid4())[:8]
+    jobs[job_id] = {
+        "status":      "Queued",
+        "user_id":     user_id,
+        "pdf_path":    None,
+        "error":       None,
+    }
+
+    # 5. Queue background task
+    background_tasks.add_task(
+        process_worksheet_job, job_id, student_id.strip(), topic.strip(),
+        curriculum_id.strip() if curriculum_id else None, user_id,
+    )
+
+    return {"message": "Worksheet generation queued.", "job_id": job_id, "status": "Queued"}
+
+
+@app.get("/api/v1/worksheet-pdf/{job_id}")
+async def download_worksheet(job_id: str, request: Request):
+    if job_id not in jobs:
+        raise HTTPException(status_code=404, detail="Job not found.")
+
+    job = jobs[job_id]
+    if job["status"] != "Completed" or not job.get("pdf_path"):
+        raise HTTPException(status_code=409, detail="Worksheet not ready.")
+
+    # Ownership check — only the tutor who generated it can download it
+    token    = request.headers.get("Authorization", "").replace("Bearer ", "")
+    user_res = supabase_admin.auth.get_user(token)
+    if not user_res or not user_res.user or user_res.user.id != job.get("user_id"):
+        raise HTTPException(status_code=403, detail="Not authorised to access this file.")
+
+    return FileResponse(
+        job["pdf_path"],
+        media_type="application/pdf",
+        filename=os.path.basename(job["pdf_path"]),
+    )
 
 
 @app.post("/api/v1/webhooks/payhere")

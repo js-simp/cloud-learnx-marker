@@ -71,8 +71,8 @@
         .btn-green { background: #27ae60; }
         .btn-green:hover { background: #219a52; }
 
-        #upload-container, #status-board { display: none; }
-        #status-board, #onboard-status { 
+        #upload-container, #status-board, #wg-status-board { display: none; }
+        #status-board, #onboard-status, #wg-status-board { 
             margin-top: 20px; padding: 15px; background: #e8f8f5; 
             border-left: 4px solid #1abc9c; border-radius: 4px; display: none;
         }
@@ -112,6 +112,7 @@
         <!-- TABS -->
         <div class="nav-tabs">
             <button class="tab-btn active" onclick="switchTab('auto-marker')">Auto-Marker</button>
+            <button class="tab-btn" onclick="switchTab('worksheet-gen')">Worksheet Generator</button>
             <button class="tab-btn" onclick="switchTab('onboard-student')">Add Student</button>
         </div>
 
@@ -163,7 +164,37 @@
             </div>
         </div>
 
-        <!-- TAB 2: STUDENT ONBOARDING -->
+        <!-- TAB 2: WORKSHEET GENERATOR -->
+        <div id="tab-worksheet-gen" class="tab-content">
+            <form id="worksheet-form">
+                <div class="form-group">
+                    <label>Student *</label>
+                    <select id="wg_student_id" required>
+                        <option value="">Loading students…</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Topic *</label>
+                    <input type="text" id="wg_topic" placeholder="e.g. Trigonometry, Circle Theorems" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Curriculum ID (optional)</label>
+                    <input type="text" id="wg_curriculum_id" placeholder="e.g. edexcel_igcse_4ma1_higher — leave blank to use the student's own curriculum">
+                </div>
+
+                <button type="submit" id="wg-submit-btn">Generate Worksheet (1 Credit)</button>
+            </form>
+
+            <div id="wg-status-board">
+                <h3 style="margin-top:0;">Status: <span id="wg-status-indicator">Uploading...</span></h3>
+                <div class="progress-text" id="wg-progress-details">Initializing...</div>
+                <a id="wg-download-link" href="#" style="display:none;"><button type="button" class="btn-green" style="margin-top:15px;">Download Worksheet PDF</button></a>
+            </div>
+        </div>
+
+        <!-- TAB 3: STUDENT ONBOARDING -->
         <div id="tab-onboard-student" class="tab-content">
             <form id="onboard-form" onsubmit="handleStudentOnboard(event)">
                 <div class="form-row">
@@ -288,13 +319,16 @@
         document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
         document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
 
-        if (tabName === 'auto-marker') {
-            document.querySelectorAll('.tab-btn')[0].classList.add('active');
-            document.getElementById('tab-auto-marker').classList.add('active');
-        } else {
-            document.querySelectorAll('.tab-btn')[1].classList.add('active');
-            document.getElementById('tab-onboard-student').classList.add('active');
-        }
+        const tabs = {
+            'auto-marker':      ['tab-auto-marker', 0],
+            'worksheet-gen':    ['tab-worksheet-gen', 1],
+            'onboard-student':  ['tab-onboard-student', 2],
+        };
+        const [contentId, btnIndex] = tabs[tabName];
+        document.querySelectorAll('.tab-btn')[btnIndex].classList.add('active');
+        document.getElementById(contentId).classList.add('active');
+
+        if (tabName === 'worksheet-gen') loadStudentDropdown();
     }
 
     // ── Auth handlers ────────────────────────────────────────────────────
@@ -346,6 +380,140 @@
         } catch (e) {
             console.error("Could not fetch credits:", e);
         }
+    }
+
+    // ── Worksheet Generator: student dropdown ──────────────────────────────
+    let studentsLoaded = false;
+    async function loadStudentDropdown() {
+        if (studentsLoaded) return;
+        const select = document.getElementById('wg_student_id');
+        const token  = localStorage.getItem('access_token');
+
+        try {
+            const res  = await fetch('/api/v1/students', {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            const data = await res.json();
+
+            if (!res.ok) throw new Error(data.detail || 'Could not load students');
+
+            select.innerHTML = '';
+            if (!data.students.length) {
+                select.innerHTML = '<option value="">No students yet — add one first</option>';
+                return;
+            }
+            select.innerHTML = '<option value="">Select a student…</option>' +
+                data.students.map(s =>
+                    `<option value="${s.id}">${s.student_name} (${s.year_group || 'N/A'})</option>`
+                ).join('');
+            studentsLoaded = true;
+
+        } catch (err) {
+            select.innerHTML = '<option value="">Error loading students</option>';
+            console.error('Could not load students:', err);
+        }
+    }
+
+    // ── Worksheet Generator: submit + poll ─────────────────────────────────
+    document.getElementById('worksheet-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const token = localStorage.getItem('access_token');
+        if (!token) return alert("Please log in again.");
+
+        const submitBtn       = document.getElementById('wg-submit-btn');
+        const statusBoard     = document.getElementById('wg-status-board');
+        const statusIndicator = document.getElementById('wg-status-indicator');
+        const progressDetails = document.getElementById('wg-progress-details');
+        const downloadLink    = document.getElementById('wg-download-link');
+
+        const formData = new FormData();
+        formData.append('student_id',    document.getElementById('wg_student_id').value);
+        formData.append('topic',         document.getElementById('wg_topic').value.trim());
+        formData.append('curriculum_id', document.getElementById('wg_curriculum_id').value.trim());
+        formData.append('token',         token);
+
+        if (!formData.get('student_id')) return alert("Please select a student.");
+
+        submitBtn.disabled       = true;
+        submitBtn.innerText      = "Processing...";
+        statusBoard.style.display = 'block';
+        statusIndicator.style.color = '';
+        downloadLink.style.display  = 'none';
+
+        try {
+            const response = await fetch('/api/v1/generate-worksheet', { method: 'POST', body: formData });
+            const data     = await response.json();
+
+            if (response.ok && data.job_id) {
+                statusIndicator.innerText = "Queued";
+                progressDetails.innerText = `Job ${data.job_id} — generating in background (this can take a few minutes)...`;
+                pollWorksheetStatus(data.job_id);
+            } else {
+                throw new Error(data.detail || "Worksheet generation request failed");
+            }
+        } catch (err) {
+            statusIndicator.innerText   = "Error";
+            statusIndicator.style.color = "red";
+            progressDetails.innerText   = err.message;
+            submitBtn.disabled          = false;
+            submitBtn.innerText         = "Generate Worksheet (1 Credit)";
+        }
+    });
+
+    async function pollWorksheetStatus(jobId) {
+        const statusIndicator = document.getElementById('wg-status-indicator');
+        const progressDetails = document.getElementById('wg-progress-details');
+        const downloadLink    = document.getElementById('wg-download-link');
+        const submitBtn       = document.getElementById('wg-submit-btn');
+        const token            = localStorage.getItem('access_token');
+
+        const interval = setInterval(async () => {
+            try {
+                const response = await fetch(`/api/v1/status/${jobId}`);
+                const data     = await response.json();
+                const status   = data.details.status;
+
+                statusIndicator.innerText = status;
+
+                if (status === "Completed") {
+                    clearInterval(interval);
+                    statusIndicator.style.color = "green";
+                    const s = data.details.summary;
+                    progressDetails.innerHTML = `
+                        <strong>Worksheet Ready!</strong><br>
+                        Student: ${s.student_name || 'N/A'}<br>
+                        Topic: ${s.topic || 'N/A'}<br>
+                        Questions: ${s.num_questions ?? 'N/A'} (${s.total_marks ?? 'N/A'} marks total)
+                    `;
+                    downloadLink.href = `/api/v1/worksheet-pdf/${jobId}`;
+                    downloadLink.onclick = async (e) => {
+                        e.preventDefault();
+                        const res = await fetch(`/api/v1/worksheet-pdf/${jobId}`, {
+                            headers: { 'Authorization': `Bearer ${token}` }
+                        });
+                        if (!res.ok) return alert("Could not download worksheet.");
+                        const blob = await res.blob();
+                        const url  = window.URL.createObjectURL(blob);
+                        const a    = document.createElement('a');
+                        a.href = url; a.download = `worksheet_${jobId}.pdf`; a.click();
+                        window.URL.revokeObjectURL(url);
+                    };
+                    downloadLink.style.display = 'inline-block';
+                    submitBtn.disabled  = false;
+                    submitBtn.innerText = "Generate Another Worksheet";
+                    await refreshCredits();
+                } else if (status === "Failed") {
+                    clearInterval(interval);
+                    statusIndicator.style.color = "red";
+                    progressDetails.innerText   = `Error: ${data.details.error}`;
+                    submitBtn.disabled  = false;
+                    submitBtn.innerText = "Retry";
+                }
+            } catch (err) {
+                console.error("Polling error:", err);
+            }
+        }, 3000);
     }
 
     // ── Student Onboarding Handler (Supabase direct write) ────────────────
